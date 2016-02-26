@@ -247,6 +247,7 @@ namespace Gulliver
             this.checkedButtonLibrary.TabIndex = 10;
             this.checkedButtonLibrary.Values.Image = ((System.Drawing.Image)(resources.GetObject("checkedButtonLibrary.Values.Image")));
             this.checkedButtonLibrary.Values.Text = "Library";
+            this.checkedButtonLibrary.Click += new System.EventHandler(this.checkedButtonLibrary_Click);
             // 
             // kryptonBorderEdge5
             // 
@@ -299,6 +300,7 @@ namespace Gulliver
             this.ClientSize = new System.Drawing.Size(383, 403);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "flcsLandingWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
             this.kryptonPanel.PerformLayout();

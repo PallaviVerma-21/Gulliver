@@ -20,5 +20,11 @@ namespace Gulliver
         {
 
         }
+
+        private void checkedButtonLibrary_Click(object sender, EventArgs e)
+        {
+            flcsLibrary libraryForm = new flcsLibrary();
+            libraryForm.ShowDialog();
+        }
     }
 }
