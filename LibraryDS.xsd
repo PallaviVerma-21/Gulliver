@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LibraryDS" targetNamespace="http://tempuri.org/LibraryDS.xsd" xmlns:mstns="http://tempuri.org/LibraryDS.xsd" xmlns="http://tempuri.org/LibraryDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LibraryDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="LibraryDS" msprop:Generator_UserDSName="LibraryDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Library" msprop:Generator_TableClassName="LibraryDataTable" msprop:Generator_TableVarName="tableLibrary" msprop:Generator_TablePropName="Library" msprop:Generator_RowDeletingName="LibraryRowDeleting" msprop:Generator_RowChangingName="LibraryRowChanging" msprop:Generator_RowEvHandlerName="LibraryRowChangeEventHandler" msprop:Generator_RowDeletedName="LibraryRowDeleted" msprop:Generator_UserTableName="Library" msprop:Generator_RowChangedName="LibraryRowChanged" msprop:Generator_RowEvArgName="LibraryRowChangeEvent" msprop:Generator_RowClassName="LibraryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="View" msprop:Generator_ColumnVarNameInTable="columnView" msprop:Generator_ColumnPropNameInRow="View" msprop:Generator_ColumnPropNameInTable="ViewColumn" msprop:Generator_UserColumnName="View" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="Supplier" msprop:Generator_ColumnVarNameInTable="columnSupplier" msprop:Generator_ColumnPropNameInRow="Supplier" msprop:Generator_ColumnPropNameInTable="SupplierColumn" msprop:Generator_UserColumnName="Supplier" type="xs:string" minOccurs="0" />
+              <xs:element name="Offer_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnOffer_Name" msprop:Generator_ColumnPropNameInRow="Offer_Name" msprop:Generator_ColumnPropNameInTable="Offer_NameColumn" msprop:Generator_UserColumnName="Offer Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Deal_x0020_Directory_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnDeal_Directory_Name" msprop:Generator_ColumnPropNameInRow="Deal_Directory_Name" msprop:Generator_ColumnPropNameInTable="Deal_Directory_NameColumn" msprop:Generator_UserColumnName="Deal Directory Name" type="xs:string" minOccurs="0" />
+              <xs:element name="On_x0020_Sales" msprop:Generator_ColumnVarNameInTable="columnOn_Sales" msprop:Generator_ColumnPropNameInRow="On_Sales" msprop:Generator_ColumnPropNameInTable="On_SalesColumn" msprop:Generator_UserColumnName="On Sales" type="xs:string" minOccurs="0" />
+              <xs:element name="Expired_x0020_Date" msprop:Generator_ColumnVarNameInTable="columnExpired_Date" msprop:Generator_ColumnPropNameInRow="Expired_Date" msprop:Generator_ColumnPropNameInTable="Expired_DateColumn" msprop:Generator_UserColumnName="Expired Date" type="xs:string" minOccurs="0" />
+              <xs:element name="Copy" msprop:Generator_ColumnVarNameInTable="columnCopy" msprop:Generator_ColumnPropNameInRow="Copy" msprop:Generator_ColumnPropNameInTable="CopyColumn" msprop:Generator_UserColumnName="Copy" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

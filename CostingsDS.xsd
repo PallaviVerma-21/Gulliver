@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CostingsDS" targetNamespace="http://tempuri.org/CostingsDS.xsd" xmlns:mstns="http://tempuri.org/CostingsDS.xsd" xmlns="http://tempuri.org/CostingsDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CostingsDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CostingsDS" msprop:Generator_UserDSName="CostingsDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DurationMarkup" msprop:Generator_TableClassName="DurationMarkupDataTable" msprop:Generator_TableVarName="tableDurationMarkup" msprop:Generator_TablePropName="DurationMarkup" msprop:Generator_RowDeletingName="DurationMarkupRowDeleting" msprop:Generator_RowChangingName="DurationMarkupRowChanging" msprop:Generator_RowEvHandlerName="DurationMarkupRowChangeEventHandler" msprop:Generator_RowDeletedName="DurationMarkupRowDeleted" msprop:Generator_UserTableName="DurationMarkup" msprop:Generator_RowChangedName="DurationMarkupRowChanged" msprop:Generator_RowEvArgName="DurationMarkupRowChangeEvent" msprop:Generator_RowClassName="DurationMarkupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="Duration" msprop:Generator_ColumnVarNameInTable="columnDuration" msprop:Generator_ColumnPropNameInRow="Duration" msprop:Generator_ColumnPropNameInTable="DurationColumn" msprop:Generator_UserColumnName="Duration" type="xs:int" minOccurs="0" />
+              <xs:element name="AdultMarkup" msprop:Generator_ColumnVarNameInTable="columnAdultMarkup" msprop:Generator_ColumnPropNameInRow="AdultMarkup" msprop:Generator_ColumnPropNameInTable="AdultMarkupColumn" msprop:Generator_UserColumnName="AdultMarkup" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChildMarkup" msprop:Generator_ColumnVarNameInTable="columnChildMarkup" msprop:Generator_ColumnPropNameInRow="ChildMarkup" msprop:Generator_ColumnPropNameInTable="ChildMarkupColumn" msprop:Generator_UserColumnName="ChildMarkup" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WeekdayMarkup" msprop:Generator_TableClassName="WeekdayMarkupDataTable" msprop:Generator_TableVarName="tableWeekdayMarkup" msprop:Generator_TablePropName="WeekdayMarkup" msprop:Generator_RowDeletingName="WeekdayMarkupRowDeleting" msprop:Generator_RowChangingName="WeekdayMarkupRowChanging" msprop:Generator_RowEvHandlerName="WeekdayMarkupRowChangeEventHandler" msprop:Generator_RowDeletedName="WeekdayMarkupRowDeleted" msprop:Generator_UserTableName="WeekdayMarkup" msprop:Generator_RowChangedName="WeekdayMarkupRowChanged" msprop:Generator_RowEvArgName="WeekdayMarkupRowChangeEvent" msprop:Generator_RowClassName="WeekdayMarkupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="Weekday" msprop:Generator_ColumnVarNameInTable="columnWeekday" msprop:Generator_ColumnPropNameInRow="Weekday" msprop:Generator_ColumnPropNameInTable="WeekdayColumn" msprop:Generator_UserColumnName="Weekday" type="xs:string" minOccurs="0" />
+              <xs:element name="AdultMarkup" msprop:Generator_ColumnVarNameInTable="columnAdultMarkup" msprop:Generator_ColumnPropNameInRow="AdultMarkup" msprop:Generator_ColumnPropNameInTable="AdultMarkupColumn" msprop:Generator_UserColumnName="AdultMarkup" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChildMarkup" msprop:Generator_ColumnVarNameInTable="columnChildMarkup" msprop:Generator_ColumnPropNameInRow="ChildMarkup" msprop:Generator_ColumnPropNameInTable="ChildMarkupColumn" msprop:Generator_UserColumnName="ChildMarkup" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RoomTypeMarkup" msprop:Generator_TableClassName="RoomTypeMarkupDataTable" msprop:Generator_TableVarName="tableRoomTypeMarkup" msprop:Generator_TablePropName="RoomTypeMarkup" msprop:Generator_RowDeletingName="RoomTypeMarkupRowDeleting" msprop:Generator_RowChangingName="RoomTypeMarkupRowChanging" msprop:Generator_RowEvHandlerName="RoomTypeMarkupRowChangeEventHandler" msprop:Generator_RowDeletedName="RoomTypeMarkupRowDeleted" msprop:Generator_UserTableName="RoomTypeMarkup" msprop:Generator_RowChangedName="RoomTypeMarkupRowChanged" msprop:Generator_RowEvArgName="RoomTypeMarkupRowChangeEvent" msprop:Generator_RowClassName="RoomTypeMarkupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="code" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnPropNameInTable="codeColumn" msprop:Generator_UserColumnName="code" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Adult" msprop:Generator_ColumnVarNameInTable="columnAdult" msprop:Generator_ColumnPropNameInRow="Adult" msprop:Generator_ColumnPropNameInTable="AdultColumn" msprop:Generator_UserColumnName="Adult" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Child" msprop:Generator_ColumnVarNameInTable="columnChild" msprop:Generator_ColumnPropNameInRow="Child" msprop:Generator_ColumnPropNameInTable="ChildColumn" msprop:Generator_UserColumnName="Child" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SupplierMarkup" msprop:Generator_TableClassName="SupplierMarkupDataTable" msprop:Generator_TableVarName="tableSupplierMarkup" msprop:Generator_TablePropName="SupplierMarkup" msprop:Generator_RowDeletingName="SupplierMarkupRowDeleting" msprop:Generator_RowChangingName="SupplierMarkupRowChanging" msprop:Generator_RowEvHandlerName="SupplierMarkupRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplierMarkupRowDeleted" msprop:Generator_UserTableName="SupplierMarkup" msprop:Generator_RowChangedName="SupplierMarkupRowChanged" msprop:Generator_RowEvArgName="SupplierMarkupRowChangeEvent" msprop:Generator_RowClassName="SupplierMarkupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="Supplier" msprop:Generator_ColumnVarNameInTable="columnSupplier" msprop:Generator_ColumnPropNameInRow="Supplier" msprop:Generator_ColumnPropNameInTable="SupplierColumn" msprop:Generator_UserColumnName="Supplier" type="xs:string" minOccurs="0" />
+              <xs:element name="AdultMarkup" msprop:Generator_ColumnVarNameInTable="columnAdultMarkup" msprop:Generator_ColumnPropNameInRow="AdultMarkup" msprop:Generator_ColumnPropNameInTable="AdultMarkupColumn" msprop:Generator_UserColumnName="AdultMarkup" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChildMarkup" msprop:Generator_ColumnVarNameInTable="columnChildMarkup" msprop:Generator_ColumnPropNameInRow="ChildMarkup" msprop:Generator_ColumnPropNameInTable="ChildMarkupColumn" msprop:Generator_UserColumnName="ChildMarkup" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DestinationAirportMarkup" msprop:Generator_TableClassName="DestinationAirportMarkupDataTable" msprop:Generator_TableVarName="tableDestinationAirportMarkup" msprop:Generator_TablePropName="DestinationAirportMarkup" msprop:Generator_RowDeletingName="DestinationAirportMarkupRowDeleting" msprop:Generator_RowChangingName="DestinationAirportMarkupRowChanging" msprop:Generator_RowEvHandlerName="DestinationAirportMarkupRowChangeEventHandler" msprop:Generator_RowDeletedName="DestinationAirportMarkupRowDeleted" msprop:Generator_UserTableName="DestinationAirportMarkup" msprop:Generator_RowChangedName="DestinationAirportMarkupRowChanged" msprop:Generator_RowEvArgName="DestinationAirportMarkupRowChangeEvent" msprop:Generator_RowClassName="DestinationAirportMarkupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="Destination" msprop:Generator_ColumnVarNameInTable="columnDestination" msprop:Generator_ColumnPropNameInRow="Destination" msprop:Generator_ColumnPropNameInTable="DestinationColumn" msprop:Generator_UserColumnName="Destination" type="xs:string" minOccurs="0" />
+              <xs:element name="AdultMarkup" msprop:Generator_ColumnVarNameInTable="columnAdultMarkup" msprop:Generator_ColumnPropNameInRow="AdultMarkup" msprop:Generator_ColumnPropNameInTable="AdultMarkupColumn" msprop:Generator_UserColumnName="AdultMarkup" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChildMarkup" msprop:Generator_ColumnVarNameInTable="columnChildMarkup" msprop:Generator_ColumnPropNameInRow="ChildMarkup" msprop:Generator_ColumnPropNameInTable="ChildMarkupColumn" msprop:Generator_UserColumnName="ChildMarkup" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DurationCosting" msprop:Generator_TableClassName="DurationCostingDataTable" msprop:Generator_TableVarName="tableDurationCosting" msprop:Generator_TablePropName="DurationCosting" msprop:Generator_RowDeletingName="DurationCostingRowDeleting" msprop:Generator_RowChangingName="DurationCostingRowChanging" msprop:Generator_RowEvHandlerName="DurationCostingRowChangeEventHandler" msprop:Generator_RowDeletedName="DurationCostingRowDeleted" msprop:Generator_UserTableName="DurationCosting" msprop:Generator_RowChangedName="DurationCostingRowChanged" msprop:Generator_RowEvArgName="DurationCostingRowChangeEvent" msprop:Generator_RowClassName="DurationCostingRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="Duration" msprop:Generator_ColumnVarNameInTable="columnDuration" msprop:Generator_ColumnPropNameInRow="Duration" msprop:Generator_ColumnPropNameInTable="DurationColumn" msprop:Generator_UserColumnName="Duration" type="xs:string" minOccurs="0" />
+              <xs:element name="Occupancy" msprop:Generator_ColumnVarNameInTable="columnOccupancy" msprop:Generator_ColumnPropNameInRow="Occupancy" msprop:Generator_ColumnPropNameInTable="OccupancyColumn" msprop:Generator_UserColumnName="Occupancy" type="xs:string" minOccurs="0" />
+              <xs:element name="MinSellAt" msprop:Generator_ColumnVarNameInTable="columnMinSellAt" msprop:Generator_ColumnPropNameInRow="MinSellAt" msprop:Generator_ColumnPropNameInTable="MinSellAtColumn" msprop:Generator_UserColumnName="MinSellAt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaxSellAt" msprop:Generator_ColumnVarNameInTable="columnMaxSellAt" msprop:Generator_ColumnPropNameInRow="MaxSellAt" msprop:Generator_ColumnPropNameInTable="MaxSellAtColumn" msprop:Generator_UserColumnName="MaxSellAt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChildMinSellAt" msprop:Generator_ColumnVarNameInTable="columnChildMinSellAt" msprop:Generator_ColumnPropNameInRow="ChildMinSellAt" msprop:Generator_ColumnPropNameInTable="ChildMinSellAtColumn" msprop:Generator_UserColumnName="ChildMinSellAt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChildMaxSellAt" msprop:Generator_ColumnVarNameInTable="columnChildMaxSellAt" msprop:Generator_ColumnPropNameInRow="ChildMaxSellAt" msprop:Generator_ColumnPropNameInTable="ChildMaxSellAtColumn" msprop:Generator_UserColumnName="ChildMaxSellAt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MinMLeading" msprop:Generator_ColumnVarNameInTable="columnMinMLeading" msprop:Generator_ColumnPropNameInRow="MinMLeading" msprop:Generator_ColumnPropNameInTable="MinMLeadingColumn" msprop:Generator_UserColumnName="MinMLeading" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MinMStandard" msprop:Generator_ColumnVarNameInTable="columnMinMStandard" msprop:Generator_ColumnPropNameInRow="MinMStandard" msprop:Generator_ColumnPropNameInTable="MinMStandardColumn" msprop:Generator_UserColumnName="MinMStandard" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MimMStandardType" msprop:Generator_ColumnVarNameInTable="columnMimMStandardType" msprop:Generator_ColumnPropNameInRow="MimMStandardType" msprop:Generator_ColumnPropNameInTable="MimMStandardTypeColumn" msprop:Generator_UserColumnName="MimMStandardType" type="xs:string" minOccurs="0" />
+              <xs:element name="IncreasedBy" msprop:Generator_ColumnVarNameInTable="columnIncreasedBy" msprop:Generator_ColumnPropNameInRow="IncreasedBy" msprop:Generator_ColumnPropNameInTable="IncreasedByColumn" msprop:Generator_UserColumnName="IncreasedBy" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DepartureAirportMarkup" msprop:Generator_TableClassName="DepartureAirportMarkupDataTable" msprop:Generator_TableVarName="tableDepartureAirportMarkup" msprop:Generator_TablePropName="DepartureAirportMarkup" msprop:Generator_RowDeletingName="DepartureAirportMarkupRowDeleting" msprop:Generator_RowChangingName="DepartureAirportMarkupRowChanging" msprop:Generator_RowEvHandlerName="DepartureAirportMarkupRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartureAirportMarkupRowDeleted" msprop:Generator_UserTableName="DepartureAirportMarkup" msprop:Generator_RowChangedName="DepartureAirportMarkupRowChanged" msprop:Generator_RowEvArgName="DepartureAirportMarkupRowChangeEvent" msprop:Generator_RowClassName="DepartureAirportMarkupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="DepartureAirport" msdata:Caption="Destination" msprop:Generator_ColumnVarNameInTable="columnDepartureAirport" msprop:Generator_ColumnPropNameInRow="DepartureAirport" msprop:Generator_ColumnPropNameInTable="DepartureAirportColumn" msprop:Generator_UserColumnName="DepartureAirport" type="xs:string" minOccurs="0" />
+              <xs:element name="AdultMarkup" msprop:Generator_ColumnVarNameInTable="columnAdultMarkup" msprop:Generator_ColumnPropNameInRow="AdultMarkup" msprop:Generator_ColumnPropNameInTable="AdultMarkupColumn" msprop:Generator_UserColumnName="AdultMarkup" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChildMarkup" msprop:Generator_ColumnVarNameInTable="columnChildMarkup" msprop:Generator_ColumnPropNameInRow="ChildMarkup" msprop:Generator_ColumnPropNameInTable="ChildMarkupColumn" msprop:Generator_UserColumnName="ChildMarkup" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DateRangeMarkup" msprop:Generator_TableClassName="DateRangeMarkupDataTable" msprop:Generator_TableVarName="tableDateRangeMarkup" msprop:Generator_TablePropName="DateRangeMarkup" msprop:Generator_RowDeletingName="DateRangeMarkupRowDeleting" msprop:Generator_RowChangingName="DateRangeMarkupRowChanging" msprop:Generator_RowEvHandlerName="DateRangeMarkupRowChangeEventHandler" msprop:Generator_RowDeletedName="DateRangeMarkupRowDeleted" msprop:Generator_UserTableName="DateRangeMarkup" msprop:Generator_RowChangedName="DateRangeMarkupRowChanged" msprop:Generator_RowEvArgName="DateRangeMarkupRowChangeEvent" msprop:Generator_RowClassName="DateRangeMarkupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="StartDate" msprop:Generator_ColumnVarNameInTable="columnStartDate" msprop:Generator_ColumnPropNameInRow="StartDate" msprop:Generator_ColumnPropNameInTable="StartDateColumn" msprop:Generator_UserColumnName="StartDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EndDate" msprop:Generator_ColumnVarNameInTable="columnEndDate" msprop:Generator_ColumnPropNameInRow="EndDate" msprop:Generator_ColumnPropNameInTable="EndDateColumn" msprop:Generator_UserColumnName="EndDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AdultMarkup" msprop:Generator_ColumnVarNameInTable="columnAdultMarkup" msprop:Generator_ColumnPropNameInRow="AdultMarkup" msprop:Generator_ColumnPropNameInTable="AdultMarkupColumn" msprop:Generator_UserColumnName="AdultMarkup" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChildMarkup" msprop:Generator_ColumnVarNameInTable="columnChildMarkup" msprop:Generator_ColumnPropNameInRow="ChildMarkup" msprop:Generator_ColumnPropNameInTable="ChildMarkupColumn" msprop:Generator_UserColumnName="ChildMarkup" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LowAvailabilityMarkup" msprop:Generator_TableClassName="LowAvailabilityMarkupDataTable" msprop:Generator_TableVarName="tableLowAvailabilityMarkup" msprop:Generator_TablePropName="LowAvailabilityMarkup" msprop:Generator_RowDeletingName="LowAvailabilityMarkupRowDeleting" msprop:Generator_RowChangingName="LowAvailabilityMarkupRowChanging" msprop:Generator_RowEvHandlerName="LowAvailabilityMarkupRowChangeEventHandler" msprop:Generator_RowDeletedName="LowAvailabilityMarkupRowDeleted" msprop:Generator_UserTableName="LowAvailabilityMarkup" msprop:Generator_RowChangedName="LowAvailabilityMarkupRowChanged" msprop:Generator_RowEvArgName="LowAvailabilityMarkupRowChangeEvent" msprop:Generator_RowClassName="LowAvailabilityMarkupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="NoOfRooms" msprop:Generator_ColumnVarNameInTable="columnNoOfRooms" msprop:Generator_ColumnPropNameInRow="NoOfRooms" msprop:Generator_ColumnPropNameInTable="NoOfRoomsColumn" msprop:Generator_UserColumnName="NoOfRooms" type="xs:int" minOccurs="0" />
+              <xs:element name="StartDate" msprop:Generator_ColumnVarNameInTable="columnStartDate" msprop:Generator_ColumnPropNameInRow="StartDate" msprop:Generator_ColumnPropNameInTable="StartDateColumn" msprop:Generator_UserColumnName="StartDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="EndDate" msprop:Generator_ColumnVarNameInTable="columnEndDate" msprop:Generator_ColumnPropNameInRow="EndDate" msprop:Generator_ColumnPropNameInTable="EndDateColumn" msprop:Generator_UserColumnName="EndDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AdultMarkup" msprop:Generator_ColumnVarNameInTable="columnAdultMarkup" msprop:Generator_ColumnPropNameInRow="AdultMarkup" msprop:Generator_ColumnPropNameInTable="AdultMarkupColumn" msprop:Generator_UserColumnName="AdultMarkup" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ChildMarkup" msprop:Generator_ColumnVarNameInTable="columnChildMarkup" msprop:Generator_ColumnPropNameInRow="ChildMarkup" msprop:Generator_ColumnPropNameInTable="ChildMarkupColumn" msprop:Generator_UserColumnName="ChildMarkup" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

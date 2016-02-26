@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Tripper" targetNamespace="http://tempuri.org/Tripper.xsd" xmlns:mstns="http://tempuri.org/Tripper.xsd" xmlns="http://tempuri.org/Tripper.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Tripper" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Tripper" msprop:Generator_UserDSName="Tripper">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Contracts" msprop:Generator_TableClassName="ContractsDataTable" msprop:Generator_TableVarName="tableContracts" msprop:Generator_TablePropName="Contracts" msprop:Generator_RowDeletingName="ContractsRowDeleting" msprop:Generator_RowChangingName="ContractsRowChanging" msprop:Generator_RowEvHandlerName="ContractsRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractsRowDeleted" msprop:Generator_UserTableName="Contracts" msprop:Generator_RowChangedName="ContractsRowChanged" msprop:Generator_RowEvArgName="ContractsRowChangeEvent" msprop:Generator_RowClassName="ContractsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Select" msprop:Generator_ColumnVarNameInTable="columnSelect" msprop:Generator_ColumnPropNameInRow="Select" msprop:Generator_ColumnPropNameInTable="SelectColumn" msprop:Generator_UserColumnName="Select" type="xs:string" minOccurs="0" />
+              <xs:element name="Recno" msprop:Generator_ColumnVarNameInTable="columnRecno" msprop:Generator_ColumnPropNameInRow="Recno" msprop:Generator_ColumnPropNameInTable="RecnoColumn" msprop:Generator_UserColumnName="Recno" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="RoomType" msprop:Generator_ColumnVarNameInTable="columnRoomType" msprop:Generator_ColumnPropNameInRow="RoomType" msprop:Generator_ColumnPropNameInTable="RoomTypeColumn" msprop:Generator_UserColumnName="RoomType" type="xs:string" minOccurs="0" />
+              <xs:element name="Board" msprop:Generator_ColumnVarNameInTable="columnBoard" msprop:Generator_ColumnPropNameInRow="Board" msprop:Generator_ColumnPropNameInTable="BoardColumn" msprop:Generator_UserColumnName="Board" type="xs:string" minOccurs="0" />
+              <xs:element name="Valid_x0020_From" msprop:Generator_ColumnVarNameInTable="columnValid_From" msprop:Generator_ColumnPropNameInRow="Valid_From" msprop:Generator_ColumnPropNameInTable="Valid_FromColumn" msprop:Generator_UserColumnName="Valid From" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Valid_x0020_To" msprop:Generator_ColumnVarNameInTable="columnValid_To" msprop:Generator_ColumnPropNameInRow="Valid_To" msprop:Generator_ColumnPropNameInTable="Valid_ToColumn" msprop:Generator_UserColumnName="Valid To" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
