@@ -268,9 +268,10 @@ namespace Gulliver
             // kryptonHeader1
             // 
             this.kryptonHeader1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.DockInactive;
             this.kryptonHeader1.Location = new System.Drawing.Point(0, 60);
             this.kryptonHeader1.Name = "kryptonHeader1";
-            this.kryptonHeader1.Size = new System.Drawing.Size(1254, 31);
+            this.kryptonHeader1.Size = new System.Drawing.Size(1254, 29);
             this.kryptonHeader1.TabIndex = 24;
             this.kryptonHeader1.Values.Description = "";
             this.kryptonHeader1.Values.Heading = "Find ";
