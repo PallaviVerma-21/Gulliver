@@ -42,8 +42,6 @@ namespace Gulliver
             this.dataGridViewLibrary = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.bsLibrary = new System.Windows.Forms.BindingSource(this.components);
             this.libraryDS = new Gulliver.LibraryDS();
-            this.headerI = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.cmbSuppliers = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbShowAll = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
@@ -83,6 +81,7 @@ namespace Gulliver
             this.onSalesDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.expiredDateDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.copyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.statusstrip.SuspendLayout();
@@ -142,9 +141,9 @@ namespace Gulliver
             // 
             // kryptonPanel1
             // 
+            this.kryptonPanel1.Controls.Add(this.kryptonHeader1);
             this.kryptonPanel1.Controls.Add(this.dataGridViewLibrary);
             this.kryptonPanel1.Controls.Add(this.statusstrip);
-            this.kryptonPanel1.Controls.Add(this.headerI);
             this.kryptonPanel1.Controls.Add(this.cmbSuppliers);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel1.Controls.Add(this.cbShowAll);
@@ -177,28 +176,31 @@ namespace Gulliver
             this.dataGridViewLibrary.DataSource = this.bsLibrary;
             this.dataGridViewLibrary.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.dataGridViewLibrary.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlAlternate;
-            this.dataGridViewLibrary.Location = new System.Drawing.Point(3, 89);
+            this.dataGridViewLibrary.Location = new System.Drawing.Point(0, 89);
             this.dataGridViewLibrary.Name = "dataGridViewLibrary";
             this.dataGridViewLibrary.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.dataGridViewLibrary.RightToLeft = System.Windows.Forms.RightToLeft.No;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.dataGridViewLibrary.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewLibrary.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dataGridViewLibrary.Size = new System.Drawing.Size(1248, 572);
+            this.dataGridViewLibrary.Size = new System.Drawing.Size(1254, 572);
+            this.dataGridViewLibrary.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dataGridViewLibrary.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dataGridViewLibrary.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlAlternate;
             this.dataGridViewLibrary.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.DarkGray;
             this.dataGridViewLibrary.StateCommon.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.dataGridViewLibrary.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.dataGridViewLibrary.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.White;
-            this.dataGridViewLibrary.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.MidnightBlue;
-            this.dataGridViewLibrary.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewLibrary.StateCommon.HeaderRow.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
+            this.dataGridViewLibrary.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.dataGridViewLibrary.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.Transparent;
+            this.dataGridViewLibrary.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridViewLibrary.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewLibrary.StateCommon.HeaderRow.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.dataGridViewLibrary.StateCommon.HeaderRow.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewLibrary.TabIndex = 25;
             this.dataGridViewLibrary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLibrary_CellContentClick);
             // 
@@ -211,31 +213,6 @@ namespace Gulliver
             // 
             this.libraryDS.DataSetName = "LibraryDS";
             this.libraryDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // headerI
-            // 
-            this.headerI.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.buttonSpecAny1});
-            this.headerI.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerI.Location = new System.Drawing.Point(0, 0);
-            this.headerI.Name = "headerI";
-            this.headerI.Size = new System.Drawing.Size(1254, 31);
-            this.headerI.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.headerI.StateCommon.Back.Color2 = System.Drawing.Color.White;
-            this.headerI.StateCommon.Border.Color1 = System.Drawing.Color.White;
-            this.headerI.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.headerI.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(202)))));
-            this.headerI.TabIndex = 21;
-            this.headerI.Values.Description = "";
-            this.headerI.Values.Heading = "Gulliver 2";
-            this.headerI.Values.Image = null;
-            this.headerI.Paint += new System.Windows.Forms.PaintEventHandler(this.headerI_Paint);
-            // 
-            // buttonSpecAny1
-            // 
-            this.buttonSpecAny1.UniqueName = "CAA5709467C5470791A9895607BB675A";
             // 
             // cmbSuppliers
             // 
@@ -560,6 +537,27 @@ namespace Gulliver
             this.copyDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.copyDataGridViewTextBoxColumn.Width = 80;
             // 
+            // kryptonHeader1
+            // 
+            this.kryptonHeader1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonHeader1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonHeader1.Name = "kryptonHeader1";
+            this.kryptonHeader1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonHeader1.Size = new System.Drawing.Size(1254, 29);
+            this.kryptonHeader1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(124)))), ((int)(((byte)(213)))));
+            this.kryptonHeader1.StateCommon.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeader1.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.kryptonHeader1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonHeader1.StateCommon.Content.LongText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonHeader1.StateCommon.Content.LongText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonHeader1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonHeader1.TabIndex = 26;
+            this.kryptonHeader1.Values.Description = "";
+            this.kryptonHeader1.Values.Heading = "Gulliver 2";
+            this.kryptonHeader1.Values.Image = null;
+            // 
             // flcsLibrary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,8 +589,6 @@ namespace Gulliver
 
         private ComponentFactory.Krypton.Toolkit.KryptonManager kryptonManager;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel;
-        private ComponentFactory.Krypton.Toolkit.KryptonHeader headerI;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
         private System.Windows.Forms.StatusStrip statusstrip;
         private System.Windows.Forms.ToolStripStatusLabel fiterStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel showAllLabel;
@@ -640,6 +636,7 @@ namespace Gulliver
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn onSalesDataGridViewTextBoxColumn;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn expiredDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn copyDataGridViewTextBoxColumn;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
     }
 }
 
