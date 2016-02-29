@@ -142,8 +142,8 @@ namespace Gulliver
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Controls.Add(this.statusstrip);
             this.kryptonPanel1.Controls.Add(this.dataGridViewLibrary);
+            this.kryptonPanel1.Controls.Add(this.statusstrip);
             this.kryptonPanel1.Controls.Add(this.headerI);
             this.kryptonPanel1.Controls.Add(this.cmbSuppliers);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
@@ -177,17 +177,18 @@ namespace Gulliver
             this.dataGridViewLibrary.DataSource = this.bsLibrary;
             this.dataGridViewLibrary.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.dataGridViewLibrary.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlAlternate;
-            this.dataGridViewLibrary.Location = new System.Drawing.Point(3, 75);
+            this.dataGridViewLibrary.Location = new System.Drawing.Point(3, 89);
             this.dataGridViewLibrary.Name = "dataGridViewLibrary";
             this.dataGridViewLibrary.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.dataGridViewLibrary.RightToLeft = System.Windows.Forms.RightToLeft.No;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(102)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridViewLibrary.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewLibrary.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dataGridViewLibrary.Size = new System.Drawing.Size(1251, 586);
+            this.dataGridViewLibrary.Size = new System.Drawing.Size(1248, 572);
             this.dataGridViewLibrary.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlAlternate;
             this.dataGridViewLibrary.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.DarkGray;
             this.dataGridViewLibrary.StateCommon.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -230,6 +231,7 @@ namespace Gulliver
             this.headerI.Values.Description = "";
             this.headerI.Values.Heading = "Gulliver 2";
             this.headerI.Values.Image = null;
+            this.headerI.Paint += new System.Windows.Forms.PaintEventHandler(this.headerI_Paint);
             // 
             // buttonSpecAny1
             // 
@@ -238,16 +240,16 @@ namespace Gulliver
             // cmbSuppliers
             // 
             this.cmbSuppliers.DropDownWidth = 257;
-            this.cmbSuppliers.Location = new System.Drawing.Point(65, 37);
+            this.cmbSuppliers.Location = new System.Drawing.Point(65, 45);
             this.cmbSuppliers.Name = "cmbSuppliers";
-            this.cmbSuppliers.Size = new System.Drawing.Size(294, 21);
+            this.cmbSuppliers.Size = new System.Drawing.Size(375, 21);
             this.cmbSuppliers.TabIndex = 4;
             // 
             // kryptonLabel1
             // 
             this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel1.Location = new System.Drawing.Point(12, 38);
+            this.kryptonLabel1.Location = new System.Drawing.Point(12, 45);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(47, 20);
             this.kryptonLabel1.TabIndex = 3;
@@ -258,7 +260,7 @@ namespace Gulliver
             this.cbShowAll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbShowAll.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbShowAll.Location = new System.Drawing.Point(753, 37);
+            this.cbShowAll.Location = new System.Drawing.Point(980, 46);
             this.cbShowAll.Name = "cbShowAll";
             this.cbShowAll.Size = new System.Drawing.Size(199, 20);
             this.cbShowAll.TabIndex = 2;
@@ -270,7 +272,7 @@ namespace Gulliver
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(389, 38);
+            this.txtSearch.Location = new System.Drawing.Point(550, 46);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(340, 20);
             this.txtSearch.TabIndex = 1;
@@ -522,7 +524,7 @@ namespace Gulliver
             this.offerNameDataGridViewTextBoxColumn.HeaderText = "Deal Name";
             this.offerNameDataGridViewTextBoxColumn.Name = "offerNameDataGridViewTextBoxColumn";
             this.offerNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.offerNameDataGridViewTextBoxColumn.Width = 450;
+            this.offerNameDataGridViewTextBoxColumn.Width = 430;
             // 
             // dealDirectoryNameDataGridViewTextBoxColumn
             // 
