@@ -26,7 +26,7 @@ namespace Gulliver
         int supplierId = 0;
         int dealId = 0;
         private List<string> visibleColumns;
-        private List<GulliverLibrary.DealExtra> optionalCostings;
+        private List<GulliverLibrary.DealOptionalExtra> optionalCostings;
         
         public flcsMain()
         {
@@ -69,7 +69,7 @@ namespace Gulliver
             
             selectedTripperExtras = new List<int>();
             deal = new GulliverLibrary.Deal();
-            optionalCostings = new List<GulliverLibrary.DealExtra>();
+            optionalCostings = new List<GulliverLibrary.DealOptionalExtra>();
             SetText(txtSearchbox, "Search Transfers here ...");
             
             if (newDeal)
@@ -593,7 +593,6 @@ namespace Gulliver
                 deal.DealInformation.destinationText = txtDestinationText.Text.Trim();
                 deal.DealInformation.countryText = txtCountryText.Text.Trim();
                 deal.DealInformation.tripAdvisorLink = txtTripAdvisorLink.Text.Trim();
-                deal.DealInformation.tripAdvisorQuotes = string.Empty;
                 deal.DealInformation.dealActive = cbActiveOnLuxuryWebsite.Checked;
                 deal.DealInformation.accessibility = txtAccessibilityText.Text;
                 deal.DealInformation.keyInformation = txtKeyInformationText.Text;
@@ -1657,7 +1656,7 @@ namespace Gulliver
             ddlDurations.SelectedItem = (deal.DealInformation.defaultDuration != 0) ? deal.DealInformation.defaultDuration.ToString() : "0";
             rbDays.Checked = (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Days") ? true : false;
             rbNights.Checked = (deal.DealInformation.diplayNightsOrDays == null || (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Nights") || deal.DealInformation.diplayNightsOrDays == string.Empty) ? true : false;
-            optionalCostings = (deal.DealInformation.optionalExtras != null) ? deal.DealExtras.ToList() : new List<GulliverLibrary.DealExtra>();
+            optionalCostings = (deal.DealInformation.optionalExtras != null) ? deal.DealExtras.ToList() : new List<GulliverLibrary.DealOptionalExtra>();
             FillImages();
             FillReviews();
 

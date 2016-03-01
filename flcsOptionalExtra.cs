@@ -12,11 +12,11 @@ namespace Gulliver
 {
     public partial class flcsOptionalExtra : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        public List<GulliverLibrary.DealExtra> optioanlExtras;
+        public List<GulliverLibrary.DealOptionalExtra> optioanlExtras;
         private PackageGenerator.PackageHandler packageHandler;
         private int dealId;
 
-        public flcsOptionalExtra(List<GulliverLibrary.DealExtra> optioanlExtras, int dealId, PackageGenerator.PackageHandler packageHandler)
+        public flcsOptionalExtra(List<GulliverLibrary.DealOptionalExtra> optioanlExtras, int dealId, PackageGenerator.PackageHandler packageHandler)
         {
            this.packageHandler = packageHandler;
            this.dealId = dealId;
@@ -31,7 +31,7 @@ namespace Gulliver
         {
             this.gulliverDS.OptionalExtra.Clear();
 
-            foreach (GulliverLibrary.DealExtra extra in optioanlExtras)
+            foreach (GulliverLibrary.DealOptionalExtra extra in optioanlExtras)
                 this.gulliverDS.OptionalExtra.AddOptionalExtraRow(extra.id, "Delete", extra.description.Trim(), extra.included, extra.cost);
         }
 
@@ -39,7 +39,7 @@ namespace Gulliver
         {
             optioanlExtras = (from c in this.gulliverDS.OptionalExtra
                             where !c.IsDescriptionNull() && !c.IsCostNull()
-                            select new GulliverLibrary.DealExtra
+                            select new GulliverLibrary.DealOptionalExtra
                             {
                                 id = c.id,
                                 description = c.Description.Trim(),
