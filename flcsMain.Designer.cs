@@ -29,8 +29,8 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsMain));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -513,8 +513,6 @@ namespace Gulliver
             this.kryptonLabel32 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtLeadPrice = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel53 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.statusStrip6 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel8 = new System.Windows.Forms.ToolStripStatusLabel();
             this.kryptonHeaderGroup6 = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.statusStrip4 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -892,7 +890,6 @@ namespace Gulliver
             this.kryptonHeaderGroup7.SuspendLayout();
             this.tableLayoutPanel32.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ddlPriorities)).BeginInit();
-            this.statusStrip6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup6.Panel)).BeginInit();
             this.kryptonHeaderGroup6.Panel.SuspendLayout();
@@ -1228,9 +1225,9 @@ namespace Gulliver
             this.dataGridviewContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewContracts.Name = "dataGridviewContracts";
             this.dataGridviewContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridviewContracts.Size = new System.Drawing.Size(567, 196);
             this.dataGridviewContracts.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridviewContracts.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -1351,9 +1348,9 @@ namespace Gulliver
             this.dataGridviewOfferContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewOfferContracts.Name = "dataGridviewOfferContracts";
             this.dataGridviewOfferContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridviewOfferContracts.Size = new System.Drawing.Size(593, 196);
             this.dataGridviewOfferContracts.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridviewOfferContracts.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -2809,6 +2806,9 @@ namespace Gulliver
             this.bntFlightNext.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.bntFlightNext.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.bntFlightNext.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntFlightNext.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.bntFlightNext.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.bntFlightNext.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.bntFlightNext.TabIndex = 55;
             this.bntFlightNext.Values.Text = "Next >>";
             this.bntFlightNext.Click += new System.EventHandler(this.bntFlightNext_Click);
@@ -3366,6 +3366,9 @@ namespace Gulliver
             this.btnExtraNext.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnExtraNext.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnExtraNext.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExtraNext.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnExtraNext.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnExtraNext.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnExtraNext.TabIndex = 55;
             this.btnExtraNext.Values.Text = "Next >>";
             this.btnExtraNext.Click += new System.EventHandler(this.btnExtraNext_Click);
@@ -3380,6 +3383,9 @@ namespace Gulliver
             this.btnExtraBack.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnExtraBack.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
             this.btnExtraBack.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExtraBack.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnExtraBack.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnExtraBack.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnExtraBack.TabIndex = 56;
             this.btnExtraBack.Values.Text = "<< Back";
             this.btnExtraBack.Click += new System.EventHandler(this.btnExtraBack_Click);
@@ -6218,8 +6224,8 @@ namespace Gulliver
             this.tableLayoutPanel31.Location = new System.Drawing.Point(0, 153);
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 3;
-            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 171F));
-            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel31.Size = new System.Drawing.Size(1215, 387);
             this.tableLayoutPanel31.TabIndex = 30;
@@ -6237,8 +6243,11 @@ namespace Gulliver
             // kryptonHeaderGroup7.Panel
             // 
             this.kryptonHeaderGroup7.Panel.Controls.Add(this.tableLayoutPanel32);
-            this.kryptonHeaderGroup7.Panel.Controls.Add(this.statusStrip6);
-            this.kryptonHeaderGroup7.Size = new System.Drawing.Size(1209, 165);
+            this.kryptonHeaderGroup7.Size = new System.Drawing.Size(1209, 149);
+            this.kryptonHeaderGroup7.StateCommon.Border.Color1 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup7.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
             this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -6254,7 +6263,6 @@ namespace Gulliver
             this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.72575F));
             this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.12709F));
             this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
-            this.tableLayoutPanel32.Controls.Add(this.cbGoLiveOnBestDealPage, 0, 4);
             this.tableLayoutPanel32.Controls.Add(this.ddlPriorities, 0, 4);
             this.tableLayoutPanel32.Controls.Add(this.kryptonLabel57, 0, 4);
             this.tableLayoutPanel32.Controls.Add(this.txtBestDealDescription, 1, 3);
@@ -6263,6 +6271,7 @@ namespace Gulliver
             this.tableLayoutPanel32.Controls.Add(this.kryptonLabel32, 1, 2);
             this.tableLayoutPanel32.Controls.Add(this.txtLeadPrice, 2, 3);
             this.tableLayoutPanel32.Controls.Add(this.kryptonLabel53, 2, 2);
+            this.tableLayoutPanel32.Controls.Add(this.cbGoLiveOnBestDealPage, 0, 4);
             this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel32.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel32.Name = "tableLayoutPanel32";
@@ -6273,7 +6282,7 @@ namespace Gulliver
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(1207, 118);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(1207, 124);
             this.tableLayoutPanel32.TabIndex = 2;
             // 
             // cbGoLiveOnBestDealPage
@@ -6281,9 +6290,10 @@ namespace Gulliver
             this.cbGoLiveOnBestDealPage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbGoLiveOnBestDealPage.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbGoLiveOnBestDealPage.Location = new System.Drawing.Point(3, 97);
+            this.cbGoLiveOnBestDealPage.Location = new System.Drawing.Point(3, 101);
             this.cbGoLiveOnBestDealPage.Name = "cbGoLiveOnBestDealPage";
-            this.cbGoLiveOnBestDealPage.Size = new System.Drawing.Size(510, 18);
+            this.cbGoLiveOnBestDealPage.Size = new System.Drawing.Size(510, 20);
+            this.cbGoLiveOnBestDealPage.StateCommon.ShortText.Color1 = System.Drawing.Color.Navy;
             this.cbGoLiveOnBestDealPage.TabIndex = 36;
             this.cbGoLiveOnBestDealPage.Text = "Go Live on Best Deal Page";
             this.cbGoLiveOnBestDealPage.Values.Text = "Go Live on Best Deal Page";
@@ -6331,7 +6341,7 @@ namespace Gulliver
             // 
             this.kryptonLabel57.Location = new System.Drawing.Point(519, 97);
             this.kryptonLabel57.Name = "kryptonLabel57";
-            this.kryptonLabel57.Size = new System.Drawing.Size(49, 18);
+            this.kryptonLabel57.Size = new System.Drawing.Size(49, 20);
             this.kryptonLabel57.TabIndex = 34;
             this.kryptonLabel57.Values.Text = "Priority";
             // 
@@ -6391,29 +6401,13 @@ namespace Gulliver
             this.kryptonLabel53.TabIndex = 33;
             this.kryptonLabel53.Values.Text = "Leading Price ";
             // 
-            // statusStrip6
-            // 
-            this.statusStrip6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.statusStrip6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.statusStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel8});
-            this.statusStrip6.Location = new System.Drawing.Point(0, 118);
-            this.statusStrip6.Name = "statusStrip6";
-            this.statusStrip6.Size = new System.Drawing.Size(1207, 22);
-            this.statusStrip6.TabIndex = 1;
-            // 
-            // toolStripStatusLabel8
-            // 
-            this.toolStripStatusLabel8.Name = "toolStripStatusLabel8";
-            this.toolStripStatusLabel8.Size = new System.Drawing.Size(0, 17);
-            // 
             // kryptonHeaderGroup6
             // 
             this.kryptonHeaderGroup6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonHeaderGroup6.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonHeaderGroup6.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.kryptonHeaderGroup6.HeaderVisibleSecondary = false;
-            this.kryptonHeaderGroup6.Location = new System.Drawing.Point(3, 208);
+            this.kryptonHeaderGroup6.Location = new System.Drawing.Point(3, 224);
             this.kryptonHeaderGroup6.Name = "kryptonHeaderGroup6";
             this.kryptonHeaderGroup6.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             // 
@@ -6421,7 +6415,7 @@ namespace Gulliver
             // 
             this.kryptonHeaderGroup6.Panel.Controls.Add(this.statusStrip4);
             this.kryptonHeaderGroup6.Panel.Controls.Add(this.dGVReviews);
-            this.kryptonHeaderGroup6.Size = new System.Drawing.Size(1209, 176);
+            this.kryptonHeaderGroup6.Size = new System.Drawing.Size(1209, 160);
             this.kryptonHeaderGroup6.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.kryptonHeaderGroup6.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
             this.kryptonHeaderGroup6.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -6436,7 +6430,7 @@ namespace Gulliver
             this.statusStrip4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statusStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel7});
-            this.statusStrip4.Location = new System.Drawing.Point(0, 129);
+            this.statusStrip4.Location = new System.Drawing.Point(0, 113);
             this.statusStrip4.Name = "statusStrip4";
             this.statusStrip4.Size = new System.Drawing.Size(1207, 22);
             this.statusStrip4.TabIndex = 1;
@@ -6464,7 +6458,7 @@ namespace Gulliver
             this.dGVReviews.Location = new System.Drawing.Point(0, 0);
             this.dGVReviews.Name = "dGVReviews";
             this.dGVReviews.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.dGVReviews.Size = new System.Drawing.Size(1207, 151);
+            this.dGVReviews.Size = new System.Drawing.Size(1207, 135);
             this.dGVReviews.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dGVReviews.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dGVReviews.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
@@ -6549,13 +6543,13 @@ namespace Gulliver
             this.tableLayoutPanel33.Controls.Add(this.lblMMOtherRange, 0, 0);
             this.tableLayoutPanel33.Controls.Add(this.txtYouTubeLink, 1, 0);
             this.tableLayoutPanel33.Controls.Add(this.txtTripAdvisorLink, 1, 2);
-            this.tableLayoutPanel33.Location = new System.Drawing.Point(3, 174);
+            this.tableLayoutPanel33.Location = new System.Drawing.Point(3, 158);
             this.tableLayoutPanel33.Name = "tableLayoutPanel33";
             this.tableLayoutPanel33.RowCount = 3;
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel33.Size = new System.Drawing.Size(1209, 28);
+            this.tableLayoutPanel33.Size = new System.Drawing.Size(1209, 60);
             this.tableLayoutPanel33.TabIndex = 28;
             // 
             // kryptonLabel31
@@ -6564,7 +6558,7 @@ namespace Gulliver
             | System.Windows.Forms.AnchorStyles.Left)));
             this.kryptonLabel31.Location = new System.Drawing.Point(3, 29);
             this.kryptonLabel31.Name = "kryptonLabel31";
-            this.kryptonLabel31.Size = new System.Drawing.Size(101, 20);
+            this.kryptonLabel31.Size = new System.Drawing.Size(101, 28);
             this.kryptonLabel31.TabIndex = 29;
             this.kryptonLabel31.Values.Text = "Trip Advisor Link";
             // 
@@ -6937,7 +6931,7 @@ namespace Gulliver
             // 
             // tabPage8
             // 
-            this.tabPage8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tabPage8.BackColor = System.Drawing.Color.White;
             this.tabPage8.Controls.Add(this.discountHeader);
             this.tabPage8.Location = new System.Drawing.Point(4, 29);
             this.tabPage8.Name = "tabPage8";
@@ -6948,33 +6942,36 @@ namespace Gulliver
             // 
             // discountHeader
             // 
-            this.discountHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.discountHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.discountHeader.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.discountHeader.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.discountHeader.HeaderVisibleSecondary = false;
-            this.discountHeader.Location = new System.Drawing.Point(1, 0);
+            this.discountHeader.Location = new System.Drawing.Point(3, 3);
             this.discountHeader.Name = "discountHeader";
+            this.discountHeader.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // discountHeader.Panel
             // 
             this.discountHeader.Panel.Controls.Add(this.statusStrip7);
             this.discountHeader.Panel.Controls.Add(this.dataGridviewImages);
-            this.discountHeader.Size = new System.Drawing.Size(1208, 608);
+            this.discountHeader.Size = new System.Drawing.Size(1209, 601);
+            this.discountHeader.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.discountHeader.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.discountHeader.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.discountHeader.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discountHeader.TabIndex = 12;
             this.discountHeader.ValuesPrimary.Heading = "Images";
             this.discountHeader.ValuesPrimary.Image = null;
             // 
             // statusStrip7
             // 
+            this.statusStrip7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.statusStrip7.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statusStrip7.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel10});
-            this.statusStrip7.Location = new System.Drawing.Point(0, 563);
+            this.statusStrip7.Location = new System.Drawing.Point(0, 554);
             this.statusStrip7.Name = "statusStrip7";
-            this.statusStrip7.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-            this.statusStrip7.Size = new System.Drawing.Size(1206, 22);
+            this.statusStrip7.Size = new System.Drawing.Size(1207, 22);
             this.statusStrip7.TabIndex = 1;
             // 
             // toolStripStatusLabel10
@@ -6996,7 +6993,12 @@ namespace Gulliver
             this.dataGridviewImages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridviewImages.Location = new System.Drawing.Point(0, 0);
             this.dataGridviewImages.Name = "dataGridviewImages";
-            this.dataGridviewImages.Size = new System.Drawing.Size(1206, 585);
+            this.dataGridviewImages.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.dataGridviewImages.Size = new System.Drawing.Size(1207, 576);
+            this.dataGridviewImages.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dataGridviewImages.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.dataGridviewImages.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.White;
+            this.dataGridviewImages.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.dataGridviewImages.TabIndex = 1;
             this.dataGridviewImages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridviewImages_CellContentClick);
             this.dataGridviewImages.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridviewImages_RowEnter);
@@ -7044,7 +7046,7 @@ namespace Gulliver
             // 
             // tabPage9
             // 
-            this.tabPage9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tabPage9.BackColor = System.Drawing.Color.White;
             this.tabPage9.Controls.Add(this.tableLayoutPanel18);
             this.tabPage9.Location = new System.Drawing.Point(4, 29);
             this.tabPage9.Name = "tabPage9";
@@ -7309,7 +7311,7 @@ namespace Gulliver
             // 
             // tabPage10
             // 
-            this.tabPage10.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tabPage10.BackColor = System.Drawing.Color.White;
             this.tabPage10.Controls.Add(this.tableLayoutPanel23);
             this.tabPage10.Location = new System.Drawing.Point(4, 29);
             this.tabPage10.Name = "tabPage10";
@@ -8168,8 +8170,6 @@ namespace Gulliver
             this.tableLayoutPanel32.ResumeLayout(false);
             this.tableLayoutPanel32.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ddlPriorities)).EndInit();
-            this.statusStrip6.ResumeLayout(false);
-            this.statusStrip6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup6.Panel)).EndInit();
             this.kryptonHeaderGroup6.Panel.ResumeLayout(false);
             this.kryptonHeaderGroup6.Panel.PerformLayout();
@@ -8421,8 +8421,6 @@ namespace Gulliver
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel50;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel30;
         private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup7;
-        private System.Windows.Forms.StatusStrip statusStrip6;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;
         private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup kryptonHeaderGroup6;
         private System.Windows.Forms.StatusStrip statusStrip4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;

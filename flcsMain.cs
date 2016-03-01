@@ -201,7 +201,7 @@ namespace Gulliver
         {
             foreach (DataGridViewColumn column in dataGridViewHolidays.Columns.Cast<DataGridViewColumn>())
             {
-                if ((!visibleColumns.Contains(column.DataPropertyName)) || column.DataPropertyName == "hotelKey" || column.DataPropertyName == "id" || column.DataPropertyName == "hiddenNumber" || column.DataPropertyName == "flightId")
+                if (!visibleColumns.Contains(column.DataPropertyName))
                     column.Visible = false;
                 else
                     column.Visible = true;
