@@ -29,8 +29,8 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsMain));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -533,9 +533,6 @@ namespace Gulliver
             this.lblMMOtherRange = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtYouTubeLink = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtTripAdvisorLink = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel30 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cbActiveOnLHC = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.cbActiveOnELB = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.kryptonLabel26 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtTopHeader = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -1231,9 +1228,9 @@ namespace Gulliver
             this.dataGridviewContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewContracts.Name = "dataGridviewContracts";
             this.dataGridviewContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridviewContracts.Size = new System.Drawing.Size(567, 196);
             this.dataGridviewContracts.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridviewContracts.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -1354,9 +1351,9 @@ namespace Gulliver
             this.dataGridviewOfferContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewOfferContracts.Name = "dataGridviewOfferContracts";
             this.dataGridviewOfferContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridviewOfferContracts.Size = new System.Drawing.Size(593, 196);
             this.dataGridviewOfferContracts.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridviewOfferContracts.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -1808,6 +1805,7 @@ namespace Gulliver
             this.btnNext.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnNext.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnNext.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnNext.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
             this.btnNext.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
             this.btnNext.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -1825,6 +1823,7 @@ namespace Gulliver
             this.btnCancel.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnCancel.StateCommon.Content.LongText.Color1 = System.Drawing.Color.White;
             this.btnCancel.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
             this.btnCancel.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
             this.btnCancel.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -2809,6 +2808,7 @@ namespace Gulliver
             this.bntFlightNext.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.bntFlightNext.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.bntFlightNext.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.bntFlightNext.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntFlightNext.TabIndex = 55;
             this.bntFlightNext.Values.Text = "Next >>";
             this.bntFlightNext.Click += new System.EventHandler(this.bntFlightNext_Click);
@@ -2822,6 +2822,7 @@ namespace Gulliver
             this.btnFlightBack.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnFlightBack.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnFlightBack.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnFlightBack.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFlightBack.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
             this.btnFlightBack.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
             this.btnFlightBack.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -3364,6 +3365,7 @@ namespace Gulliver
             this.btnExtraNext.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnExtraNext.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnExtraNext.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnExtraNext.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExtraNext.TabIndex = 55;
             this.btnExtraNext.Values.Text = "Next >>";
             this.btnExtraNext.Click += new System.EventHandler(this.btnExtraNext_Click);
@@ -3377,6 +3379,7 @@ namespace Gulliver
             this.btnExtraBack.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnExtraBack.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnExtraBack.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnExtraBack.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExtraBack.TabIndex = 56;
             this.btnExtraBack.Values.Text = "<< Back";
             this.btnExtraBack.Click += new System.EventHandler(this.btnExtraBack_Click);
@@ -5320,6 +5323,7 @@ namespace Gulliver
             this.btnSaveDeal.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnSaveDeal.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnSaveDeal.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSaveDeal.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveDeal.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
             this.btnSaveDeal.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
             this.btnSaveDeal.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -5336,6 +5340,7 @@ namespace Gulliver
             this.btnUpdateDeal.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnUpdateDeal.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnUpdateDeal.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnUpdateDeal.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateDeal.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
             this.btnUpdateDeal.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
             this.btnUpdateDeal.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -5352,6 +5357,7 @@ namespace Gulliver
             this.btnCostingBack.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnCostingBack.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnCostingBack.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnCostingBack.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCostingBack.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
             this.btnCostingBack.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
             this.btnCostingBack.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -6066,6 +6072,13 @@ namespace Gulliver
             this.btnSavePage.Location = new System.Drawing.Point(1114, 3);
             this.btnSavePage.Name = "btnSavePage";
             this.btnSavePage.Size = new System.Drawing.Size(106, 25);
+            this.btnSavePage.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnSavePage.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnSavePage.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSavePage.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePage.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnSavePage.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnSavePage.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnSavePage.TabIndex = 11;
             this.btnSavePage.Values.Text = "Save";
             this.btnSavePage.Click += new System.EventHandler(this.btnSavePage_Click);
@@ -6076,6 +6089,13 @@ namespace Gulliver
             this.btnCancelPage.Location = new System.Drawing.Point(997, 3);
             this.btnCancelPage.Name = "btnCancelPage";
             this.btnCancelPage.Size = new System.Drawing.Size(111, 25);
+            this.btnCancelPage.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnCancelPage.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnCancelPage.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnCancelPage.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelPage.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnCancelPage.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnCancelPage.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnCancelPage.TabIndex = 14;
             this.btnCancelPage.Values.Text = "Cancel";
             this.btnCancelPage.Click += new System.EventHandler(this.btnCancelPage_Click);
@@ -6086,8 +6106,15 @@ namespace Gulliver
             this.btnUpdateFleetwayPage.Location = new System.Drawing.Point(810, 3);
             this.btnUpdateFleetwayPage.Name = "btnUpdateFleetwayPage";
             this.btnUpdateFleetwayPage.Size = new System.Drawing.Size(181, 25);
+            this.btnUpdateFleetwayPage.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnUpdateFleetwayPage.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnUpdateFleetwayPage.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnUpdateFleetwayPage.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateFleetwayPage.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnUpdateFleetwayPage.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnUpdateFleetwayPage.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnUpdateFleetwayPage.TabIndex = 15;
-            this.btnUpdateFleetwayPage.Values.Text = "Update Fleetway Page Content";
+            this.btnUpdateFleetwayPage.Values.Text = "Update Page Content";
             this.btnUpdateFleetwayPage.Click += new System.EventHandler(this.btnUpdateFleetwayPage_Click);
             // 
             // btnMakePageLive
@@ -6096,16 +6123,27 @@ namespace Gulliver
             this.btnMakePageLive.Location = new System.Drawing.Point(650, 3);
             this.btnMakePageLive.Name = "btnMakePageLive";
             this.btnMakePageLive.Size = new System.Drawing.Size(154, 25);
+            this.btnMakePageLive.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnMakePageLive.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnMakePageLive.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnMakePageLive.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMakePageLive.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnMakePageLive.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnMakePageLive.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnMakePageLive.TabIndex = 16;
             this.btnMakePageLive.Values.Text = "Make Page Live";
             // 
             // btnStopPage
             // 
             this.btnStopPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStopPage.Location = new System.Drawing.Point(530, 3);
+            this.btnStopPage.Location = new System.Drawing.Point(516, 3);
             this.btnStopPage.Name = "btnStopPage";
             this.btnStopPage.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.btnStopPage.Size = new System.Drawing.Size(114, 25);
+            this.btnStopPage.Size = new System.Drawing.Size(128, 25);
+            this.btnStopPage.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnStopPage.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnStopPage.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.btnStopPage.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStopPage.TabIndex = 17;
             this.btnStopPage.Values.Text = "Stop the page";
             // 
@@ -6116,7 +6154,7 @@ namespace Gulliver
             this.lblError.AutoSize = true;
             this.lblError.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(246, 18);
+            this.lblError.Location = new System.Drawing.Point(232, 18);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(278, 13);
             this.lblError.TabIndex = 18;
@@ -6126,7 +6164,7 @@ namespace Gulliver
             // lblMessage
             // 
             this.lblMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMessage.Location = new System.Drawing.Point(132, 8);
+            this.lblMessage.Location = new System.Drawing.Point(118, 8);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(108, 20);
             this.lblMessage.TabIndex = 19;
@@ -6151,11 +6189,8 @@ namespace Gulliver
             // 
             // tabPage7
             // 
-            this.tabPage7.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tabPage7.BackColor = System.Drawing.Color.White;
             this.tabPage7.Controls.Add(this.tableLayoutPanel31);
-            this.tabPage7.Controls.Add(this.kryptonLabel30);
-            this.tabPage7.Controls.Add(this.cbActiveOnLHC);
-            this.tabPage7.Controls.Add(this.cbActiveOnELB);
             this.tabPage7.Controls.Add(this.tableLayoutPanel17);
             this.tabPage7.Controls.Add(this.cbActiveOnLuxuryWebsite);
             this.tabPage7.Controls.Add(this.kryptonLabel41);
@@ -6197,12 +6232,17 @@ namespace Gulliver
             this.kryptonHeaderGroup7.HeaderVisibleSecondary = false;
             this.kryptonHeaderGroup7.Location = new System.Drawing.Point(3, 3);
             this.kryptonHeaderGroup7.Name = "kryptonHeaderGroup7";
+            this.kryptonHeaderGroup7.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonHeaderGroup7.Panel
             // 
             this.kryptonHeaderGroup7.Panel.Controls.Add(this.tableLayoutPanel32);
             this.kryptonHeaderGroup7.Panel.Controls.Add(this.statusStrip6);
             this.kryptonHeaderGroup7.Size = new System.Drawing.Size(1209, 165);
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonHeaderGroup7.TabIndex = 26;
             this.kryptonHeaderGroup7.ValuesPrimary.Heading = "Best Deals Page Information";
             this.kryptonHeaderGroup7.ValuesPrimary.Image = null;
@@ -6233,7 +6273,7 @@ namespace Gulliver
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(1207, 120);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(1207, 118);
             this.tableLayoutPanel32.TabIndex = 2;
             // 
             // cbGoLiveOnBestDealPage
@@ -6243,7 +6283,7 @@ namespace Gulliver
             this.cbGoLiveOnBestDealPage.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
             this.cbGoLiveOnBestDealPage.Location = new System.Drawing.Point(3, 97);
             this.cbGoLiveOnBestDealPage.Name = "cbGoLiveOnBestDealPage";
-            this.cbGoLiveOnBestDealPage.Size = new System.Drawing.Size(510, 20);
+            this.cbGoLiveOnBestDealPage.Size = new System.Drawing.Size(510, 18);
             this.cbGoLiveOnBestDealPage.TabIndex = 36;
             this.cbGoLiveOnBestDealPage.Text = "Go Live on Best Deal Page";
             this.cbGoLiveOnBestDealPage.Values.Text = "Go Live on Best Deal Page";
@@ -6291,7 +6331,7 @@ namespace Gulliver
             // 
             this.kryptonLabel57.Location = new System.Drawing.Point(519, 97);
             this.kryptonLabel57.Name = "kryptonLabel57";
-            this.kryptonLabel57.Size = new System.Drawing.Size(49, 20);
+            this.kryptonLabel57.Size = new System.Drawing.Size(49, 18);
             this.kryptonLabel57.TabIndex = 34;
             this.kryptonLabel57.Values.Text = "Priority";
             // 
@@ -6353,12 +6393,12 @@ namespace Gulliver
             // 
             // statusStrip6
             // 
+            this.statusStrip6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.statusStrip6.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statusStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel8});
-            this.statusStrip6.Location = new System.Drawing.Point(0, 120);
+            this.statusStrip6.Location = new System.Drawing.Point(0, 118);
             this.statusStrip6.Name = "statusStrip6";
-            this.statusStrip6.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
             this.statusStrip6.Size = new System.Drawing.Size(1207, 22);
             this.statusStrip6.TabIndex = 1;
             // 
@@ -6369,32 +6409,35 @@ namespace Gulliver
             // 
             // kryptonHeaderGroup6
             // 
-            this.kryptonHeaderGroup6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonHeaderGroup6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonHeaderGroup6.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.kryptonHeaderGroup6.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.kryptonHeaderGroup6.HeaderVisibleSecondary = false;
             this.kryptonHeaderGroup6.Location = new System.Drawing.Point(3, 208);
             this.kryptonHeaderGroup6.Name = "kryptonHeaderGroup6";
+            this.kryptonHeaderGroup6.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             // 
             // kryptonHeaderGroup6.Panel
             // 
             this.kryptonHeaderGroup6.Panel.Controls.Add(this.statusStrip4);
             this.kryptonHeaderGroup6.Panel.Controls.Add(this.dGVReviews);
             this.kryptonHeaderGroup6.Size = new System.Drawing.Size(1209, 176);
+            this.kryptonHeaderGroup6.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup6.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup6.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonHeaderGroup6.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonHeaderGroup6.TabIndex = 27;
             this.kryptonHeaderGroup6.ValuesPrimary.Heading = "Reviews";
             this.kryptonHeaderGroup6.ValuesPrimary.Image = null;
             // 
             // statusStrip4
             // 
+            this.statusStrip4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.statusStrip4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statusStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel7});
-            this.statusStrip4.Location = new System.Drawing.Point(0, 131);
+            this.statusStrip4.Location = new System.Drawing.Point(0, 129);
             this.statusStrip4.Name = "statusStrip4";
-            this.statusStrip4.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
             this.statusStrip4.Size = new System.Drawing.Size(1207, 22);
             this.statusStrip4.TabIndex = 1;
             // 
@@ -6420,7 +6463,13 @@ namespace Gulliver
             this.dGVReviews.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGVReviews.Location = new System.Drawing.Point(0, 0);
             this.dGVReviews.Name = "dGVReviews";
-            this.dGVReviews.Size = new System.Drawing.Size(1207, 153);
+            this.dGVReviews.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.dGVReviews.Size = new System.Drawing.Size(1207, 151);
+            this.dGVReviews.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dGVReviews.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dGVReviews.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.dGVReviews.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.White;
+            this.dGVReviews.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.dGVReviews.TabIndex = 0;
             this.dGVReviews.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVReviews_CellContentClick);
             this.dGVReviews.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVReviews_RowEnter);
@@ -6548,39 +6597,6 @@ namespace Gulliver
             this.txtTripAdvisorLink.Name = "txtTripAdvisorLink";
             this.txtTripAdvisorLink.Size = new System.Drawing.Size(524, 20);
             this.txtTripAdvisorLink.TabIndex = 30;
-            // 
-            // kryptonLabel30
-            // 
-            this.kryptonLabel30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonLabel30.Location = new System.Drawing.Point(6, 581);
-            this.kryptonLabel30.Name = "kryptonLabel30";
-            this.kryptonLabel30.Size = new System.Drawing.Size(117, 20);
-            this.kryptonLabel30.TabIndex = 29;
-            this.kryptonLabel30.Values.Text = "Luxury Offers Only :";
-            // 
-            // cbActiveOnLHC
-            // 
-            this.cbActiveOnLHC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbActiveOnLHC.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbActiveOnLHC.Location = new System.Drawing.Point(234, 581);
-            this.cbActiveOnLHC.Name = "cbActiveOnLHC";
-            this.cbActiveOnLHC.Size = new System.Drawing.Size(102, 20);
-            this.cbActiveOnLHC.TabIndex = 14;
-            this.cbActiveOnLHC.Text = "Active On LHC";
-            this.cbActiveOnLHC.Values.Text = "Active On LHC";
-            // 
-            // cbActiveOnELB
-            // 
-            this.cbActiveOnELB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbActiveOnELB.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbActiveOnELB.Location = new System.Drawing.Point(129, 581);
-            this.cbActiveOnELB.Name = "cbActiveOnELB";
-            this.cbActiveOnELB.Size = new System.Drawing.Size(99, 20);
-            this.cbActiveOnELB.TabIndex = 15;
-            this.cbActiveOnELB.Text = "Active On ELB";
-            this.cbActiveOnELB.Values.Text = "Active On ELB";
             // 
             // tableLayoutPanel17
             // 
@@ -6805,6 +6821,10 @@ namespace Gulliver
             this.btnOptionalcostings.Name = "btnOptionalcostings";
             this.btnOptionalcostings.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalOffice2003;
             this.btnOptionalcostings.Size = new System.Drawing.Size(210, 24);
+            this.btnOptionalcostings.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnOptionalcostings.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnOptionalcostings.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnOptionalcostings.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOptionalcostings.TabIndex = 18;
             this.btnOptionalcostings.Values.Text = "Optional Costings";
             this.btnOptionalcostings.Click += new System.EventHandler(this.btnOptionalcostings_Click);
@@ -8337,9 +8357,6 @@ namespace Gulliver
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage7;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel30;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbActiveOnLHC;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbActiveOnELB;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtTopHeader;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel35;

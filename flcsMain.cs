@@ -599,8 +599,8 @@ namespace Gulliver
                 deal.DealInformation.keyInformation = txtKeyInformationText.Text;
                 deal.DealInformation.dealCurrency = cmbCurrency.SelectedItem.ToString();
                 deal.DealInformation.language = cmbLanuages.SelectedItem.ToString();
-                deal.DealInformation.isActiveOnLHC = cbActiveOnLHC.Checked;
-                deal.DealInformation.isActiveOnELB = cbActiveOnELB.Checked;
+                //deal.DealInformation.isActiveOnLHC = cbActiveOnLHC.Checked;
+                //deal.DealInformation.isActiveOnELB = cbActiveOnELB.Checked;
                 deal.DealInformation.pageName = txtPageName.Text.Trim();
                 deal.DealInformation.leadPrice = txtLeadPrice.Text.Trim();
                 deal.DealInformation.bestDealHeader = txtBestDealHeader.Text.Trim();
@@ -1643,8 +1643,8 @@ namespace Gulliver
             cbActiveOnLuxuryWebsite.Checked = deal.DealInformation.dealActive;
             cmbCurrency.SelectedItem = (deal.DealInformation.dealCurrency == null || deal.DealInformation.dealCurrency == string.Empty) ? "GBP" : deal.DealInformation.dealCurrency;
             cmbLanuages.SelectedItem = (deal.DealInformation.language == null || deal.DealInformation.language == string.Empty) ? "English" : deal.DealInformation.language;
-            cbActiveOnELB.Checked = deal.DealInformation.isActiveOnELB;
-            cbActiveOnLHC.Checked = deal.DealInformation.isActiveOnLHC;
+            //cbActiveOnELB.Checked = deal.DealInformation.isActiveOnELB;
+            //cbActiveOnLHC.Checked = deal.DealInformation.isActiveOnLHC;
             ddlPriorities.SelectedItem = (deal.DealInformation.priority != null) ? deal.DealInformation.priority.ToString() : "0";
             cbGoLiveOnBestDealPage.Checked = (deal.DealInformation.goLiveOnBestDealPage != null) ? deal.DealInformation.goLiveOnBestDealPage : false;
             txtPageName.Text = (deal.DealInformation.pageName != null) ? deal.DealInformation.pageName : string.Empty;
