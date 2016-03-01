@@ -48,13 +48,6 @@ namespace Gulliver
             this.cbPackageColumns = new System.Windows.Forms.CheckedListBox();
             this.btnPackageColumnShow = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.dataGridViewHolidays = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.bsHolidays = new System.Windows.Forms.BindingSource(this.components);
-            this.packagesDS = new Gulliver.PackagesDS();
-            this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
-            this.fiterStatusLabelH = new System.Windows.Forms.ToolStripStatusLabel();
-            this.showAllLabelH = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblTotal = new System.Windows.Forms.ToolStripStatusLabel();
-            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelKey = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
@@ -101,6 +94,13 @@ namespace Gulliver
             this.totalChildMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.childExtras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.carhireCosting = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.bsHolidays = new System.Windows.Forms.BindingSource(this.components);
+            this.packagesDS = new Gulliver.PackagesDS();
+            this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
+            this.fiterStatusLabelH = new System.Windows.Forms.ToolStripStatusLabel();
+            this.showAllLabelH = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblTotal = new System.Windows.Forms.ToolStripStatusLabel();
+            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -127,6 +127,7 @@ namespace Gulliver
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
+            this.kryptonPanel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonPanel.Size = new System.Drawing.Size(1440, 780);
             this.kryptonPanel.TabIndex = 0;
             // 
@@ -146,6 +147,13 @@ namespace Gulliver
             this.btnSave.Location = new System.Drawing.Point(1314, 748);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(117, 25);
+            this.btnSave.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnSave.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnSave.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSave.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnSave.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnSave.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnSave.TabIndex = 30;
             this.btnSave.Values.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -156,6 +164,13 @@ namespace Gulliver
             this.btnCancel.Location = new System.Drawing.Point(1201, 748);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(107, 25);
+            this.btnCancel.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnCancel.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnCancel.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnCancel.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnCancel.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnCancel.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnCancel.TabIndex = 31;
             this.btnCancel.Values.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -185,20 +200,29 @@ namespace Gulliver
             // btnCalculateTenPercentLeading
             // 
             this.btnCalculateTenPercentLeading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCalculateTenPercentLeading.Location = new System.Drawing.Point(744, 748);
+            this.btnCalculateTenPercentLeading.Location = new System.Drawing.Point(738, 748);
             this.btnCalculateTenPercentLeading.Name = "btnCalculateTenPercentLeading";
-            this.btnCalculateTenPercentLeading.Size = new System.Drawing.Size(181, 25);
+            this.btnCalculateTenPercentLeading.Size = new System.Drawing.Size(187, 25);
+            this.btnCalculateTenPercentLeading.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnCalculateTenPercentLeading.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnCalculateTenPercentLeading.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnCalculateTenPercentLeading.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalculateTenPercentLeading.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnCalculateTenPercentLeading.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnCalculateTenPercentLeading.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnCalculateTenPercentLeading.TabIndex = 33;
             this.btnCalculateTenPercentLeading.Values.Text = "Calculate 10% Leading";
             this.btnCalculateTenPercentLeading.Click += new System.EventHandler(this.btnCalculateTenPercentLeading_Click);
             // 
             // menuStrip
             // 
+            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
+            this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStrip.Size = new System.Drawing.Size(1440, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
@@ -211,6 +235,7 @@ namespace Gulliver
             this.manipulateDataToolStripMenuItem,
             this.restoreFlightsToolStripMenuItem,
             this.restoreBackupHolidaysToolStripMenuItem});
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItem1.Text = "&Tools";
@@ -255,6 +280,7 @@ namespace Gulliver
             this.kryptonHeaderGroup3.HeaderVisibleSecondary = false;
             this.kryptonHeaderGroup3.Location = new System.Drawing.Point(3, 27);
             this.kryptonHeaderGroup3.Name = "kryptonHeaderGroup3";
+            this.kryptonHeaderGroup3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonHeaderGroup3.Panel
             // 
@@ -263,13 +289,17 @@ namespace Gulliver
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.dataGridViewHolidays);
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.statusstripHolidays);
             this.kryptonHeaderGroup3.Size = new System.Drawing.Size(1437, 715);
+            this.kryptonHeaderGroup3.StateCommon.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup3.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup3.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup3.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup3.TabIndex = 1;
             this.kryptonHeaderGroup3.ValuesPrimary.Heading = "Packages";
             this.kryptonHeaderGroup3.ValuesPrimary.Image = global::Gulliver.Properties.Resources.holiday;
             // 
             // cbPackageColumns
             // 
-            this.cbPackageColumns.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.cbPackageColumns.BackColor = System.Drawing.Color.White;
             this.cbPackageColumns.CheckOnClick = true;
             this.cbPackageColumns.ColumnWidth = 110;
             this.cbPackageColumns.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -313,10 +343,10 @@ namespace Gulliver
             "C. Markups",
             "C. Extras",
             "Carhire"});
-            this.cbPackageColumns.Location = new System.Drawing.Point(-4, 37);
+            this.cbPackageColumns.Location = new System.Drawing.Point(0, 37);
             this.cbPackageColumns.MultiColumn = true;
             this.cbPackageColumns.Name = "cbPackageColumns";
-            this.cbPackageColumns.Size = new System.Drawing.Size(1440, 58);
+            this.cbPackageColumns.Size = new System.Drawing.Size(1436, 58);
             this.cbPackageColumns.TabIndex = 49;
             this.cbPackageColumns.Visible = false;
             this.cbPackageColumns.SelectedIndexChanged += new System.EventHandler(this.cbPackageColumns_SelectedIndexChanged);
@@ -327,6 +357,8 @@ namespace Gulliver
             this.btnPackageColumnShow.MinimumSize = new System.Drawing.Size(16, 37);
             this.btnPackageColumnShow.Name = "btnPackageColumnShow";
             this.btnPackageColumnShow.Size = new System.Drawing.Size(40, 40);
+            this.btnPackageColumnShow.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.btnPackageColumnShow.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.btnPackageColumnShow.TabIndex = 48;
             this.btnPackageColumnShow.Values.Text = "";
             this.btnPackageColumnShow.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnPackageColumnShow_MouseClick);
@@ -387,60 +419,15 @@ namespace Gulliver
             this.dataGridViewHolidays.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewHolidays.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewHolidays.Name = "dataGridViewHolidays";
-            this.dataGridViewHolidays.Size = new System.Drawing.Size(1435, 656);
+            this.dataGridViewHolidays.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.dataGridViewHolidays.Size = new System.Drawing.Size(1435, 654);
+            this.dataGridViewHolidays.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dataGridViewHolidays.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.dataGridViewHolidays.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.White;
+            this.dataGridViewHolidays.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.dataGridViewHolidays.TabIndex = 0;
             this.dataGridViewHolidays.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewHolidays_DataBindingComplete);
             this.dataGridViewHolidays.Click += new System.EventHandler(this.dataGridViewHolidays_Click);
-            // 
-            // bsHolidays
-            // 
-            this.bsHolidays.DataMember = "Package";
-            this.bsHolidays.DataSource = this.packagesDS;
-            // 
-            // packagesDS
-            // 
-            this.packagesDS.DataSetName = "PackagesDS";
-            this.packagesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // statusstripHolidays
-            // 
-            this.statusstripHolidays.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.statusstripHolidays.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fiterStatusLabelH,
-            this.showAllLabelH,
-            this.lblTotal,
-            this.progressBar});
-            this.statusstripHolidays.Location = new System.Drawing.Point(0, 656);
-            this.statusstripHolidays.Name = "statusstripHolidays";
-            this.statusstripHolidays.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-            this.statusstripHolidays.Size = new System.Drawing.Size(1435, 22);
-            this.statusstripHolidays.TabIndex = 7;
-            //this.statusstripHolidays.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusstripHolidays_ItemClicked);
-            // 
-            // fiterStatusLabelH
-            // 
-            this.fiterStatusLabelH.Name = "fiterStatusLabelH";
-            this.fiterStatusLabelH.Size = new System.Drawing.Size(0, 17);
-            // 
-            // showAllLabelH
-            // 
-            this.showAllLabelH.IsLink = true;
-            this.showAllLabelH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.showAllLabelH.Name = "showAllLabelH";
-            this.showAllLabelH.Size = new System.Drawing.Size(53, 17);
-            this.showAllLabelH.Text = "&Show All";
-            this.showAllLabelH.Click += new System.EventHandler(this.showAllLabelH_Click);
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(0, 17);
-            // 
-            // progressBar
-            // 
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(100, 16);
-            this.progressBar.Visible = false;
             // 
             // delete
             // 
@@ -802,6 +789,56 @@ namespace Gulliver
             this.carhireCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.carhireCosting.Width = 60;
             // 
+            // bsHolidays
+            // 
+            this.bsHolidays.DataMember = "Package";
+            this.bsHolidays.DataSource = this.packagesDS;
+            // 
+            // packagesDS
+            // 
+            this.packagesDS.DataSetName = "PackagesDS";
+            this.packagesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // statusstripHolidays
+            // 
+            this.statusstripHolidays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.statusstripHolidays.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.statusstripHolidays.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fiterStatusLabelH,
+            this.showAllLabelH,
+            this.lblTotal,
+            this.progressBar});
+            this.statusstripHolidays.Location = new System.Drawing.Point(0, 654);
+            this.statusstripHolidays.Name = "statusstripHolidays";
+            this.statusstripHolidays.Size = new System.Drawing.Size(1435, 22);
+            this.statusstripHolidays.TabIndex = 7;
+            // 
+            // fiterStatusLabelH
+            // 
+            this.fiterStatusLabelH.Name = "fiterStatusLabelH";
+            this.fiterStatusLabelH.Size = new System.Drawing.Size(0, 17);
+            // 
+            // showAllLabelH
+            // 
+            this.showAllLabelH.IsLink = true;
+            this.showAllLabelH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.showAllLabelH.LinkColor = System.Drawing.Color.White;
+            this.showAllLabelH.Name = "showAllLabelH";
+            this.showAllLabelH.Size = new System.Drawing.Size(53, 17);
+            this.showAllLabelH.Text = "&Show All";
+            this.showAllLabelH.Click += new System.EventHandler(this.showAllLabelH_Click);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(0, 17);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 16);
+            this.progressBar.Visible = false;
+            // 
             // flcsPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -809,7 +846,7 @@ namespace Gulliver
             this.ClientSize = new System.Drawing.Size(1440, 780);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "flcsPackages";
-            this.Text = "Gulliver II Packages";
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
             this.kryptonPanel.PerformLayout();
