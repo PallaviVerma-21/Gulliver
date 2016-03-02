@@ -76,7 +76,9 @@ namespace Gulliver
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(741, 240);
+            this.kryptonPanel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonPanel.Size = new System.Drawing.Size(741, 249);
+            this.kryptonPanel.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -100,7 +102,7 @@ namespace Gulliver
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.48672F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.51328F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(741, 240);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(741, 249);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // kryptonHeaderGroup1
@@ -113,11 +115,19 @@ namespace Gulliver
             this.kryptonHeaderGroup1.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.kryptonHeaderGroup1.Location = new System.Drawing.Point(3, 3);
             this.kryptonHeaderGroup1.Name = "kryptonHeaderGroup1";
+            this.kryptonHeaderGroup1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonHeaderGroup1.Panel
             // 
             this.kryptonHeaderGroup1.Panel.Controls.Add(this.txtEmailTo);
             this.kryptonHeaderGroup1.Size = new System.Drawing.Size(364, 121);
+            this.kryptonHeaderGroup1.StateCommon.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup1.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup1.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup1.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonHeaderGroup1.StateCommon.HeaderSecondary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup1.StateCommon.HeaderSecondary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup1.StateCommon.HeaderSecondary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup1.TabIndex = 11;
             this.kryptonHeaderGroup1.ValuesPrimary.Heading = "Email To";
             this.kryptonHeaderGroup1.ValuesPrimary.Image = null;
@@ -134,7 +144,8 @@ namespace Gulliver
             this.txtEmailTo.Location = new System.Drawing.Point(0, 0);
             this.txtEmailTo.Multiline = true;
             this.txtEmailTo.Name = "txtEmailTo";
-            this.txtEmailTo.Size = new System.Drawing.Size(362, 77);
+            this.txtEmailTo.Size = new System.Drawing.Size(362, 73);
+            this.txtEmailTo.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtEmailTo.TabIndex = 0;
             // 
             // kryptonHeaderGroup3
@@ -147,11 +158,18 @@ namespace Gulliver
             this.kryptonHeaderGroup3.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.kryptonHeaderGroup3.Location = new System.Drawing.Point(373, 3);
             this.kryptonHeaderGroup3.Name = "kryptonHeaderGroup3";
+            this.kryptonHeaderGroup3.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonHeaderGroup3.Panel
             // 
             this.kryptonHeaderGroup3.Panel.Controls.Add(this.txtEmailCC);
             this.kryptonHeaderGroup3.Size = new System.Drawing.Size(365, 121);
+            this.kryptonHeaderGroup3.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup3.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup3.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonHeaderGroup3.StateCommon.HeaderSecondary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup3.StateCommon.HeaderSecondary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup3.StateCommon.HeaderSecondary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup3.TabIndex = 13;
             this.kryptonHeaderGroup3.ValuesPrimary.Heading = "Email CC";
             this.kryptonHeaderGroup3.ValuesPrimary.Image = null;
@@ -168,7 +186,8 @@ namespace Gulliver
             this.txtEmailCC.Location = new System.Drawing.Point(0, 0);
             this.txtEmailCC.Multiline = true;
             this.txtEmailCC.Name = "txtEmailCC";
-            this.txtEmailCC.Size = new System.Drawing.Size(363, 77);
+            this.txtEmailCC.Size = new System.Drawing.Size(363, 73);
+            this.txtEmailCC.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.txtEmailCC.TabIndex = 0;
             // 
             // kryptonHeaderGroup2
@@ -181,11 +200,15 @@ namespace Gulliver
             this.kryptonHeaderGroup2.HeaderStylePrimary = ComponentFactory.Krypton.Toolkit.HeaderStyle.Secondary;
             this.kryptonHeaderGroup2.Location = new System.Drawing.Point(3, 130);
             this.kryptonHeaderGroup2.Name = "kryptonHeaderGroup2";
+            this.kryptonHeaderGroup2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonHeaderGroup2.Panel
             // 
             this.kryptonHeaderGroup2.Panel.Controls.Add(this.txtEmailFrom);
-            this.kryptonHeaderGroup2.Size = new System.Drawing.Size(364, 67);
+            this.kryptonHeaderGroup2.Size = new System.Drawing.Size(364, 73);
+            this.kryptonHeaderGroup2.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup2.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup2.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup2.TabIndex = 12;
             this.kryptonHeaderGroup2.ValuesPrimary.Heading = "Email From";
             this.kryptonHeaderGroup2.ValuesPrimary.Image = null;
@@ -202,7 +225,7 @@ namespace Gulliver
             this.txtEmailFrom.Location = new System.Drawing.Point(0, 0);
             this.txtEmailFrom.Multiline = true;
             this.txtEmailFrom.Name = "txtEmailFrom";
-            this.txtEmailFrom.Size = new System.Drawing.Size(362, 41);
+            this.txtEmailFrom.Size = new System.Drawing.Size(362, 43);
             this.txtEmailFrom.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -213,7 +236,7 @@ namespace Gulliver
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(373, 130);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(365, 67);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(365, 73);
             this.flowLayoutPanel1.TabIndex = 14;
             // 
             // kryptonLabel1
@@ -244,16 +267,20 @@ namespace Gulliver
             // 
             this.flowLayoutPanel3.Controls.Add(this.btnSave);
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(373, 203);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(373, 209);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(365, 30);
             this.flowLayoutPanel3.TabIndex = 16;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(272, 3);
+            this.btnSave.Location = new System.Drawing.Point(261, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 25);
+            this.btnSave.Size = new System.Drawing.Size(101, 25);
+            this.btnSave.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnSave.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnSave.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSave.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.TabIndex = 4;
             this.btnSave.Values.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -262,7 +289,7 @@ namespace Gulliver
             // 
             this.flowLayoutPanel2.Controls.Add(this.cbEnableRoomReservation);
             this.flowLayoutPanel2.Controls.Add(this.btnRoomReservationSettings);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 203);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 209);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(364, 30);
             this.flowLayoutPanel2.TabIndex = 19;
@@ -282,6 +309,7 @@ namespace Gulliver
             this.btnRoomReservationSettings.Location = new System.Drawing.Point(28, 3);
             this.btnRoomReservationSettings.Name = "btnRoomReservationSettings";
             this.btnRoomReservationSettings.Size = new System.Drawing.Size(247, 25);
+            this.btnRoomReservationSettings.StateCommon.Back.Color1 = System.Drawing.Color.White;
             this.btnRoomReservationSettings.TabIndex = 17;
             this.btnRoomReservationSettings.Values.Text = "Enable Sending Room Reservation";
             // 
@@ -289,11 +317,12 @@ namespace Gulliver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 240);
+            this.ClientSize = new System.Drawing.Size(741, 249);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "flcsRoomRequestSetting";
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Room Reservation Settings";
+            this.Load += new System.EventHandler(this.flcsRoomRequestSetting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
             this.kryptonPanel.PerformLayout();

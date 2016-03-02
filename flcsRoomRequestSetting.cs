@@ -79,5 +79,10 @@ namespace Gulliver
             this.Close();
         }
         #endregion
+
+        private void flcsRoomRequestSetting_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
