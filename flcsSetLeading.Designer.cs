@@ -36,14 +36,14 @@ namespace Gulliver
             this.filterLabelLeadings = new System.Windows.Forms.ToolStripStatusLabel();
             this.showAllLeadings = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridViewLeadings = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.bsSetLeadings = new System.Windows.Forms.BindingSource(this.components);
-            this.packagesDS1 = new Gulliver.PackagesDS();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departureAirportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.occupancyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leadingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lockTheLeadingDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bsSetLeadings = new System.Windows.Forms.BindingSource(this.components);
+            this.packagesDS1 = new Gulliver.PackagesDS();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup7)).BeginInit();
@@ -72,25 +72,29 @@ namespace Gulliver
             this.kryptonHeaderGroup7.HeaderVisibleSecondary = false;
             this.kryptonHeaderGroup7.Location = new System.Drawing.Point(0, 0);
             this.kryptonHeaderGroup7.Name = "kryptonHeaderGroup7";
+            this.kryptonHeaderGroup7.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonHeaderGroup7.Panel
             // 
             this.kryptonHeaderGroup7.Panel.Controls.Add(this.statusStrip5);
             this.kryptonHeaderGroup7.Panel.Controls.Add(this.dataGridViewLeadings);
             this.kryptonHeaderGroup7.Size = new System.Drawing.Size(602, 486);
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup7.TabIndex = 17;
             this.kryptonHeaderGroup7.ValuesPrimary.Heading = "Set Leadings";
             this.kryptonHeaderGroup7.ValuesPrimary.Image = null;
             // 
             // statusStrip5
             // 
+            this.statusStrip5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.statusStrip5.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statusStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.filterLabelLeadings,
             this.showAllLeadings});
-            this.statusStrip5.Location = new System.Drawing.Point(0, 432);
+            this.statusStrip5.Location = new System.Drawing.Point(0, 434);
             this.statusStrip5.Name = "statusStrip5";
-            this.statusStrip5.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
             this.statusStrip5.Size = new System.Drawing.Size(600, 22);
             this.statusStrip5.TabIndex = 7;
             // 
@@ -103,6 +107,7 @@ namespace Gulliver
             // 
             this.showAllLeadings.IsLink = true;
             this.showAllLeadings.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.showAllLeadings.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.showAllLeadings.Name = "showAllLeadings";
             this.showAllLeadings.Size = new System.Drawing.Size(53, 17);
             this.showAllLeadings.Text = "&Show All";
@@ -123,18 +128,14 @@ namespace Gulliver
             this.dataGridViewLeadings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewLeadings.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewLeadings.Name = "dataGridViewLeadings";
-            this.dataGridViewLeadings.Size = new System.Drawing.Size(600, 454);
+            this.dataGridViewLeadings.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.dataGridViewLeadings.Size = new System.Drawing.Size(600, 456);
+            this.dataGridViewLeadings.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dataGridViewLeadings.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dataGridViewLeadings.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.dataGridViewLeadings.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.White;
+            this.dataGridViewLeadings.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.dataGridViewLeadings.TabIndex = 0;
-            // 
-            // bsSetLeadings
-            // 
-            this.bsSetLeadings.DataMember = "LeadingPrices";
-            this.bsSetLeadings.DataSource = this.packagesDS1;
-            // 
-            // packagesDS1
-            // 
-            this.packagesDS1.DataSetName = "PackagesDS";
-            this.packagesDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -175,6 +176,16 @@ namespace Gulliver
             this.lockTheLeadingDataGridViewCheckBoxColumn.Name = "lockTheLeadingDataGridViewCheckBoxColumn";
             this.lockTheLeadingDataGridViewCheckBoxColumn.Width = 120;
             // 
+            // bsSetLeadings
+            // 
+            this.bsSetLeadings.DataMember = "LeadingPrices";
+            this.bsSetLeadings.DataSource = this.packagesDS1;
+            // 
+            // packagesDS1
+            // 
+            this.packagesDS1.DataSetName = "PackagesDS";
+            this.packagesDS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // flcsSetLeading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,8 +193,8 @@ namespace Gulliver
             this.ClientSize = new System.Drawing.Size(602, 486);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "flcsSetLeading";
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Set Leading";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.flcsSetLeading_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
