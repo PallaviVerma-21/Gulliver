@@ -38,6 +38,7 @@ namespace Gulliver
            visibleColumns = new List<string>();
            SetupDefaultWindow(true);          
            FillMedias(0);
+           FillDealType(0);
         }        
 
         public flcsMain(int id)
@@ -957,8 +958,7 @@ namespace Gulliver
         private void cbPackageColumns_SelectedIndexChanged(object sender, EventArgs e)
         {
             VisibleAndInvisiblePackageColumns();
-        }
-               
+        }               
 
         #endregion                     
 
@@ -973,6 +973,7 @@ namespace Gulliver
                 //tab 1
                 txtDealName.Text = deal.name.Trim();
                 FillMedias(deal.Media.id);
+                FillDealType(deal.DealType.id);
                 supplierId = deal.Media.id;
                 cmbProducttypes.SelectedItem = (deal.productType != null && deal.productType != string.Empty) ? deal.productType : string.Empty;
                 dtpSalesOn.Value = deal.dateOfPromotion;
@@ -1105,6 +1106,20 @@ namespace Gulliver
         {
             OccupancyComboBox.DataSource = occupancys;
             FillNewDurationCostingForNewOccupnacy(occupancys);
+        }
+
+        private void FillDealType(int id)
+        {
+            foreach (GulliverLibrary.DealType dealType in packageHandler.GetAllDealTypes())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = dealType.type.Trim();
+                item.Value = dealType.id;               
+                ddlDealTypes.Items.Add(item);
+
+                if (id == dealType.id)
+                    ddlDealTypes.SelectedItem = item;
+            }            
         }
 
         private void FillDurationComboBox(List<string> durations)
@@ -2472,7 +2487,7 @@ namespace Gulliver
             deal.filteredFlightTimesIBDeparture = ftIBDepartureFrom.Text.Trim() + "#" + ftIBDepartureTo.Text.Trim();
             deal.filteredFlightTimesIBArrival = ftIBArrivalFrom.Text.Trim() + "#" + ftIBArrivalTo.Text.Trim();
             deal.lastupdatedTime = DateTime.Now;
-            dealId = packageHandler.UpdatePackageOffer(deal);
+            dealId = packageHandler.UpdateDeal(deal);
             SetStepProgressBar(progressBarTP2);
             SaveHotelContracts();
 
@@ -2765,7 +2780,7 @@ namespace Gulliver
         private void SaveCostings()
         {
             deal.baseMarkup = (txtBaseMarkup.Text != string.Empty && Validator.isDecimal(txtBaseMarkup.Text)) ? Convert.ToDecimal(txtBaseMarkup.Text) : 0;
-            dealId = packageHandler.UpdatePackageOffer(deal);
+            dealId = packageHandler.UpdateDeal(deal);
             SaveDurationCostings();
             SaveDurationMarkup();
             SaveWeekDayMarkup();
@@ -2789,6 +2804,7 @@ namespace Gulliver
             deal.dateOfPromotion = dtpSalesOn.Value;
             deal.endDateOfPromotion = dtpBookBy.Value;
             deal.Media = (ddlMedias.SelectedItem != null) ? gulliverQueryHandler.GetMediaByCode(((ComboBoxItem)ddlMedias.SelectedItem).Value.ToString()) : null;
+            deal.DealType = (ddlDealTypes.SelectedItem != null) ? gulliverQueryHandler.GetDealTypeById(Convert.ToInt32(((ComboBoxItem)ddlMedias.SelectedItem).Value.ToString())) : null;
             SetStepProgressBar(progressBarTP1);
             deal.cruiseDeal = cbCruiseDeal.Checked;
 
@@ -2903,6 +2919,8 @@ namespace Gulliver
         }
         
         #endregion                      
+
+        
                           
     }
 }
