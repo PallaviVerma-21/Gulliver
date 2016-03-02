@@ -77,13 +77,18 @@ namespace Gulliver
             this.headerUpdateDays.HeaderVisibleSecondary = false;
             this.headerUpdateDays.Location = new System.Drawing.Point(0, 0);
             this.headerUpdateDays.Name = "headerUpdateDays";
+            this.headerUpdateDays.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // headerUpdateDays.Panel
             // 
             this.headerUpdateDays.Panel.Controls.Add(this.tableLayoutPanel1);
             this.headerUpdateDays.Size = new System.Drawing.Size(695, 142);
+            this.headerUpdateDays.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.headerUpdateDays.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.headerUpdateDays.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.headerUpdateDays.TabIndex = 1;
             this.headerUpdateDays.ValuesPrimary.Heading = "Auto Updates Setting";
+            this.headerUpdateDays.ValuesPrimary.Image = null;
             // 
             // buttonSpecHeaderGroup1
             // 
@@ -94,7 +99,7 @@ namespace Gulliver
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -123,7 +128,7 @@ namespace Gulliver
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(693, 110);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(693, 112);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // kryptonLabel1
@@ -218,7 +223,7 @@ namespace Gulliver
             this.labelStatus.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
             this.labelStatus.Location = new System.Drawing.Point(3, 81);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(60, 26);
+            this.labelStatus.Size = new System.Drawing.Size(60, 28);
             this.labelStatus.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.labelStatus.TabIndex = 7;
             this.labelStatus.Values.Text = "Thursday";
@@ -300,6 +305,13 @@ namespace Gulliver
             this.btnSave.Location = new System.Drawing.Point(522, 81);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 25);
+            this.btnSave.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnSave.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnSave.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSave.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnSave.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnSave.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnSave.TabIndex = 22;
             this.btnSave.Values.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -311,6 +323,7 @@ namespace Gulliver
             this.ClientSize = new System.Drawing.Size(695, 142);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "flcsAutoUpdateSetting";
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);

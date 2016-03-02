@@ -48,6 +48,59 @@ namespace Gulliver
             this.cbPackageColumns = new System.Windows.Forms.CheckedListBox();
             this.btnPackageColumnShow = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.dataGridViewHolidays = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
+            this.fiterStatusLabelH = new System.Windows.Forms.ToolStripStatusLabel();
+            this.showAllLabelH = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblTotal = new System.Windows.Forms.ToolStripStatusLabel();
+            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.bsHolidays = new System.Windows.Forms.BindingSource(this.components);
+            this.packagesDS = new Gulliver.PackagesDS();
+            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn1 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn2 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn3 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn4 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn5 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn6 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn7 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn8 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn9 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn10 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn11 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn12 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn13 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn14 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn15 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn16 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn17 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn18 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn19 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn20 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn21 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn22 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn23 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn24 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn25 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn26 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn27 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn28 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn29 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn30 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn31 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn32 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn33 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn34 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn35 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn36 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn37 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn38 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn39 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn40 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn41 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelKey = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
@@ -94,13 +147,6 @@ namespace Gulliver
             this.totalChildMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.childExtras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.carhireCosting = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.bsHolidays = new System.Windows.Forms.BindingSource(this.components);
-            this.packagesDS = new Gulliver.PackagesDS();
-            this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
-            this.fiterStatusLabelH = new System.Windows.Forms.ToolStripStatusLabel();
-            this.showAllLabelH = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblTotal = new System.Windows.Forms.ToolStripStatusLabel();
-            this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -109,9 +155,9 @@ namespace Gulliver
             this.kryptonHeaderGroup3.Panel.SuspendLayout();
             this.kryptonHeaderGroup3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHolidays)).BeginInit();
+            this.statusstripHolidays.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsHolidays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDS)).BeginInit();
-            this.statusstripHolidays.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -134,7 +180,7 @@ namespace Gulliver
             // cbFinalizePrices
             // 
             this.cbFinalizePrices.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbFinalizePrices.Location = new System.Drawing.Point(606, 748);
+            this.cbFinalizePrices.Location = new System.Drawing.Point(4, 753);
             this.cbFinalizePrices.Name = "cbFinalizePrices";
             this.cbFinalizePrices.Size = new System.Drawing.Size(99, 20);
             this.cbFinalizePrices.TabIndex = 34;
@@ -428,6 +474,417 @@ namespace Gulliver
             this.dataGridViewHolidays.TabIndex = 0;
             this.dataGridViewHolidays.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewHolidays_DataBindingComplete);
             this.dataGridViewHolidays.Click += new System.EventHandler(this.dataGridViewHolidays_Click);
+            // 
+            // statusstripHolidays
+            // 
+            this.statusstripHolidays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.statusstripHolidays.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.statusstripHolidays.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fiterStatusLabelH,
+            this.showAllLabelH,
+            this.lblTotal,
+            this.progressBar});
+            this.statusstripHolidays.Location = new System.Drawing.Point(0, 654);
+            this.statusstripHolidays.Name = "statusstripHolidays";
+            this.statusstripHolidays.Size = new System.Drawing.Size(1435, 22);
+            this.statusstripHolidays.TabIndex = 7;
+            // 
+            // fiterStatusLabelH
+            // 
+            this.fiterStatusLabelH.Name = "fiterStatusLabelH";
+            this.fiterStatusLabelH.Size = new System.Drawing.Size(0, 17);
+            // 
+            // showAllLabelH
+            // 
+            this.showAllLabelH.IsLink = true;
+            this.showAllLabelH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.showAllLabelH.LinkColor = System.Drawing.Color.White;
+            this.showAllLabelH.Name = "showAllLabelH";
+            this.showAllLabelH.Size = new System.Drawing.Size(53, 17);
+            this.showAllLabelH.Text = "&Show All";
+            this.showAllLabelH.Click += new System.EventHandler(this.showAllLabelH_Click);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(0, 17);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 16);
+            this.progressBar.Visible = false;
+            // 
+            // bsHolidays
+            // 
+            this.bsHolidays.DataMember = "Package";
+            this.bsHolidays.DataSource = this.packagesDS;
+            // 
+            // packagesDS
+            // 
+            this.packagesDS.DataSetName = "PackagesDS";
+            this.packagesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGridViewLinkColumn1
+            // 
+            this.dataGridViewLinkColumn1.DataPropertyName = "Delete";
+            this.dataGridViewLinkColumn1.HeaderText = "Delete";
+            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
+            this.dataGridViewLinkColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLinkColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewLinkColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn1
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn1.DataPropertyName = "hotelKey";
+            this.dataGridViewAutoFilterTextBoxColumn1.HeaderText = "hotelKey";
+            this.dataGridViewAutoFilterTextBoxColumn1.Name = "dataGridViewAutoFilterTextBoxColumn1";
+            this.dataGridViewAutoFilterTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "hiddenNumber";
+            this.dataGridViewTextBoxColumn2.HeaderText = "hiddenNumber";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "flightId";
+            this.dataGridViewTextBoxColumn3.HeaderText = "flightId";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn2
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn2.DataPropertyName = "summary";
+            this.dataGridViewAutoFilterTextBoxColumn2.HeaderText = "Summary";
+            this.dataGridViewAutoFilterTextBoxColumn2.Name = "dataGridViewAutoFilterTextBoxColumn2";
+            this.dataGridViewAutoFilterTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn3
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn3.DataPropertyName = "status";
+            this.dataGridViewAutoFilterTextBoxColumn3.HeaderText = "Status";
+            this.dataGridViewAutoFilterTextBoxColumn3.Name = "dataGridViewAutoFilterTextBoxColumn3";
+            this.dataGridViewAutoFilterTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn4
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn4.DataPropertyName = "departureAirport";
+            this.dataGridViewAutoFilterTextBoxColumn4.HeaderText = "Departure";
+            this.dataGridViewAutoFilterTextBoxColumn4.Name = "dataGridViewAutoFilterTextBoxColumn4";
+            this.dataGridViewAutoFilterTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn4.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn5
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn5.DataPropertyName = "month";
+            this.dataGridViewAutoFilterTextBoxColumn5.HeaderText = "Month";
+            this.dataGridViewAutoFilterTextBoxColumn5.Name = "dataGridViewAutoFilterTextBoxColumn5";
+            this.dataGridViewAutoFilterTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn5.Width = 70;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn6
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn6.DataPropertyName = "dateOfWeek";
+            this.dataGridViewAutoFilterTextBoxColumn6.HeaderText = "Day Of Week";
+            this.dataGridViewAutoFilterTextBoxColumn6.Name = "dataGridViewAutoFilterTextBoxColumn6";
+            this.dataGridViewAutoFilterTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn6.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn7
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn7.DataPropertyName = "date";
+            this.dataGridViewAutoFilterTextBoxColumn7.HeaderText = "Date";
+            this.dataGridViewAutoFilterTextBoxColumn7.Name = "dataGridViewAutoFilterTextBoxColumn7";
+            this.dataGridViewAutoFilterTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn7.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn8
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn8.DataPropertyName = "duration";
+            this.dataGridViewAutoFilterTextBoxColumn8.HeaderText = "Duration";
+            this.dataGridViewAutoFilterTextBoxColumn8.Name = "dataGridViewAutoFilterTextBoxColumn8";
+            this.dataGridViewAutoFilterTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn8.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn9
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn9.DataPropertyName = "flightPrice";
+            this.dataGridViewAutoFilterTextBoxColumn9.HeaderText = "Flight";
+            this.dataGridViewAutoFilterTextBoxColumn9.Name = "dataGridViewAutoFilterTextBoxColumn9";
+            this.dataGridViewAutoFilterTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn9.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn10
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn10.DataPropertyName = "airline";
+            this.dataGridViewAutoFilterTextBoxColumn10.HeaderText = "Airline";
+            this.dataGridViewAutoFilterTextBoxColumn10.Name = "dataGridViewAutoFilterTextBoxColumn10";
+            this.dataGridViewAutoFilterTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn10.Width = 110;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn11
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn11.DataPropertyName = "hotelPrice";
+            this.dataGridViewAutoFilterTextBoxColumn11.HeaderText = "Accom";
+            this.dataGridViewAutoFilterTextBoxColumn11.Name = "dataGridViewAutoFilterTextBoxColumn11";
+            this.dataGridViewAutoFilterTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn11.Width = 50;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn12
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn12.DataPropertyName = "childHotelPrice";
+            this.dataGridViewAutoFilterTextBoxColumn12.HeaderText = "C. Accom";
+            this.dataGridViewAutoFilterTextBoxColumn12.Name = "dataGridViewAutoFilterTextBoxColumn12";
+            this.dataGridViewAutoFilterTextBoxColumn12.Width = 50;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn13
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn13.DataPropertyName = "board";
+            this.dataGridViewAutoFilterTextBoxColumn13.HeaderText = "Board";
+            this.dataGridViewAutoFilterTextBoxColumn13.Name = "dataGridViewAutoFilterTextBoxColumn13";
+            this.dataGridViewAutoFilterTextBoxColumn13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn13.Width = 50;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn14
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn14.DataPropertyName = "caa";
+            this.dataGridViewAutoFilterTextBoxColumn14.HeaderText = "CAA";
+            this.dataGridViewAutoFilterTextBoxColumn14.Name = "dataGridViewAutoFilterTextBoxColumn14";
+            this.dataGridViewAutoFilterTextBoxColumn14.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn14.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn15
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn15.DataPropertyName = "roomType";
+            this.dataGridViewAutoFilterTextBoxColumn15.HeaderText = "Room";
+            this.dataGridViewAutoFilterTextBoxColumn15.Name = "dataGridViewAutoFilterTextBoxColumn15";
+            this.dataGridViewAutoFilterTextBoxColumn15.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn15.Width = 120;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn16
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn16.DataPropertyName = "occupancy";
+            this.dataGridViewAutoFilterTextBoxColumn16.HeaderText = "Occupancy";
+            this.dataGridViewAutoFilterTextBoxColumn16.Name = "dataGridViewAutoFilterTextBoxColumn16";
+            this.dataGridViewAutoFilterTextBoxColumn16.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn16.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn17
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn17.DataPropertyName = "transfers";
+            this.dataGridViewAutoFilterTextBoxColumn17.HeaderText = "Transfers";
+            this.dataGridViewAutoFilterTextBoxColumn17.Name = "dataGridViewAutoFilterTextBoxColumn17";
+            this.dataGridViewAutoFilterTextBoxColumn17.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn17.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "baggagePrice";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Baggage Price";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewAutoFilterTextBoxColumn18
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn18.DataPropertyName = "extras";
+            this.dataGridViewAutoFilterTextBoxColumn18.HeaderText = "Extras";
+            this.dataGridViewAutoFilterTextBoxColumn18.Name = "dataGridViewAutoFilterTextBoxColumn18";
+            this.dataGridViewAutoFilterTextBoxColumn18.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn18.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn19
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn19.DataPropertyName = "totalMarkup";
+            this.dataGridViewAutoFilterTextBoxColumn19.HeaderText = "Markup";
+            this.dataGridViewAutoFilterTextBoxColumn19.Name = "dataGridViewAutoFilterTextBoxColumn19";
+            this.dataGridViewAutoFilterTextBoxColumn19.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn19.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn20
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn20.DataPropertyName = "commission";
+            this.dataGridViewAutoFilterTextBoxColumn20.HeaderText = "Commission";
+            this.dataGridViewAutoFilterTextBoxColumn20.Name = "dataGridViewAutoFilterTextBoxColumn20";
+            this.dataGridViewAutoFilterTextBoxColumn20.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn20.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn21
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn21.DataPropertyName = "profit";
+            this.dataGridViewAutoFilterTextBoxColumn21.HeaderText = "Profit";
+            this.dataGridViewAutoFilterTextBoxColumn21.Name = "dataGridViewAutoFilterTextBoxColumn21";
+            this.dataGridViewAutoFilterTextBoxColumn21.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn21.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn22
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn22.DataPropertyName = "nett";
+            this.dataGridViewAutoFilterTextBoxColumn22.HeaderText = "Nett";
+            this.dataGridViewAutoFilterTextBoxColumn22.Name = "dataGridViewAutoFilterTextBoxColumn22";
+            this.dataGridViewAutoFilterTextBoxColumn22.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn22.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn23
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn23.DataPropertyName = "sellAt";
+            this.dataGridViewAutoFilterTextBoxColumn23.HeaderText = "Sell At";
+            this.dataGridViewAutoFilterTextBoxColumn23.Name = "dataGridViewAutoFilterTextBoxColumn23";
+            this.dataGridViewAutoFilterTextBoxColumn23.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn23.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn24
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn24.DataPropertyName = "oldSellAt";
+            this.dataGridViewAutoFilterTextBoxColumn24.HeaderText = "Old SellAt";
+            this.dataGridViewAutoFilterTextBoxColumn24.Name = "dataGridViewAutoFilterTextBoxColumn24";
+            this.dataGridViewAutoFilterTextBoxColumn24.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn24.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn25
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn25.DataPropertyName = "childNett";
+            this.dataGridViewAutoFilterTextBoxColumn25.HeaderText = "C. Nett";
+            this.dataGridViewAutoFilterTextBoxColumn25.Name = "dataGridViewAutoFilterTextBoxColumn25";
+            this.dataGridViewAutoFilterTextBoxColumn25.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn26
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn26.DataPropertyName = "childSellat";
+            this.dataGridViewAutoFilterTextBoxColumn26.HeaderText = "C. SellAt";
+            this.dataGridViewAutoFilterTextBoxColumn26.Name = "dataGridViewAutoFilterTextBoxColumn26";
+            this.dataGridViewAutoFilterTextBoxColumn26.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn27
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn27.DataPropertyName = "searchType";
+            this.dataGridViewAutoFilterTextBoxColumn27.HeaderText = "Search Type";
+            this.dataGridViewAutoFilterTextBoxColumn27.Name = "dataGridViewAutoFilterTextBoxColumn27";
+            this.dataGridViewAutoFilterTextBoxColumn27.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn27.Visible = false;
+            this.dataGridViewAutoFilterTextBoxColumn27.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn28
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn28.DataPropertyName = "destinationAirport";
+            this.dataGridViewAutoFilterTextBoxColumn28.HeaderText = "Destination";
+            this.dataGridViewAutoFilterTextBoxColumn28.Name = "dataGridViewAutoFilterTextBoxColumn28";
+            this.dataGridViewAutoFilterTextBoxColumn28.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn28.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn29
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn29.DataPropertyName = "obDepartureTime";
+            this.dataGridViewAutoFilterTextBoxColumn29.HeaderText = "OB Departure";
+            this.dataGridViewAutoFilterTextBoxColumn29.Name = "dataGridViewAutoFilterTextBoxColumn29";
+            this.dataGridViewAutoFilterTextBoxColumn29.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn29.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn30
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn30.DataPropertyName = "obArrivalTime";
+            this.dataGridViewAutoFilterTextBoxColumn30.HeaderText = "OB Arrival";
+            this.dataGridViewAutoFilterTextBoxColumn30.Name = "dataGridViewAutoFilterTextBoxColumn30";
+            this.dataGridViewAutoFilterTextBoxColumn30.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn30.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn31
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn31.DataPropertyName = "ibDepartureTime";
+            this.dataGridViewAutoFilterTextBoxColumn31.HeaderText = "IB Departure";
+            this.dataGridViewAutoFilterTextBoxColumn31.Name = "dataGridViewAutoFilterTextBoxColumn31";
+            this.dataGridViewAutoFilterTextBoxColumn31.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn31.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn32
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn32.DataPropertyName = "ibArrivalTime";
+            this.dataGridViewAutoFilterTextBoxColumn32.HeaderText = "IB Arrival";
+            this.dataGridViewAutoFilterTextBoxColumn32.Name = "dataGridViewAutoFilterTextBoxColumn32";
+            this.dataGridViewAutoFilterTextBoxColumn32.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn32.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn33
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn33.DataPropertyName = "obFlightNo";
+            this.dataGridViewAutoFilterTextBoxColumn33.HeaderText = "OB Flightno";
+            this.dataGridViewAutoFilterTextBoxColumn33.Name = "dataGridViewAutoFilterTextBoxColumn33";
+            this.dataGridViewAutoFilterTextBoxColumn33.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn33.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn34
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn34.DataPropertyName = "ibFlightNo";
+            this.dataGridViewAutoFilterTextBoxColumn34.HeaderText = "IB FlightNo";
+            this.dataGridViewAutoFilterTextBoxColumn34.Name = "dataGridViewAutoFilterTextBoxColumn34";
+            this.dataGridViewAutoFilterTextBoxColumn34.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn34.Width = 80;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn35
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn35.DataPropertyName = "adults";
+            this.dataGridViewAutoFilterTextBoxColumn35.HeaderText = "Adults";
+            this.dataGridViewAutoFilterTextBoxColumn35.Name = "dataGridViewAutoFilterTextBoxColumn35";
+            this.dataGridViewAutoFilterTextBoxColumn35.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn35.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn36
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn36.DataPropertyName = "children";
+            this.dataGridViewAutoFilterTextBoxColumn36.HeaderText = "Children";
+            this.dataGridViewAutoFilterTextBoxColumn36.Name = "dataGridViewAutoFilterTextBoxColumn36";
+            this.dataGridViewAutoFilterTextBoxColumn36.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn36.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn37
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn37.DataPropertyName = "infants";
+            this.dataGridViewAutoFilterTextBoxColumn37.HeaderText = "Infants";
+            this.dataGridViewAutoFilterTextBoxColumn37.Name = "dataGridViewAutoFilterTextBoxColumn37";
+            this.dataGridViewAutoFilterTextBoxColumn37.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn37.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn38
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn38.DataPropertyName = "baseMarkup";
+            this.dataGridViewAutoFilterTextBoxColumn38.HeaderText = "Base M";
+            this.dataGridViewAutoFilterTextBoxColumn38.Name = "dataGridViewAutoFilterTextBoxColumn38";
+            this.dataGridViewAutoFilterTextBoxColumn38.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn38.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn39
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn39.DataPropertyName = "totalChildMarkup";
+            this.dataGridViewAutoFilterTextBoxColumn39.HeaderText = "C. Markups";
+            this.dataGridViewAutoFilterTextBoxColumn39.Name = "dataGridViewAutoFilterTextBoxColumn39";
+            this.dataGridViewAutoFilterTextBoxColumn39.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn40
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn40.DataPropertyName = "childExtras";
+            this.dataGridViewAutoFilterTextBoxColumn40.HeaderText = "C. Extras";
+            this.dataGridViewAutoFilterTextBoxColumn40.Name = "dataGridViewAutoFilterTextBoxColumn40";
+            this.dataGridViewAutoFilterTextBoxColumn40.Width = 60;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn41
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn41.DataPropertyName = "carhireCosting";
+            this.dataGridViewAutoFilterTextBoxColumn41.HeaderText = "Carhire";
+            this.dataGridViewAutoFilterTextBoxColumn41.Name = "dataGridViewAutoFilterTextBoxColumn41";
+            this.dataGridViewAutoFilterTextBoxColumn41.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn41.Width = 60;
             // 
             // delete
             // 
@@ -789,56 +1246,6 @@ namespace Gulliver
             this.carhireCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.carhireCosting.Width = 60;
             // 
-            // bsHolidays
-            // 
-            this.bsHolidays.DataMember = "Package";
-            this.bsHolidays.DataSource = this.packagesDS;
-            // 
-            // packagesDS
-            // 
-            this.packagesDS.DataSetName = "PackagesDS";
-            this.packagesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // statusstripHolidays
-            // 
-            this.statusstripHolidays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.statusstripHolidays.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.statusstripHolidays.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fiterStatusLabelH,
-            this.showAllLabelH,
-            this.lblTotal,
-            this.progressBar});
-            this.statusstripHolidays.Location = new System.Drawing.Point(0, 654);
-            this.statusstripHolidays.Name = "statusstripHolidays";
-            this.statusstripHolidays.Size = new System.Drawing.Size(1435, 22);
-            this.statusstripHolidays.TabIndex = 7;
-            // 
-            // fiterStatusLabelH
-            // 
-            this.fiterStatusLabelH.Name = "fiterStatusLabelH";
-            this.fiterStatusLabelH.Size = new System.Drawing.Size(0, 17);
-            // 
-            // showAllLabelH
-            // 
-            this.showAllLabelH.IsLink = true;
-            this.showAllLabelH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.showAllLabelH.LinkColor = System.Drawing.Color.White;
-            this.showAllLabelH.Name = "showAllLabelH";
-            this.showAllLabelH.Size = new System.Drawing.Size(53, 17);
-            this.showAllLabelH.Text = "&Show All";
-            this.showAllLabelH.Click += new System.EventHandler(this.showAllLabelH_Click);
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(0, 17);
-            // 
-            // progressBar
-            // 
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(100, 16);
-            this.progressBar.Visible = false;
-            // 
             // flcsPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -858,10 +1265,10 @@ namespace Gulliver
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup3)).EndInit();
             this.kryptonHeaderGroup3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHolidays)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsHolidays)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packagesDS)).EndInit();
             this.statusstripHolidays.ResumeLayout(false);
             this.statusstripHolidays.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsHolidays)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packagesDS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -941,6 +1348,52 @@ namespace Gulliver
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn totalChildMarkup;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childExtras;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn carhireCosting;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn2;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn3;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn4;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn5;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn6;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn7;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn8;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn9;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn10;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn11;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn12;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn13;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn14;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn15;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn16;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn18;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn19;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn20;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn21;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn22;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn23;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn24;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn25;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn26;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn27;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn28;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn29;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn30;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn31;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn32;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn33;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn34;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn35;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn36;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn37;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn38;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn39;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn40;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn41;
     }
 }
 

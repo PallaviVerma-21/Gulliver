@@ -59,3 +59,5 @@ X:\Gulliver\Gulliver\bin\Debug\Gulliver.exe.manifest
 X:\Gulliver\Gulliver\bin\Debug\Gulliver.application
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.exe.manifest
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.application
+X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsAutoUpdateSetting.resources
+X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsLandingWindow.resources

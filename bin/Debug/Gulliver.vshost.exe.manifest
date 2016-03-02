@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AccommodationHandler.dll" size="18944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AccommodationHandler.dll" size="21504">
       <assemblyIdentity name="AccommodationHandler" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rXaVuBQlJXD/jL3ZvlRSpjXF0/c=</dsig:DigestValue>
+        <dsig:DigestValue>h3ygISolND1imgzt6fCRH+8BFJA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>BdLIkuxCKtaS8sMtAkdzYC5cq+U=</dsig:DigestValue>
+        <dsig:DigestValue>1WuiSkZkyFudQDrY5vp9rgN7OsA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -145,31 +145,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>wIlFZNJDXE+s7dHFwMqeGIDsluE=</dsig:DigestValue>
+        <dsig:DigestValue>2UsaTP4nn4V8BOGLTvHjqGen1ag=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlashSalesLibrary.dll" size="230912">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlashSalesLibrary.dll" size="231424">
       <assemblyIdentity name="FlashSalesLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>k7nvC0DzvJsvzdNWeN/Rs8eJbT4=</dsig:DigestValue>
+        <dsig:DigestValue>xyR9MP4tdUnjt6/G8hbalOcFlZc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FleetwayWebsiteDataHandler.dll" size="50176">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FleetwayWebsiteDataHandler.dll" size="53760">
       <assemblyIdentity name="FleetwayWebsiteDataHandler" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>fltmEGQhnp/5I6Vy2DMi0D7eclQ=</dsig:DigestValue>
+        <dsig:DigestValue>m48yJe7xAsJrpJnN5gXRDoyA+e8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -181,43 +181,43 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ZUq/627BxLyjpxfVGBfiy+Uxwvc=</dsig:DigestValue>
+        <dsig:DigestValue>9uFiTuwnv9pICvRF/HPJraF0NlM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlightSheetLibrary.dll" size="10752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FlightSheetLibrary.dll" size="20992">
       <assemblyIdentity name="FlightSheetLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>/ynb5h+Vw+m27+oebnYx6NRi8gM=</dsig:DigestValue>
+        <dsig:DigestValue>wYIaGC1OdRteQEzYEe3se9BKHDk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gulliver.exe" size="617472">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gulliver.exe" size="678912">
       <assemblyIdentity name="Gulliver" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Q5ZyOGIrTW/ueydlNSktHIu2HGc=</dsig:DigestValue>
+        <dsig:DigestValue>utABs3yf0mFzkyAcCpFcjCd5QYk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GulliverLibrary.dll" size="127488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GulliverLibrary.dll" size="146432">
       <assemblyIdentity name="GulliverLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>gjguAcRWQuJAKlsK/nHVdvcAQ4w=</dsig:DigestValue>
+        <dsig:DigestValue>jkFFwzwDNlPFTTj2ukEkHGQ1+SI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -229,7 +229,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>K41sOr3CzCvGhu1PEu8ZDd7wUkU=</dsig:DigestValue>
+        <dsig:DigestValue>3IY0FGC7E74H0FdNr+qBpFUESog=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -282,14 +282,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySqlDataHandler.dll" size="463872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySqlDataHandler.dll" size="464896">
       <assemblyIdentity name="MySqlDataHandler" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>SHDKBfuP9j9tsF9LpEy+WzdCNyE=</dsig:DigestValue>
+        <dsig:DigestValue>O6wAv+TyFdlTyznFaqbJ8ZdhWcQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -325,7 +325,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ZQv0gywQafGCrI055c+An5NtXGE=</dsig:DigestValue>
+        <dsig:DigestValue>EX/OIDHuaUA3cqDNyKhGvJcbGxs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -342,14 +342,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PackageGenerator.dll" size="78336">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PackageGenerator.dll" size="79872">
       <assemblyIdentity name="PackageGenerator" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yvgm9ovardIo0lU41y8lF0jIdl0=</dsig:DigestValue>
+        <dsig:DigestValue>66/PcMufDxBoaYP5Rn2P6roldpQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -373,7 +373,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>i17bJMZo3j0mJ9kN/kSUt2MjlZQ=</dsig:DigestValue>
+        <dsig:DigestValue>dWv8apTs4yNeWvTwOLDsXqHd1Yc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

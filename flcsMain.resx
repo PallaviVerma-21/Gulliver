@@ -127,64 +127,104 @@
     <value>1071, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="header4.ValuesPrimary.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="secretEscapePriceHeader.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
-        CdO44QAAAABJRU5ErkJggg==
+        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
 </value>
   </data>
-  <metadata name="statusStrip5.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1187, 17</value>
+  <metadata name="statusStrip12.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>304, 134</value>
   </metadata>
-  <metadata name="bsExtras.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>315, 95</value>
-  </metadata>
-  <metadata name="recno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="dataGridViewTextBoxColumn56.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="bsTripperExtras.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1203, 124</value>
+  <metadata name="dataGridViewTextBoxColumn61.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
-  <metadata name="statusStrip17.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>893, 88</value>
+  <metadata name="bsSupplierMarkups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>426, 134</value>
+  </metadata>
+  <metadata name="statusStrip9.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>858, 56</value>
+  </metadata>
+  <metadata name="bsRoomTypeMarkup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 134</value>
+  </metadata>
+  <metadata name="statusStrip10.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>819, 124</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn72.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn79.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bsArrivalAirportMarkups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>927, 121</value>
+  </metadata>
+  <metadata name="statusStrip15.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>182, 134</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn64.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn65.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bsDepartureAirportMarkups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>587, 131</value>
+  </metadata>
+  <metadata name="statusStrip13.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>773, 95</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn94.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn95.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bsDateRangeMarkup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1249, 64</value>
+  </metadata>
+  <metadata name="statusStrip14.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>47, 94</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn96.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn97.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bsLowAvailabilityMarkup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1300, 99</value>
   </metadata>
   <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>612, 17</value>
-  </metadata>
-  <metadata name="statusStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>626, 56</value>
-  </metadata>
-  <metadata name="bsReviews.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>855, 159</value>
-  </metadata>
-  <metadata name="cbActiveOnLuxuryWebsite.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
   </metadata>
   <metadata name="statusstripBaggagePrices.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>275, 17</value>
@@ -241,6 +281,38 @@
         wiWTZozJE6Mnmd3xtJTkW5aZ+pRhFNSj08pHwykO5zd4Veq4vkvl2QAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="header4.ValuesPrimary.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        CdO44QAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="kryptonHeaderGroup14.ValuesPrimary.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -273,6 +345,12 @@
         CdO44QAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="statusStrip5.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1187, 17</value>
+  </metadata>
+  <metadata name="bsExtras.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>315, 95</value>
+  </metadata>
   <metadata name="bsExtras.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>315, 95</value>
   </metadata>
@@ -293,6 +371,15 @@
   </metadata>
   <metadata name="bsCarParking.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>139, 159</value>
+  </metadata>
+  <metadata name="recno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bsTripperExtras.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1203, 124</value>
+  </metadata>
+  <metadata name="statusStrip17.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>893, 88</value>
   </metadata>
   <metadata name="recno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -405,150 +492,6 @@
   <metadata name="bsDurationCosting.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1017, 55</value>
   </metadata>
-  <data name="secretEscapePriceHeader.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <metadata name="statusStrip12.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>304, 134</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn56.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn61.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsSupplierMarkups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>426, 134</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn56.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn61.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsSupplierMarkups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>426, 134</value>
-  </metadata>
-  <metadata name="statusStrip9.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>858, 56</value>
-  </metadata>
-  <metadata name="bsRoomTypeMarkup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 134</value>
-  </metadata>
-  <metadata name="bsRoomTypeMarkup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 134</value>
-  </metadata>
-  <metadata name="statusStrip10.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>819, 124</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn72.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn79.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsArrivalAirportMarkups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>927, 121</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn72.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn79.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsArrivalAirportMarkups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>927, 121</value>
-  </metadata>
-  <metadata name="statusStrip15.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>182, 134</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn64.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn65.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsDepartureAirportMarkups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>587, 131</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn64.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn65.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsDepartureAirportMarkups.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>587, 131</value>
-  </metadata>
-  <metadata name="statusStrip13.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>773, 95</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn94.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn95.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsDateRangeMarkup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1249, 64</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn94.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn95.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsDateRangeMarkup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1249, 64</value>
-  </metadata>
-  <metadata name="statusStrip14.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>47, 94</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn96.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn97.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsLowAvailabilityMarkup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1300, 99</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn96.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn97.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bsLowAvailabilityMarkup.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1300, 99</value>
-  </metadata>
   <metadata name="statusstripHolidays.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>720, 17</value>
   </metadata>
@@ -603,8 +546,20 @@
   <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>612, 17</value>
   </metadata>
+  <metadata name="cbActiveOnLuxuryWebsite.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="statusStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>626, 56</value>
+  </metadata>
   <metadata name="bsReviews.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>855, 159</value>
+  </metadata>
+  <metadata name="bsReviews.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>855, 159</value>
+  </metadata>
+  <metadata name="cbActiveOnLuxuryWebsite.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="statusStrip7.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>249, 56</value>

@@ -57,11 +57,15 @@ namespace Gulliver
             this.kryptonHeaderGroup7.HeaderVisibleSecondary = false;
             this.kryptonHeaderGroup7.Location = new System.Drawing.Point(0, 0);
             this.kryptonHeaderGroup7.Name = "kryptonHeaderGroup7";
+            this.kryptonHeaderGroup7.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonHeaderGroup7.Panel
             // 
             this.kryptonHeaderGroup7.Panel.Controls.Add(this.cbColumns);
             this.kryptonHeaderGroup7.Size = new System.Drawing.Size(422, 416);
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup7.TabIndex = 18;
             this.kryptonHeaderGroup7.ValuesPrimary.Heading = "Filter Columns";
             this.kryptonHeaderGroup7.ValuesPrimary.Image = null;
@@ -75,7 +79,7 @@ namespace Gulliver
             this.cbColumns.Location = new System.Drawing.Point(0, 0);
             this.cbColumns.MultiColumn = true;
             this.cbColumns.Name = "cbColumns";
-            this.cbColumns.Size = new System.Drawing.Size(420, 384);
+            this.cbColumns.Size = new System.Drawing.Size(420, 386);
             this.cbColumns.TabIndex = 11;
             // 
             // flcsFilterColumns
@@ -85,8 +89,8 @@ namespace Gulliver
             this.ClientSize = new System.Drawing.Size(422, 416);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "flcsFilterColumns";
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Filter Columns";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.flcsFilterColumns_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);

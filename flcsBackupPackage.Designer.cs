@@ -31,6 +31,7 @@ namespace Gulliver
             this.components = new System.ComponentModel.Container();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btnRestore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.hotelContractHeader = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.dataGridViewPackageBackup = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,7 +82,6 @@ namespace Gulliver
             this.fiterStatusLabelH = new System.Windows.Forms.ToolStripStatusLabel();
             this.showAllLabelH = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTotal = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnRestore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotelContractHeader)).BeginInit();
@@ -101,8 +101,24 @@ namespace Gulliver
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
+            this.kryptonPanel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.kryptonPanel.Size = new System.Drawing.Size(1354, 675);
+            this.kryptonPanel.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel.TabIndex = 0;
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestore.Location = new System.Drawing.Point(1233, 639);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(109, 29);
+            this.btnRestore.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnRestore.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnRestore.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnRestore.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestore.TabIndex = 57;
+            this.btnRestore.Values.Text = "Restore";
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // hotelContractHeader
             // 
@@ -110,12 +126,16 @@ namespace Gulliver
             this.hotelContractHeader.HeaderVisibleSecondary = false;
             this.hotelContractHeader.Location = new System.Drawing.Point(0, 0);
             this.hotelContractHeader.Name = "hotelContractHeader";
+            this.hotelContractHeader.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // hotelContractHeader.Panel
             // 
             this.hotelContractHeader.Panel.Controls.Add(this.dataGridViewPackageBackup);
             this.hotelContractHeader.Panel.Controls.Add(this.statusstripHolidays);
             this.hotelContractHeader.Size = new System.Drawing.Size(1354, 633);
+            this.hotelContractHeader.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.hotelContractHeader.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.hotelContractHeader.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.hotelContractHeader.TabIndex = 12;
             this.hotelContractHeader.ValuesPrimary.Heading = "Backup Holidays";
             this.hotelContractHeader.ValuesPrimary.Image = null;
@@ -171,7 +191,14 @@ namespace Gulliver
             this.dataGridViewPackageBackup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewPackageBackup.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewPackageBackup.Name = "dataGridViewPackageBackup";
-            this.dataGridViewPackageBackup.Size = new System.Drawing.Size(1352, 579);
+            this.dataGridViewPackageBackup.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.dataGridViewPackageBackup.Size = new System.Drawing.Size(1352, 581);
+            this.dataGridViewPackageBackup.StateCommon.Background.Color1 = System.Drawing.Color.White;
+            this.dataGridViewPackageBackup.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.dataGridViewPackageBackup.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.dataGridViewPackageBackup.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.White;
+            this.dataGridViewPackageBackup.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridViewPackageBackup.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewPackageBackup.TabIndex = 8;
             this.dataGridViewPackageBackup.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewPackageBackup_DataBindingComplete);
             // 
@@ -453,14 +480,14 @@ namespace Gulliver
             // 
             // statusstripHolidays
             // 
+            this.statusstripHolidays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.statusstripHolidays.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statusstripHolidays.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fiterStatusLabelH,
             this.showAllLabelH,
             this.lblTotal});
-            this.statusstripHolidays.Location = new System.Drawing.Point(0, 579);
+            this.statusstripHolidays.Location = new System.Drawing.Point(0, 581);
             this.statusstripHolidays.Name = "statusstripHolidays";
-            this.statusstripHolidays.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
             this.statusstripHolidays.Size = new System.Drawing.Size(1352, 22);
             this.statusstripHolidays.TabIndex = 7;
             // 
@@ -473,6 +500,7 @@ namespace Gulliver
             // 
             this.showAllLabelH.IsLink = true;
             this.showAllLabelH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.showAllLabelH.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.showAllLabelH.Name = "showAllLabelH";
             this.showAllLabelH.Size = new System.Drawing.Size(53, 17);
             this.showAllLabelH.Text = "&Show All";
@@ -482,16 +510,6 @@ namespace Gulliver
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(0, 17);
             // 
-            // btnRestore
-            // 
-            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestore.Location = new System.Drawing.Point(1252, 639);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(90, 25);
-            this.btnRestore.TabIndex = 57;
-            this.btnRestore.Values.Text = "Restore";
-            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
-            // 
             // flcsBackupPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,7 +517,7 @@ namespace Gulliver
             this.ClientSize = new System.Drawing.Size(1354, 675);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "flcsBackupPackage";
-            this.Text = "Backup Package";
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hotelContractHeader.Panel)).EndInit();
