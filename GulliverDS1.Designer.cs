@@ -2525,7 +2525,9 @@ namespace Gulliver {
             
             private global::System.Data.DataColumn columnIncluded;
             
-            private global::System.Data.DataColumn columnCost;
+            private global::System.Data.DataColumn columnAdult_Cost;
+            
+            private global::System.Data.DataColumn columnChild_Cost;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2594,9 +2596,17 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CostColumn {
+            public global::System.Data.DataColumn Adult_CostColumn {
                 get {
-                    return this.columnCost;
+                    return this.columnAdult_Cost;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Child_CostColumn {
+                get {
+                    return this.columnChild_Cost;
                 }
             }
             
@@ -2637,14 +2647,15 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OptionalExtraRow AddOptionalExtraRow(int id, string Delete, string Description, bool Included, decimal Cost) {
+            public OptionalExtraRow AddOptionalExtraRow(int id, string Delete, string Description, bool Included, decimal Adult_Cost, string Child_Cost) {
                 OptionalExtraRow rowOptionalExtraRow = ((OptionalExtraRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         Delete,
                         Description,
                         Included,
-                        Cost};
+                        Adult_Cost,
+                        Child_Cost};
                 rowOptionalExtraRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOptionalExtraRow);
                 return rowOptionalExtraRow;
@@ -2671,7 +2682,8 @@ namespace Gulliver {
                 this.columnDelete = base.Columns["Delete"];
                 this.columnDescription = base.Columns["Description"];
                 this.columnIncluded = base.Columns["Included"];
-                this.columnCost = base.Columns["Cost"];
+                this.columnAdult_Cost = base.Columns["Adult Cost"];
+                this.columnChild_Cost = base.Columns["Child Cost"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2685,8 +2697,10 @@ namespace Gulliver {
                 base.Columns.Add(this.columnDescription);
                 this.columnIncluded = new global::System.Data.DataColumn("Included", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIncluded);
-                this.columnCost = new global::System.Data.DataColumn("Cost", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCost);
+                this.columnAdult_Cost = new global::System.Data.DataColumn("Adult Cost", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdult_Cost);
+                this.columnChild_Cost = new global::System.Data.DataColumn("Child Cost", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChild_Cost);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4765,17 +4779,33 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Cost {
+            public decimal Adult_Cost {
                 get {
                     try {
-                        return ((decimal)(this[this.tableOptionalExtra.CostColumn]));
+                        return ((decimal)(this[this.tableOptionalExtra.Adult_CostColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cost\' in table \'OptionalExtra\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Adult Cost\' in table \'OptionalExtra\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableOptionalExtra.CostColumn] = value;
+                    this[this.tableOptionalExtra.Adult_CostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Child_Cost {
+                get {
+                    try {
+                        return ((string)(this[this.tableOptionalExtra.Child_CostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Child Cost\' in table \'OptionalExtra\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOptionalExtra.Child_CostColumn] = value;
                 }
             }
             
@@ -4829,14 +4859,26 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCostNull() {
-                return this.IsNull(this.tableOptionalExtra.CostColumn);
+            public bool IsAdult_CostNull() {
+                return this.IsNull(this.tableOptionalExtra.Adult_CostColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCostNull() {
-                this[this.tableOptionalExtra.CostColumn] = global::System.Convert.DBNull;
+            public void SetAdult_CostNull() {
+                this[this.tableOptionalExtra.Adult_CostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChild_CostNull() {
+                return this.IsNull(this.tableOptionalExtra.Child_CostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChild_CostNull() {
+                this[this.tableOptionalExtra.Child_CostColumn] = global::System.Convert.DBNull;
             }
         }
         
