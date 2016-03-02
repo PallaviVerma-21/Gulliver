@@ -178,7 +178,7 @@
     <Compile Include="flcsLibrary.Designer.cs">
       <DependentUpon>flcsLibrary.cs</DependentUpon>
     </Compile>
-    <Compile Include="GulliverDS1.Designer.cs">
+    <Compile Include="GulliverDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GulliverDS.xsd</DependentUpon>

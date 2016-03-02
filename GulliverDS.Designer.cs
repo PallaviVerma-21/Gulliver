@@ -2647,7 +2647,7 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OptionalExtraRow AddOptionalExtraRow(int id, string Delete, string Description, bool Included, decimal Adult_Cost, string Child_Cost) {
+            public OptionalExtraRow AddOptionalExtraRow(int id, string Delete, string Description, bool Included, decimal Adult_Cost, decimal Child_Cost) {
                 OptionalExtraRow rowOptionalExtraRow = ((OptionalExtraRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -2699,7 +2699,7 @@ namespace Gulliver {
                 base.Columns.Add(this.columnIncluded);
                 this.columnAdult_Cost = new global::System.Data.DataColumn("Adult Cost", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAdult_Cost);
-                this.columnChild_Cost = new global::System.Data.DataColumn("Child Cost", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnChild_Cost = new global::System.Data.DataColumn("Child Cost", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnChild_Cost);
             }
             
@@ -4795,10 +4795,10 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Child_Cost {
+            public decimal Child_Cost {
                 get {
                     try {
-                        return ((string)(this[this.tableOptionalExtra.Child_CostColumn]));
+                        return ((decimal)(this[this.tableOptionalExtra.Child_CostColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Child Cost\' in table \'OptionalExtra\' is DBNull.", e);
