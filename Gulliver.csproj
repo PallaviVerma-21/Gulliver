@@ -291,7 +291,7 @@
     <None Include="GulliverDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GulliverDS1.Designer.cs</LastGenOutput>
+      <LastGenOutput>GulliverDS.Designer.cs</LastGenOutput>
     </None>
     <None Include="GulliverDS.xss">
       <DependentUpon>GulliverDS.xsd</DependentUpon>

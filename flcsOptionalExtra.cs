@@ -32,20 +32,20 @@ namespace Gulliver
             this.gulliverDS.OptionalExtra.Clear();
 
             foreach (GulliverLibrary.DealOptionalExtra extra in optioanlExtras)
-                this.gulliverDS.OptionalExtra.AddOptionalExtraRow(extra.id, "Delete", extra.description.Trim(), extra.included, extra.cost);
+                this.gulliverDS.OptionalExtra.AddOptionalExtraRow(extra.id, "Delete", extra.description.Trim(), extra.included, extra.adultCost, extra.childCost);
         }
 
         private void flcsOptionalExtra_FormClosing(object sender, FormClosingEventArgs e)
         {
             optioanlExtras = (from c in this.gulliverDS.OptionalExtra
-                            where !c.IsDescriptionNull() && !c.IsCostNull()
+                            where !c.IsDescriptionNull() && !c.IsAdult_CostNull() && !c.IsChild_CostNull()
                             select new GulliverLibrary.DealOptionalExtra
                             {
                                 id = c.id,
                                 description = c.Description.Trim(),
                                 included = c.Included,
-                                cost = c.Cost
-                            }).ToList();
+                                adultCost = c.Adult_Cost,
+                                childCost = c.Child_Cost }).ToList();
         }
 
         #endregion

@@ -96,7 +96,7 @@
               <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
               <xs:element name="Included" msprop:Generator_ColumnVarNameInTable="columnIncluded" msprop:Generator_ColumnPropNameInRow="Included" msprop:Generator_ColumnPropNameInTable="IncludedColumn" msprop:Generator_UserColumnName="Included" type="xs:boolean" minOccurs="0" />
               <xs:element name="Adult_x0020_Cost" msprop:Generator_ColumnVarNameInTable="columnAdult_Cost" msprop:Generator_ColumnPropNameInRow="Adult_Cost" msprop:Generator_ColumnPropNameInTable="Adult_CostColumn" msprop:Generator_UserColumnName="Adult Cost" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Child_x0020_Cost" msprop:Generator_ColumnVarNameInTable="columnChild_Cost" msprop:Generator_ColumnPropNameInRow="Child_Cost" msprop:Generator_ColumnPropNameInTable="Child_CostColumn" msprop:Generator_UserColumnName="Child Cost" type="xs:string" minOccurs="0" />
+              <xs:element name="Child_x0020_Cost" msprop:Generator_ColumnVarNameInTable="columnChild_Cost" msprop:Generator_ColumnPropNameInRow="Child_Cost" msprop:Generator_ColumnPropNameInTable="Child_CostColumn" msprop:Generator_UserColumnName="Child Cost" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

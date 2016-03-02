@@ -29,8 +29,8 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsMain));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -1225,9 +1225,9 @@ namespace Gulliver
             this.dataGridviewContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewContracts.Name = "dataGridviewContracts";
             this.dataGridviewContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridviewContracts.Size = new System.Drawing.Size(567, 196);
             this.dataGridviewContracts.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridviewContracts.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -1348,9 +1348,9 @@ namespace Gulliver
             this.dataGridviewOfferContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewOfferContracts.Name = "dataGridviewOfferContracts";
             this.dataGridviewOfferContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridviewOfferContracts.Size = new System.Drawing.Size(593, 196);
             this.dataGridviewOfferContracts.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridviewOfferContracts.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -5541,6 +5541,7 @@ namespace Gulliver
             this.btnPackageColumnShow.Location = new System.Drawing.Point(0, 3);
             this.btnPackageColumnShow.MinimumSize = new System.Drawing.Size(16, 37);
             this.btnPackageColumnShow.Name = "btnPackageColumnShow";
+            this.btnPackageColumnShow.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.btnPackageColumnShow.Size = new System.Drawing.Size(40, 37);
             this.btnPackageColumnShow.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.btnPackageColumnShow.StateCommon.Back.Color2 = System.Drawing.Color.White;

@@ -402,6 +402,7 @@ namespace Gulliver
             this.btnPackageColumnShow.Location = new System.Drawing.Point(-1, 0);
             this.btnPackageColumnShow.MinimumSize = new System.Drawing.Size(16, 37);
             this.btnPackageColumnShow.Name = "btnPackageColumnShow";
+            this.btnPackageColumnShow.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.btnPackageColumnShow.Size = new System.Drawing.Size(40, 40);
             this.btnPackageColumnShow.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
             this.btnPackageColumnShow.StateCommon.Back.Color2 = System.Drawing.Color.White;
