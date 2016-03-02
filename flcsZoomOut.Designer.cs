@@ -57,11 +57,15 @@ namespace Gulliver
             this.kryptonHeaderGroup7.HeaderVisibleSecondary = false;
             this.kryptonHeaderGroup7.Location = new System.Drawing.Point(0, 0);
             this.kryptonHeaderGroup7.Name = "kryptonHeaderGroup7";
+            this.kryptonHeaderGroup7.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             // 
             // kryptonHeaderGroup7.Panel
             // 
             this.kryptonHeaderGroup7.Panel.Controls.Add(this.txtText);
             this.kryptonHeaderGroup7.Size = new System.Drawing.Size(940, 796);
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Back.Color2 = System.Drawing.Color.White;
+            this.kryptonHeaderGroup7.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup7.TabIndex = 19;
             this.kryptonHeaderGroup7.ValuesPrimary.Heading = "Title";
             this.kryptonHeaderGroup7.ValuesPrimary.Image = null;
@@ -72,7 +76,7 @@ namespace Gulliver
             this.txtText.Location = new System.Drawing.Point(0, 0);
             this.txtText.Multiline = true;
             this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(938, 764);
+            this.txtText.Size = new System.Drawing.Size(938, 766);
             this.txtText.TabIndex = 0;
             // 
             // flcsZoomOut
@@ -82,7 +86,7 @@ namespace Gulliver
             this.ClientSize = new System.Drawing.Size(940, 796);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "flcsZoomOut";
-            this.Text = "Zoom Out";
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.flcsZoomOut_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
