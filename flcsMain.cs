@@ -596,8 +596,16 @@ namespace Gulliver
 
             try
             {
-                if (deal.DealInformation != null)
+                if (deal.DealInformation == null)
+                {
                     deal.DealInformation = new GulliverLibrary.DealInformation();
+                    if (txtLongitude.Text.Trim() == string.Empty || txtLatitude.Text.Trim() == string.Empty)
+                    {
+                        MessageBox.Show("Please enter GEO codes before save!");
+                        return;
+                    }
+                    deal.DealInformation.HotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);                    
+                }
 
                 deal.DealInformation.mainHeader = txtMainHeader.Text.Trim();
                 deal.DealInformation.Deal = deal;
@@ -1654,26 +1662,26 @@ namespace Gulliver
             txtMainHeader.Text = (deal.DealInformation.mainHeader != null) ? deal.DealInformation.mainHeader : string.Empty;
             txtSubHeader.Text = (deal.DealInformation.subHeader != null) ? deal.DealInformation.subHeader : string.Empty;
             txtLongitude.Text = (deal.DealInformation.longitude != null) ? deal.DealInformation.longitude : string.Empty;
-            txtLatitude.Text = (deal.DealInformation.latitude != null) ? deal.DealInformation.latitude : string.Empty;
-            txtHotelTitle.Text = (deal.DealInformation.hotelHeader != null) ? deal.DealInformation.hotelHeader : string.Empty;
+            txtLatitude.Text = (deal.DealInformation.latitude != null) ? deal.DealInformation.latitude : string.Empty;            
             txtYouTubeLink.Text = (deal.DealInformation.youTubeLink != null) ? deal.DealInformation.youTubeLink : string.Empty;
             txtDealIntro.Text = (deal.DealInformation.introduction != null) ? deal.DealInformation.introduction : string.Empty;
             txtChildPrice.Text = (deal.DealInformation.childPrices != null) ? deal.DealInformation.childPrices : string.Empty;
             txtOptionalExtras.Text = (deal.DealInformation.optionalExtras != null) ? deal.DealInformation.optionalExtras : string.Empty;
             txtPleasenote.Text = (deal.DealInformation.pleaseNote != null) ? deal.DealInformation.pleaseNote : string.Empty;
-            txtHotelText.Text = (deal.DealInformation.hotelBodyText != null) ? deal.DealInformation.hotelBodyText : string.Empty;
-            txtDestinationText.Text = (deal.DealInformation.destinationText != null) ? deal.DealInformation.destinationText : string.Empty;
-            txtCountryText.Text = (deal.DealInformation.countryText != null) ? deal.DealInformation.countryText : string.Empty;
-            txtTripAdvisorLink.Text = (deal.DealInformation.tripAdvisorLink != null) ? deal.DealInformation.tripAdvisorLink : string.Empty;
-            txtKeyInformationText.Text = (deal.DealInformation.keyInformation != null) ? deal.DealInformation.keyInformation.Trim() : string.Empty;
-            txtAccessibilityText.Text = (deal.DealInformation.accessibility != null) ? deal.DealInformation.accessibility.Trim() : string.Empty;
-            txtDestinationTitle.Text = (deal.DealInformation.destinationHeader != null) ? deal.DealInformation.destinationHeader.Trim() : string.Empty;
-            txtCountryTitle.Text = (deal.DealInformation.countryHeader != null) ? deal.DealInformation.countryHeader.Trim() : string.Empty;
+            
+            txtHotelText.Text = (deal.DealInformation.HotelInformation.hotelBodyText != null) ? deal.DealInformation.HotelInformation.hotelBodyText : string.Empty;            
+            txtDestinationText.Text = (deal.DealInformation.HotelInformation.destinationText != null) ? deal.DealInformation.HotelInformation.destinationText : string.Empty;
+            txtCountryText.Text = (deal.DealInformation.HotelInformation.countryText != null) ? deal.DealInformation.HotelInformation.countryText : string.Empty;
+            txtKeyInformationText.Text = (deal.DealInformation.HotelInformation.keyInformation != null) ? deal.DealInformation.HotelInformation.keyInformation.Trim() : string.Empty;
+            txtAccessibilityText.Text = (deal.DealInformation.HotelInformation.accessibility != null) ? deal.DealInformation.HotelInformation.accessibility.Trim() : string.Empty;
+            txtDestinationTitle.Text = (deal.DealInformation.HotelInformation.destinationHeader != null) ? deal.DealInformation.HotelInformation.destinationHeader.Trim() : string.Empty;
+            txtCountryTitle.Text = (deal.DealInformation.HotelInformation.countryHeader != null) ? deal.DealInformation.HotelInformation.countryHeader.Trim() : string.Empty;
+            txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
+            
+            txtTripAdvisorLink.Text = (deal.DealInformation.tripAdvisorLink != null) ? deal.DealInformation.tripAdvisorLink : string.Empty;     
             //cbActiveOnLuxuryWebsite.Checked = deal.DealInformation.dealActive;
             cmbCurrency.SelectedItem = (deal.DealInformation.dealCurrency == null || deal.DealInformation.dealCurrency == string.Empty) ? "GBP" : deal.DealInformation.dealCurrency;
             cmbLanuages.SelectedItem = (deal.DealInformation.language == null || deal.DealInformation.language == string.Empty) ? "English" : deal.DealInformation.language;
-            //cbActiveOnELB.Checked = deal.DealInformation.isActiveOnELB;
-            //cbActiveOnLHC.Checked = deal.DealInformation.isActiveOnLHC;
             ddlPriorities.SelectedItem = (deal.DealInformation.priority != null) ? deal.DealInformation.priority.ToString() : "0";
             cbGoLiveOnBestDealPage.Checked = (deal.DealInformation.goLiveOnBestDealPage != null) ? deal.DealInformation.goLiveOnBestDealPage : false;
             txtPageName.Text = (deal.DealInformation.pageName != null) ? deal.DealInformation.pageName : string.Empty;
