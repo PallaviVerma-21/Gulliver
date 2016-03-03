@@ -29,8 +29,8 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsMain));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -542,6 +542,7 @@ namespace Gulliver
             this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.linkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsReviews = new System.Windows.Forms.BindingSource(this.components);
+            this.cbAirportByAvailability = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.tableLayoutPanel33 = new System.Windows.Forms.TableLayoutPanel();
             this.kryptonLabel31 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lblMMOtherRange = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -572,7 +573,7 @@ namespace Gulliver
             this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
             this.rbNights = new System.Windows.Forms.RadioButton();
             this.rbDays = new System.Windows.Forms.RadioButton();
-            this.cbAirportByAvailability = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.cbShow1NightLessOriginal = new System.Windows.Forms.CheckBox();
             this.kryptonLabel41 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtPageName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -657,7 +658,6 @@ namespace Gulliver
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noOfRoomsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsOptionalExtras = new System.Windows.Forms.BindingSource(this.components);
-            this.cbShow1NightLessOriginal = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -1231,9 +1231,9 @@ namespace Gulliver
             this.dataGridviewContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewContracts.Name = "dataGridviewContracts";
             this.dataGridviewContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridviewContracts.Size = new System.Drawing.Size(567, 196);
             this.dataGridviewContracts.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.dataGridviewContracts.StateCommon.Background.Color2 = System.Drawing.Color.White;
@@ -1356,9 +1356,9 @@ namespace Gulliver
             this.dataGridviewOfferContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewOfferContracts.Name = "dataGridviewOfferContracts";
             this.dataGridviewOfferContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridviewOfferContracts.Size = new System.Drawing.Size(593, 196);
             this.dataGridviewOfferContracts.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.dataGridviewOfferContracts.StateCommon.Background.Color2 = System.Drawing.Color.White;
@@ -1743,7 +1743,7 @@ namespace Gulliver
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.77453F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.22547F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 641F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 642F));
             this.tableLayoutPanel4.Controls.Add(this.cbOcupancy, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.kryptonLabel6, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 2, 2);
@@ -1796,16 +1796,16 @@ namespace Gulliver
             this.flowLayoutPanel1.Controls.Add(this.progressBarTP1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(584, 111);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(583, 111);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(636, 36);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(637, 36);
             this.flowLayoutPanel1.TabIndex = 56;
             // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(543, 3);
+            this.btnNext.Location = new System.Drawing.Point(544, 3);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(90, 25);
             this.btnNext.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -1822,7 +1822,7 @@ namespace Gulliver
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(447, 3);
+            this.btnCancel.Location = new System.Drawing.Point(448, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 25);
             this.btnCancel.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -1839,7 +1839,7 @@ namespace Gulliver
             // 
             // progressBarTP1
             // 
-            this.progressBarTP1.Location = new System.Drawing.Point(313, 3);
+            this.progressBarTP1.Location = new System.Drawing.Point(314, 3);
             this.progressBarTP1.MarqueeAnimationSpeed = 60;
             this.progressBarTP1.Maximum = 60;
             this.progressBarTP1.Name = "progressBarTP1";
@@ -1856,10 +1856,10 @@ namespace Gulliver
             this.cbBoards.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBoards.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbBoards.FormattingEnabled = true;
-            this.cbBoards.Location = new System.Drawing.Point(584, 29);
+            this.cbBoards.Location = new System.Drawing.Point(583, 29);
             this.cbBoards.MultiColumn = true;
             this.cbBoards.Name = "cbBoards";
-            this.cbBoards.Size = new System.Drawing.Size(636, 76);
+            this.cbBoards.Size = new System.Drawing.Size(637, 76);
             this.cbBoards.TabIndex = 57;
             // 
             // flowLayoutPanel19
@@ -1875,7 +1875,7 @@ namespace Gulliver
             this.flowLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel19.Location = new System.Drawing.Point(298, 29);
             this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(280, 76);
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(279, 76);
             this.flowLayoutPanel19.TabIndex = 59;
             // 
             // kryptonLabel54
@@ -1953,7 +1953,7 @@ namespace Gulliver
             // kryptonLabel7
             // 
             this.kryptonLabel7.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.kryptonLabel7.Location = new System.Drawing.Point(584, 3);
+            this.kryptonLabel7.Location = new System.Drawing.Point(583, 3);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(48, 20);
             this.kryptonLabel7.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
@@ -6752,6 +6752,16 @@ namespace Gulliver
             this.bsReviews.DataMember = "Review";
             this.bsReviews.DataSource = this.gulliverDS;
             // 
+            // cbAirportByAvailability
+            // 
+            this.cbAirportByAvailability.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
+            this.cbAirportByAvailability.Location = new System.Drawing.Point(558, 420);
+            this.cbAirportByAvailability.Name = "cbAirportByAvailability";
+            this.cbAirportByAvailability.Size = new System.Drawing.Size(181, 20);
+            this.cbAirportByAvailability.TabIndex = 63;
+            this.cbAirportByAvailability.Text = "Order Airports by Availability";
+            this.cbAirportByAvailability.Values.Text = "Order Airports by Availability";
+            // 
             // tableLayoutPanel33
             // 
             this.tableLayoutPanel33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -6943,6 +6953,7 @@ namespace Gulliver
             this.txtLongitude.Name = "txtLongitude";
             this.txtLongitude.Size = new System.Drawing.Size(231, 20);
             this.txtLongitude.TabIndex = 5;
+            this.txtLongitude.TextChanged += new System.EventHandler(this.txtLongitude_TextChanged);
             // 
             // txtLatitude
             // 
@@ -6952,6 +6963,7 @@ namespace Gulliver
             this.txtLatitude.Name = "txtLatitude";
             this.txtLatitude.Size = new System.Drawing.Size(204, 20);
             this.txtLatitude.TabIndex = 7;
+            this.txtLatitude.TextChanged += new System.EventHandler(this.txtLatitude_TextChanged);
             // 
             // txtMainHeader
             // 
@@ -7104,15 +7116,17 @@ namespace Gulliver
             this.rbDays.Text = "Days";
             this.rbDays.UseVisualStyleBackColor = true;
             // 
-            // cbAirportByAvailability
+            // cbShow1NightLessOriginal
             // 
-            this.cbAirportByAvailability.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbAirportByAvailability.Location = new System.Drawing.Point(558, 420);
-            this.cbAirportByAvailability.Name = "cbAirportByAvailability";
-            this.cbAirportByAvailability.Size = new System.Drawing.Size(181, 20);
-            this.cbAirportByAvailability.TabIndex = 63;
-            this.cbAirportByAvailability.Text = "Order Airports by Availability";
-            this.cbAirportByAvailability.Values.Text = "Order Airports by Availability";
+            this.cbShow1NightLessOriginal.AutoSize = true;
+            this.cbShow1NightLessOriginal.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShow1NightLessOriginal.Location = new System.Drawing.Point(144, 3);
+            this.cbShow1NightLessOriginal.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.cbShow1NightLessOriginal.Name = "cbShow1NightLessOriginal";
+            this.cbShow1NightLessOriginal.Size = new System.Drawing.Size(199, 19);
+            this.cbShow1NightLessOriginal.TabIndex = 67;
+            this.cbShow1NightLessOriginal.Text = "Show 1 night less than original.";
+            this.cbShow1NightLessOriginal.UseVisualStyleBackColor = true;
             // 
             // kryptonLabel41
             // 
@@ -7966,18 +7980,6 @@ namespace Gulliver
             // 
             this.bsOptionalExtras.DataMember = "OptionalExtra";
             this.bsOptionalExtras.DataSource = this.gulliverDS;
-            // 
-            // cbShow1NightLessOriginal
-            // 
-            this.cbShow1NightLessOriginal.AutoSize = true;
-            this.cbShow1NightLessOriginal.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbShow1NightLessOriginal.Location = new System.Drawing.Point(144, 3);
-            this.cbShow1NightLessOriginal.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
-            this.cbShow1NightLessOriginal.Name = "cbShow1NightLessOriginal";
-            this.cbShow1NightLessOriginal.Size = new System.Drawing.Size(199, 19);
-            this.cbShow1NightLessOriginal.TabIndex = 67;
-            this.cbShow1NightLessOriginal.Text = "Show 1 night less than original.";
-            this.cbShow1NightLessOriginal.UseVisualStyleBackColor = true;
             // 
             // flcsMain
             // 

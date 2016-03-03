@@ -153,7 +153,7 @@ namespace Gulliver
                 packageHandler.SaveAutoUpdateSettings(gulliverUpdateSettings, deal.id);
                 this.Close();
             }
-            catch (Exception ex) { }
+            catch { }
         }
         
         private void btnSave_Click(object sender, EventArgs e)

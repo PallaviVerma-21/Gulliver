@@ -463,10 +463,7 @@ namespace Gulliver
             tabMain.SelectedTab = tabPage3;
         }
 
-        private void btnPackagesCancel_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void ddlMedias_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -575,7 +572,6 @@ namespace Gulliver
 
             try
             {
-
                 if (deal.DealInformation != null)
                     deal.DealInformation = new GulliverLibrary.DealInformation();
 
@@ -594,13 +590,11 @@ namespace Gulliver
                 deal.DealInformation.destinationText = txtDestinationText.Text.Trim();
                 deal.DealInformation.countryText = txtCountryText.Text.Trim();
                 deal.DealInformation.tripAdvisorLink = txtTripAdvisorLink.Text.Trim();
-                deal.DealInformation.dealActive = cbActiveOnLuxuryWebsite.Checked;
+                //deal.DealInformation.dealActive = cbActiveOnLuxuryWebsite.Checked;
                 deal.DealInformation.accessibility = txtAccessibilityText.Text;
                 deal.DealInformation.keyInformation = txtKeyInformationText.Text;
                 deal.DealInformation.dealCurrency = cmbCurrency.SelectedItem.ToString();
                 deal.DealInformation.language = cmbLanuages.SelectedItem.ToString();
-                //deal.DealInformation.isActiveOnLHC = cbActiveOnLHC.Checked;
-                //deal.DealInformation.isActiveOnELB = cbActiveOnELB.Checked;
                 deal.DealInformation.pageName = txtPageName.Text.Trim();
                 deal.DealInformation.leadPrice = txtLeadPrice.Text.Trim();
                 deal.DealInformation.bestDealHeader = txtBestDealHeader.Text.Trim();
@@ -657,15 +651,11 @@ namespace Gulliver
 
                 deal.DealImages = dealImages;
                 deal.DealReviews = dealReviews;
-                //deal.DealExtras = optionalCostings;
-
+        
                 if (deal.id != 0)
-                {
-                    packageHandler.SaveDealInformation(deal);
-                    //this.save = true;
-                }
+                packageHandler.SaveDealInformation(deal);                   
                 else
-                    lblError.Text = "Please save the deal before add any deal information for page!";
+                lblError.Text = "Please save the deal before add any deal information for page!";
 
                 lblMessage.Visible = true;
             }
@@ -1654,7 +1644,7 @@ namespace Gulliver
             txtAccessibilityText.Text = (deal.DealInformation.accessibility != null) ? deal.DealInformation.accessibility.Trim() : string.Empty;
             txtDestinationTitle.Text = (deal.DealInformation.destinationHeader != null) ? deal.DealInformation.destinationHeader.Trim() : string.Empty;
             txtCountryTitle.Text = (deal.DealInformation.countryHeader != null) ? deal.DealInformation.countryHeader.Trim() : string.Empty;
-            cbActiveOnLuxuryWebsite.Checked = deal.DealInformation.dealActive;
+            //cbActiveOnLuxuryWebsite.Checked = deal.DealInformation.dealActive;
             cmbCurrency.SelectedItem = (deal.DealInformation.dealCurrency == null || deal.DealInformation.dealCurrency == string.Empty) ? "GBP" : deal.DealInformation.dealCurrency;
             cmbLanuages.SelectedItem = (deal.DealInformation.language == null || deal.DealInformation.language == string.Empty) ? "English" : deal.DealInformation.language;
             //cbActiveOnELB.Checked = deal.DealInformation.isActiveOnELB;
@@ -1705,6 +1695,18 @@ namespace Gulliver
                 foreach (GulliverLibrary.Review review in deal.DealReviews)
                     gulliverDS.Review.AddReviewRow(review.id, "Delete", review.date, review.source, review.stars, review.title, review.text, review.link);
             }
+        }
+
+        private void FillHotelInformation(GulliverLibrary.HotelInformation hotelInformation)
+        {
+            txtHotelText.Text = hotelInformation.hotelBodyText;
+            txtHotelTitle.Text = hotelInformation.hotelHeader;
+            txtDestinationTitle.Text = hotelInformation.destinationHeader;
+            txtDestinationTitle.Text = hotelInformation.destinationText;
+            txtCountryTitle.Text = hotelInformation.countryHeader;
+            txtCountryText.Text = hotelInformation.countryText;
+            txtKeyInformationText.Text = hotelInformation.keyInformation;
+            txtAccessibilityText.Text = hotelInformation.accessibility;
         }
         
         #endregion
@@ -2920,6 +2922,21 @@ namespace Gulliver
         
         #endregion                      
 
+        private void txtLongitude_TextChanged(object sender, EventArgs e)
+        {
+            GulliverLibrary.HotelInformation hotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);
+
+            if (hotelInformation != null)
+                FillHotelInformation(hotelInformation);
+        }
+
+        private void txtLatitude_TextChanged(object sender, EventArgs e)
+        {
+            GulliverLibrary.HotelInformation hotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);
+           
+            if (hotelInformation != null)
+                FillHotelInformation(hotelInformation);
+        } 
         
                           
     }
