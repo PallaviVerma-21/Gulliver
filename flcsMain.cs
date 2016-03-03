@@ -53,6 +53,7 @@ namespace Gulliver
             SetupDefaultWindow(false);            
             FillDeal(id);
             DisplayDefaultColumns();
+            
         }
 
 
@@ -462,9 +463,7 @@ namespace Gulliver
         {
             tabMain.SelectedTab = tabPage3;
         }
-
-     
-
+        
         private void ddlMedias_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlMedias.SelectedItem != null)
@@ -506,6 +505,31 @@ namespace Gulliver
             EnableDisableChildPrices(cbOcupancy.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()).ToList());
             FillOccupancyComboBox(cbOcupancy.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()).ToList());
         }
+
+        private void txtLongitude_TextChanged(object sender, EventArgs e)
+        {
+            if (txtLongitude.Text.Trim() != string.Empty && txtLatitude.Text.Trim() != string.Empty)
+            {
+                GulliverLibrary.HotelInformation hotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);
+
+                if (hotelInformation != null)
+                    FillHotelInformation(hotelInformation);
+            }
+        }
+
+        private void txtLatitude_TextChanged(object sender, EventArgs e)
+        {
+            GulliverLibrary.HotelInformation hotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);
+
+            if (hotelInformation != null)
+            {
+                if (deal.DealInformation == null)
+                    deal.DealInformation = new GulliverLibrary.DealInformation();
+
+                deal.DealInformation.HotelInformation = hotelInformation;
+                FillHotelInformation(hotelInformation);
+            }
+        } 
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -580,27 +604,28 @@ namespace Gulliver
                 deal.DealInformation.subHeader = txtSubHeader.Text.Trim();
                 deal.DealInformation.longitude = txtLongitude.Text.Trim();
                 deal.DealInformation.latitude = txtLatitude.Text.Trim();
-                deal.DealInformation.hotelHeader = txtHotelTitle.Text.Trim();
+                deal.DealInformation.HotelInformation.hotelHeader = txtHotelTitle.Text.Trim();
                 deal.DealInformation.youTubeLink = txtYouTubeLink.Text.Trim();
                 deal.DealInformation.introduction = txtDealIntro.Text.Trim();
                 deal.DealInformation.childPrices = txtChildPrice.Text.Trim();
                 deal.DealInformation.optionalExtras = txtOptionalExtras.Text.Trim();
                 deal.DealInformation.pleaseNote = txtPleasenote.Text.Trim();
-                deal.DealInformation.hotelBodyText = txtHotelText.Text.Trim();
-                deal.DealInformation.destinationText = txtDestinationText.Text.Trim();
-                deal.DealInformation.countryText = txtCountryText.Text.Trim();
+                deal.DealInformation.HotelInformation.hotelBodyText = txtHotelText.Text.Trim();
+                deal.DealInformation.HotelInformation.destinationText = txtDestinationText.Text.Trim();
+                deal.DealInformation.HotelInformation.countryText = txtCountryText.Text.Trim();
                 deal.DealInformation.tripAdvisorLink = txtTripAdvisorLink.Text.Trim();
                 //deal.DealInformation.dealActive = cbActiveOnLuxuryWebsite.Checked;
-                deal.DealInformation.accessibility = txtAccessibilityText.Text;
-                deal.DealInformation.keyInformation = txtKeyInformationText.Text;
+
+                deal.DealInformation.HotelInformation.accessibility = txtAccessibilityText.Text;
+                deal.DealInformation.HotelInformation.keyInformation = txtKeyInformationText.Text;
                 deal.DealInformation.dealCurrency = cmbCurrency.SelectedItem.ToString();
                 deal.DealInformation.language = cmbLanuages.SelectedItem.ToString();
                 deal.DealInformation.pageName = txtPageName.Text.Trim();
                 deal.DealInformation.leadPrice = txtLeadPrice.Text.Trim();
                 deal.DealInformation.bestDealHeader = txtBestDealHeader.Text.Trim();
                 deal.DealInformation.bestDealDescription = txtBestDealDescription.Text.Trim();
-                deal.DealInformation.destinationHeader = txtDestinationTitle.Text.Trim();
-                deal.DealInformation.countryHeader = txtCountryTitle.Text.Trim();
+                deal.DealInformation.HotelInformation.destinationHeader = txtDestinationTitle.Text.Trim();
+                deal.DealInformation.HotelInformation.countryHeader = txtCountryTitle.Text.Trim();
                 deal.DealInformation.brand = (ddlBrand.SelectedItem != null) ? ddlBrand.SelectedItem.ToString() : string.Empty;
                 deal.DealInformation.topHeader = txtTopHeader.Text.Trim();
                 deal.DealInformation.defaultDuration = (ddlDurations.SelectedItem != null && ddlDurations.SelectedItem != string.Empty) ? Convert.ToInt32(ddlDurations.SelectedItem) : 0;
@@ -1702,7 +1727,7 @@ namespace Gulliver
             txtHotelText.Text = hotelInformation.hotelBodyText;
             txtHotelTitle.Text = hotelInformation.hotelHeader;
             txtDestinationTitle.Text = hotelInformation.destinationHeader;
-            txtDestinationTitle.Text = hotelInformation.destinationText;
+            txtDestinationText.Text = hotelInformation.destinationText;
             txtCountryTitle.Text = hotelInformation.countryHeader;
             txtCountryText.Text = hotelInformation.countryText;
             txtKeyInformationText.Text = hotelInformation.keyInformation;
@@ -2922,21 +2947,7 @@ namespace Gulliver
         
         #endregion                      
 
-        private void txtLongitude_TextChanged(object sender, EventArgs e)
-        {
-            GulliverLibrary.HotelInformation hotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);
-
-            if (hotelInformation != null)
-                FillHotelInformation(hotelInformation);
-        }
-
-        private void txtLatitude_TextChanged(object sender, EventArgs e)
-        {
-            GulliverLibrary.HotelInformation hotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);
-           
-            if (hotelInformation != null)
-                FillHotelInformation(hotelInformation);
-        } 
+     
         
                           
     }
