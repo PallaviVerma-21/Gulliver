@@ -205,7 +205,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>RcKfcDeS+CR2+mcGo8v0YSYaG4w=</dsig:DigestValue>
+        <dsig:DigestValue>ALYQyd6cXdbd6sRAvHjSXEml7N8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -270,14 +270,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="455168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="439808">
       <assemblyIdentity name="MySql.Data" version="6.8.3.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>/t99DiymXcXoReV5TUlA6d9gii4=</dsig:DigestValue>
+        <dsig:DigestValue>rEZNaeyGuREILaw5w3jUpuxEPgY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -342,14 +342,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PackageGenerator.dll" size="80896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PackageGenerator.dll" size="82432">
       <assemblyIdentity name="PackageGenerator" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>5/SqQN9FxEchkqHfCTpwC0093p8=</dsig:DigestValue>
+        <dsig:DigestValue>bvZ87+I2cmvMwRuUFdxKs9h9iYQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
