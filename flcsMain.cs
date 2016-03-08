@@ -1408,7 +1408,7 @@ namespace Gulliver
             int count = 0;
             foreach (GulliverLibrary.Package p in packages)
                 packagesDS.Package.AddPackageRow("Delete", p.id, count, (p.leading) ? 1 : 0, p.date.ToString("MMMM"), p.date.DayOfWeek.ToString(), p.date, "", p.hotelKey, p.departureAirport.Trim(), p.destinationAirport.Trim(), p.duration, p.obDepartureTime, p.obArrivalTime, p.ibDepartureTime, p.ibArrivalTime, p.board, p.flightPrice, p.airline, p.obFlightNo, p.ibFlightNo, p.roomType, p.occupancy,
-                    p.adults, p.children, p.infants, Math.Round(p.hotelPrice,2), Math.Round(p.childHotelPrice), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting, p.commission, p.profit, p.nett, p.sellAt, p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), p.status, p.oldSellAt);
+                    p.adults, p.children, p.infants, Math.Round(p.hotelPrice,2), Math.Round(p.childHotelPrice), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting,p.carParkingCosting, p.commission, p.profit, p.nett, p.sellAt, p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), p.status, p.oldSellAt);
 
             lblTotal.Text = (packages.Count > 0) ? "Total: " + packages.Count + " holidays" : "Total: " + packages.Count + " holiday";
 
