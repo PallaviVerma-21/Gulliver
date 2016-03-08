@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Xa6jVLjpw1x33vQubpigN3JO/Sk=</dsig:DigestValue>
+        <dsig:DigestValue>bQFnwq6j4MDauC8Aj4CeCLQB1Eo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -169,7 +169,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>kAoCSali6hIeUSphCDOILHOwueU=</dsig:DigestValue>
+        <dsig:DigestValue>mqT5HURFpiw4ZM6XjvD/dbqrK8w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -205,7 +205,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>FiDtMOxF52wu8YKl8XXSml7O3rU=</dsig:DigestValue>
+        <dsig:DigestValue>Pdf1sbvCEMoa4/vcUlkzx4Y8Bvg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -289,7 +289,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9p1XqRiUhniE5bdpFdUCpPoJIG8=</dsig:DigestValue>
+        <dsig:DigestValue>0YTg/8IC4FxMopE0so/cnp3p4V8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -349,7 +349,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>KoTrYdwjQtCLiraoJqz0u12rs5g=</dsig:DigestValue>
+        <dsig:DigestValue>MA5Pdask7+ISWBGluUvGUsn1+1s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

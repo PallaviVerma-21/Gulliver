@@ -423,6 +423,8 @@ namespace Gulliver {
             
             private global::System.Data.DataColumn columncarhireCosting;
             
+            private global::System.Data.DataColumn columncarParkingCosting;
+            
             private global::System.Data.DataColumn columncommission;
             
             private global::System.Data.DataColumn columnprofit;
@@ -772,6 +774,14 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn carParkingCostingColumn {
+                get {
+                    return this.columncarParkingCosting;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn commissionColumn {
                 get {
                     return this.columncommission;
@@ -917,6 +927,7 @@ namespace Gulliver {
                         decimal totalMarkup, 
                         decimal totalChildMarkup, 
                         decimal carhireCosting, 
+                        decimal carParkingCosting, 
                         decimal commission, 
                         decimal profit, 
                         decimal nett, 
@@ -965,6 +976,7 @@ namespace Gulliver {
                         totalMarkup,
                         totalChildMarkup,
                         carhireCosting,
+                        carParkingCosting,
                         commission,
                         profit,
                         nett,
@@ -1033,6 +1045,7 @@ namespace Gulliver {
                 this.columntotalMarkup = base.Columns["totalMarkup"];
                 this.columntotalChildMarkup = base.Columns["totalChildMarkup"];
                 this.columncarhireCosting = base.Columns["carhireCosting"];
+                this.columncarParkingCosting = base.Columns["carParkingCosting"];
                 this.columncommission = base.Columns["commission"];
                 this.columnprofit = base.Columns["profit"];
                 this.columnnett = base.Columns["nett"];
@@ -1121,6 +1134,8 @@ namespace Gulliver {
                 base.Columns.Add(this.columntotalChildMarkup);
                 this.columncarhireCosting = new global::System.Data.DataColumn("carhireCosting", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncarhireCosting);
+                this.columncarParkingCosting = new global::System.Data.DataColumn("carParkingCosting", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncarParkingCosting);
                 this.columncommission = new global::System.Data.DataColumn("commission", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncommission);
                 this.columnprofit = new global::System.Data.DataColumn("profit", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -3054,6 +3069,22 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal carParkingCosting {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablePackage.carParkingCostingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'carParkingCosting\' in table \'Package\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackage.carParkingCostingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal commission {
                 get {
                     try {
@@ -3638,6 +3669,18 @@ namespace Gulliver {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetcarhireCostingNull() {
                 this[this.tablePackage.carhireCostingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscarParkingCostingNull() {
+                return this.IsNull(this.tablePackage.carParkingCostingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcarParkingCostingNull() {
+                this[this.tablePackage.carParkingCostingColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -294,6 +294,7 @@ namespace Gulliver
                             Deal = deal,
                             status = h.status,
                             carhireCosting = h.carhireCosting,
+                            carParkingCosting = 
                             profit = h.profit,
                             hotelKey = h.hotelKey,
                             leading = (h.flightId == 1) ? true : false,
