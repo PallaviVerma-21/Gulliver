@@ -48,13 +48,13 @@ namespace Gulliver
             this.cbPackageColumns = new System.Windows.Forms.CheckedListBox();
             this.btnPackageColumnShow = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.dataGridViewHolidays = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.bsHolidays = new System.Windows.Forms.BindingSource(this.components);
+            this.packagesDS = new Gulliver.PackagesDS();
             this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
             this.fiterStatusLabelH = new System.Windows.Forms.ToolStripStatusLabel();
             this.showAllLabelH = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTotal = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.bsHolidays = new System.Windows.Forms.BindingSource(this.components);
-            this.packagesDS = new Gulliver.PackagesDS();
             this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewAutoFilterTextBoxColumn1 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
@@ -113,24 +113,27 @@ namespace Gulliver
             this.dateOfWeek = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.date = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.duration = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.flightPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.airline = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.hotelPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.childHotelPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.boardBasis = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.caa = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.roomType = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.occupancy = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.flightPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.hotelPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.caa = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.transfers = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.baggagePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carhireCosting = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.extras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.totalMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.commission = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.profit = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.nett = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.commission = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.totalMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.sellAt = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.oldSellAt = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.profit = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.childHotelPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.childExtras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.childNett = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.totalChildMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.childSellat = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.SearchType = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.destinationAirport = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
@@ -144,9 +147,6 @@ namespace Gulliver
             this.children = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.infants = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.baseMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.totalChildMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.childExtras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.carhireCosting = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -155,9 +155,9 @@ namespace Gulliver
             this.kryptonHeaderGroup3.Panel.SuspendLayout();
             this.kryptonHeaderGroup3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHolidays)).BeginInit();
-            this.statusstripHolidays.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsHolidays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDS)).BeginInit();
+            this.statusstripHolidays.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -428,24 +428,27 @@ namespace Gulliver
             this.dateOfWeek,
             this.date,
             this.duration,
-            this.flightPrice,
             this.airline,
-            this.hotelPrice,
-            this.childHotelPrice,
             this.boardBasis,
-            this.caa,
             this.roomType,
             this.occupancy,
+            this.flightPrice,
+            this.hotelPrice,
+            this.caa,
             this.transfers,
             this.baggagePrice,
+            this.carhireCosting,
             this.extras,
-            this.totalMarkup,
-            this.commission,
-            this.profit,
             this.nett,
+            this.commission,
+            this.totalMarkup,
             this.sellAt,
             this.oldSellAt,
+            this.profit,
+            this.childHotelPrice,
+            this.childExtras,
             this.childNett,
+            this.totalChildMarkup,
             this.childSellat,
             this.SearchType,
             this.destinationAirport,
@@ -458,10 +461,7 @@ namespace Gulliver
             this.adults,
             this.children,
             this.infants,
-            this.baseMarkup,
-            this.totalChildMarkup,
-            this.childExtras,
-            this.carhireCosting});
+            this.baseMarkup});
             this.dataGridViewHolidays.DataSource = this.bsHolidays;
             this.dataGridViewHolidays.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewHolidays.Location = new System.Drawing.Point(0, 0);
@@ -475,6 +475,16 @@ namespace Gulliver
             this.dataGridViewHolidays.TabIndex = 0;
             this.dataGridViewHolidays.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewHolidays_DataBindingComplete);
             this.dataGridViewHolidays.Click += new System.EventHandler(this.dataGridViewHolidays_Click);
+            // 
+            // bsHolidays
+            // 
+            this.bsHolidays.DataMember = "Package";
+            this.bsHolidays.DataSource = this.packagesDS;
+            // 
+            // packagesDS
+            // 
+            this.packagesDS.DataSetName = "PackagesDS";
+            this.packagesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // statusstripHolidays
             // 
@@ -516,16 +526,6 @@ namespace Gulliver
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(100, 16);
             this.progressBar.Visible = false;
-            // 
-            // bsHolidays
-            // 
-            this.bsHolidays.DataMember = "Package";
-            this.bsHolidays.DataSource = this.packagesDS;
-            // 
-            // packagesDS
-            // 
-            this.packagesDS.DataSetName = "PackagesDS";
-            this.packagesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridViewLinkColumn1
             // 
@@ -981,14 +981,6 @@ namespace Gulliver
             this.duration.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.duration.Width = 60;
             // 
-            // flightPrice
-            // 
-            this.flightPrice.DataPropertyName = "flightPrice";
-            this.flightPrice.HeaderText = "Flight";
-            this.flightPrice.Name = "flightPrice";
-            this.flightPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.flightPrice.Width = 60;
-            // 
             // airline
             // 
             this.airline.DataPropertyName = "airline";
@@ -997,21 +989,6 @@ namespace Gulliver
             this.airline.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.airline.Width = 110;
             // 
-            // hotelPrice
-            // 
-            this.hotelPrice.DataPropertyName = "hotelPrice";
-            this.hotelPrice.HeaderText = "Accom";
-            this.hotelPrice.Name = "hotelPrice";
-            this.hotelPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.hotelPrice.Width = 50;
-            // 
-            // childHotelPrice
-            // 
-            this.childHotelPrice.DataPropertyName = "childHotelPrice";
-            this.childHotelPrice.HeaderText = "C. Accom";
-            this.childHotelPrice.Name = "childHotelPrice";
-            this.childHotelPrice.Width = 50;
-            // 
             // boardBasis
             // 
             this.boardBasis.DataPropertyName = "board";
@@ -1019,14 +996,6 @@ namespace Gulliver
             this.boardBasis.Name = "boardBasis";
             this.boardBasis.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.boardBasis.Width = 50;
-            // 
-            // caa
-            // 
-            this.caa.DataPropertyName = "caa";
-            this.caa.HeaderText = "CAA";
-            this.caa.Name = "caa";
-            this.caa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.caa.Width = 60;
             // 
             // roomType
             // 
@@ -1044,6 +1013,30 @@ namespace Gulliver
             this.occupancy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.occupancy.Width = 80;
             // 
+            // flightPrice
+            // 
+            this.flightPrice.DataPropertyName = "flightPrice";
+            this.flightPrice.HeaderText = "Flight";
+            this.flightPrice.Name = "flightPrice";
+            this.flightPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.flightPrice.Width = 60;
+            // 
+            // hotelPrice
+            // 
+            this.hotelPrice.DataPropertyName = "hotelPrice";
+            this.hotelPrice.HeaderText = "Accom";
+            this.hotelPrice.Name = "hotelPrice";
+            this.hotelPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.hotelPrice.Width = 50;
+            // 
+            // caa
+            // 
+            this.caa.DataPropertyName = "caa";
+            this.caa.HeaderText = "CAA";
+            this.caa.Name = "caa";
+            this.caa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.caa.Width = 60;
+            // 
             // transfers
             // 
             this.transfers.DataPropertyName = "transfers";
@@ -1058,6 +1051,14 @@ namespace Gulliver
             this.baggagePrice.HeaderText = "Baggage Price";
             this.baggagePrice.Name = "baggagePrice";
             // 
+            // carhireCosting
+            // 
+            this.carhireCosting.DataPropertyName = "carhireCosting";
+            this.carhireCosting.HeaderText = "Carhire";
+            this.carhireCosting.Name = "carhireCosting";
+            this.carhireCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.carhireCosting.Width = 60;
+            // 
             // extras
             // 
             this.extras.DataPropertyName = "extras";
@@ -1065,30 +1066,6 @@ namespace Gulliver
             this.extras.Name = "extras";
             this.extras.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.extras.Width = 60;
-            // 
-            // totalMarkup
-            // 
-            this.totalMarkup.DataPropertyName = "totalMarkup";
-            this.totalMarkup.HeaderText = "Markup";
-            this.totalMarkup.Name = "totalMarkup";
-            this.totalMarkup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.totalMarkup.Width = 60;
-            // 
-            // commission
-            // 
-            this.commission.DataPropertyName = "commission";
-            this.commission.HeaderText = "Commission";
-            this.commission.Name = "commission";
-            this.commission.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.commission.Width = 80;
-            // 
-            // profit
-            // 
-            this.profit.DataPropertyName = "profit";
-            this.profit.HeaderText = "Profit";
-            this.profit.Name = "profit";
-            this.profit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.profit.Width = 60;
             // 
             // nett
             // 
@@ -1098,10 +1075,26 @@ namespace Gulliver
             this.nett.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.nett.Width = 60;
             // 
+            // commission
+            // 
+            this.commission.DataPropertyName = "commission";
+            this.commission.HeaderText = "Commission";
+            this.commission.Name = "commission";
+            this.commission.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.commission.Width = 80;
+            // 
+            // totalMarkup
+            // 
+            this.totalMarkup.DataPropertyName = "totalMarkup";
+            this.totalMarkup.HeaderText = "Markup";
+            this.totalMarkup.Name = "totalMarkup";
+            this.totalMarkup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.totalMarkup.Width = 60;
+            // 
             // sellAt
             // 
             this.sellAt.DataPropertyName = "sellAt";
-            this.sellAt.HeaderText = "Sell At";
+            this.sellAt.HeaderText = "SellAt";
             this.sellAt.Name = "sellAt";
             this.sellAt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.sellAt.Width = 60;
@@ -1114,12 +1107,41 @@ namespace Gulliver
             this.oldSellAt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.oldSellAt.Width = 60;
             // 
+            // profit
+            // 
+            this.profit.DataPropertyName = "profit";
+            this.profit.HeaderText = "Profit";
+            this.profit.Name = "profit";
+            this.profit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.profit.Width = 60;
+            // 
+            // childHotelPrice
+            // 
+            this.childHotelPrice.DataPropertyName = "childHotelPrice";
+            this.childHotelPrice.HeaderText = "C. Accom";
+            this.childHotelPrice.Name = "childHotelPrice";
+            this.childHotelPrice.Width = 50;
+            // 
+            // childExtras
+            // 
+            this.childExtras.DataPropertyName = "childExtras";
+            this.childExtras.HeaderText = "C. Extras";
+            this.childExtras.Name = "childExtras";
+            this.childExtras.Width = 60;
+            // 
             // childNett
             // 
             this.childNett.DataPropertyName = "childNett";
             this.childNett.HeaderText = "C. Nett";
             this.childNett.Name = "childNett";
             this.childNett.Width = 60;
+            // 
+            // totalChildMarkup
+            // 
+            this.totalChildMarkup.DataPropertyName = "totalChildMarkup";
+            this.totalChildMarkup.HeaderText = "C. Markups";
+            this.totalChildMarkup.Name = "totalChildMarkup";
+            this.totalChildMarkup.Width = 60;
             // 
             // childSellat
             // 
@@ -1223,29 +1245,8 @@ namespace Gulliver
             this.baseMarkup.HeaderText = "Base M";
             this.baseMarkup.Name = "baseMarkup";
             this.baseMarkup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.baseMarkup.Visible = false;
             this.baseMarkup.Width = 60;
-            // 
-            // totalChildMarkup
-            // 
-            this.totalChildMarkup.DataPropertyName = "totalChildMarkup";
-            this.totalChildMarkup.HeaderText = "C. Markups";
-            this.totalChildMarkup.Name = "totalChildMarkup";
-            this.totalChildMarkup.Width = 60;
-            // 
-            // childExtras
-            // 
-            this.childExtras.DataPropertyName = "childExtras";
-            this.childExtras.HeaderText = "C. Extras";
-            this.childExtras.Name = "childExtras";
-            this.childExtras.Width = 60;
-            // 
-            // carhireCosting
-            // 
-            this.carhireCosting.DataPropertyName = "carhireCosting";
-            this.carhireCosting.HeaderText = "Carhire";
-            this.carhireCosting.Name = "carhireCosting";
-            this.carhireCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.carhireCosting.Width = 60;
             // 
             // flcsPackages
             // 
@@ -1266,10 +1267,10 @@ namespace Gulliver
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup3)).EndInit();
             this.kryptonHeaderGroup3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHolidays)).EndInit();
-            this.statusstripHolidays.ResumeLayout(false);
-            this.statusstripHolidays.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsHolidays)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDS)).EndInit();
+            this.statusstripHolidays.ResumeLayout(false);
+            this.statusstripHolidays.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1303,52 +1304,6 @@ namespace Gulliver
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbFinalizePrices;
         private ComponentFactory.Krypton.Toolkit.KryptonDropButton btnPackageColumnShow;
         private System.Windows.Forms.CheckedListBox cbPackageColumns;
-        private System.Windows.Forms.DataGridViewLinkColumn delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn hotelKey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hiddenNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn flightId;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn Summary;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn Status;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn departureAirport;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn month;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dateOfWeek;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn date;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn duration;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn flightPrice;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn airline;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn hotelPrice;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childHotelPrice;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn boardBasis;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn caa;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn roomType;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn occupancy;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn transfers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn baggagePrice;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn extras;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn totalMarkup;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn commission;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn profit;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn nett;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn sellAt;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn oldSellAt;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childNett;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childSellat;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn SearchType;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn destinationAirport;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn obDepartureTime;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn obArrivalTime;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn ibDepartureTime;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn ibArrivalTime;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn obFlightNo;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn ibFlightNo;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn adults;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn children;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn infants;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn baseMarkup;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn totalChildMarkup;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childExtras;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn carhireCosting;
         private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn1;
@@ -1395,6 +1350,52 @@ namespace Gulliver
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn39;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn40;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn41;
+        private System.Windows.Forms.DataGridViewLinkColumn delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn hotelKey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hiddenNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn flightId;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn Summary;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn Status;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn departureAirport;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn month;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dateOfWeek;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn date;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn duration;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn airline;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn boardBasis;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn roomType;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn occupancy;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn flightPrice;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn hotelPrice;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn caa;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn transfers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn baggagePrice;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn carhireCosting;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn extras;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn nett;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn commission;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn totalMarkup;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn sellAt;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn oldSellAt;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn profit;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childHotelPrice;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childExtras;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childNett;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn totalChildMarkup;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childSellat;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn SearchType;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn destinationAirport;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn obDepartureTime;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn obArrivalTime;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn ibDepartureTime;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn ibArrivalTime;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn obFlightNo;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn ibFlightNo;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn adults;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn children;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn infants;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn baseMarkup;
     }
 }
 

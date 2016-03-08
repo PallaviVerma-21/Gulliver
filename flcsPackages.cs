@@ -294,7 +294,7 @@ namespace Gulliver
                             Deal = deal,
                             status = h.status,
                             carhireCosting = h.carhireCosting,
-                            profit = ((travelZooSuppliers.Contains(supplierId) || timesSuppliers.Contains(supplierId)) ? h.profit : 0),
+                            profit = h.profit,
                             hotelKey = h.hotelKey,
                             leading = (h.flightId == 1) ? true : false,
                             oldSellAt = h.oldSellAt,

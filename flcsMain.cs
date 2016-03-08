@@ -485,7 +485,7 @@ namespace Gulliver
                     DisplayDurationCostings(true);
                     EnableDisableCommission(false);
                 }
-                else if (PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers").Contains(mediaId))
+                else if (PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers").Contains(mediaId) || PackageGenerator.Tool.GetSuppliersBySuppliertype("widjectsuppliers").Contains(mediaId))
                 {
                     DisplaySECostings(false);
                     DisplayDurationCostings(true);
@@ -1387,20 +1387,20 @@ namespace Gulliver
             destiantionAirportComboBox.DataSource = destinationAirports;
         }       
 
-        private void FillHolidays(List<GulliverLibrary.Package> packages)
-        {
-            this.packagesDS.Package.Clear();
-            DataGridViewAutoFilterTextBoxColumn.RemoveFilter(dataGridViewHolidays);
-            int count = 0;
+        //private void FillHolidays(List<GulliverLibrary.Package> packages)
+        //{
+        //    this.packagesDS.Package.Clear();
+        //    DataGridViewAutoFilterTextBoxColumn.RemoveFilter(dataGridViewHolidays);
+        //    int count = 0;
 
-            foreach (GulliverLibrary.Package h in packages)
-            {
-                this.packagesDS.Package.AddPackageRow("Delete", h.id, count, (h.leading) ? 1 : 0, h.date.ToString("MMMM"), h.date.DayOfWeek.ToString(), h.date, string.Empty, h.hotelKey, h.departureAirport, h.destinationAirport, h.duration, h.obDepartureTime.Trim(), h.obArrivalTime.Trim(), h.ibDepartureTime.Trim(), h.ibArrivalTime.Trim(), h.board.Trim(), Math.Round(h.flightPrice, 2), h.airline, h.obFlightNo, h.ibFlightNo, h.roomType, h.occupancy, h.adults, h.children, h.infants, Math.Round(h.hotelPrice, 2), Math.Round(h.childHotelPrice), h.caa, h.baggagePrice, h.transfers, h.extras, h.childExtras, h.baseMarkup, h.totalMarkup, h.totalChildMarkup, h.carhireCosting, Math.Round(h.commission, 2), Math.Round(h.profit, 2), Math.Round(h.nett, 2), Convert.ToInt32(h.sellAt), h.childNett, h.childSellat, ((h.searchType == 1) ? "FAB" : "Flightsheet"), h.status, ((h.oldSellAt != null) ? Convert.ToInt32(h.oldSellAt) : 0));
-                count++;
-            }
+        //    foreach (GulliverLibrary.Package h in packages)
+        //    {
+        //        this.packagesDS.Package.AddPackageRow("Delete", h.id, count, (h.leading) ? 1 : 0, h.date.ToString("MMMM"), h.date.DayOfWeek.ToString(), h.date, string.Empty, h.hotelKey, h.departureAirport, h.destinationAirport, h.duration, h.obDepartureTime.Trim(), h.obArrivalTime.Trim(), h.ibDepartureTime.Trim(), h.ibArrivalTime.Trim(), h.board.Trim(), Math.Round(h.flightPrice, 2), h.airline, h.obFlightNo, h.ibFlightNo, h.roomType, h.occupancy, h.adults, h.children, h.infants, Math.Round(h.hotelPrice, 2), Math.Round(h.childHotelPrice), h.caa, h.baggagePrice, h.transfers, h.extras, h.childExtras, h.baseMarkup, h.totalMarkup, h.totalChildMarkup, h.carhireCosting, Math.Round(h.commission, 2), Math.Round(h.profit, 2), Math.Round(h.nett, 2), Convert.ToInt32(h.sellAt), h.childNett, h.childSellat, ((h.searchType == 1) ? "FAB" : "Flightsheet"), h.status, ((h.oldSellAt != null) ? Convert.ToInt32(h.oldSellAt) : 0));
+        //        count++;
+        //    }
 
-            lblTotal.Text = (packages.Count > 0) ? "Total: " + packages.Count + " holidays" : "Total: " + packages.Count + " holiday";
-        }
+        //    lblTotal.Text = (packages.Count > 0) ? "Total: " + packages.Count + " holidays" : "Total: " + packages.Count + " holiday";
+        //}
 
         private void FillPackages(List<GulliverLibrary.Package> packages)
         {
@@ -1408,7 +1408,7 @@ namespace Gulliver
             int count = 0;
             foreach (GulliverLibrary.Package p in packages)
                 packagesDS.Package.AddPackageRow("Delete", p.id, count, (p.leading) ? 1 : 0, p.date.ToString("MMMM"), p.date.DayOfWeek.ToString(), p.date, "", p.hotelKey, p.departureAirport.Trim(), p.destinationAirport.Trim(), p.duration, p.obDepartureTime, p.obArrivalTime, p.ibDepartureTime, p.ibArrivalTime, p.board, p.flightPrice, p.airline, p.obFlightNo, p.ibFlightNo, p.roomType, p.occupancy,
-                    p.adults, p.children, p.infants, p.hotelPrice, Math.Round(p.childHotelPrice), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting, p.commission, p.profit, p.nett, p.sellAt, p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), p.status, p.oldSellAt);
+                    p.adults, p.children, p.infants, Math.Round(p.hotelPrice,2), Math.Round(p.childHotelPrice), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting, p.commission, p.profit, p.nett, p.sellAt, p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), p.status, p.oldSellAt);
 
             lblTotal.Text = (packages.Count > 0) ? "Total: " + packages.Count + " holidays" : "Total: " + packages.Count + " holiday";
 
@@ -2839,7 +2839,7 @@ namespace Gulliver
             deal.dateOfPromotion = dtpSalesOn.Value;
             deal.endDateOfPromotion = dtpBookBy.Value;
             deal.Media = (ddlMedias.SelectedItem != null) ? gulliverQueryHandler.GetMediaByCode(((ComboBoxItem)ddlMedias.SelectedItem).Value.ToString()) : null;
-            deal.DealType = (ddlDealTypes.SelectedItem != null) ? gulliverQueryHandler.GetDealTypeById(Convert.ToInt32(((ComboBoxItem)ddlMedias.SelectedItem).Value.ToString())) : null;
+            deal.DealType = (ddlDealTypes.SelectedItem != null) ? gulliverQueryHandler.GetDealTypeById(Convert.ToInt32(((ComboBoxItem)ddlDealTypes.SelectedItem).Value.ToString())) : null;
             SetStepProgressBar(progressBarTP1);
             deal.cruiseDeal = cbCruiseDeal.Checked;
 
@@ -2902,7 +2902,7 @@ namespace Gulliver
 
             if (packageForm.saved)
             {
-                FillHolidays(packages);
+                FillPackages(packages);
                 tabMain.SelectedTab = tabPage5;
             }
         }
@@ -2948,7 +2948,7 @@ namespace Gulliver
             if (packageForm.saved)
             {
                 deal = packageHandler.GetDealById(dealId);
-                FillHolidays(packages);
+                FillPackages(packages);
                 tabMain.SelectedTab = tabPage5;
             }
         }
