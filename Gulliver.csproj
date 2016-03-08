@@ -192,7 +192,7 @@
       <DependentUpon>PackagesDS.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PackagesDS1.Designer.cs">
+    <Compile Include="PackagesDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PackagesDS.xsd</DependentUpon>
@@ -314,7 +314,7 @@
     <None Include="PackagesDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PackagesDS1.Designer.cs</LastGenOutput>
+      <LastGenOutput>PackagesDS.Designer.cs</LastGenOutput>
     </None>
     <None Include="PackagesDS.xss">
       <DependentUpon>PackagesDS.xsd</DependentUpon>
