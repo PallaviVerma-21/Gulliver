@@ -39,14 +39,6 @@ X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsPackages.resources
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsLibrary.resources
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsRoomRequestSetting.resources
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsZoomOut.resources
-X:\Gulliver\Gulliver\bin\Debug\FleetwayWebsiteDataHandler.dll
-X:\Gulliver\Gulliver\bin\Debug\FlashSalesLibrary.dll
-X:\Gulliver\Gulliver\bin\Debug\LandingPage.exe
-X:\Gulliver\Gulliver\bin\Debug\Newtonsoft.Json.dll
-X:\Gulliver\Gulliver\bin\Debug\FleetwayWebsiteDataHandler.pdb
-X:\Gulliver\Gulliver\bin\Debug\FlashSalesLibrary.pdb
-X:\Gulliver\Gulliver\bin\Debug\LandingPage.pdb
-X:\Gulliver\Gulliver\bin\Debug\Newtonsoft.Json.xml
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsRoomAvailability.resources
 X:\Gulliver\Gulliver\bin\Debug\NpgSQLHandler.dll
 X:\Gulliver\Gulliver\bin\Debug\NpgSQLHandler.pdb
@@ -61,3 +53,5 @@ X:\Gulliver\Gulliver\obj\Debug\Gulliver.exe.manifest
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.application
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsAutoUpdateSetting.resources
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsLandingWindow.resources
+X:\Gulliver\Gulliver\bin\Debug\LandingPageHandler.dll
+X:\Gulliver\Gulliver\bin\Debug\LandingPageHandler.pdb

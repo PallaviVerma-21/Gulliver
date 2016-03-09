@@ -19,7 +19,7 @@ namespace Gulliver
         private GulliverLibrary.QueryHandler gulliverQueryHandler;
         private GulliverLibrary.Deal deal;
         private PackageGenerator.PackageHandler packageHandler;
-        private FleetwayWebsiteDataHandler.DataProcessor dataProcessor;
+        private LandingPageHandler.DataProcessor dataProcessor;
         private PackageGenerator.ICosting icosting;
         private List<int> selectedTripperExtras;
         List<GulliverLibrary.Package> packages;
@@ -34,7 +34,7 @@ namespace Gulliver
            queryHandler = new MySqlDataHandler.QueryHandler();
            gulliverQueryHandler = new GulliverLibrary.QueryHandler();
            packageHandler = new PackageGenerator.PackageHandler();
-           dataProcessor = new FleetwayWebsiteDataHandler.DataProcessor();
+           dataProcessor = new LandingPageHandler.DataProcessor();
            visibleColumns = new List<string>();
            SetupDefaultWindow(true);          
            FillMedias(0);
@@ -47,7 +47,7 @@ namespace Gulliver
             queryHandler = new MySqlDataHandler.QueryHandler();
             gulliverQueryHandler = new GulliverLibrary.QueryHandler();
             packageHandler = new PackageGenerator.PackageHandler();
-            dataProcessor = new FleetwayWebsiteDataHandler.DataProcessor();
+            dataProcessor = new LandingPageHandler.DataProcessor();
             dealId = id;
             visibleColumns = new List<string>();
             SetupDefaultWindow(false);            
@@ -782,18 +782,18 @@ namespace Gulliver
         {
             if (deal.id != 0)
             {
-                //string message = dataProcessor.UpdateFleetwayPage(deal, cbAirportByAvailability.Checked, false);
-                //if (message != string.Empty)
-                //{
-                //    lblError.Visible = true;
-                //    lblError.Text = message;
-                //}
-                //else
-                //{
-                //    string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-                //    System.Diagnostics.Process.Start(url);
-                //    this.Focus();
-                //}
+                string message = dataProcessor.UpdateFleetwayPage(deal, cbAirportByAvailability.Checked, false);
+                if (message != string.Empty)
+                {
+                    lblError.Visible = true;
+                    lblError.Text = message;
+                }
+                else
+                {
+                    string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                    System.Diagnostics.Process.Start(url);
+                    this.Focus();
+                }
             }
             else
                 MessageBox.Show("Please save the offer before you genarate any page for Fleetway website!");

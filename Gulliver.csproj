@@ -42,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -362,10 +363,6 @@
       <Project>{5a4b4b14-d3b5-4d54-80ec-0877c1e6e73a}</Project>
       <Name>DataGridViewAutoFilter</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\FleetwayWebsiteService\FleetwayWebsiteDataHandler\FleetwayWebsiteDataHandler.csproj">
-      <Project>{2E5FBECD-321E-4609-9CBD-FC65DBA0BF64}</Project>
-      <Name>FleetwayWebsiteDataHandler</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\TravelDocca_Upgraded\MySqlDataHandler\MySqlDataHandler.csproj">
       <Project>{671648C1-628C-4DAF-AF04-66A0A20F8999}</Project>
       <Name>MySqlDataHandler</Name>
@@ -381,6 +378,10 @@
     <ProjectReference Include="..\GulliverLibrary\GulliverLibrary.csproj">
       <Project>{3D1359FF-8B2E-4AD5-A72A-95AF896150EA}</Project>
       <Name>GulliverLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LandingPageHandler\LandingPageHandler.csproj">
+      <Project>{1830aee8-26dc-43ac-99f3-823955f31785}</Project>
+      <Name>LandingPageHandler</Name>
     </ProjectReference>
     <ProjectReference Include="..\PackageGenerator\PackageGenerator.csproj">
       <Project>{77D377D6-9884-4BA7-8A96-223F16078FFE}</Project>
