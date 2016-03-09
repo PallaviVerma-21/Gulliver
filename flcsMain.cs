@@ -16,6 +16,7 @@ namespace Gulliver
     public partial class flcsMain : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private MySqlDataHandler.QueryHandler queryHandler;
+        private  PackageGenerator.e
         private GulliverLibrary.QueryHandler gulliverQueryHandler;
         private GulliverLibrary.Deal deal;
         private PackageGenerator.PackageHandler packageHandler;
@@ -27,6 +28,8 @@ namespace Gulliver
         int dealId = 0;
         private List<string> visibleColumns;
         private List<GulliverLibrary.DealOptionalExtra> optionalCostings;
+        private bool cancel = false;
+        private bool save = false;
         
         public flcsMain()
         {
@@ -2953,13 +2956,48 @@ namespace Gulliver
         
         #endregion                      
 
-        private void tableLayoutPanel17_Paint(object sender, PaintEventArgs e)
+        private void btnMakePageLive_Click(object sender, EventArgs e)
         {
-
+            if (deal.id != 0)
+            {
+                string message = dataProcessor.MakePageLive(deal);
+                if (message != string.Empty)
+                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    string url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                    System.Diagnostics.Process.Start(url);
+                    this.Focus();
+                }
+            }
+            else
+                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
         }
 
-     
-        
+        private void btnStopPage_Click(object sender, EventArgs e)
+        {
+
+            if (deal.id != 0)
+            {
+                save = true;
+                string message = dataProcessor.UpdateFleetwayPage(deal, cbAirportByAvailability.Checked, true);
+
+                if (message != string.Empty)
+                {
+                    lblError.Visible = true;
+                    lblError.Text = message;
+                }
+                else
+                {
+                   // email.SendStoppedPage(deal);
+                    string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                    System.Diagnostics.Process.Start(url);
+                    this.Focus();
+                }
+            }
+            else
+                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
+        } 
                           
     }
 }
