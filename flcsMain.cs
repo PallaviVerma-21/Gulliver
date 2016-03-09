@@ -408,9 +408,8 @@ namespace Gulliver
             SetStepProgressBar(progressBarTP4);
             SaveFlights();
             SetStepProgressBar(progressBarTP4);
-            if (PackageGenerator.Tool.GetSuppliersBySuppliertype("traveltypesuppliers").Contains(deal.Media.id) || PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers").Contains(deal.Media.id))
-                SaveCostings();
-            else
+            SaveCostings();
+            if(PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(deal.Media.id))
                 SaveSecretEscapeCostings();
 
             SetStepProgressBar(progressBarTP4);
@@ -447,10 +446,8 @@ namespace Gulliver
             SetStepProgressBar(progressBarTP4);
             SaveFlights();
             SetStepProgressBar(progressBarTP4);
-
-            if (PackageGenerator.Tool.GetSuppliersBySuppliertype("traveltypesuppliers").Contains(deal.Media.id) || PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers").Contains(deal.Media.id))
-                SaveCostings();
-            else
+            SaveCostings();
+            if (PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(deal.Media.id))
                 SaveSecretEscapeCostings();
             SetStepProgressBar(progressBarTP4);
             SearchedHolidays(deal);
@@ -473,7 +470,7 @@ namespace Gulliver
                 if(media != null)
                 txtCommission.Text = (media.commission != 0) ? media.commission.ToString() : string.Empty;
 
-                if (PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(mediaId))
+                if (PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(mediaId) || PackageGenerator.Tool.GetSuppliersBySuppliertype("sagasuppliers").Contains(mediaId))
                 {
                     DisplaySECostings(true);
                     DisplayDurationCostings(false);
@@ -622,6 +619,7 @@ namespace Gulliver
                 deal.DealInformation.HotelInformation.destinationText = txtDestinationText.Text.Trim();
                 deal.DealInformation.HotelInformation.countryText = txtCountryText.Text.Trim();
                 deal.DealInformation.tripAdvisorLink = txtTripAdvisorLink.Text.Trim();
+                deal.DealInformation.howToBook = txtHowToBook.Text.Trim();
                 //deal.DealInformation.dealActive = cbActiveOnLuxuryWebsite.Checked;
 
                 deal.DealInformation.HotelInformation.accessibility = txtAccessibilityText.Text;
@@ -1069,9 +1067,9 @@ namespace Gulliver
                 //tab 4
 
                 txtBaseMarkup.Text = deal.baseMarkup.ToString();
-                if (PackageGenerator.Tool.GetSuppliersBySuppliertype("traveltypesuppliers").Contains(deal.Media.id) || PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers").Contains(deal.Media.id))
+                if (PackageGenerator.Tool.GetSuppliersBySuppliertype("traveltypesuppliers").Contains(deal.Media.id) || PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers").Contains(deal.Media.id) || PackageGenerator.Tool.GetSuppliersBySuppliertype("widjectsuppliers").Contains(deal.Media.id))
                     FillDurationCostings(deal.DurationCostings.ToList());
-                else if (PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(deal.Media.id) || PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(deal.Media.id))
+                else if (PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(deal.Media.id) || PackageGenerator.Tool.GetSuppliersBySuppliertype("sagasuppliers").Contains(deal.Media.id))
                     FillSecretEscapeCostings(deal.SecretEscapeMarkup);
                 FillDurationMarkup(deal.DurationMarkups.ToList());
                 FillWeekDayMarkups(deal.WeekDayMarkups.ToList());
@@ -1677,7 +1675,7 @@ namespace Gulliver
             txtDestinationTitle.Text = (deal.DealInformation.HotelInformation.destinationHeader != null) ? deal.DealInformation.HotelInformation.destinationHeader.Trim() : string.Empty;
             txtCountryTitle.Text = (deal.DealInformation.HotelInformation.countryHeader != null) ? deal.DealInformation.HotelInformation.countryHeader.Trim() : string.Empty;
             txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
-            
+            txtHowToBook.Text = (deal.DealInformation.howToBook != null) ? deal.DealInformation.howToBook.Trim() : string.Empty;
             txtTripAdvisorLink.Text = (deal.DealInformation.tripAdvisorLink != null) ? deal.DealInformation.tripAdvisorLink : string.Empty;     
             //cbActiveOnLuxuryWebsite.Checked = deal.DealInformation.dealActive;
             cmbCurrency.SelectedItem = (deal.DealInformation.dealCurrency == null || deal.DealInformation.dealCurrency == string.Empty) ? "GBP" : deal.DealInformation.dealCurrency;
