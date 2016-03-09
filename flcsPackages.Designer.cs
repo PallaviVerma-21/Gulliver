@@ -123,6 +123,7 @@ namespace Gulliver
             this.transfers = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.baggagePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carhireCosting = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.carParkingCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.extras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.nett = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.commission = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
@@ -388,7 +389,8 @@ namespace Gulliver
             "Baggage Price",
             "C. Markups",
             "C. Extras",
-            "Carhire"});
+            "Carhire",
+            "CarParking"});
             this.cbPackageColumns.Location = new System.Drawing.Point(0, 37);
             this.cbPackageColumns.MultiColumn = true;
             this.cbPackageColumns.Name = "cbPackageColumns";
@@ -438,6 +440,7 @@ namespace Gulliver
             this.transfers,
             this.baggagePrice,
             this.carhireCosting,
+            this.carParkingCosting,
             this.extras,
             this.nett,
             this.commission,
@@ -1059,6 +1062,12 @@ namespace Gulliver
             this.carhireCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.carhireCosting.Width = 60;
             // 
+            // carParkingCosting
+            // 
+            this.carParkingCosting.DataPropertyName = "carParkingCosting";
+            this.carParkingCosting.HeaderText = "CarParking";
+            this.carParkingCosting.Name = "carParkingCosting";
+            // 
             // extras
             // 
             this.extras.DataPropertyName = "extras";
@@ -1372,6 +1381,7 @@ namespace Gulliver
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn transfers;
         private System.Windows.Forms.DataGridViewTextBoxColumn baggagePrice;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn carhireCosting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn carParkingCosting;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn extras;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn nett;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn commission;

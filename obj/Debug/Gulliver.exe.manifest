@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>E7PDzFNr81cOPc/ll11pfxtnJHw=</dsig:DigestValue>
+        <dsig:DigestValue>OwkhSAjBYPfYFhO7ucMpGxTweFQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -198,14 +198,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gulliver.exe" size="698368">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gulliver.exe" size="698880">
       <assemblyIdentity name="Gulliver" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>gM/tnGcwwPPmLF7aXmR1BZz0XpE=</dsig:DigestValue>
+        <dsig:DigestValue>RcVwq4K/m9CvPxCzZhiDpCjiRTM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -349,7 +349,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9D1VxyEEis5Kng8b4Z4c4nmcCME=</dsig:DigestValue>
+        <dsig:DigestValue>cRksgf4LvhWZlcirMWdUh8sYMRE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -373,7 +373,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ea9o/ojqeMg9Ce6r/3q0fuQUskw=</dsig:DigestValue>
+        <dsig:DigestValue>4jlfMVcpwFqxChKLDXCGdLXUXtg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
