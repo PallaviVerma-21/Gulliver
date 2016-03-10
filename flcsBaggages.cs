@@ -106,7 +106,7 @@ namespace Gulliver
         {
             List<GulliverLibrary.BaggagePrice> baggages = new List<GulliverLibrary.BaggagePrice>();
 
-            foreach (LibraryDS.BaggageRow row in this.libraryDS.Baggage)
+            foreach (LibraryDS.BaggageRow row in this.libraryDS.Baggage.Where(b => b.airline != null))
             {
                 GulliverLibrary.BaggagePrice baggage = new GulliverLibrary.BaggagePrice();
                 baggage.airline = row.airline.Trim();

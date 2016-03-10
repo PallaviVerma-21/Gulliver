@@ -65,9 +65,12 @@ namespace Gulliver
             this.fleetwayWebUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateBestDealPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateGermanBestDealPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateLHCDealToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateELBDealsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateUSABestDealPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateSAGABestDealPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mediasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baggagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewAutoFilterTextBoxColumn1 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.dataGridViewAutoFilterTextBoxColumn2 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.dataGridViewAutoFilterTextBoxColumn3 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
@@ -83,9 +86,8 @@ namespace Gulliver
             this.dataGridViewAutoFilterTextBoxColumn10 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.dataGridViewLinkColumn3 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mediasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baggagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.currencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fABSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
@@ -380,33 +382,37 @@ namespace Gulliver
             this.newOfferToolStripMenuItem,
             this.toolStripSeparator1});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.fileToolStripMenuItem.Image = global::Gulliver.Properties.Resources.list_add;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.fileToolStripMenuItem.Text = "&Add";
             // 
             // newOfferToolStripMenuItem
             // 
+            this.newOfferToolStripMenuItem.Image = global::Gulliver.Properties.Resources.fileview_text;
             this.newOfferToolStripMenuItem.Name = "newOfferToolStripMenuItem";
-            this.newOfferToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.newOfferToolStripMenuItem.Text = "&New Offer";
+            this.newOfferToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.newOfferToolStripMenuItem.Text = "&New Deal";
             this.newOfferToolStripMenuItem.Click += new System.EventHandler(this.newOfferToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(125, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(121, 6);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.healthSafetyDocumentToolStripMenuItem});
             this.optionsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.optionsToolStripMenuItem.Image = global::Gulliver.Properties.Resources.template;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.optionsToolStripMenuItem.Text = "&Templates";
             // 
             // healthSafetyDocumentToolStripMenuItem
             // 
+            this.healthSafetyDocumentToolStripMenuItem.Image = global::Gulliver.Properties.Resources.epack_locked;
             this.healthSafetyDocumentToolStripMenuItem.Name = "healthSafetyDocumentToolStripMenuItem";
             this.healthSafetyDocumentToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.healthSafetyDocumentToolStripMenuItem.Text = "Health && Safety Document";
@@ -417,15 +423,17 @@ namespace Gulliver
             this.fleetwayWebUpdatesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.updateBestDealPageToolStripMenuItem,
             this.updateGermanBestDealPageToolStripMenuItem,
-            this.updateLHCDealToolStripMenuItem,
-            this.updateELBDealsToolStripMenuItem});
+            this.updateUSABestDealPageToolStripMenuItem,
+            this.updateSAGABestDealPageToolStripMenuItem});
             this.fleetwayWebUpdatesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.fleetwayWebUpdatesToolStripMenuItem.Image = global::Gulliver.Properties.Resources.internet;
             this.fleetwayWebUpdatesToolStripMenuItem.Name = "fleetwayWebUpdatesToolStripMenuItem";
-            this.fleetwayWebUpdatesToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
+            this.fleetwayWebUpdatesToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
             this.fleetwayWebUpdatesToolStripMenuItem.Text = "&Fleetway Web Updates";
             // 
             // updateBestDealPageToolStripMenuItem
             // 
+            this.updateBestDealPageToolStripMenuItem.Image = global::Gulliver.Properties.Resources.united_kingdom_great_britain;
             this.updateBestDealPageToolStripMenuItem.Name = "updateBestDealPageToolStripMenuItem";
             this.updateBestDealPageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.updateBestDealPageToolStripMenuItem.Text = "&Update Best Deal Page";
@@ -433,30 +441,60 @@ namespace Gulliver
             // 
             // updateGermanBestDealPageToolStripMenuItem
             // 
+            this.updateGermanBestDealPageToolStripMenuItem.Image = global::Gulliver.Properties.Resources.germany;
             this.updateGermanBestDealPageToolStripMenuItem.Name = "updateGermanBestDealPageToolStripMenuItem";
             this.updateGermanBestDealPageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.updateGermanBestDealPageToolStripMenuItem.Text = "&Update German Best Deal Page";
             this.updateGermanBestDealPageToolStripMenuItem.Click += new System.EventHandler(this.updateGermanBestDealPageToolStripMenuItem_Click);
             // 
-            // updateLHCDealToolStripMenuItem
+            // updateUSABestDealPageToolStripMenuItem
             // 
-            this.updateLHCDealToolStripMenuItem.Name = "updateLHCDealToolStripMenuItem";
-            this.updateLHCDealToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.updateLHCDealToolStripMenuItem.Text = "&Update LHC Deals";
-            this.updateLHCDealToolStripMenuItem.Click += new System.EventHandler(this.updateLHCDealToolStripMenuItem_Click);
+            this.updateUSABestDealPageToolStripMenuItem.Image = global::Gulliver.Properties.Resources.united_states_of_america;
+            this.updateUSABestDealPageToolStripMenuItem.Name = "updateUSABestDealPageToolStripMenuItem";
+            this.updateUSABestDealPageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.updateUSABestDealPageToolStripMenuItem.Text = "&Update USA Best Deal Page";
             // 
-            // updateELBDealsToolStripMenuItem
+            // updateSAGABestDealPageToolStripMenuItem
             // 
-            this.updateELBDealsToolStripMenuItem.Name = "updateELBDealsToolStripMenuItem";
-            this.updateELBDealsToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.updateELBDealsToolStripMenuItem.Text = "&Update ELB Deals";
-            this.updateELBDealsToolStripMenuItem.Click += new System.EventHandler(this.updateELBDealsToolStripMenuItem_Click);
+            this.updateSAGABestDealPageToolStripMenuItem.Image = global::Gulliver.Properties.Resources.knewstuff;
+            this.updateSAGABestDealPageToolStripMenuItem.Name = "updateSAGABestDealPageToolStripMenuItem";
+            this.updateSAGABestDealPageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.updateSAGABestDealPageToolStripMenuItem.Text = "&Update SAGA Best Deal Page";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(19, 20);
             this.toolStripMenuItem1.Text = "&";
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mediasToolStripMenuItem,
+            this.baggagesToolStripMenuItem,
+            this.currencyToolStripMenuItem,
+            this.fABSettingToolStripMenuItem});
+            this.settingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.settingToolStripMenuItem.Image = global::Gulliver.Properties.Resources.settings1;
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.settingToolStripMenuItem.Text = "&Setting";
+            // 
+            // mediasToolStripMenuItem
+            // 
+            this.mediasToolStripMenuItem.Image = global::Gulliver.Properties.Resources.stock_channel;
+            this.mediasToolStripMenuItem.Name = "mediasToolStripMenuItem";
+            this.mediasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mediasToolStripMenuItem.Text = "&Channels";
+            this.mediasToolStripMenuItem.Click += new System.EventHandler(this.mediasToolStripMenuItem_Click);
+            // 
+            // baggagesToolStripMenuItem
+            // 
+            this.baggagesToolStripMenuItem.Image = global::Gulliver.Properties.Resources.suitcase;
+            this.baggagesToolStripMenuItem.Name = "baggagesToolStripMenuItem";
+            this.baggagesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.baggagesToolStripMenuItem.Text = "&Baggage";
+            this.baggagesToolStripMenuItem.Click += new System.EventHandler(this.baggagesToolStripMenuItem_Click);
             // 
             // dataGridViewAutoFilterTextBoxColumn1
             // 
@@ -570,31 +608,18 @@ namespace Gulliver
             this.dataGridViewLinkColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewLinkColumn3.Width = 80;
             // 
-            // settingToolStripMenuItem
+            // currencyToolStripMenuItem
             // 
-            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mediasToolStripMenuItem,
-            this.baggagesToolStripMenuItem});
-            this.settingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.settingToolStripMenuItem.Image = global::Gulliver.Properties.Resources.settings1;
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.settingToolStripMenuItem.Text = "&Setting";
+            this.currencyToolStripMenuItem.Name = "currencyToolStripMenuItem";
+            this.currencyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.currencyToolStripMenuItem.Text = "&Currency";
+            this.currencyToolStripMenuItem.Click += new System.EventHandler(this.currencyToolStripMenuItem_Click);
             // 
-            // mediasToolStripMenuItem
+            // fABSettingToolStripMenuItem
             // 
-            this.mediasToolStripMenuItem.Name = "mediasToolStripMenuItem";
-            this.mediasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mediasToolStripMenuItem.Text = "&Channels";
-            this.mediasToolStripMenuItem.Click += new System.EventHandler(this.mediasToolStripMenuItem_Click);
-            // 
-            // baggagesToolStripMenuItem
-            // 
-            this.baggagesToolStripMenuItem.Image = global::Gulliver.Properties.Resources.suitcase;
-            this.baggagesToolStripMenuItem.Name = "baggagesToolStripMenuItem";
-            this.baggagesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.baggagesToolStripMenuItem.Text = "&Baggage";
-            this.baggagesToolStripMenuItem.Click += new System.EventHandler(this.baggagesToolStripMenuItem_Click);
+            this.fABSettingToolStripMenuItem.Name = "fABSettingToolStripMenuItem";
+            this.fABSettingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fABSettingToolStripMenuItem.Text = "&FAB Setting";
             // 
             // flcsLibrary
             // 
@@ -648,8 +673,6 @@ namespace Gulliver
         private System.Windows.Forms.ToolStripMenuItem fleetwayWebUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateBestDealPageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateGermanBestDealPageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateLHCDealToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateELBDealsToolStripMenuItem;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn1;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn2;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn3;
@@ -679,6 +702,10 @@ namespace Gulliver
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mediasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baggagesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateUSABestDealPageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateSAGABestDealPageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem currencyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fABSettingToolStripMenuItem;
     }
 }
 

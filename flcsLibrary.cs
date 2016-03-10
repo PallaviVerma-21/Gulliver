@@ -195,12 +195,18 @@ namespace Gulliver
             mediaForm.ShowDialog();
         }
 
-        #endregion
-
         private void baggagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             flcsBaggages baggagesForm = new flcsBaggages();
             baggagesForm.ShowDialog();
         }
+
+        private void currencyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            flcsCurrency currencyForm = new flcsCurrency();
+            currencyForm.ShowDialog();
+        }
+
+        #endregion       
     }
 }

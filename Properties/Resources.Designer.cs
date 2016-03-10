@@ -133,6 +133,16 @@ namespace Gulliver.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap export {
+            get {
+                object obj = ResourceManager.GetObject("export", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fileview_text {
             get {
                 object obj = ResourceManager.GetObject("fileview_text", resourceCulture);
@@ -146,6 +156,16 @@ namespace Gulliver.Properties {
         internal static System.Drawing.Bitmap germany {
             get {
                 object obj = ResourceManager.GetObject("germany", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap help_and_support {
+            get {
+                object obj = ResourceManager.GetObject("help_and_support", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
