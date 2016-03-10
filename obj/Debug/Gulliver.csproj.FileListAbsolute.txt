@@ -57,3 +57,4 @@ X:\Gulliver\Gulliver\bin\Debug\LandingPageHandler.pdb
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsMedias.resources
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsBaggages.resources
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsCurrency.resources
+X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsFABSetting.resources

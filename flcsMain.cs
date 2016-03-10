@@ -149,9 +149,20 @@ namespace Gulliver
             {
                 if (!tabCostings.TabPages.Contains(secretEscapeTP))
                     tabCostings.TabPages.Add(secretEscapeTP);
+                
             }
             else
                 tabCostings.TabPages.Remove(secretEscapeTP);
+
+            SecretEscapeFormToolStripMenuItem.Visible = visible;
+        }
+
+        private void VisibleDailyMailFile(int mediaId)
+        {
+             if(mediaId == 37)
+                    DailyMailToolStripMenuItem.Visible =true;
+                else
+                    DailyMailToolStripMenuItem.Visible =false;
         }
 
         private void DisplayDurationCostings(bool visible)
@@ -498,6 +509,8 @@ namespace Gulliver
                     DisplayDurationCostings(true);
                     EnableDisableCommission(false);
                 }
+
+                VisibleDailyMailFile(mediaId);
             }
         }
 
@@ -2428,6 +2441,8 @@ namespace Gulliver
             }
         }
 
+       
+
         #endregion
 
         #region SaveMethods
@@ -2998,7 +3013,9 @@ namespace Gulliver
             }
             else
                 MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
-        } 
+        }
+
+
                           
     }
 }

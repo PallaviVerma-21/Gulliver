@@ -207,6 +207,14 @@ namespace Gulliver
             currencyForm.ShowDialog();
         }
 
+        private void fABSettingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            flcsFABSetting fabSettingForm = new flcsFABSetting();
+            fabSettingForm.ShowDialog();
+        }
+
         #endregion       
+
+      
     }
 }
