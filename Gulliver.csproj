@@ -127,6 +127,12 @@
     <Compile Include="flcsLandingWindow.Designer.cs">
       <DependentUpon>flcsLandingWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="flcsMedias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flcsMedias.Designer.cs">
+      <DependentUpon>flcsMedias.cs</DependentUpon>
+    </Compile>
     <Compile Include="flcsOptionalExtra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,12 +162,6 @@
     </Compile>
     <Compile Include="flcsZoomOut.Designer.cs">
       <DependentUpon>flcsZoomOut.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="flcsRoomRequestSetting.cs">
       <SubType>Form</SubType>
@@ -230,6 +230,10 @@
       <DependentUpon>flcsLandingWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="flcsMedias.resx">
+      <DependentUpon>flcsMedias.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="flcsOptionalExtra.resx">
       <DependentUpon>flcsOptionalExtra.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -248,10 +252,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="flcsZoomOut.resx">
       <DependentUpon>flcsZoomOut.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="flcsLibrary.resx">
@@ -479,6 +479,15 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prorgrams.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

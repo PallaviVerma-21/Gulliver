@@ -34,12 +34,6 @@ namespace Gulliver
             this.btnRestore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.hotelContractHeader = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.dataGridViewPackageBackup = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.bsPackageBackup = new System.Windows.Forms.BindingSource(this.components);
-            this.packagesDS = new Gulliver.PackagesDS();
-            this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
-            this.fiterStatusLabelH = new System.Windows.Forms.ToolStripStatusLabel();
-            this.showAllLabelH = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblTotal = new System.Windows.Forms.ToolStripStatusLabel();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hiddenNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flightIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +77,12 @@ namespace Gulliver
             this.searchTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oldSellAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsPackageBackup = new System.Windows.Forms.BindingSource(this.components);
+            this.packagesDS = new Gulliver.PackagesDS();
+            this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
+            this.fiterStatusLabelH = new System.Windows.Forms.ToolStripStatusLabel();
+            this.showAllLabelH = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblTotal = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotelContractHeader)).BeginInit();
@@ -203,48 +203,6 @@ namespace Gulliver
             this.dataGridViewPackageBackup.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewPackageBackup.TabIndex = 8;
             this.dataGridViewPackageBackup.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewPackageBackup_DataBindingComplete);
-            // 
-            // bsPackageBackup
-            // 
-            this.bsPackageBackup.DataMember = "PackageBackup";
-            this.bsPackageBackup.DataSource = this.packagesDS;
-            // 
-            // packagesDS
-            // 
-            this.packagesDS.DataSetName = "PackagesDS";
-            this.packagesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // statusstripHolidays
-            // 
-            this.statusstripHolidays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
-            this.statusstripHolidays.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.statusstripHolidays.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fiterStatusLabelH,
-            this.showAllLabelH,
-            this.lblTotal});
-            this.statusstripHolidays.Location = new System.Drawing.Point(0, 581);
-            this.statusstripHolidays.Name = "statusstripHolidays";
-            this.statusstripHolidays.Size = new System.Drawing.Size(1352, 22);
-            this.statusstripHolidays.TabIndex = 7;
-            // 
-            // fiterStatusLabelH
-            // 
-            this.fiterStatusLabelH.Name = "fiterStatusLabelH";
-            this.fiterStatusLabelH.Size = new System.Drawing.Size(0, 17);
-            // 
-            // showAllLabelH
-            // 
-            this.showAllLabelH.IsLink = true;
-            this.showAllLabelH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.showAllLabelH.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.showAllLabelH.Name = "showAllLabelH";
-            this.showAllLabelH.Size = new System.Drawing.Size(53, 17);
-            this.showAllLabelH.Text = "&Show All";
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(0, 17);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -517,6 +475,48 @@ namespace Gulliver
             this.oldSellAtDataGridViewTextBoxColumn.DataPropertyName = "oldSellAt";
             this.oldSellAtDataGridViewTextBoxColumn.HeaderText = "OldSellAt";
             this.oldSellAtDataGridViewTextBoxColumn.Name = "oldSellAtDataGridViewTextBoxColumn";
+            // 
+            // bsPackageBackup
+            // 
+            this.bsPackageBackup.DataMember = "PackageBackup";
+            this.bsPackageBackup.DataSource = this.packagesDS;
+            // 
+            // packagesDS
+            // 
+            this.packagesDS.DataSetName = "PackagesDS";
+            this.packagesDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // statusstripHolidays
+            // 
+            this.statusstripHolidays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(218)))), ((int)(((byte)(218)))));
+            this.statusstripHolidays.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.statusstripHolidays.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fiterStatusLabelH,
+            this.showAllLabelH,
+            this.lblTotal});
+            this.statusstripHolidays.Location = new System.Drawing.Point(0, 581);
+            this.statusstripHolidays.Name = "statusstripHolidays";
+            this.statusstripHolidays.Size = new System.Drawing.Size(1352, 22);
+            this.statusstripHolidays.TabIndex = 7;
+            // 
+            // fiterStatusLabelH
+            // 
+            this.fiterStatusLabelH.Name = "fiterStatusLabelH";
+            this.fiterStatusLabelH.Size = new System.Drawing.Size(0, 17);
+            // 
+            // showAllLabelH
+            // 
+            this.showAllLabelH.IsLink = true;
+            this.showAllLabelH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.showAllLabelH.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.showAllLabelH.Name = "showAllLabelH";
+            this.showAllLabelH.Size = new System.Drawing.Size(53, 17);
+            this.showAllLabelH.Text = "&Show All";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(0, 17);
             // 
             // flcsBackupPackage
             // 

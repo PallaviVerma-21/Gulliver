@@ -6,7 +6,6 @@ X:\Gulliver\Gulliver\obj\Debug\Gulliver.Properties.Resources.resources
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.csproj.GenerateResource.Cache
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.exe
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.pdb
-X:\Gulliver\Gulliver\obj\Debug\Gulliver.Form1.resources
 X:\Gulliver\Gulliver\bin\Debug\Gulliver.exe.config
 X:\Gulliver\Gulliver\bin\Debug\MySqlDataHandler.dll
 X:\Gulliver\Gulliver\bin\Debug\DbLinq.dll
@@ -55,3 +54,4 @@ X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsAutoUpdateSetting.resources
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsLandingWindow.resources
 X:\Gulliver\Gulliver\bin\Debug\LandingPageHandler.dll
 X:\Gulliver\Gulliver\bin\Debug\LandingPageHandler.pdb
+X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsMedias.resources

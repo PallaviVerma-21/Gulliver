@@ -16,7 +16,7 @@ namespace Gulliver
     public partial class flcsMain : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private MySqlDataHandler.QueryHandler queryHandler;
-        private  PackageGenerator.e
+        private PackageGenerator.Email email;
         private GulliverLibrary.QueryHandler gulliverQueryHandler;
         private GulliverLibrary.Deal deal;
         private PackageGenerator.PackageHandler packageHandler;
@@ -34,6 +34,7 @@ namespace Gulliver
         public flcsMain()
         {
            InitializeComponent();
+           email = new PackageGenerator.Email();
            queryHandler = new MySqlDataHandler.QueryHandler();
            gulliverQueryHandler = new GulliverLibrary.QueryHandler();
            packageHandler = new PackageGenerator.PackageHandler();
@@ -2989,7 +2990,7 @@ namespace Gulliver
                 }
                 else
                 {
-                   // email.SendStoppedPage(deal);
+                    email.SendStoppedPage(deal);
                     string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
                     System.Diagnostics.Process.Start(url);
                     this.Focus();
