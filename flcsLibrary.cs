@@ -189,15 +189,12 @@ namespace Gulliver
 
         }
 
-        #endregion
-
-       
-
         private void mediasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             flcsMedias mediaForm = new flcsMedias();
             mediaForm.ShowDialog();
         }
 
+        #endregion
     }
 }
