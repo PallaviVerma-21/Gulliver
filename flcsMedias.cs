@@ -105,6 +105,7 @@ namespace Gulliver
         {
            List<GulliverLibrary.Media> medias = GetMedias();
            gulliverQueryHandler.SaveMedia(medias);
+           this.Close();
         }
 
         private List<GulliverLibrary.Media> GetMedias()

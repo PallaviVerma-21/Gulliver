@@ -55,3 +55,4 @@ X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsLandingWindow.resources
 X:\Gulliver\Gulliver\bin\Debug\LandingPageHandler.dll
 X:\Gulliver\Gulliver\bin\Debug\LandingPageHandler.pdb
 X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsMedias.resources
+X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsBaggages.resources

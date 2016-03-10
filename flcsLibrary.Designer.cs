@@ -29,9 +29,9 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -85,6 +85,7 @@ namespace Gulliver
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mediasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baggagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
@@ -147,8 +148,8 @@ namespace Gulliver
             // 
             // dataGridViewLibrary
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dataGridViewLibrary.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridViewLibrary.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewLibrary.AutoGenerateColumns = false;
             this.dataGridViewLibrary.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridViewLibrary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -169,12 +170,12 @@ namespace Gulliver
             this.dataGridViewLibrary.Name = "dataGridViewLibrary";
             this.dataGridViewLibrary.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.dataGridViewLibrary.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridViewLibrary.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridViewLibrary.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewLibrary.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dataGridViewLibrary.Size = new System.Drawing.Size(1254, 572);
             this.dataGridViewLibrary.StateCommon.Background.Color1 = System.Drawing.Color.White;
@@ -221,9 +222,9 @@ namespace Gulliver
             // supplierDataGridViewTextBoxColumn
             // 
             this.supplierDataGridViewTextBoxColumn.DataPropertyName = "Supplier";
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.supplierDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.supplierDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.supplierDataGridViewTextBoxColumn.HeaderText = "Media";
             this.supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
             this.supplierDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -572,7 +573,8 @@ namespace Gulliver
             // settingToolStripMenuItem
             // 
             this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mediasToolStripMenuItem});
+            this.mediasToolStripMenuItem,
+            this.baggagesToolStripMenuItem});
             this.settingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.settingToolStripMenuItem.Image = global::Gulliver.Properties.Resources.settings1;
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
@@ -583,8 +585,16 @@ namespace Gulliver
             // 
             this.mediasToolStripMenuItem.Name = "mediasToolStripMenuItem";
             this.mediasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mediasToolStripMenuItem.Text = "&Medias";
+            this.mediasToolStripMenuItem.Text = "&Channels";
             this.mediasToolStripMenuItem.Click += new System.EventHandler(this.mediasToolStripMenuItem_Click);
+            // 
+            // baggagesToolStripMenuItem
+            // 
+            this.baggagesToolStripMenuItem.Image = global::Gulliver.Properties.Resources.suitcase;
+            this.baggagesToolStripMenuItem.Name = "baggagesToolStripMenuItem";
+            this.baggagesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.baggagesToolStripMenuItem.Text = "&Baggage";
+            this.baggagesToolStripMenuItem.Click += new System.EventHandler(this.baggagesToolStripMenuItem_Click);
             // 
             // flcsLibrary
             // 
@@ -668,6 +678,7 @@ namespace Gulliver
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mediasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem baggagesToolStripMenuItem;
     }
 }
 

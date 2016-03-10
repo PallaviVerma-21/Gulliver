@@ -196,5 +196,11 @@ namespace Gulliver
         }
 
         #endregion
+
+        private void baggagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            flcsBaggages baggagesForm = new flcsBaggages();
+            baggagesForm.ShowDialog();
+        }
     }
 }
