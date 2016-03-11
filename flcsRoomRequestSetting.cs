@@ -67,7 +67,7 @@ namespace Gulliver
             roomRequestSetting.isRoomRequestEnable = cbEnableRoomReservation.Checked;
 
             packageHandler.UpdateRoomRequestSetting(roomRequestSetting);
-            KryptonMessageBox.Show("Details saved successfully!");
+            MessageBox.Show("Details saved successfully!");
         }
 
         #endregion

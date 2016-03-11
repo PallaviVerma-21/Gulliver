@@ -156,32 +156,32 @@ namespace Gulliver
             {
               string folderPath = folderBrowserDialog.SelectedPath;
               System.IO.File.Copy(PackageGenerator.Tool.healthSafetyDoc, folderPath + @"\Health & Safety .pdf");
-              KryptonMessageBox.Show("File has been saved to" + folderBrowserDialog.SelectedPath, "Health & Safety File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+              MessageBox.Show("File has been saved to" + folderBrowserDialog.SelectedPath, "Health & Safety File", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void updateBestDealPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
            PackageGenerator.Tool.RunBestDealPage();
-           KryptonMessageBox.Show("Started running the script and it'll take few minutes to update fleetway home page!", "Best Deal Holidays", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           MessageBox.Show("Started running the script and it'll take few minutes to update fleetway home page!", "Best Deal Holidays", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void updateGermanBestDealPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
            PackageGenerator.Tool.RunBestDealGermanPage();
-           KryptonMessageBox.Show("Started running the script and it'll take few minutes to update fleetway german home page!", "German Best Deal Holidays", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           MessageBox.Show("Started running the script and it'll take few minutes to update fleetway german home page!", "German Best Deal Holidays", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void updateLHCDealToolStripMenuItem_Click(object sender, EventArgs e)
         {
            PackageGenerator.Tool.RunLuxuryScriptForUpdates("LHC");
-           KryptonMessageBox.Show("Started updating LHC website, you'll receive the updated email in few minutes!", "LHC/ELB Data Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           MessageBox.Show("Started updating LHC website, you'll receive the updated email in few minutes!", "LHC/ELB Data Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void updateELBDealsToolStripMenuItem_Click(object sender, EventArgs e)
         {
            PackageGenerator.Tool.RunLuxuryScriptForUpdates("ELB");
-           KryptonMessageBox.Show("Started updating ELB website, you'll receive the updated email in few minutes!", "LHC/ELB Data Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           MessageBox.Show("Started updating ELB website, you'll receive the updated email in few minutes!", "LHC/ELB Data Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void existToolStripMenuItem_Click(object sender, EventArgs e)

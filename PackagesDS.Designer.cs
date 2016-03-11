@@ -478,6 +478,8 @@ namespace Gulliver {
             
             private global::System.Data.DataColumn columnoldSellAt;
             
+            private global::System.Data.DataColumn columnisStandardRoom;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PackageDataTable() {
@@ -889,6 +891,14 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn isStandardRoomColumn {
+                get {
+                    return this.columnisStandardRoom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -971,7 +981,8 @@ namespace Gulliver {
                         decimal childSellat, 
                         string searchType, 
                         string status, 
-                        decimal oldSellAt) {
+                        decimal oldSellAt, 
+                        bool isStandardRoom) {
                 PackageRow rowPackageRow = ((PackageRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Delete,
@@ -1020,7 +1031,8 @@ namespace Gulliver {
                         childSellat,
                         searchType,
                         status,
-                        oldSellAt};
+                        oldSellAt,
+                        isStandardRoom};
                 rowPackageRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPackageRow);
                 return rowPackageRow;
@@ -1090,6 +1102,7 @@ namespace Gulliver {
                 this.columnsearchType = base.Columns["searchType"];
                 this.columnstatus = base.Columns["status"];
                 this.columnoldSellAt = base.Columns["oldSellAt"];
+                this.columnisStandardRoom = base.Columns["isStandardRoom"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1189,6 +1202,8 @@ namespace Gulliver {
                 base.Columns.Add(this.columnstatus);
                 this.columnoldSellAt = new global::System.Data.DataColumn("oldSellAt", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnoldSellAt);
+                this.columnisStandardRoom = new global::System.Data.DataColumn("isStandardRoom", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnisStandardRoom);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3596,6 +3611,22 @@ namespace Gulliver {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool isStandardRoom {
+                get {
+                    try {
+                        return ((bool)(this[this.tablePackage.isStandardRoomColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'isStandardRoom\' in table \'Package\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackage.isStandardRoomColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDeleteNull() {
                 return this.IsNull(this.tablePackage.DeleteColumn);
             }
@@ -4156,6 +4187,18 @@ namespace Gulliver {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetoldSellAtNull() {
                 this[this.tablePackage.oldSellAtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsisStandardRoomNull() {
+                return this.IsNull(this.tablePackage.isStandardRoomColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetisStandardRoomNull() {
+                this[this.tablePackage.isStandardRoomColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -165,6 +165,20 @@ namespace Gulliver
                     DailyMailToolStripMenuItem.Visible =false;
         }
 
+        private void VisibleTelegraph(int mediaId)
+        {
+            if (mediaId == 35)
+            {
+                txtProductCode.Visible = true;
+                lblProductCode.Visible = true;
+            }
+            else
+            {
+                txtProductCode.Visible = false;
+                lblProductCode.Visible = false;
+            }
+        }
+
         private void DisplayDurationCostings(bool visible)
         {
             if (visible)
@@ -511,6 +525,7 @@ namespace Gulliver
                 }
 
                 VisibleDailyMailFile(mediaId);
+                VisibleTelegraph(mediaId);
             }
         }
 
@@ -655,6 +670,7 @@ namespace Gulliver
                 deal.DealInformation.diplayNightsOrDays = (rbDays.Checked) ? "Days" : "Nights";
                 deal.DealInformation.priority = Convert.ToInt32(ddlPriorities.SelectedItem);
                 deal.DealInformation.goLiveOnBestDealPage = cbGoLiveOnBestDealPage.Checked;
+                deal.DealInformation.hotelLink = txtHotelLink.Text.Trim();
 
                 List<GulliverLibrary.Image> dealImages = new List<GulliverLibrary.Image>();
                 foreach (GulliverDS.ImageRow imageRow in this.gulliverDS.Image)
@@ -833,7 +849,7 @@ namespace Gulliver
                 List<GulliverLibrary.Package> updatedPackages = packageHandler.GetPackagesByDeal(dealId);
                 icosting.WriteToCSV(updatedPackages, sfd.FileName);
                 progressBarMenu.Value++;
-                KryptonMessageBox.Show("Export to " + sfd.FileName, "Export Files");
+                MessageBox.Show("Export to " + sfd.FileName, "Export Files");
             }
 
             progressBarMenu.Value++;
@@ -858,7 +874,7 @@ namespace Gulliver
                 List<GulliverLibrary.Package> updatedPackages = packageHandler.GetPackagesByDeal(dealId);
                 icosting.WriteToExcel(updatedPackages, sfd.FileName, progressBarMenu);
                 progressBarMenu.PerformStep();
-                KryptonMessageBox.Show("Export to " + sfd.FileName, "Export Files");
+                MessageBox.Show("Export to " + sfd.FileName, "Export Files");
             }
 
             progressBarMenu.Step = progressBar.Maximum;
@@ -1029,6 +1045,7 @@ namespace Gulliver
 
                 numericStars.Value = deal.starRating;
                 txtDealCode.Text = (deal.dealCode != null) ? deal.dealCode.Trim() : string.Empty;
+                txtProductCode.Text = (deal.productId != null) ? deal.productId : string.Empty;
                 FillSelectedBoardBasis(deal.boards.Trim());
                 FillSelectedOccupancy(deal.occupancy);
                 FillOccupancyComboBox(deal.occupancy.Split('#').ToList());
@@ -1402,20 +1419,7 @@ namespace Gulliver
             destiantionAirportComboBox.DataSource = destinationAirports;
         }       
 
-        //private void FillHolidays(List<GulliverLibrary.Package> packages)
-        //{
-        //    this.packagesDS.Package.Clear();
-        //    DataGridViewAutoFilterTextBoxColumn.RemoveFilter(dataGridViewHolidays);
-        //    int count = 0;
-
-        //    foreach (GulliverLibrary.Package h in packages)
-        //    {
-        //        this.packagesDS.Package.AddPackageRow("Delete", h.id, count, (h.leading) ? 1 : 0, h.date.ToString("MMMM"), h.date.DayOfWeek.ToString(), h.date, string.Empty, h.hotelKey, h.departureAirport, h.destinationAirport, h.duration, h.obDepartureTime.Trim(), h.obArrivalTime.Trim(), h.ibDepartureTime.Trim(), h.ibArrivalTime.Trim(), h.board.Trim(), Math.Round(h.flightPrice, 2), h.airline, h.obFlightNo, h.ibFlightNo, h.roomType, h.occupancy, h.adults, h.children, h.infants, Math.Round(h.hotelPrice, 2), Math.Round(h.childHotelPrice), h.caa, h.baggagePrice, h.transfers, h.extras, h.childExtras, h.baseMarkup, h.totalMarkup, h.totalChildMarkup, h.carhireCosting, Math.Round(h.commission, 2), Math.Round(h.profit, 2), Math.Round(h.nett, 2), Convert.ToInt32(h.sellAt), h.childNett, h.childSellat, ((h.searchType == 1) ? "FAB" : "Flightsheet"), h.status, ((h.oldSellAt != null) ? Convert.ToInt32(h.oldSellAt) : 0));
-        //        count++;
-        //    }
-
-        //    lblTotal.Text = (packages.Count > 0) ? "Total: " + packages.Count + " holidays" : "Total: " + packages.Count + " holiday";
-        //}
+      
 
         private void FillPackages(List<GulliverLibrary.Package> packages)
         {
@@ -1423,7 +1427,7 @@ namespace Gulliver
             int count = 0;
             foreach (GulliverLibrary.Package p in packages)
                 packagesDS.Package.AddPackageRow("Delete", p.id, count, (p.leading) ? 1 : 0, p.date.ToString("MMMM"), p.date.DayOfWeek.ToString(), p.date, "", p.hotelKey, p.departureAirport.Trim(), p.destinationAirport.Trim(), p.duration, p.obDepartureTime, p.obArrivalTime, p.ibDepartureTime, p.ibArrivalTime, p.board, p.flightPrice, p.airline, p.obFlightNo, p.ibFlightNo, p.roomType, p.occupancy,
-                    p.adults, p.children, p.infants, Math.Round(p.hotelPrice,2), Math.Round(p.childHotelPrice), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting,p.carParkingCosting, p.commission, p.profit, p.nett, p.sellAt, p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), p.status, p.oldSellAt);
+                    p.adults, p.children, p.infants, Math.Round(p.hotelPrice,2), Math.Round(p.childHotelPrice), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting,p.carParkingCosting, p.commission, p.profit, p.nett, p.sellAt, p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), p.status, p.oldSellAt, p.isStandardRoom);
 
             lblTotal.Text = (packages.Count > 0) ? "Total: " + packages.Count + " holidays" : "Total: " + packages.Count + " holiday";
 
@@ -1682,8 +1686,7 @@ namespace Gulliver
             txtDealIntro.Text = (deal.DealInformation.introduction != null) ? deal.DealInformation.introduction : string.Empty;
             txtChildPrice.Text = (deal.DealInformation.childPrices != null) ? deal.DealInformation.childPrices : string.Empty;
             txtOptionalExtras.Text = (deal.DealInformation.optionalExtras != null) ? deal.DealInformation.optionalExtras : string.Empty;
-            txtPleasenote.Text = (deal.DealInformation.pleaseNote != null) ? deal.DealInformation.pleaseNote : string.Empty;
-            
+            txtPleasenote.Text = (deal.DealInformation.pleaseNote != null) ? deal.DealInformation.pleaseNote : string.Empty;            
             txtHotelText.Text = (deal.DealInformation.HotelInformation.hotelBodyText != null) ? deal.DealInformation.HotelInformation.hotelBodyText : string.Empty;            
             txtDestinationText.Text = (deal.DealInformation.HotelInformation.destinationText != null) ? deal.DealInformation.HotelInformation.destinationText : string.Empty;
             txtCountryText.Text = (deal.DealInformation.HotelInformation.countryText != null) ? deal.DealInformation.HotelInformation.countryText : string.Empty;
@@ -1710,6 +1713,7 @@ namespace Gulliver
             rbDays.Checked = (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Days") ? true : false;
             rbNights.Checked = (deal.DealInformation.diplayNightsOrDays == null || (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Nights") || deal.DealInformation.diplayNightsOrDays == string.Empty) ? true : false;
             optionalCostings = (deal.DealInformation.optionalExtras != null) ? deal.DealExtras.ToList() : new List<GulliverLibrary.DealOptionalExtra>();
+            txtHotelLink.Text = (deal.DealInformation.hotelLink != null) ? deal.DealInformation.hotelLink.Trim() : string.Empty;
             FillImages();
             FillReviews();
 
@@ -2864,7 +2868,7 @@ namespace Gulliver
             {
                 if (!Validator.ValidPrice(txtCommission.Text))
                 {
-                    KryptonMessageBox.Show("Commission is not valid, please check correct!");
+                    MessageBox.Show("Commission is not valid, please check correct!");
                     return;
                 }
             }
@@ -2872,7 +2876,7 @@ namespace Gulliver
             deal.commission = (txtCommission.Text.Trim() != string.Empty) ? Convert.ToDecimal(txtCommission.Text) : 0;
             deal.dealCode = txtDealCode.Text.Trim();
             deal.productType = (cmbProducttypes.SelectedItem == null) ? string.Empty : cmbProducttypes.SelectedItem.ToString();
-            deal.productId = string.Empty; // need to setup new field in gulliver UI
+            deal.productId = txtProductCode.Text.Trim();
             deal.occupancy = (cbOcupancy.CheckedItems != null) ? string.Join("#", cbOcupancy.CheckedItems.Cast<ComboBoxItem>().Select(o => o.Value.ToString()).ToArray()) : string.Empty;
             deal.boards = (cbBoards.CheckedItems != null) ? string.Join("#", cbBoards.CheckedItems.Cast<ComboBoxItem>().Select(o => o.Value.ToString()).ToArray()) : string.Empty;
             SetStepProgressBar(progressBarTP1);
@@ -3015,8 +3019,60 @@ namespace Gulliver
                 MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
         }
 
+        private void SecretEscapeFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                progressBarMenu.Visible = true;
+                Application.DoEvents();
+                progressBarMenu.Maximum = 5;
+                progressBarMenu.Value = 1;
+                progressBarMenu.Value++;
+                System.Threading.Thread.Sleep(1000);
+                progressBarMenu.Value++;                
+                packageHandler.GenerateSecretEscapeForm(dealId, folderBrowserDialog.SelectedPath);
+                progressBarMenu.Value++;
+                System.Threading.Thread.Sleep(1000);
+                progressBarMenu.Value++;
+                progressBarMenu.Step = progressBar.Maximum;
+                progressBarMenu.Visible = false;
+                Application.DoEvents();
+                MessageBox.Show("Form has been saved to" + folderBrowserDialog.SelectedPath, "Secret Escape Form", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+            }            
+        }
 
-                          
+        private void DailyMailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (txtProductCode.Text.Trim() != string.Empty)
+            {
+                progressBarMenu.Visible = true;
+                Application.DoEvents();
+                progressBarMenu.Maximum = 4;
+                progressBarMenu.Value = 1;
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "CSV Documents (*.CSV)|*.csv";
+                sfd.FileName = Text.Trim() + ".csv";
+                
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    progressBar.Value++;
+
+                    PackageGenerator.Report report = new PackageGenerator.Report();
+                    List<GulliverLibrary.Package> updatedPackages = packageHandler.GetPackagesByDeal(dealId);
+                    report.WriteToDailyMailCSV(updatedPackages, sfd.FileName.Trim(), txtProductCode.Text.Trim());
+                    progressBar.Value++;
+                    MessageBox.Show("Export to " + sfd.FileName);
+
+                }
+
+                progressBarMenu.Value++;
+                progressBarMenu.Visible = false;
+                Application.DoEvents();
+            }
+            else
+                MessageBox.Show("Please enter product id before you generate the file!");  
+        }                          
     }
 }
 

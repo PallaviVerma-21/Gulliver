@@ -128,7 +128,7 @@ namespace Gulliver
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            switch (KryptonMessageBox.Show("If you have made any changes, this wont save - continue?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            switch (MessageBox.Show("If you have made any changes, this wont save - continue?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 case System.Windows.Forms.DialogResult.Yes:
                     this.Close();
