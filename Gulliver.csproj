@@ -27,7 +27,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -55,10 +55,11 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>D39D6C97C17EFB63EED52888CD3EC627EA19EA7F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>12F8AF537A7F2B47A502268E85C2B71AC84C8E9C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Gulliver_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -81,6 +82,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -505,7 +507,7 @@
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
+      <PublishState>Exclude</PublishState>
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>

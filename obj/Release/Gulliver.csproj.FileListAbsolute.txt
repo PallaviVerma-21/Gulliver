@@ -11,7 +11,6 @@ X:\Gulliver\Gulliver\bin\Release\MySqlDataHandler.pdb
 X:\Gulliver\Gulliver\bin\Release\GulliverLibrary.pdb
 X:\Gulliver\Gulliver\obj\Release\Gulliver.csprojResolveAssemblyReference.cache
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsMain.resources
-X:\Gulliver\Gulliver\obj\Release\Gulliver.Form1.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.Properties.Resources.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.csproj.GenerateResource.Cache
 X:\Gulliver\Gulliver\obj\Release\Gulliver.exe
@@ -38,15 +37,7 @@ X:\Gulliver\Gulliver\bin\Release\Microsoft.Vbe.Interop.dll
 X:\Gulliver\Gulliver\bin\Release\Microsoft.Office.Interop.Excel.xml
 X:\Gulliver\Gulliver\bin\Release\office.xml
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsRoomRequestSetting.resources
-X:\Gulliver\Gulliver\bin\Release\FleetwayWebsiteDataHandler.dll
-X:\Gulliver\Gulliver\bin\Release\FlashSalesLibrary.dll
-X:\Gulliver\Gulliver\bin\Release\LandingPage.exe
-X:\Gulliver\Gulliver\bin\Release\Newtonsoft.Json.dll
 X:\Gulliver\Gulliver\bin\Release\NpgSQLHandler.dll
-X:\Gulliver\Gulliver\bin\Release\FleetwayWebsiteDataHandler.pdb
-X:\Gulliver\Gulliver\bin\Release\FlashSalesLibrary.pdb
-X:\Gulliver\Gulliver\bin\Release\LandingPage.pdb
-X:\Gulliver\Gulliver\bin\Release\Newtonsoft.Json.xml
 X:\Gulliver\Gulliver\bin\Release\NpgSQLHandler.pdb
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsBackupPackage.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsFilterSearch.resources
@@ -61,3 +52,9 @@ X:\Gulliver\Gulliver\obj\Release\Gulliver.exe.manifest
 X:\Gulliver\Gulliver\obj\Release\Gulliver.application
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsAutoUpdateSetting.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsLandingWindow.resources
+X:\Gulliver\Gulliver\bin\Release\LandingPageHandler.dll
+X:\Gulliver\Gulliver\bin\Release\LandingPageHandler.pdb
+X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsCurrency.resources
+X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsBaggages.resources
+X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsFABSetting.resources
+X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsMedias.resources

@@ -29,14 +29,25 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsMain));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.kryptonColorButton1 = new ComponentFactory.Krypton.Toolkit.KryptonColorButton();
             this.lblOfferCreatedBy = new System.Windows.Forms.Label();
             this.progressBarMenu = new System.Windows.Forms.ProgressBar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.autoUpdateSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SecretEscapeFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DailyMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailToTechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -657,17 +668,6 @@ namespace Gulliver
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsOptionalExtras = new System.Windows.Forms.BindingSource(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.kryptonColorButton1 = new ComponentFactory.Krypton.Toolkit.KryptonColorButton();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.autoUpdateSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SecretEscapeFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DailyMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailToTechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -973,6 +973,23 @@ namespace Gulliver
             this.kryptonPanel.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel.TabIndex = 0;
             // 
+            // kryptonColorButton1
+            // 
+            this.kryptonColorButton1.Images.Normal = global::Gulliver.Properties.Resources.people;
+            this.kryptonColorButton1.Location = new System.Drawing.Point(1025, 0);
+            this.kryptonColorButton1.Name = "kryptonColorButton1";
+            this.kryptonColorButton1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.kryptonColorButton1.Size = new System.Drawing.Size(29, 21);
+            this.kryptonColorButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonColorButton1.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonColorButton1.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonColorButton1.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.kryptonColorButton1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonColorButton1.TabIndex = 29;
+            this.kryptonColorButton1.Values.Text = "kryptonColorButton1";
+            // 
             // lblOfferCreatedBy
             // 
             this.lblOfferCreatedBy.AutoSize = true;
@@ -1009,6 +1026,87 @@ namespace Gulliver
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.autoUpdateSettingToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Lavender;
+            this.fileToolStripMenuItem.Image = global::Gulliver.Properties.Resources.prorgrams;
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.fileToolStripMenuItem.Text = "&Tools";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
+            // 
+            // autoUpdateSettingToolStripMenuItem
+            // 
+            this.autoUpdateSettingToolStripMenuItem.Name = "autoUpdateSettingToolStripMenuItem";
+            this.autoUpdateSettingToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.autoUpdateSettingToolStripMenuItem.Text = "&Auto Update Setting";
+            this.autoUpdateSettingToolStripMenuItem.Click += new System.EventHandler(this.autoUpdateSettingToolStripMenuItem_Click);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toCSVToolStripMenuItem,
+            this.toExcelToolStripMenuItem,
+            this.SecretEscapeFormToolStripMenuItem,
+            this.DailyMailToolStripMenuItem});
+            this.exportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.exportToolStripMenuItem.Image = global::Gulliver.Properties.Resources.export;
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.exportToolStripMenuItem.Text = "&Export";
+            // 
+            // toCSVToolStripMenuItem
+            // 
+            this.toCSVToolStripMenuItem.Name = "toCSVToolStripMenuItem";
+            this.toCSVToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.toCSVToolStripMenuItem.Text = "To CSV";
+            this.toCSVToolStripMenuItem.Click += new System.EventHandler(this.toCSVToolStripMenuItem_Click);
+            // 
+            // toExcelToolStripMenuItem
+            // 
+            this.toExcelToolStripMenuItem.Name = "toExcelToolStripMenuItem";
+            this.toExcelToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.toExcelToolStripMenuItem.Text = "To Excel";
+            this.toExcelToolStripMenuItem.Click += new System.EventHandler(this.toExcelToolStripMenuItem_Click);
+            // 
+            // SecretEscapeFormToolStripMenuItem
+            // 
+            this.SecretEscapeFormToolStripMenuItem.Name = "SecretEscapeFormToolStripMenuItem";
+            this.SecretEscapeFormToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.SecretEscapeFormToolStripMenuItem.Text = "To Secret Escape Form";
+            this.SecretEscapeFormToolStripMenuItem.Click += new System.EventHandler(this.SecretEscapeFormToolStripMenuItem_Click);
+            // 
+            // DailyMailToolStripMenuItem
+            // 
+            this.DailyMailToolStripMenuItem.Name = "DailyMailToolStripMenuItem";
+            this.DailyMailToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.DailyMailToolStripMenuItem.Text = "To DailyMail";
+            this.DailyMailToolStripMenuItem.Click += new System.EventHandler(this.DailyMailToolStripMenuItem_Click);
+            // 
+            // helpSupportToolStripMenuItem
+            // 
+            this.helpSupportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.emailToTechToolStripMenuItem});
+            this.helpSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.helpSupportToolStripMenuItem.Image = global::Gulliver.Properties.Resources.help_and_support;
+            this.helpSupportToolStripMenuItem.Name = "helpSupportToolStripMenuItem";
+            this.helpSupportToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
+            this.helpSupportToolStripMenuItem.Text = "&Help Support";
+            // 
+            // emailToTechToolStripMenuItem
+            // 
+            this.emailToTechToolStripMenuItem.Name = "emailToTechToolStripMenuItem";
+            this.emailToTechToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.emailToTechToolStripMenuItem.Text = "Email to Tech";
+            this.emailToTechToolStripMenuItem.Click += new System.EventHandler(this.emailToTechToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -1026,7 +1124,7 @@ namespace Gulliver
             // 
             this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 0);
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // progressBar
@@ -1169,9 +1267,9 @@ namespace Gulliver
             this.dataGridviewContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewContracts.Name = "dataGridviewContracts";
             this.dataGridviewContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewContracts.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridviewContracts.Size = new System.Drawing.Size(567, 196);
             this.dataGridviewContracts.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.dataGridviewContracts.StateCommon.Background.Color2 = System.Drawing.Color.White;
@@ -1294,9 +1392,9 @@ namespace Gulliver
             this.dataGridviewOfferContracts.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridviewOfferContracts.Name = "dataGridviewOfferContracts";
             this.dataGridviewOfferContracts.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridviewOfferContracts.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridviewOfferContracts.Size = new System.Drawing.Size(593, 196);
             this.dataGridviewOfferContracts.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.dataGridviewOfferContracts.StateCommon.Background.Color2 = System.Drawing.Color.White;
@@ -1681,7 +1779,7 @@ namespace Gulliver
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.77453F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.22547F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 673F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 675F));
             this.tableLayoutPanel4.Controls.Add(this.cbOcupancy, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.kryptonLabel6, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 2, 2);
@@ -1713,7 +1811,7 @@ namespace Gulliver
             this.cbOcupancy.Location = new System.Drawing.Point(3, 29);
             this.cbOcupancy.MultiColumn = true;
             this.cbOcupancy.Name = "cbOcupancy";
-            this.cbOcupancy.Size = new System.Drawing.Size(273, 76);
+            this.cbOcupancy.Size = new System.Drawing.Size(272, 76);
             this.cbOcupancy.TabIndex = 58;
             this.cbOcupancy.SelectedIndexChanged += new System.EventHandler(this.cbOcupancy_SelectedIndexChanged);
             // 
@@ -1734,16 +1832,16 @@ namespace Gulliver
             this.flowLayoutPanel1.Controls.Add(this.progressBarTP1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(552, 111);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(550, 111);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(668, 36);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(670, 36);
             this.flowLayoutPanel1.TabIndex = 56;
             // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(575, 3);
+            this.btnNext.Location = new System.Drawing.Point(577, 3);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(90, 25);
             this.btnNext.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -1760,7 +1858,7 @@ namespace Gulliver
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(479, 3);
+            this.btnCancel.Location = new System.Drawing.Point(481, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 25);
             this.btnCancel.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -1777,7 +1875,7 @@ namespace Gulliver
             // 
             // progressBarTP1
             // 
-            this.progressBarTP1.Location = new System.Drawing.Point(345, 3);
+            this.progressBarTP1.Location = new System.Drawing.Point(347, 3);
             this.progressBarTP1.MarqueeAnimationSpeed = 60;
             this.progressBarTP1.Maximum = 60;
             this.progressBarTP1.Name = "progressBarTP1";
@@ -1794,11 +1892,12 @@ namespace Gulliver
             this.cbBoards.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBoards.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbBoards.FormattingEnabled = true;
-            this.cbBoards.Location = new System.Drawing.Point(552, 29);
+            this.cbBoards.Location = new System.Drawing.Point(550, 29);
             this.cbBoards.MultiColumn = true;
             this.cbBoards.Name = "cbBoards";
-            this.cbBoards.Size = new System.Drawing.Size(668, 76);
+            this.cbBoards.Size = new System.Drawing.Size(670, 76);
             this.cbBoards.TabIndex = 57;
+            this.cbBoards.SelectedIndexChanged += new System.EventHandler(this.cbBoards_SelectedIndexChanged);
             // 
             // flowLayoutPanel19
             // 
@@ -1811,9 +1910,9 @@ namespace Gulliver
             this.flowLayoutPanel19.Controls.Add(this.kryptonLabel52);
             this.flowLayoutPanel19.Controls.Add(this.txtInfantAgeTo);
             this.flowLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel19.Location = new System.Drawing.Point(282, 29);
+            this.flowLayoutPanel19.Location = new System.Drawing.Point(281, 29);
             this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(264, 76);
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(263, 76);
             this.flowLayoutPanel19.TabIndex = 59;
             // 
             // kryptonLabel54
@@ -1882,7 +1981,7 @@ namespace Gulliver
             // 
             // kryptonLabel56
             // 
-            this.kryptonLabel56.Location = new System.Drawing.Point(282, 3);
+            this.kryptonLabel56.Location = new System.Drawing.Point(281, 3);
             this.kryptonLabel56.Name = "kryptonLabel56";
             this.kryptonLabel56.Size = new System.Drawing.Size(87, 20);
             this.kryptonLabel56.TabIndex = 60;
@@ -1891,7 +1990,7 @@ namespace Gulliver
             // kryptonLabel7
             // 
             this.kryptonLabel7.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.kryptonLabel7.Location = new System.Drawing.Point(552, 3);
+            this.kryptonLabel7.Location = new System.Drawing.Point(550, 3);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(48, 20);
             this.kryptonLabel7.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
@@ -8018,103 +8117,6 @@ namespace Gulliver
             // 
             this.bsOptionalExtras.DataMember = "OptionalExtra";
             this.bsOptionalExtras.DataSource = this.gulliverDS;
-            // 
-            // kryptonColorButton1
-            // 
-            this.kryptonColorButton1.Images.Normal = global::Gulliver.Properties.Resources.people;
-            this.kryptonColorButton1.Location = new System.Drawing.Point(1025, 0);
-            this.kryptonColorButton1.Name = "kryptonColorButton1";
-            this.kryptonColorButton1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.kryptonColorButton1.Size = new System.Drawing.Size(29, 21);
-            this.kryptonColorButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.kryptonColorButton1.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.kryptonColorButton1.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.kryptonColorButton1.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.kryptonColorButton1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonColorButton1.TabIndex = 29;
-            this.kryptonColorButton1.Values.Text = "kryptonColorButton1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.autoUpdateSettingToolStripMenuItem});
-            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Lavender;
-            this.fileToolStripMenuItem.Image = global::Gulliver.Properties.Resources.prorgrams;
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.fileToolStripMenuItem.Text = "&Tools";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
-            // 
-            // autoUpdateSettingToolStripMenuItem
-            // 
-            this.autoUpdateSettingToolStripMenuItem.Name = "autoUpdateSettingToolStripMenuItem";
-            this.autoUpdateSettingToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.autoUpdateSettingToolStripMenuItem.Text = "&Auto Update Setting";
-            this.autoUpdateSettingToolStripMenuItem.Click += new System.EventHandler(this.autoUpdateSettingToolStripMenuItem_Click);
-            // 
-            // exportToolStripMenuItem
-            // 
-            this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toCSVToolStripMenuItem,
-            this.toExcelToolStripMenuItem,
-            this.SecretEscapeFormToolStripMenuItem,
-            this.DailyMailToolStripMenuItem});
-            this.exportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.exportToolStripMenuItem.Image = global::Gulliver.Properties.Resources.export;
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.exportToolStripMenuItem.Text = "&Export";
-            // 
-            // toCSVToolStripMenuItem
-            // 
-            this.toCSVToolStripMenuItem.Name = "toCSVToolStripMenuItem";
-            this.toCSVToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.toCSVToolStripMenuItem.Text = "To CSV";
-            this.toCSVToolStripMenuItem.Click += new System.EventHandler(this.toCSVToolStripMenuItem_Click);
-            // 
-            // toExcelToolStripMenuItem
-            // 
-            this.toExcelToolStripMenuItem.Name = "toExcelToolStripMenuItem";
-            this.toExcelToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.toExcelToolStripMenuItem.Text = "To Excel";
-            this.toExcelToolStripMenuItem.Click += new System.EventHandler(this.toExcelToolStripMenuItem_Click);
-            // 
-            // SecretEscapeFormToolStripMenuItem
-            // 
-            this.SecretEscapeFormToolStripMenuItem.Name = "SecretEscapeFormToolStripMenuItem";
-            this.SecretEscapeFormToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.SecretEscapeFormToolStripMenuItem.Text = "To Secret Escape Form";
-            this.SecretEscapeFormToolStripMenuItem.Click += new System.EventHandler(this.SecretEscapeFormToolStripMenuItem_Click);
-            // 
-            // DailyMailToolStripMenuItem
-            // 
-            this.DailyMailToolStripMenuItem.Name = "DailyMailToolStripMenuItem";
-            this.DailyMailToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.DailyMailToolStripMenuItem.Text = "To DailyMail";
-            this.DailyMailToolStripMenuItem.Click += new System.EventHandler(this.DailyMailToolStripMenuItem_Click);
-            // 
-            // helpSupportToolStripMenuItem
-            // 
-            this.helpSupportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.emailToTechToolStripMenuItem});
-            this.helpSupportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.helpSupportToolStripMenuItem.Image = global::Gulliver.Properties.Resources.help_and_support;
-            this.helpSupportToolStripMenuItem.Name = "helpSupportToolStripMenuItem";
-            this.helpSupportToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
-            this.helpSupportToolStripMenuItem.Text = "&Help Support";
-            // 
-            // emailToTechToolStripMenuItem
-            // 
-            this.emailToTechToolStripMenuItem.Name = "emailToTechToolStripMenuItem";
-            this.emailToTechToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.emailToTechToolStripMenuItem.Text = "Email to Tech";
             // 
             // flcsMain
             // 

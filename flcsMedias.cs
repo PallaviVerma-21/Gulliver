@@ -112,7 +112,7 @@ namespace Gulliver
         {
             List<GulliverLibrary.Media> medias = new List<GulliverLibrary.Media>();
 
-            foreach (PackagesDS.MediaRow row in this.packagesDS.Media.Where(m => m.Name != null))
+            foreach (PackagesDS.MediaRow row in this.packagesDS.Media.Where(m => !m.IsChannel_CodesNull() && !m.IsNameNull()))
             {
                 GulliverLibrary.Media media = new GulliverLibrary.Media();
                 media.id = row.id;

@@ -48,6 +48,7 @@ namespace Gulliver
         public flcsMain(int id)
         {
             InitializeComponent();
+            email = new PackageGenerator.Email();
             queryHandler = new MySqlDataHandler.QueryHandler();
             gulliverQueryHandler = new GulliverLibrary.QueryHandler();
             packageHandler = new PackageGenerator.PackageHandler();
@@ -611,6 +612,119 @@ namespace Gulliver
                 fiterStatusLabelH.Text = filterStatus;
             }
         }
+
+        private void btnMakePageLive_Click(object sender, EventArgs e)
+        {
+            if (deal.id != 0)
+            {
+                string message = dataProcessor.MakePageLive(deal);
+                if (message != string.Empty)
+                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    string url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                    System.Diagnostics.Process.Start(url);
+                    this.Focus();
+                }
+            }
+            else
+                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
+        }
+
+        private void btnStopPage_Click(object sender, EventArgs e)
+        {
+
+            if (deal.id != 0)
+            {
+                save = true;
+                string message = dataProcessor.UpdateFleetwayPage(deal, cbAirportByAvailability.Checked, true);
+
+                if (message != string.Empty)
+                {
+                    lblError.Visible = true;
+                    lblError.Text = message;
+                }
+                else
+                {
+                    email.SendStoppedPage(deal);
+                    string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                    System.Diagnostics.Process.Start(url);
+                    this.Focus();
+                }
+            }
+            else
+                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
+        }
+
+        private void SecretEscapeFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                progressBarMenu.Visible = true;
+                Application.DoEvents();
+                progressBarMenu.Maximum = 5;
+                progressBarMenu.Value = 1;
+                progressBarMenu.Value++;
+                System.Threading.Thread.Sleep(1000);
+                progressBarMenu.Value++;
+                packageHandler.GenerateSecretEscapeForm(dealId, folderBrowserDialog.SelectedPath);
+                progressBarMenu.Value++;
+                System.Threading.Thread.Sleep(1000);
+                progressBarMenu.Value++;
+                progressBarMenu.Step = progressBar.Maximum;
+                progressBarMenu.Visible = false;
+                Application.DoEvents();
+                MessageBox.Show("Form has been saved to" + folderBrowserDialog.SelectedPath, "Secret Escape Form", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void DailyMailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (txtProductCode.Text.Trim() != string.Empty)
+            {
+                progressBarMenu.Visible = true;
+                Application.DoEvents();
+                progressBarMenu.Maximum = 4;
+                progressBarMenu.Value = 1;
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "CSV Documents (*.CSV)|*.csv";
+                sfd.FileName = Text.Trim() + ".csv";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    progressBar.Value++;
+
+                    PackageGenerator.Report report = new PackageGenerator.Report();
+                    List<GulliverLibrary.Package> updatedPackages = packageHandler.GetPackagesByDeal(dealId);
+                    report.WriteToDailyMailCSV(updatedPackages, sfd.FileName.Trim(), txtProductCode.Text.Trim());
+                    progressBar.Value++;
+                    MessageBox.Show("Export to " + sfd.FileName);
+
+                }
+
+                progressBarMenu.Value++;
+                progressBarMenu.Visible = false;
+                Application.DoEvents();
+            }
+            else
+                MessageBox.Show("Please enter product id before you generate the file!");
+        }
+
+        private void emailToTechToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            progressBarMenu.Visible = true;
+            Application.DoEvents();
+            progressBarMenu.Maximum = 5;
+            progressBarMenu.Value = 1;
+            progressBarMenu.Value++;
+            System.Threading.Thread.Sleep(1000);
+            progressBarMenu.Value++;
+            email.SendTechSupport(deal);
+            progressBarMenu.Value++;
+            progressBarMenu.Visible = false;
+            Application.DoEvents();
+            MessageBox.Show("Email has been sent sucessfully! ");
+        }                          
 
         private void btnSavePage_Click(object sender, EventArgs e)
         {
@@ -1306,6 +1420,7 @@ namespace Gulliver
                 cbBoards.Items.Add(item);
             }
 
+            //SortBoardBasis();
         }
 
         private void FillDepAirports()
@@ -1347,25 +1462,28 @@ namespace Gulliver
         {
             if (costingsDS.DurationCosting != null)
             {
-                List<string> durationCostingOccupancys = costingsDS.DurationCosting.Select(d => d.Occupancy).Distinct().ToList();
-                List<string> newOccupanys = occupancys.Where(o => !durationCostingOccupancys.Any(d => d == o)).ToList();
-
-                foreach (string occupancy in newOccupanys)
+                if (deal.durations != null)
                 {
-                    foreach (string duration in deal.durations.Split('#'))
-                    {
-                        GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration));
-                        if (durationCosting != null)
-                            costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
-                        else
-                            costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, 0, 0, 0, 0, 0, 0, "£", 0);
-                    }
-                }
+                    List<string> durationCostingOccupancys = costingsDS.DurationCosting.Select(d => d.Occupancy).Distinct().ToList();
+                    List<string> newOccupanys = occupancys.Where(o => !durationCostingOccupancys.Any(d => d == o)).ToList();
 
-                List<string> removedOccupanys = durationCostingOccupancys.Where(o => !occupancys.Any(d => d == o)).ToList();
-                List<CostingsDS.DurationCostingRow> durationCostingRows = costingsDS.DurationCosting.Where(d => removedOccupanys.Contains(d.Occupancy)).ToList();
-                foreach (CostingsDS.DurationCostingRow occupancy in durationCostingRows)
-                    costingsDS.DurationCosting.RemoveDurationCostingRow(occupancy);
+                    foreach (string occupancy in newOccupanys)
+                    {
+                        foreach (string duration in deal.durations.Split('#'))
+                        {
+                            GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration));
+                            if (durationCosting != null)
+                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
+                            else
+                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, 0, 0, 0, 0, 0, 0, "£", 0);
+                        }
+                    }
+
+                    List<string> removedOccupanys = durationCostingOccupancys.Where(o => !occupancys.Any(d => d == o)).ToList();
+                    List<CostingsDS.DurationCostingRow> durationCostingRows = costingsDS.DurationCosting.Where(d => removedOccupanys.Contains(d.Occupancy)).ToList();
+                    foreach (CostingsDS.DurationCostingRow occupancy in durationCostingRows)
+                        costingsDS.DurationCosting.RemoveDurationCostingRow(occupancy);
+                }
             }
         }
 
@@ -1512,6 +1630,7 @@ namespace Gulliver
                if (selectedBoardBasis.Contains(((ComboBoxItem)cbBoards.Items[i]).Value.ToString()))
                   cbBoards.SetItemChecked(i, true);
             }
+            SortBoardBasis();
         }
 
         private void FillDateRangeMarkups(List<GulliverLibrary.DateRangeMarkup> dateRangeMarkups)
@@ -2976,103 +3095,27 @@ namespace Gulliver
         
         #endregion                      
 
-        private void btnMakePageLive_Click(object sender, EventArgs e)
+        private void cbBoards_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (deal.id != 0)
-            {
-                string message = dataProcessor.MakePageLive(deal);
-                if (message != string.Empty)
-                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
-                {
-                    string url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-                    System.Diagnostics.Process.Start(url);
-                    this.Focus();
-                }
-            }
-            else
-                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
+            SortBoardBasis();
         }
 
-        private void btnStopPage_Click(object sender, EventArgs e)
+        private void SortBoardBasis()
         {
+            List<ComboBoxItem> allcontents = cbBoards.Items.Cast<ComboBoxItem>().ToList();
+            List<ComboBoxItem> checkedContents = cbBoards.CheckedItems.Cast<ComboBoxItem>().ToList();
 
-            if (deal.id != 0)
-            {
-                save = true;
-                string message = dataProcessor.UpdateFleetwayPage(deal, cbAirportByAvailability.Checked, true);
+            allcontents = allcontents.Where(a => !checkedContents.Any(c => c == a)).ToList();
 
-                if (message != string.Empty)
-                {
-                    lblError.Visible = true;
-                    lblError.Text = message;
-                }
-                else
-                {
-                    email.SendStoppedPage(deal);
-                    string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-                    System.Diagnostics.Process.Start(url);
-                    this.Focus();
-                }
-            }
-            else
-                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
+            cbBoards.Items.Clear();
+
+            foreach (ComboBoxItem item in checkedContents.OrderBy(c => c.Value))
+                cbBoards.Items.Add(item, true);
+
+            foreach (ComboBoxItem item in allcontents.OrderBy(a => a.Value))
+                cbBoards.Items.Add(item, false);
         }
-
-        private void SecretEscapeFormToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                progressBarMenu.Visible = true;
-                Application.DoEvents();
-                progressBarMenu.Maximum = 5;
-                progressBarMenu.Value = 1;
-                progressBarMenu.Value++;
-                System.Threading.Thread.Sleep(1000);
-                progressBarMenu.Value++;                
-                packageHandler.GenerateSecretEscapeForm(dealId, folderBrowserDialog.SelectedPath);
-                progressBarMenu.Value++;
-                System.Threading.Thread.Sleep(1000);
-                progressBarMenu.Value++;
-                progressBarMenu.Step = progressBar.Maximum;
-                progressBarMenu.Visible = false;
-                Application.DoEvents();
-                MessageBox.Show("Form has been saved to" + folderBrowserDialog.SelectedPath, "Secret Escape Form", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
-            }            
-        }
-
-        private void DailyMailToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (txtProductCode.Text.Trim() != string.Empty)
-            {
-                progressBarMenu.Visible = true;
-                Application.DoEvents();
-                progressBarMenu.Maximum = 4;
-                progressBarMenu.Value = 1;
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "CSV Documents (*.CSV)|*.csv";
-                sfd.FileName = Text.Trim() + ".csv";
-                
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    progressBar.Value++;
-
-                    PackageGenerator.Report report = new PackageGenerator.Report();
-                    List<GulliverLibrary.Package> updatedPackages = packageHandler.GetPackagesByDeal(dealId);
-                    report.WriteToDailyMailCSV(updatedPackages, sfd.FileName.Trim(), txtProductCode.Text.Trim());
-                    progressBar.Value++;
-                    MessageBox.Show("Export to " + sfd.FileName);
-
-                }
-
-                progressBarMenu.Value++;
-                progressBarMenu.Visible = false;
-                Application.DoEvents();
-            }
-            else
-                MessageBox.Show("Please enter product id before you generate the file!");  
-        }                          
+       
     }
 }
 
