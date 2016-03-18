@@ -80,8 +80,8 @@ namespace Gulliver
 
         private void StopProgressBar()
         {
-            libraryProgressbar.Visible = false;
-            Application.DoEvents();
+           libraryProgressbar.Visible = false;
+           Application.DoEvents();
         }
 
         #endregion

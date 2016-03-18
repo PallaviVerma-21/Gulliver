@@ -243,7 +243,7 @@ namespace Gulliver
         private void SetStepProgressBar(ProgressBar progressBar)
         {
             progressBar.Value++;
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(1);
         }
 
         private void VisibleProgressBar(ProgressBar progressBar, bool visible)
@@ -255,7 +255,7 @@ namespace Gulliver
                 progressBar.Value = 10;
                 progressBar.Step = 10;
                 SetStepProgressBar(progressBar);
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(1);
             }
         }
 
@@ -390,29 +390,54 @@ namespace Gulliver
         private void btnSelect_Click(object sender, EventArgs e)
         {
             List<int> ids = new List<int>();
+            List<string> invalidContracts = new List<string>();
+            List<string> exsisitingReconIds = (dataGridviewOfferContracts.Rows != null && dataGridviewOfferContracts.Rows.Count > 0) ?
+            dataGridviewOfferContracts.Rows.Cast<DataGridViewRow>().Where(r => r.Cells[1].Value != null).Select(r => r.Cells[1].Value.ToString().Trim()).ToList() : new List<string>();
 
-            if(dataGridviewContracts.SelectedRows != null && dataGridviewContracts.SelectedRows.Count > 0)
+            if (dataGridviewContracts.SelectedRows != null && dataGridviewContracts.SelectedRows.Count > 0)
             {
-               foreach( DataGridViewRow r in dataGridviewContracts.SelectedRows)
-                ids.Add(Convert.ToInt32(r.Cells[1].Value.ToString()));
+                foreach (DataGridViewRow r in dataGridviewContracts.SelectedRows)
+                    if (Convert.ToDateTime(r.Cells[6].Value.ToString()) > DateTime.Now)
+                    {
+                        if (!exsisitingReconIds.Contains(r.Cells[1].Value.ToString().Trim()))
+                        {
+                            ids.Add(Convert.ToInt32(r.Cells[1].Value.ToString()));
+                        }
+                    }
+                    else
+                        invalidContracts.Add(r.Cells[2].Value.ToString().Trim());
 
-               List<MySqlDataHandler.AcCGuiD> contracts = packageHandler.GetAccomGuidByRecNos(ids);
-               FillOfferContracts(contracts);
+                List<MySqlDataHandler.AcCGuiD> contracts = packageHandler.GetAccomGuidByRecNos(ids);
+                FillOfferContracts(contracts);
+
+                if (invalidContracts.Count > 0)
+                    MessageBox.Show("Please note that these contracts ("+ string.Join(", ", invalidContracts)+ ") have been expried! ");
             }            
         }
         
         private void btnNext_Click(object sender, EventArgs e)
         {
-           SaveOfferDetails();
-            if(cbCruiseDeal.Checked)
-                tabMain.SelectedTab = tabPage3;
-            else
-               tabMain.SelectedTab = tabPage2;
+           bool sucess = SaveOfferDetails();
+           if (sucess)
+           {
+               if (cbCruiseDeal.Checked)
+                   tabMain.SelectedTab = tabPage3;
+               else
+                   tabMain.SelectedTab = tabPage2;
+           }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            switch (MessageBox.Show("This will not save all changes - continue?", "Close Deal", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                case System.Windows.Forms.DialogResult.Yes:
+                    this.Close();
+                    break;
 
+                case System.Windows.Forms.DialogResult.No:
+                    break;
+            }            
         }
 
         private void btnFlightBack_Click(object sender, EventArgs e)
@@ -749,6 +774,13 @@ namespace Gulliver
                     }
                     deal.DealInformation.HotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);                    
                 }
+                
+                List<GulliverLibrary.Link> links = new List<GulliverLibrary.Link>();
+                GulliverLibrary.Link link = new GulliverLibrary.Link();
+                link.name = "youTubeLink";
+                link.Deal = deal;
+                link.url = txtYouTubeLink.Text.Trim();
+                links.Add(link);
 
                 deal.DealInformation.mainHeader = txtMainHeader.Text.Trim();
                 deal.DealInformation.Deal = deal;
@@ -756,7 +788,7 @@ namespace Gulliver
                 deal.DealInformation.longitude = txtLongitude.Text.Trim();
                 deal.DealInformation.latitude = txtLatitude.Text.Trim();
                 deal.DealInformation.HotelInformation.hotelHeader = txtHotelTitle.Text.Trim();
-                deal.DealInformation.youTubeLink = txtYouTubeLink.Text.Trim();
+                
                 deal.DealInformation.introduction = txtDealIntro.Text.Trim();
                 deal.DealInformation.childPrices = txtChildPrice.Text.Trim();
                 deal.DealInformation.optionalExtras = txtOptionalExtras.Text.Trim();
@@ -764,10 +796,14 @@ namespace Gulliver
                 deal.DealInformation.HotelInformation.hotelBodyText = txtHotelText.Text.Trim();
                 deal.DealInformation.HotelInformation.destinationText = txtDestinationText.Text.Trim();
                 deal.DealInformation.HotelInformation.countryText = txtCountryText.Text.Trim();
-                deal.DealInformation.tripAdvisorLink = txtTripAdvisorLink.Text.Trim();
-                deal.DealInformation.howToBook = txtHowToBook.Text.Trim();
-                //deal.DealInformation.dealActive = cbActiveOnLuxuryWebsite.Checked;
 
+                GulliverLibrary.Link linkTA = new GulliverLibrary.Link();
+                linkTA.name = "tripAdvisorLink";
+                linkTA.url = txtTripAdvisorLink.Text.Trim();
+                linkTA.Deal = deal;
+                links.Add(linkTA);
+
+                deal.DealInformation.howToBook = txtHowToBook.Text.Trim();
                 deal.DealInformation.HotelInformation.accessibility = txtAccessibilityText.Text;
                 deal.DealInformation.HotelInformation.keyInformation = txtKeyInformationText.Text;
                 deal.DealInformation.dealCurrency = cmbCurrency.SelectedItem.ToString();
@@ -784,7 +820,18 @@ namespace Gulliver
                 deal.DealInformation.diplayNightsOrDays = (rbDays.Checked) ? "Days" : "Nights";
                 deal.DealInformation.priority = Convert.ToInt32(ddlPriorities.SelectedItem);
                 deal.DealInformation.goLiveOnBestDealPage = cbGoLiveOnBestDealPage.Checked;
-                deal.DealInformation.hotelLink = txtHotelLink.Text.Trim();
+
+                GulliverLibrary.Link linkHW = new GulliverLibrary.Link();
+                linkHW.name = "hotelWebsiteLink";
+                linkHW.Deal = deal;
+                linkHW.url = txtYouTubeLink.Text.Trim();
+
+                GulliverLibrary.Link pageLink = new GulliverLibrary.Link();
+                pageLink.name = "landingPageLink";
+                pageLink.Deal = deal;
+                pageLink.url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+
+                links.Add(pageLink);               
 
                 List<GulliverLibrary.Image> dealImages = new List<GulliverLibrary.Image>();
                 foreach (GulliverDS.ImageRow imageRow in this.gulliverDS.Image)
@@ -829,11 +876,17 @@ namespace Gulliver
 
                 deal.DealImages = dealImages;
                 deal.DealReviews = dealReviews;
-        
+                deal.Links = links;
+
                 if (deal.id != 0)
-                packageHandler.SaveDealInformation(deal);                   
+                {
+                    packageHandler.SaveDealInformation(deal);
+                    btnStopPage.Enabled = true;
+                    btnMakePageLive.Enabled = true;
+                    btnUpdateFleetwayPage.Enabled = true;
+                }
                 else
-                lblError.Text = "Please save the deal before add any deal information for page!";
+                    lblError.Text = "Please save the deal before add any deal information for page!";
 
                 lblMessage.Visible = true;
             }
@@ -1099,6 +1152,9 @@ namespace Gulliver
         {
             for (int i = 0; i <= cbDurations.Items.Count - 1; i++)
                 cbDurations.SetItemCheckState(i, (cbAllDurations.Checked ? CheckState.Checked : CheckState.Unchecked));
+
+            List<string> durations = cbDurations.CheckedItems.Cast<string>().ToList();
+            FillDurationComboBox(durations);
         }
 
         private void cbAllWeekDays_CheckedChanged(object sender, EventArgs e)
@@ -1491,25 +1547,28 @@ namespace Gulliver
         {
             if (costingsDS.DurationCosting != null)
             {
-                List<string> durationCostingOccupancys = costingsDS.DurationCosting.Select(d => d.Duration.ToString()).Distinct().ToList();
-                List<string> newDurations = durations.Where(o => !durationCostingOccupancys.Any(d => d == o.ToString())).Select(o => o.ToString()).ToList();
-
-                foreach (string duration in newDurations)
+                if (deal.occupancy != null)
                 {
-                    foreach (string occupancy in deal.occupancy.Split('#'))
-                    {
-                        GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration));
-                        if (durationCosting != null)
-                            costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
-                        else
-                            costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, 0, 0, 0, 0, 0, 0, "£", 0);
-                    }
-                }
+                    List<string> durationCostingOccupancys = costingsDS.DurationCosting.Select(d => d.Duration.ToString()).Distinct().ToList();
+                    List<string> newDurations = durations.Where(o => !durationCostingOccupancys.Any(d => d == o.ToString())).Select(o => o.ToString()).ToList();
 
-                List<string> removedDurations = durationCostingOccupancys.Where(o => !durations.Any(d => d.ToString() == o)).ToList();
-                List<CostingsDS.DurationCostingRow> durationCostingRows = costingsDS.DurationCosting.Where(d => removedDurations.Contains(d.Duration.ToString())).ToList();
-                foreach (CostingsDS.DurationCostingRow row in durationCostingRows)
-                    costingsDS.DurationCosting.RemoveDurationCostingRow(row);
+                    foreach (string duration in newDurations)
+                    {
+                        foreach (string occupancy in deal.occupancy.Split('#'))
+                        {
+                            GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration));
+                            if (durationCosting != null)
+                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
+                            else
+                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, 0, 0, 0, 0, 0, 0, "£", 0);
+                        }
+                    }
+
+                    List<string> removedDurations = durationCostingOccupancys.Where(o => !durations.Any(d => d.ToString() == o)).ToList();
+                    List<CostingsDS.DurationCostingRow> durationCostingRows = costingsDS.DurationCosting.Where(d => removedDurations.Contains(d.Duration.ToString())).ToList();
+                    foreach (CostingsDS.DurationCostingRow row in durationCostingRows)
+                        costingsDS.DurationCosting.RemoveDurationCostingRow(row);
+                }
             }
         }
 
@@ -1536,9 +1595,7 @@ namespace Gulliver
         {
             destiantionAirportComboBox.DataSource = destinationAirports;
         }       
-
       
-
         private void FillPackages(List<GulliverLibrary.Package> packages)
         {
             packagesDS.Package.Clear();
@@ -1797,11 +1854,12 @@ namespace Gulliver
 
         private void FillDealInformation()
         {
+            
             txtMainHeader.Text = (deal.DealInformation.mainHeader != null) ? deal.DealInformation.mainHeader : string.Empty;
             txtSubHeader.Text = (deal.DealInformation.subHeader != null) ? deal.DealInformation.subHeader : string.Empty;
             txtLongitude.Text = (deal.DealInformation.longitude != null) ? deal.DealInformation.longitude : string.Empty;
-            txtLatitude.Text = (deal.DealInformation.latitude != null) ? deal.DealInformation.latitude : string.Empty;            
-            txtYouTubeLink.Text = (deal.DealInformation.youTubeLink != null) ? deal.DealInformation.youTubeLink : string.Empty;
+            txtLatitude.Text = (deal.DealInformation.latitude != null) ? deal.DealInformation.latitude : string.Empty;
+            txtYouTubeLink.Text = gulliverQueryHandler.GetLinkByName("youTubeLink", deal.id);
             txtDealIntro.Text = (deal.DealInformation.introduction != null) ? deal.DealInformation.introduction : string.Empty;
             txtChildPrice.Text = (deal.DealInformation.childPrices != null) ? deal.DealInformation.childPrices : string.Empty;
             txtOptionalExtras.Text = (deal.DealInformation.optionalExtras != null) ? deal.DealInformation.optionalExtras : string.Empty;
@@ -1815,8 +1873,8 @@ namespace Gulliver
             txtCountryTitle.Text = (deal.DealInformation.HotelInformation.countryHeader != null) ? deal.DealInformation.HotelInformation.countryHeader.Trim() : string.Empty;
             txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
             txtHowToBook.Text = (deal.DealInformation.howToBook != null) ? deal.DealInformation.howToBook.Trim() : string.Empty;
-            txtTripAdvisorLink.Text = (deal.DealInformation.tripAdvisorLink != null) ? deal.DealInformation.tripAdvisorLink : string.Empty;     
-            //cbActiveOnLuxuryWebsite.Checked = deal.DealInformation.dealActive;
+            txtTripAdvisorLink.Text = gulliverQueryHandler.GetLinkByName("tripAdvisorLink", deal.id);   
+            
             cmbCurrency.SelectedItem = (deal.DealInformation.dealCurrency == null || deal.DealInformation.dealCurrency == string.Empty) ? "GBP" : deal.DealInformation.dealCurrency;
             cmbLanuages.SelectedItem = (deal.DealInformation.language == null || deal.DealInformation.language == string.Empty) ? "English" : deal.DealInformation.language;
             ddlPriorities.SelectedItem = (deal.DealInformation.priority != null) ? deal.DealInformation.priority.ToString() : "0";
@@ -1832,10 +1890,12 @@ namespace Gulliver
             rbDays.Checked = (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Days") ? true : false;
             rbNights.Checked = (deal.DealInformation.diplayNightsOrDays == null || (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Nights") || deal.DealInformation.diplayNightsOrDays == string.Empty) ? true : false;
             optionalCostings = (deal.DealInformation.optionalExtras != null) ? deal.DealExtras.ToList() : new List<GulliverLibrary.DealOptionalExtra>();
-            txtHotelLink.Text = (deal.DealInformation.hotelLink != null) ? deal.DealInformation.hotelLink.Trim() : string.Empty;
+            txtHotelLink.Text = gulliverQueryHandler.GetLinkByName("hotelWebsiteLink", deal.id);   
             FillImages();
             FillReviews();
-
+            btnStopPage.Enabled = true;
+            btnMakePageLive.Enabled = true;
+            btnUpdateFleetwayPage.Enabled = true;
         }
 
         private void FillImages()
@@ -1883,7 +1943,51 @@ namespace Gulliver
         #endregion
 
         #region DataGridviewCostings
-       
+
+        //cell content
+        private void dataGridviewOfferContracts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridviewOfferContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewOfferContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            {
+                dataGridviewOfferContracts.CurrentCell = (dataGridviewOfferContracts.Rows.Count == 0) ? dataGridviewOfferContracts.Rows[0].Cells[0] : null;
+
+                try
+                {
+                    switch (MessageBox.Show("This will delete selected hotel contract - continue?", "Delete Hotel Contract", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                    {
+                        case System.Windows.Forms.DialogResult.Yes:
+                            dataGridviewOfferContracts.Rows.Remove((DataGridViewRow)dataGridviewOfferContracts.Rows[e.RowIndex]);
+                            break;
+
+                        case System.Windows.Forms.DialogResult.No:
+                            return;
+                    }
+                }
+                catch { }
+            }
+        }
+
+        //tripper hotel contracts 
+        //private void dataGridviewContracts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex >= 0 && dataGridviewContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Select")
+        //    {
+        //        try
+        //        {
+        //            switch (MessageBox.Show("This will delete selected hotel contract - continue?", "Delete Hotel Contract", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+        //            {
+        //                case System.Windows.Forms.DialogResult.Yes:
+        //                    dataGridviewContracts.Rows.Remove((DataGridViewRow)dataGridviewContracts.Rows[e.RowIndex]);
+        //                    break;
+
+        //                case System.Windows.Forms.DialogResult.No:
+        //                    return;
+        //            }
+        //        }
+        //        catch { }
+        //    }
+        //}
+
         //extras
         private void dataGridViewExtras_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -1898,8 +2002,10 @@ namespace Gulliver
 
         private void dataGridViewExtras_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGridViewExtras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridViewExtras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >=0 && dataGridViewExtras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridViewExtras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGridViewExtras.CurrentCell = (dataGridViewExtras.Rows.Count == 0) ? dataGridViewExtras.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected extras - continue?", "Delete Extras", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -1930,8 +2036,10 @@ namespace Gulliver
 
         private void dataGridviewCarparking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGridviewCarparking.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewCarparking.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGridviewCarparking.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewCarparking.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGridviewCarparking.CurrentCell = (dataGridviewCarparking.Rows.Count == 0) ? dataGridviewCarparking.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected car parking - continue?", "Delete Car parking", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -1974,8 +2082,10 @@ namespace Gulliver
 
         private void dataGridviewCarhire_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGridviewCarhire.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewCarhire.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGridviewCarhire.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewCarhire.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGridviewCarhire.CurrentCell = (dataGridviewCarhire.Rows.Count == 0) ? dataGridviewCarhire.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected carhire - continue?", "Delete Carhire", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2018,17 +2128,25 @@ namespace Gulliver
 
         private void dataGVDurationCosting_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGVDurationCosting.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVDurationCosting.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
-            {
-                switch (MessageBox.Show("This will delete selected duration costing - continue?", "Delete Duration Costings", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+           if (e.RowIndex >= 0 && dataGVDurationCosting.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVDurationCosting.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
                 {
-                    case System.Windows.Forms.DialogResult.Yes:
-                        dataGVDurationCosting.Rows.Remove((DataGridViewRow)dataGVDurationCosting.Rows[e.RowIndex]);
-                        break;
+                    dataGVDurationCosting.CurrentCell = (dataGVDurationCosting.Rows.Count == 0) ? dataGVDurationCosting.Rows[0].Cells[0] : null;
+                    try
+                    {
+                        switch (MessageBox.Show("This will delete selected duration costing - continue?", "Delete Duration Costings", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                        {
 
-                    case System.Windows.Forms.DialogResult.No:
-                        return;
-                }
+                            case System.Windows.Forms.DialogResult.Yes:
+                                dataGVDurationCosting.Rows.Remove((DataGridViewRow)dataGVDurationCosting.Rows[e.RowIndex]);
+                                break;
+
+                            case System.Windows.Forms.DialogResult.No:
+                                return;
+                        }
+                    }
+                    catch {} 
+                        
+                    
             }
         }
 
@@ -2068,8 +2186,9 @@ namespace Gulliver
 
         private void dataGVMarkups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGVMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGVMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGVMarkups.CurrentCell = (dataGVMarkups.Rows.Count == 0) ? dataGVMarkups.Rows[0].Cells[0] : null;
                 switch (MessageBox.Show("This will delete selected duration markup - continue?", "Duration Markup", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2111,8 +2230,10 @@ namespace Gulliver
        //weekday markup
         private void dataGVWeekdayM_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGVWeekdayM.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVWeekdayM.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGVWeekdayM.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVWeekdayM.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGVWeekdayM.CurrentCell = (dataGVWeekdayM.Rows.Count == 0) ? dataGVWeekdayM.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected weekday markup - continue?", "Weekday Markup", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2153,8 +2274,9 @@ namespace Gulliver
         // roomtype
         private void dataGVRoomTypeMarkups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGVRoomTypeMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVRoomTypeMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGVRoomTypeMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVRoomTypeMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGVRoomTypeMarkups.CurrentCell = (dataGVRoomTypeMarkups.Rows.Count == 0) ? dataGVRoomTypeMarkups.Rows[0].Cells[0] : null;
                 switch (MessageBox.Show("This will delete selected roomtype markup - continue?", "Roomtype Markup", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2198,8 +2320,10 @@ namespace Gulliver
         //suppler markups
         private void dataGVSupplierMarkups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGVSupplierMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVSupplierMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGVSupplierMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVSupplierMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGVSupplierMarkups.CurrentCell = (dataGVSupplierMarkups.Rows.Count == 0) ? dataGVSupplierMarkups.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected supplier markup - continue?", "Supplier Markup", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2242,8 +2366,10 @@ namespace Gulliver
         //departure markups
         private void dataGVDepartureApMarkups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGVDepartureApMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVDepartureApMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGVDepartureApMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVDepartureApMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGVDepartureApMarkups.CurrentCell = (dataGVDepartureApMarkups.Rows.Count == 0) ? dataGVDepartureApMarkups.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected departure airport markup - continue?", "Departure Airport Markup", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2285,8 +2411,10 @@ namespace Gulliver
         //airport markups
         private void dataGVArrivalAirportMarkups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGVArrivalAirportMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVArrivalAirportMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGVArrivalAirportMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVArrivalAirportMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGVArrivalAirportMarkups.CurrentCell = (dataGVArrivalAirportMarkups.Rows.Count == 0) ? dataGVArrivalAirportMarkups.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected arrival airport markup - continue?", "Arrival Airport Markup", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2329,8 +2457,10 @@ namespace Gulliver
         // daternage markup
         private void dataGVDateRangeMarkup_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGVDateRangeMarkup.CurrentCell = (dataGVDateRangeMarkup.Rows.Count == 0) ? dataGVDateRangeMarkup.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected date range markup - continue?", "Date Range Markup", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2370,8 +2500,10 @@ namespace Gulliver
         // low availability markup
         private void dataGVLowAvailabilityMarkup_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGVLowAvailabilityMarkup.CurrentCell = (dataGVLowAvailabilityMarkup.Rows.Count == 0) ? dataGVLowAvailabilityMarkup.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected low availability markup - continue?", "Low availability Markup", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2425,8 +2557,10 @@ namespace Gulliver
 
         private void dataGridViewHotelContracts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && dataGridViewHotelContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridViewHotelContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGridViewHotelContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridViewHotelContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGridViewHotelContracts.CurrentCell = (dataGridViewHotelContracts.Rows.Count == 0) ? dataGridViewHotelContracts.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected hotel contract - continue?", "Manual Hotel Contract", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2474,8 +2608,10 @@ namespace Gulliver
 
         private void dataGridviewImages_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridviewImages.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewImages.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGridviewImages.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewImages.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
+                dataGridviewImages.CurrentCell = (dataGridviewImages.Rows.Count == 0) ? dataGridviewImages.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected image - continue?", "Delete Images", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2518,10 +2654,12 @@ namespace Gulliver
         //reviews
         private void dGVReviews_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            if (e.RowIndex >= 0)
             {
                 if (dGVReviews.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dGVReviews.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
                 {
+                    dGVReviews.CurrentCell = (dGVReviews.Rows.Count == 0) ? dGVReviews.Rows[0].Cells[0] : null;
+
                     switch (MessageBox.Show("This will delete selected review - continue?", "Delete Reviews", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                     {
                         case System.Windows.Forms.DialogResult.Yes:
@@ -2970,7 +3108,7 @@ namespace Gulliver
        
         //save deal
         
-        private void SaveOfferDetails()
+        private bool SaveOfferDetails()
         {
             VisibleProgressBar(progressBarTP1, true);
             SetStepProgressBar(progressBarTP1);
@@ -2979,6 +3117,14 @@ namespace Gulliver
             deal.dateOfPromotion = dtpSalesOn.Value;
             deal.endDateOfPromotion = dtpBookBy.Value;
             deal.Media = (ddlMedias.SelectedItem != null) ? gulliverQueryHandler.GetMediaByCode(((ComboBoxItem)ddlMedias.SelectedItem).Value.ToString()) : null;
+
+            if (deal.Media == null)
+            {
+                MessageBox.Show("Please select valid media before you go to next step!");
+                return false;
+            }
+
+
             deal.DealType = (ddlDealTypes.SelectedItem != null) ? gulliverQueryHandler.GetDealTypeById(Convert.ToInt32(((ComboBoxItem)ddlDealTypes.SelectedItem).Value.ToString())) : null;
             SetStepProgressBar(progressBarTP1);
             deal.cruiseDeal = cbCruiseDeal.Checked;
@@ -2988,7 +3134,7 @@ namespace Gulliver
                 if (!Validator.ValidPrice(txtCommission.Text))
                 {
                     MessageBox.Show("Commission is not valid, please check correct!");
-                    return;
+                    return false;
                 }
             }
 
@@ -3011,6 +3157,8 @@ namespace Gulliver
             }
 
             VisibleProgressBar(progressBarTP1, false);
+
+            return true;
         }
         
         private void SearchedHolidays(GulliverLibrary.Deal deal)
@@ -3054,9 +3202,9 @@ namespace Gulliver
 
             if (objFilterSearch.returnToMainwindow)
             {
-                progressBar.Visible = false;
-                Application.DoEvents();
-                return;
+               progressBar.Visible = false;
+               Application.DoEvents();
+               return;
             }
 
             FlightsHandler.SearchRequest searchRequest = new FlightsHandler.SearchRequest();
@@ -3087,9 +3235,9 @@ namespace Gulliver
 
             if (packageForm.saved)
             {
-                deal = packageHandler.GetDealById(dealId);
-                FillPackages(packages);
-                tabMain.SelectedTab = tabPage5;
+               deal = packageHandler.GetDealById(dealId);
+               FillPackages(packages);
+               tabMain.SelectedTab = tabPage5;
             }
         }
         
@@ -3115,6 +3263,17 @@ namespace Gulliver
             foreach (ComboBoxItem item in allcontents.OrderBy(a => a.Value))
                 cbBoards.Items.Add(item, false);
         }
+
+        private void ddlDealTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+       
+
+       
        
     }
 }

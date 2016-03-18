@@ -189,6 +189,7 @@ namespace Gulliver
             progressBar.Value++;
             packages = packages.Where(h => h.status != "Not available anymore").ToList();
             progressBar.Value++;
+           
             packageHandler.UpdatePackages(packages, deal.id);
             progressBar.Value++;
 
