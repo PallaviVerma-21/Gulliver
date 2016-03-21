@@ -9,6 +9,7 @@ using System.Linq;
 using ComponentFactory.Krypton.Toolkit;
 using System.Diagnostics;
 using System.Collections;
+using System.Threading;
 
 namespace Gulliver
 {
@@ -47,7 +48,7 @@ namespace Gulliver
             this.libraryDS.Library.Clear();
             libraryProgressbar.PerformStep();
            
-            foreach (GulliverLibrary.Deal deal in deals.OrderBy(p => p.dateOfPromotion))
+            foreach (GulliverLibrary.Deal deal in deals.OrderByDescending(p => p.dateOfPromotion))
                 this.libraryDS.Library.AddLibraryRow("Delete", "View", deal.id, deal.Media.supplier.Trim(), deal.name.Trim(), string.Empty , deal.dateOfPromotion.ToString("dd/MM/yyyy"), deal.endDateOfPromotion.ToString("dd/MM/yyyy"), "Copy");
 
             libraryProgressbar.PerformStep();
@@ -111,6 +112,7 @@ namespace Gulliver
             else if (e.RowIndex != -1 && dataGridViewLibrary.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridViewLibrary.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "View")
             {
                 StartProgressBar(2);
+                //ProgressBar();
                 flcsMain flcsMain = new flcsMain(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value));
                 flcsMain.Show();
                 StopProgressBar();
@@ -135,6 +137,24 @@ namespace Gulliver
                         return;
                 }
             }
+        }
+
+        private void ProgressBar()
+        {
+            try
+            {
+                int max = 100;
+                var prog = Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.Instance;
+                prog.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.Normal);
+                for (int i = 0; i < max; i++)
+                {
+                    prog.SetProgressValue(i, max);
+                    Thread.Sleep(100);
+                }
+                prog.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.NoProgress);
+            }
+            catch (Exception ex)
+            { }
         }
         
         private void cbShowAll_CheckedChanged(object sender, EventArgs e)

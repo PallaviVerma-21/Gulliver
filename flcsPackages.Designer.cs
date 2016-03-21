@@ -29,6 +29,7 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsPackages));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.cbFinalizePrices = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
@@ -48,6 +49,53 @@ namespace Gulliver
             this.cbPackageColumns = new System.Windows.Forms.CheckedListBox();
             this.btnPackageColumnShow = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             this.dataGridViewHolidays = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.delete = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelKey = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.hiddenNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flightId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Summary = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.Status = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.departureAirport = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.month = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dateOfWeek = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.date = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.duration = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.airline = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.boardBasis = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.roomType = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.occupancy = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.flightPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.hotelPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.caa = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.transfers = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.baggagePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carhireCosting = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.carParkingCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.extras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.nett = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.commission = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.totalMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.sellAt = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.oldSellAt = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.profit = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.childHotelPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.childExtras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.childNett = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.totalChildMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.childSellat = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.SearchType = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.destinationAirport = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.obDepartureTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.obArrivalTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.ibDepartureTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.ibArrivalTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.obFlightNo = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.ibFlightNo = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.adults = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.children = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.infants = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.baseMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.bsHolidays = new System.Windows.Forms.BindingSource(this.components);
             this.packagesDS = new Gulliver.PackagesDS();
             this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
@@ -101,53 +149,6 @@ namespace Gulliver
             this.dataGridViewAutoFilterTextBoxColumn39 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.dataGridViewAutoFilterTextBoxColumn40 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.dataGridViewAutoFilterTextBoxColumn41 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotelKey = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.hiddenNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flightId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Summary = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.Status = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.departureAirport = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.month = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dateOfWeek = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.date = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.duration = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.airline = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.boardBasis = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.roomType = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.occupancy = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.flightPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.hotelPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.caa = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.transfers = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.baggagePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carhireCosting = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.carParkingCosting = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.extras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.nett = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.commission = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.totalMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.sellAt = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.oldSellAt = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.profit = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.childHotelPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.childExtras = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.childNett = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.totalChildMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.childSellat = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.SearchType = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.destinationAirport = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.obDepartureTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.obArrivalTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.ibDepartureTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.ibArrivalTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.obFlightNo = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.ibFlightNo = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.adults = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.children = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.infants = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.baseMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -478,6 +479,373 @@ namespace Gulliver
             this.dataGridViewHolidays.TabIndex = 0;
             this.dataGridViewHolidays.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewHolidays_DataBindingComplete);
             this.dataGridViewHolidays.Click += new System.EventHandler(this.dataGridViewHolidays_Click);
+            // 
+            // delete
+            // 
+            this.delete.DataPropertyName = "Delete";
+            this.delete.HeaderText = "Delete";
+            this.delete.Name = "delete";
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.delete.Width = 60;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // hotelKey
+            // 
+            this.hotelKey.DataPropertyName = "hotelKey";
+            this.hotelKey.HeaderText = "hotelKey";
+            this.hotelKey.Name = "hotelKey";
+            this.hotelKey.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.hotelKey.Visible = false;
+            // 
+            // hiddenNumber
+            // 
+            this.hiddenNumber.DataPropertyName = "hiddenNumber";
+            this.hiddenNumber.HeaderText = "hiddenNumber";
+            this.hiddenNumber.Name = "hiddenNumber";
+            this.hiddenNumber.Visible = false;
+            // 
+            // flightId
+            // 
+            this.flightId.DataPropertyName = "flightId";
+            this.flightId.HeaderText = "flightId";
+            this.flightId.Name = "flightId";
+            this.flightId.Visible = false;
+            // 
+            // Summary
+            // 
+            this.Summary.DataPropertyName = "summary";
+            this.Summary.HeaderText = "Summary";
+            this.Summary.Name = "Summary";
+            this.Summary.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Summary.Visible = false;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Status.Visible = false;
+            // 
+            // departureAirport
+            // 
+            this.departureAirport.DataPropertyName = "departureAirport";
+            this.departureAirport.HeaderText = "Departure";
+            this.departureAirport.Name = "departureAirport";
+            this.departureAirport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.departureAirport.Width = 80;
+            // 
+            // month
+            // 
+            this.month.DataPropertyName = "month";
+            this.month.HeaderText = "Month";
+            this.month.Name = "month";
+            this.month.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.month.Width = 70;
+            // 
+            // dateOfWeek
+            // 
+            this.dateOfWeek.DataPropertyName = "dateOfWeek";
+            this.dateOfWeek.HeaderText = "Day Of Week";
+            this.dateOfWeek.Name = "dateOfWeek";
+            this.dateOfWeek.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dateOfWeek.Width = 80;
+            // 
+            // date
+            // 
+            this.date.DataPropertyName = "date";
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            this.date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.date.Width = 80;
+            // 
+            // duration
+            // 
+            this.duration.DataPropertyName = "duration";
+            this.duration.HeaderText = "Duration";
+            this.duration.Name = "duration";
+            this.duration.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.duration.Width = 60;
+            // 
+            // airline
+            // 
+            this.airline.DataPropertyName = "airline";
+            this.airline.HeaderText = "Airline";
+            this.airline.Name = "airline";
+            this.airline.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.airline.Width = 110;
+            // 
+            // boardBasis
+            // 
+            this.boardBasis.DataPropertyName = "board";
+            this.boardBasis.HeaderText = "Board";
+            this.boardBasis.Name = "boardBasis";
+            this.boardBasis.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.boardBasis.Width = 50;
+            // 
+            // roomType
+            // 
+            this.roomType.DataPropertyName = "roomType";
+            this.roomType.HeaderText = "Room";
+            this.roomType.Name = "roomType";
+            this.roomType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.roomType.Width = 120;
+            // 
+            // occupancy
+            // 
+            this.occupancy.DataPropertyName = "occupancy";
+            this.occupancy.HeaderText = "Occupancy";
+            this.occupancy.Name = "occupancy";
+            this.occupancy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.occupancy.Width = 80;
+            // 
+            // flightPrice
+            // 
+            this.flightPrice.DataPropertyName = "flightPrice";
+            this.flightPrice.HeaderText = "Flight";
+            this.flightPrice.Name = "flightPrice";
+            this.flightPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.flightPrice.Width = 60;
+            // 
+            // hotelPrice
+            // 
+            this.hotelPrice.DataPropertyName = "hotelPrice";
+            this.hotelPrice.HeaderText = "Accom";
+            this.hotelPrice.Name = "hotelPrice";
+            this.hotelPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.hotelPrice.Width = 50;
+            // 
+            // caa
+            // 
+            this.caa.DataPropertyName = "caa";
+            this.caa.HeaderText = "CAA";
+            this.caa.Name = "caa";
+            this.caa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.caa.Width = 60;
+            // 
+            // transfers
+            // 
+            this.transfers.DataPropertyName = "transfers";
+            this.transfers.HeaderText = "Transfers";
+            this.transfers.Name = "transfers";
+            this.transfers.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.transfers.Width = 60;
+            // 
+            // baggagePrice
+            // 
+            this.baggagePrice.DataPropertyName = "baggagePrice";
+            this.baggagePrice.HeaderText = "Baggage Price";
+            this.baggagePrice.Name = "baggagePrice";
+            // 
+            // carhireCosting
+            // 
+            this.carhireCosting.DataPropertyName = "carhireCosting";
+            this.carhireCosting.HeaderText = "Carhire";
+            this.carhireCosting.Name = "carhireCosting";
+            this.carhireCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.carhireCosting.Width = 60;
+            // 
+            // carParkingCosting
+            // 
+            this.carParkingCosting.DataPropertyName = "carParkingCosting";
+            this.carParkingCosting.HeaderText = "CarParking";
+            this.carParkingCosting.Name = "carParkingCosting";
+            // 
+            // extras
+            // 
+            this.extras.DataPropertyName = "extras";
+            this.extras.HeaderText = "Extras";
+            this.extras.Name = "extras";
+            this.extras.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.extras.Width = 60;
+            // 
+            // nett
+            // 
+            this.nett.DataPropertyName = "nett";
+            this.nett.HeaderText = "Nett";
+            this.nett.Name = "nett";
+            this.nett.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.nett.Width = 60;
+            // 
+            // commission
+            // 
+            this.commission.DataPropertyName = "commission";
+            this.commission.HeaderText = "Commission";
+            this.commission.Name = "commission";
+            this.commission.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.commission.Width = 80;
+            // 
+            // totalMarkup
+            // 
+            this.totalMarkup.DataPropertyName = "totalMarkup";
+            this.totalMarkup.HeaderText = "Markup";
+            this.totalMarkup.Name = "totalMarkup";
+            this.totalMarkup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.totalMarkup.Width = 60;
+            // 
+            // sellAt
+            // 
+            this.sellAt.DataPropertyName = "sellAt";
+            this.sellAt.HeaderText = "SellAt";
+            this.sellAt.Name = "sellAt";
+            this.sellAt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.sellAt.Width = 60;
+            // 
+            // oldSellAt
+            // 
+            this.oldSellAt.DataPropertyName = "oldSellAt";
+            this.oldSellAt.HeaderText = "Old SellAt";
+            this.oldSellAt.Name = "oldSellAt";
+            this.oldSellAt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.oldSellAt.Width = 60;
+            // 
+            // profit
+            // 
+            this.profit.DataPropertyName = "profit";
+            this.profit.HeaderText = "Profit";
+            this.profit.Name = "profit";
+            this.profit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.profit.Width = 60;
+            // 
+            // childHotelPrice
+            // 
+            this.childHotelPrice.DataPropertyName = "childHotelPrice";
+            this.childHotelPrice.HeaderText = "C. Accom";
+            this.childHotelPrice.Name = "childHotelPrice";
+            this.childHotelPrice.Width = 50;
+            // 
+            // childExtras
+            // 
+            this.childExtras.DataPropertyName = "childExtras";
+            this.childExtras.HeaderText = "C. Extras";
+            this.childExtras.Name = "childExtras";
+            this.childExtras.Width = 60;
+            // 
+            // childNett
+            // 
+            this.childNett.DataPropertyName = "childNett";
+            this.childNett.HeaderText = "C. Nett";
+            this.childNett.Name = "childNett";
+            this.childNett.Width = 60;
+            // 
+            // totalChildMarkup
+            // 
+            this.totalChildMarkup.DataPropertyName = "totalChildMarkup";
+            this.totalChildMarkup.HeaderText = "C. Markups";
+            this.totalChildMarkup.Name = "totalChildMarkup";
+            this.totalChildMarkup.Width = 60;
+            // 
+            // childSellat
+            // 
+            this.childSellat.DataPropertyName = "childSellat";
+            this.childSellat.HeaderText = "C. SellAt";
+            this.childSellat.Name = "childSellat";
+            this.childSellat.Width = 60;
+            // 
+            // SearchType
+            // 
+            this.SearchType.DataPropertyName = "searchType";
+            this.SearchType.HeaderText = "Search Type";
+            this.SearchType.Name = "SearchType";
+            this.SearchType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SearchType.Visible = false;
+            this.SearchType.Width = 60;
+            // 
+            // destinationAirport
+            // 
+            this.destinationAirport.DataPropertyName = "destinationAirport";
+            this.destinationAirport.HeaderText = "Destination";
+            this.destinationAirport.Name = "destinationAirport";
+            this.destinationAirport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.destinationAirport.Width = 60;
+            // 
+            // obDepartureTime
+            // 
+            this.obDepartureTime.DataPropertyName = "obDepartureTime";
+            this.obDepartureTime.HeaderText = "OB Departure";
+            this.obDepartureTime.Name = "obDepartureTime";
+            this.obDepartureTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.obDepartureTime.Width = 80;
+            // 
+            // obArrivalTime
+            // 
+            this.obArrivalTime.DataPropertyName = "obArrivalTime";
+            this.obArrivalTime.HeaderText = "OB Arrival";
+            this.obArrivalTime.Name = "obArrivalTime";
+            this.obArrivalTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.obArrivalTime.Width = 80;
+            // 
+            // ibDepartureTime
+            // 
+            this.ibDepartureTime.DataPropertyName = "ibDepartureTime";
+            this.ibDepartureTime.HeaderText = "IB Departure";
+            this.ibDepartureTime.Name = "ibDepartureTime";
+            this.ibDepartureTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ibDepartureTime.Width = 80;
+            // 
+            // ibArrivalTime
+            // 
+            this.ibArrivalTime.DataPropertyName = "ibArrivalTime";
+            this.ibArrivalTime.HeaderText = "IB Arrival";
+            this.ibArrivalTime.Name = "ibArrivalTime";
+            this.ibArrivalTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ibArrivalTime.Width = 80;
+            // 
+            // obFlightNo
+            // 
+            this.obFlightNo.DataPropertyName = "obFlightNo";
+            this.obFlightNo.HeaderText = "OB Flightno";
+            this.obFlightNo.Name = "obFlightNo";
+            this.obFlightNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.obFlightNo.Width = 80;
+            // 
+            // ibFlightNo
+            // 
+            this.ibFlightNo.DataPropertyName = "ibFlightNo";
+            this.ibFlightNo.HeaderText = "IB FlightNo";
+            this.ibFlightNo.Name = "ibFlightNo";
+            this.ibFlightNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ibFlightNo.Width = 80;
+            // 
+            // adults
+            // 
+            this.adults.DataPropertyName = "adults";
+            this.adults.HeaderText = "Adults";
+            this.adults.Name = "adults";
+            this.adults.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.adults.Width = 60;
+            // 
+            // children
+            // 
+            this.children.DataPropertyName = "children";
+            this.children.HeaderText = "Children";
+            this.children.Name = "children";
+            this.children.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.children.Width = 60;
+            // 
+            // infants
+            // 
+            this.infants.DataPropertyName = "infants";
+            this.infants.HeaderText = "Infants";
+            this.infants.Name = "infants";
+            this.infants.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.infants.Width = 60;
+            // 
+            // baseMarkup
+            // 
+            this.baseMarkup.DataPropertyName = "baseMarkup";
+            this.baseMarkup.HeaderText = "Base M";
+            this.baseMarkup.Name = "baseMarkup";
+            this.baseMarkup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.baseMarkup.Visible = false;
+            this.baseMarkup.Width = 60;
             // 
             // bsHolidays
             // 
@@ -890,379 +1258,13 @@ namespace Gulliver
             this.dataGridViewAutoFilterTextBoxColumn41.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewAutoFilterTextBoxColumn41.Width = 60;
             // 
-            // delete
-            // 
-            this.delete.DataPropertyName = "Delete";
-            this.delete.HeaderText = "Delete";
-            this.delete.Name = "delete";
-            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.delete.Width = 60;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // hotelKey
-            // 
-            this.hotelKey.DataPropertyName = "hotelKey";
-            this.hotelKey.HeaderText = "hotelKey";
-            this.hotelKey.Name = "hotelKey";
-            this.hotelKey.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.hotelKey.Visible = false;
-            // 
-            // hiddenNumber
-            // 
-            this.hiddenNumber.DataPropertyName = "hiddenNumber";
-            this.hiddenNumber.HeaderText = "hiddenNumber";
-            this.hiddenNumber.Name = "hiddenNumber";
-            this.hiddenNumber.Visible = false;
-            // 
-            // flightId
-            // 
-            this.flightId.DataPropertyName = "flightId";
-            this.flightId.HeaderText = "flightId";
-            this.flightId.Name = "flightId";
-            this.flightId.Visible = false;
-            // 
-            // Summary
-            // 
-            this.Summary.DataPropertyName = "summary";
-            this.Summary.HeaderText = "Summary";
-            this.Summary.Name = "Summary";
-            this.Summary.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Summary.Visible = false;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Status.Visible = false;
-            // 
-            // departureAirport
-            // 
-            this.departureAirport.DataPropertyName = "departureAirport";
-            this.departureAirport.HeaderText = "Departure";
-            this.departureAirport.Name = "departureAirport";
-            this.departureAirport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.departureAirport.Width = 80;
-            // 
-            // month
-            // 
-            this.month.DataPropertyName = "month";
-            this.month.HeaderText = "Month";
-            this.month.Name = "month";
-            this.month.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.month.Width = 70;
-            // 
-            // dateOfWeek
-            // 
-            this.dateOfWeek.DataPropertyName = "dateOfWeek";
-            this.dateOfWeek.HeaderText = "Day Of Week";
-            this.dateOfWeek.Name = "dateOfWeek";
-            this.dateOfWeek.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dateOfWeek.Width = 80;
-            // 
-            // date
-            // 
-            this.date.DataPropertyName = "date";
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.date.Width = 80;
-            // 
-            // duration
-            // 
-            this.duration.DataPropertyName = "duration";
-            this.duration.HeaderText = "Duration";
-            this.duration.Name = "duration";
-            this.duration.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.duration.Width = 60;
-            // 
-            // airline
-            // 
-            this.airline.DataPropertyName = "airline";
-            this.airline.HeaderText = "Airline";
-            this.airline.Name = "airline";
-            this.airline.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.airline.Width = 110;
-            // 
-            // boardBasis
-            // 
-            this.boardBasis.DataPropertyName = "board";
-            this.boardBasis.HeaderText = "Board";
-            this.boardBasis.Name = "boardBasis";
-            this.boardBasis.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.boardBasis.Width = 50;
-            // 
-            // roomType
-            // 
-            this.roomType.DataPropertyName = "roomType";
-            this.roomType.HeaderText = "Room";
-            this.roomType.Name = "roomType";
-            this.roomType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.roomType.Width = 120;
-            // 
-            // occupancy
-            // 
-            this.occupancy.DataPropertyName = "occupancy";
-            this.occupancy.HeaderText = "Occupancy";
-            this.occupancy.Name = "occupancy";
-            this.occupancy.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.occupancy.Width = 80;
-            // 
-            // flightPrice
-            // 
-            this.flightPrice.DataPropertyName = "flightPrice";
-            this.flightPrice.HeaderText = "Flight";
-            this.flightPrice.Name = "flightPrice";
-            this.flightPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.flightPrice.Width = 60;
-            // 
-            // hotelPrice
-            // 
-            this.hotelPrice.DataPropertyName = "hotelPrice";
-            this.hotelPrice.HeaderText = "Accom";
-            this.hotelPrice.Name = "hotelPrice";
-            this.hotelPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.hotelPrice.Width = 50;
-            // 
-            // caa
-            // 
-            this.caa.DataPropertyName = "caa";
-            this.caa.HeaderText = "CAA";
-            this.caa.Name = "caa";
-            this.caa.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.caa.Width = 60;
-            // 
-            // transfers
-            // 
-            this.transfers.DataPropertyName = "transfers";
-            this.transfers.HeaderText = "Transfers";
-            this.transfers.Name = "transfers";
-            this.transfers.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.transfers.Width = 60;
-            // 
-            // baggagePrice
-            // 
-            this.baggagePrice.DataPropertyName = "baggagePrice";
-            this.baggagePrice.HeaderText = "Baggage Price";
-            this.baggagePrice.Name = "baggagePrice";
-            // 
-            // carhireCosting
-            // 
-            this.carhireCosting.DataPropertyName = "carhireCosting";
-            this.carhireCosting.HeaderText = "Carhire";
-            this.carhireCosting.Name = "carhireCosting";
-            this.carhireCosting.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.carhireCosting.Width = 60;
-            // 
-            // carParkingCosting
-            // 
-            this.carParkingCosting.DataPropertyName = "carParkingCosting";
-            this.carParkingCosting.HeaderText = "CarParking";
-            this.carParkingCosting.Name = "carParkingCosting";
-            // 
-            // extras
-            // 
-            this.extras.DataPropertyName = "extras";
-            this.extras.HeaderText = "Extras";
-            this.extras.Name = "extras";
-            this.extras.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.extras.Width = 60;
-            // 
-            // nett
-            // 
-            this.nett.DataPropertyName = "nett";
-            this.nett.HeaderText = "Nett";
-            this.nett.Name = "nett";
-            this.nett.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.nett.Width = 60;
-            // 
-            // commission
-            // 
-            this.commission.DataPropertyName = "commission";
-            this.commission.HeaderText = "Commission";
-            this.commission.Name = "commission";
-            this.commission.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.commission.Width = 80;
-            // 
-            // totalMarkup
-            // 
-            this.totalMarkup.DataPropertyName = "totalMarkup";
-            this.totalMarkup.HeaderText = "Markup";
-            this.totalMarkup.Name = "totalMarkup";
-            this.totalMarkup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.totalMarkup.Width = 60;
-            // 
-            // sellAt
-            // 
-            this.sellAt.DataPropertyName = "sellAt";
-            this.sellAt.HeaderText = "SellAt";
-            this.sellAt.Name = "sellAt";
-            this.sellAt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sellAt.Width = 60;
-            // 
-            // oldSellAt
-            // 
-            this.oldSellAt.DataPropertyName = "oldSellAt";
-            this.oldSellAt.HeaderText = "Old SellAt";
-            this.oldSellAt.Name = "oldSellAt";
-            this.oldSellAt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.oldSellAt.Width = 60;
-            // 
-            // profit
-            // 
-            this.profit.DataPropertyName = "profit";
-            this.profit.HeaderText = "Profit";
-            this.profit.Name = "profit";
-            this.profit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.profit.Width = 60;
-            // 
-            // childHotelPrice
-            // 
-            this.childHotelPrice.DataPropertyName = "childHotelPrice";
-            this.childHotelPrice.HeaderText = "C. Accom";
-            this.childHotelPrice.Name = "childHotelPrice";
-            this.childHotelPrice.Width = 50;
-            // 
-            // childExtras
-            // 
-            this.childExtras.DataPropertyName = "childExtras";
-            this.childExtras.HeaderText = "C. Extras";
-            this.childExtras.Name = "childExtras";
-            this.childExtras.Width = 60;
-            // 
-            // childNett
-            // 
-            this.childNett.DataPropertyName = "childNett";
-            this.childNett.HeaderText = "C. Nett";
-            this.childNett.Name = "childNett";
-            this.childNett.Width = 60;
-            // 
-            // totalChildMarkup
-            // 
-            this.totalChildMarkup.DataPropertyName = "totalChildMarkup";
-            this.totalChildMarkup.HeaderText = "C. Markups";
-            this.totalChildMarkup.Name = "totalChildMarkup";
-            this.totalChildMarkup.Width = 60;
-            // 
-            // childSellat
-            // 
-            this.childSellat.DataPropertyName = "childSellat";
-            this.childSellat.HeaderText = "C. SellAt";
-            this.childSellat.Name = "childSellat";
-            this.childSellat.Width = 60;
-            // 
-            // SearchType
-            // 
-            this.SearchType.DataPropertyName = "searchType";
-            this.SearchType.HeaderText = "Search Type";
-            this.SearchType.Name = "SearchType";
-            this.SearchType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SearchType.Visible = false;
-            this.SearchType.Width = 60;
-            // 
-            // destinationAirport
-            // 
-            this.destinationAirport.DataPropertyName = "destinationAirport";
-            this.destinationAirport.HeaderText = "Destination";
-            this.destinationAirport.Name = "destinationAirport";
-            this.destinationAirport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.destinationAirport.Width = 60;
-            // 
-            // obDepartureTime
-            // 
-            this.obDepartureTime.DataPropertyName = "obDepartureTime";
-            this.obDepartureTime.HeaderText = "OB Departure";
-            this.obDepartureTime.Name = "obDepartureTime";
-            this.obDepartureTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.obDepartureTime.Width = 80;
-            // 
-            // obArrivalTime
-            // 
-            this.obArrivalTime.DataPropertyName = "obArrivalTime";
-            this.obArrivalTime.HeaderText = "OB Arrival";
-            this.obArrivalTime.Name = "obArrivalTime";
-            this.obArrivalTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.obArrivalTime.Width = 80;
-            // 
-            // ibDepartureTime
-            // 
-            this.ibDepartureTime.DataPropertyName = "ibDepartureTime";
-            this.ibDepartureTime.HeaderText = "IB Departure";
-            this.ibDepartureTime.Name = "ibDepartureTime";
-            this.ibDepartureTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ibDepartureTime.Width = 80;
-            // 
-            // ibArrivalTime
-            // 
-            this.ibArrivalTime.DataPropertyName = "ibArrivalTime";
-            this.ibArrivalTime.HeaderText = "IB Arrival";
-            this.ibArrivalTime.Name = "ibArrivalTime";
-            this.ibArrivalTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ibArrivalTime.Width = 80;
-            // 
-            // obFlightNo
-            // 
-            this.obFlightNo.DataPropertyName = "obFlightNo";
-            this.obFlightNo.HeaderText = "OB Flightno";
-            this.obFlightNo.Name = "obFlightNo";
-            this.obFlightNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.obFlightNo.Width = 80;
-            // 
-            // ibFlightNo
-            // 
-            this.ibFlightNo.DataPropertyName = "ibFlightNo";
-            this.ibFlightNo.HeaderText = "IB FlightNo";
-            this.ibFlightNo.Name = "ibFlightNo";
-            this.ibFlightNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ibFlightNo.Width = 80;
-            // 
-            // adults
-            // 
-            this.adults.DataPropertyName = "adults";
-            this.adults.HeaderText = "Adults";
-            this.adults.Name = "adults";
-            this.adults.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.adults.Width = 60;
-            // 
-            // children
-            // 
-            this.children.DataPropertyName = "children";
-            this.children.HeaderText = "Children";
-            this.children.Name = "children";
-            this.children.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.children.Width = 60;
-            // 
-            // infants
-            // 
-            this.infants.DataPropertyName = "infants";
-            this.infants.HeaderText = "Infants";
-            this.infants.Name = "infants";
-            this.infants.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.infants.Width = 60;
-            // 
-            // baseMarkup
-            // 
-            this.baseMarkup.DataPropertyName = "baseMarkup";
-            this.baseMarkup.HeaderText = "Base M";
-            this.baseMarkup.Name = "baseMarkup";
-            this.baseMarkup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.baseMarkup.Visible = false;
-            this.baseMarkup.Width = 60;
-            // 
             // flcsPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1440, 780);
             this.Controls.Add(this.kryptonPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "flcsPackages";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();

@@ -780,6 +780,7 @@ namespace Gulliver
                 link.name = "youTubeLink";
                 link.Deal = deal;
                 link.url = txtYouTubeLink.Text.Trim();
+                if (link.url.Trim() != string.Empty)
                 links.Add(link);
 
                 deal.DealInformation.mainHeader = txtMainHeader.Text.Trim();
@@ -801,6 +802,7 @@ namespace Gulliver
                 linkTA.name = "tripAdvisorLink";
                 linkTA.url = txtTripAdvisorLink.Text.Trim();
                 linkTA.Deal = deal;
+                if (linkTA.url.Trim() != string.Empty)
                 links.Add(linkTA);
 
                 deal.DealInformation.howToBook = txtHowToBook.Text.Trim();
@@ -825,12 +827,14 @@ namespace Gulliver
                 linkHW.name = "hotelWebsiteLink";
                 linkHW.Deal = deal;
                 linkHW.url = txtYouTubeLink.Text.Trim();
+                if (linkTA.url.Trim() != string.Empty)
+                    links.Add(linkHW);
 
                 GulliverLibrary.Link pageLink = new GulliverLibrary.Link();
                 pageLink.name = "landingPageLink";
                 pageLink.Deal = deal;
                 pageLink.url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-
+                if (pageLink.url.Trim() != string.Empty)
                 links.Add(pageLink);               
 
                 List<GulliverLibrary.Image> dealImages = new List<GulliverLibrary.Image>();
@@ -3229,7 +3233,7 @@ namespace Gulliver
             searchRequest.getChepestFromEachSupplier = cbSelectCheapestFromEachSupplier.Checked;
 
             deal.PackageBackups = packageHandler.GetPackagesByPackageId(deal.id);
-            packages = packageHandler.CompareHolidays(searchRequest, deal, true);
+            packages = packageHandler.CompareHolidays(searchRequest, deal, false);
             flcsPackages packageForm = new flcsPackages(packages, dealId, true, new List<GulliverLibrary.Package>());
             packageForm.ShowDialog();
 

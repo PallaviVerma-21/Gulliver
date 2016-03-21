@@ -29,6 +29,7 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsOptionalExtra));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeaderGroup4 = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
@@ -36,18 +37,18 @@ namespace Gulliver
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridViewExtras = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.bsOptionalcosting = new System.Windows.Forms.BindingSource(this.components);
-            this.gulliverDS = new Gulliver.GulliverDS();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.includedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.descriptionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.includedDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.adultCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.childCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsOptionalcosting = new System.Windows.Forms.BindingSource(this.components);
+            this.gulliverDS = new Gulliver.GulliverDS();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.includedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup4)).BeginInit();
@@ -143,6 +144,45 @@ namespace Gulliver
             this.dataGridViewExtras.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewExtras_RowEnter);
             this.dataGridViewExtras.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridViewExtras_UserDeletingRow);
             // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // deleteDataGridViewTextBoxColumn1
+            // 
+            this.deleteDataGridViewTextBoxColumn1.DataPropertyName = "Delete";
+            this.deleteDataGridViewTextBoxColumn1.HeaderText = "Delete";
+            this.deleteDataGridViewTextBoxColumn1.Name = "deleteDataGridViewTextBoxColumn1";
+            this.deleteDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.deleteDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // descriptionDataGridViewTextBoxColumn1
+            // 
+            this.descriptionDataGridViewTextBoxColumn1.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn1.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
+            // 
+            // includedDataGridViewCheckBoxColumn1
+            // 
+            this.includedDataGridViewCheckBoxColumn1.DataPropertyName = "Included";
+            this.includedDataGridViewCheckBoxColumn1.HeaderText = "Included";
+            this.includedDataGridViewCheckBoxColumn1.Name = "includedDataGridViewCheckBoxColumn1";
+            // 
+            // adultCostDataGridViewTextBoxColumn
+            // 
+            this.adultCostDataGridViewTextBoxColumn.DataPropertyName = "Adult Cost";
+            this.adultCostDataGridViewTextBoxColumn.HeaderText = "Adult Cost";
+            this.adultCostDataGridViewTextBoxColumn.Name = "adultCostDataGridViewTextBoxColumn";
+            // 
+            // childCostDataGridViewTextBoxColumn
+            // 
+            this.childCostDataGridViewTextBoxColumn.DataPropertyName = "Child Cost";
+            this.childCostDataGridViewTextBoxColumn.HeaderText = "Child Cost";
+            this.childCostDataGridViewTextBoxColumn.Name = "childCostDataGridViewTextBoxColumn";
+            // 
             // bsOptionalcosting
             // 
             this.bsOptionalcosting.DataMember = "OptionalExtra";
@@ -183,51 +223,13 @@ namespace Gulliver
             this.includedDataGridViewCheckBoxColumn.Name = "includedDataGridViewCheckBoxColumn";
             this.includedDataGridViewCheckBoxColumn.Width = 60;
             // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // deleteDataGridViewTextBoxColumn1
-            // 
-            this.deleteDataGridViewTextBoxColumn1.DataPropertyName = "Delete";
-            this.deleteDataGridViewTextBoxColumn1.HeaderText = "Delete";
-            this.deleteDataGridViewTextBoxColumn1.Name = "deleteDataGridViewTextBoxColumn1";
-            this.deleteDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.deleteDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // descriptionDataGridViewTextBoxColumn1
-            // 
-            this.descriptionDataGridViewTextBoxColumn1.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn1.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
-            // 
-            // includedDataGridViewCheckBoxColumn1
-            // 
-            this.includedDataGridViewCheckBoxColumn1.DataPropertyName = "Included";
-            this.includedDataGridViewCheckBoxColumn1.HeaderText = "Included";
-            this.includedDataGridViewCheckBoxColumn1.Name = "includedDataGridViewCheckBoxColumn1";
-            // 
-            // adultCostDataGridViewTextBoxColumn
-            // 
-            this.adultCostDataGridViewTextBoxColumn.DataPropertyName = "Adult Cost";
-            this.adultCostDataGridViewTextBoxColumn.HeaderText = "Adult Cost";
-            this.adultCostDataGridViewTextBoxColumn.Name = "adultCostDataGridViewTextBoxColumn";
-            // 
-            // childCostDataGridViewTextBoxColumn
-            // 
-            this.childCostDataGridViewTextBoxColumn.DataPropertyName = "Child Cost";
-            this.childCostDataGridViewTextBoxColumn.HeaderText = "Child Cost";
-            this.childCostDataGridViewTextBoxColumn.Name = "childCostDataGridViewTextBoxColumn";
-            // 
             // flcsOptionalExtra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 517);
             this.Controls.Add(this.kryptonPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "flcsOptionalExtra";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

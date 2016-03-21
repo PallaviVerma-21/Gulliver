@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Gulliver.exe" version="1.0.0.15" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Gulliver.exe" version="1.0.0.16" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Gulliver" version="1.0.0.4" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Gulliver" version="1.0.0.5" language="neutral" processorArchitecture="msil" />
     <commandLine file="Gulliver.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>pfILVMoWDh7LDxXY4PgD0O8Ar58=</dsig:DigestValue>
+        <dsig:DigestValue>ie1OhTldMKfuCweasUomgdUjMbc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>53bf+70MNIm3zkxMFQg770r7ylU=</dsig:DigestValue>
+        <dsig:DigestValue>cKPYrquStQ9jpA5TbgtlDYnBipc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -145,7 +145,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>jVHuMlsvmN4xRWcFW0gH6M8daRY=</dsig:DigestValue>
+        <dsig:DigestValue>UMMQhSLKE92HX0YOZHxGxRMeENs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -157,7 +157,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Av3NGsOaw30LFu0Q4OYw1BmJcRA=</dsig:DigestValue>
+        <dsig:DigestValue>9/GpaSCqz8SVxvDjay8W0Ocj+XI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -169,31 +169,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>BAx/rTpku9ey913WcrZx5sCmcbc=</dsig:DigestValue>
+        <dsig:DigestValue>VKLqQdrqUPWf2+YwoAieCBg/hbw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gulliver.exe" size="741376">
-      <assemblyIdentity name="Gulliver" version="1.0.0.4" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Gulliver.exe" size="1705472">
+      <assemblyIdentity name="Gulliver" version="1.0.0.5" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zmQIu5ZdTsStOKSSt+KYZvaOIqw=</dsig:DigestValue>
+        <dsig:DigestValue>L2RX+1Cciw/BJfSvHdi3HZG0xzA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GulliverLibrary.dll" size="158720">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GulliverLibrary.dll" size="159232">
       <assemblyIdentity name="GulliverLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>k9tRqfHhibl0ytZ6yt3T6piueDk=</dsig:DigestValue>
+        <dsig:DigestValue>kKNS4bpFD83hAIxHei00Pm6DhvE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -205,7 +205,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ADhrywQQ+0SuyvXLewPOzT0u5P4=</dsig:DigestValue>
+        <dsig:DigestValue>hnKzFhQHv2tGeFfuxfFoP6f2oSE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -270,14 +270,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySqlDataHandler.dll" size="431104">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySqlDataHandler.dll" size="431616">
       <assemblyIdentity name="MySqlDataHandler" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>8JqWWyFAiAUUdCbrySAeJREjZqc=</dsig:DigestValue>
+        <dsig:DigestValue>qI5wk8QZuOK0zUsIgqD9w1+x4O0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -301,7 +301,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Mpf0HOPM99gyYfKtloDu8bwTQKA=</dsig:DigestValue>
+        <dsig:DigestValue>EXUrU0Md7zaggtcZWt/quBeYZdc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -325,7 +325,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>g26ZvoeMHe88LXcpMe+eFGu8qPQ=</dsig:DigestValue>
+        <dsig:DigestValue>6GpPn73LDKShfmSdZxSM/u3nd6A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -337,7 +337,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GhXXt+wT+nfDzb5JrWXRLGNyVr0=</dsig:DigestValue>
+        <dsig:DigestValue>WcUZtKCMUtQrDBouBidCA0AJOow=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

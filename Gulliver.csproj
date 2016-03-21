@@ -27,7 +27,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ProductName>Gulliver</ProductName>
+    <PublisherName>divasana</PublisherName>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -67,6 +69,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>big-G-for_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Docking, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
     <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
@@ -74,6 +79,15 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -140,12 +154,6 @@
     </Compile>
     <Compile Include="flcsMain.Designer.cs">
       <DependentUpon>flcsMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="flcsLandingWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="flcsLandingWindow.Designer.cs">
-      <DependentUpon>flcsLandingWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="flcsMedias.cs">
       <SubType>Form</SubType>
@@ -220,6 +228,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen.Designer.cs">
+      <DependentUpon>Screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tripper.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -257,10 +271,6 @@
     <EmbeddedResource Include="flcsMain.resx">
       <SubType>Designer</SubType>
       <DependentUpon>flcsMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="flcsLandingWindow.resx">
-      <DependentUpon>flcsLandingWindow.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="flcsMedias.resx">
       <DependentUpon>flcsMedias.cs</DependentUpon>
@@ -304,6 +314,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Screen.resx">
+      <DependentUpon>Screen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -341,6 +354,7 @@
     <None Include="LibraryDS.xss">
       <DependentUpon>LibraryDS.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="PackagesDS.xsc">
       <DependentUpon>PackagesDS.xsd</DependentUpon>
     </None>
@@ -568,6 +582,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2image1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1writing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="big-G-for_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

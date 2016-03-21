@@ -29,6 +29,7 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsMedias));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.bsMedias = new System.Windows.Forms.BindingSource(this.components);
             this.packagesDS = new Gulliver.PackagesDS();
@@ -299,6 +300,7 @@ namespace Gulliver
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 630);
             this.Controls.Add(this.kryptonPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "flcsMedias";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

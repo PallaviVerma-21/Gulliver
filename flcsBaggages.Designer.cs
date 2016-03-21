@@ -29,6 +29,7 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsBaggages));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.bsBaggages = new System.Windows.Forms.BindingSource(this.components);
             this.libraryDS = new Gulliver.LibraryDS();
@@ -37,6 +38,9 @@ namespace Gulliver
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtSearchbox = new System.Windows.Forms.TextBox();
             this.dataGridViewBaggages = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.airlineDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.cmsBaggage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolAddBaggage = new System.Windows.Forms.ToolStripMenuItem();
             this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
@@ -47,9 +51,6 @@ namespace Gulliver
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.airlineDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsBaggages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDS)).BeginInit();
@@ -142,6 +143,29 @@ namespace Gulliver
             this.dataGridViewBaggages.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewBaggages.TabIndex = 8;
             this.dataGridViewBaggages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPackageBackup_CellContentClick);
+            // 
+            // deleteDataGridViewTextBoxColumn
+            // 
+            this.deleteDataGridViewTextBoxColumn.DataPropertyName = "Delete";
+            this.deleteDataGridViewTextBoxColumn.HeaderText = "Delete";
+            this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
+            this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // airlineDataGridViewTextBoxColumn
+            // 
+            this.airlineDataGridViewTextBoxColumn.DataPropertyName = "airline";
+            this.airlineDataGridViewTextBoxColumn.HeaderText = "Airline";
+            this.airlineDataGridViewTextBoxColumn.Name = "airlineDataGridViewTextBoxColumn";
+            this.airlineDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.airlineDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // cmsBaggage
             // 
@@ -247,29 +271,6 @@ namespace Gulliver
             this.btnCancel.Values.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // deleteDataGridViewTextBoxColumn
-            // 
-            this.deleteDataGridViewTextBoxColumn.DataPropertyName = "Delete";
-            this.deleteDataGridViewTextBoxColumn.HeaderText = "Delete";
-            this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
-            this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // airlineDataGridViewTextBoxColumn
-            // 
-            this.airlineDataGridViewTextBoxColumn.DataPropertyName = "airline";
-            this.airlineDataGridViewTextBoxColumn.HeaderText = "Airline";
-            this.airlineDataGridViewTextBoxColumn.Name = "airlineDataGridViewTextBoxColumn";
-            this.airlineDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.airlineDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // flcsBaggages
             // 
             this.AllowStatusStripMerge = false;
@@ -277,6 +278,7 @@ namespace Gulliver
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 630);
             this.Controls.Add(this.kryptonPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "flcsBaggages";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

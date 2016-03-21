@@ -1124,7 +1124,7 @@ namespace Gulliver
             // 
             this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.White;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 0);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // progressBar
@@ -1783,7 +1783,7 @@ namespace Gulliver
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.77453F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.22547F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 685F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 687F));
             this.tableLayoutPanel4.Controls.Add(this.cbOcupancy, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.kryptonLabel6, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 2, 2);
@@ -1815,7 +1815,7 @@ namespace Gulliver
             this.cbOcupancy.Location = new System.Drawing.Point(3, 29);
             this.cbOcupancy.MultiColumn = true;
             this.cbOcupancy.Name = "cbOcupancy";
-            this.cbOcupancy.Size = new System.Drawing.Size(267, 76);
+            this.cbOcupancy.Size = new System.Drawing.Size(266, 76);
             this.cbOcupancy.TabIndex = 58;
             this.cbOcupancy.SelectedIndexChanged += new System.EventHandler(this.cbOcupancy_SelectedIndexChanged);
             // 
@@ -1836,16 +1836,16 @@ namespace Gulliver
             this.flowLayoutPanel1.Controls.Add(this.progressBarTP1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(540, 111);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(538, 111);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(680, 36);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(682, 36);
             this.flowLayoutPanel1.TabIndex = 56;
             // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(587, 3);
+            this.btnNext.Location = new System.Drawing.Point(589, 3);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(90, 25);
             this.btnNext.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -1862,7 +1862,7 @@ namespace Gulliver
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(491, 3);
+            this.btnCancel.Location = new System.Drawing.Point(493, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 25);
             this.btnCancel.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -1879,7 +1879,7 @@ namespace Gulliver
             // 
             // progressBarTP1
             // 
-            this.progressBarTP1.Location = new System.Drawing.Point(357, 3);
+            this.progressBarTP1.Location = new System.Drawing.Point(359, 3);
             this.progressBarTP1.MarqueeAnimationSpeed = 60;
             this.progressBarTP1.Maximum = 60;
             this.progressBarTP1.Name = "progressBarTP1";
@@ -1896,10 +1896,10 @@ namespace Gulliver
             this.cbBoards.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBoards.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbBoards.FormattingEnabled = true;
-            this.cbBoards.Location = new System.Drawing.Point(540, 29);
+            this.cbBoards.Location = new System.Drawing.Point(538, 29);
             this.cbBoards.MultiColumn = true;
             this.cbBoards.Name = "cbBoards";
-            this.cbBoards.Size = new System.Drawing.Size(680, 76);
+            this.cbBoards.Size = new System.Drawing.Size(682, 76);
             this.cbBoards.TabIndex = 57;
             this.cbBoards.SelectedIndexChanged += new System.EventHandler(this.cbBoards_SelectedIndexChanged);
             // 
@@ -1914,9 +1914,9 @@ namespace Gulliver
             this.flowLayoutPanel19.Controls.Add(this.kryptonLabel52);
             this.flowLayoutPanel19.Controls.Add(this.txtInfantAgeTo);
             this.flowLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel19.Location = new System.Drawing.Point(276, 29);
+            this.flowLayoutPanel19.Location = new System.Drawing.Point(275, 29);
             this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(258, 76);
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(257, 76);
             this.flowLayoutPanel19.TabIndex = 59;
             // 
             // kryptonLabel54
@@ -1985,7 +1985,7 @@ namespace Gulliver
             // 
             // kryptonLabel56
             // 
-            this.kryptonLabel56.Location = new System.Drawing.Point(276, 3);
+            this.kryptonLabel56.Location = new System.Drawing.Point(275, 3);
             this.kryptonLabel56.Name = "kryptonLabel56";
             this.kryptonLabel56.Size = new System.Drawing.Size(87, 20);
             this.kryptonLabel56.TabIndex = 60;
@@ -1994,7 +1994,7 @@ namespace Gulliver
             // kryptonLabel7
             // 
             this.kryptonLabel7.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
-            this.kryptonLabel7.Location = new System.Drawing.Point(540, 3);
+            this.kryptonLabel7.Location = new System.Drawing.Point(538, 3);
             this.kryptonLabel7.Name = "kryptonLabel7";
             this.kryptonLabel7.Size = new System.Drawing.Size(48, 20);
             this.kryptonLabel7.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
@@ -8131,6 +8131,7 @@ namespace Gulliver
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1237, 783);
             this.Controls.Add(this.kryptonPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "flcsMain";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

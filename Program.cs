@@ -15,7 +15,7 @@ namespace Gulliver
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new flcsLibrary());
+            Application.Run(new Screen());
         }
     }
 }

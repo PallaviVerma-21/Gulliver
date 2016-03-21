@@ -29,6 +29,7 @@ namespace Gulliver
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsCurrency));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.bsCurrency = new System.Windows.Forms.BindingSource(this.components);
             this.libraryDS = new Gulliver.LibraryDS();
@@ -189,7 +190,7 @@ namespace Gulliver
             // toolAddCurrency
             // 
             this.toolAddCurrency.Name = "toolAddCurrency";
-            this.toolAddCurrency.Size = new System.Drawing.Size(152, 22);
+            this.toolAddCurrency.Size = new System.Drawing.Size(147, 22);
             this.toolAddCurrency.Text = "&Add Currency";
             this.toolAddCurrency.Click += new System.EventHandler(this.toolAddCurrency_Click);
             // 
@@ -289,6 +290,7 @@ namespace Gulliver
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 630);
             this.Controls.Add(this.kryptonPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "flcsCurrency";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

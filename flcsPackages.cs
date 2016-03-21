@@ -195,7 +195,7 @@ namespace Gulliver
 
             progressBar.Value++;
             deal.finalizePrices = cbFinalizePrices.Checked;
-            packageHandler.SaveDealInformation(deal);
+           // packageHandler.SaveDeal(deal);
             progressBar.Value++;
             packages = packageHandler.GetPackagesByDeal(dealId);
 

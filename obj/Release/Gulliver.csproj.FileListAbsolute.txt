@@ -59,3 +59,4 @@ X:\Gulliver\Gulliver\obj\Release\Gulliver.application
 X:\Gulliver\Gulliver\obj\Release\Gulliver.exe
 X:\Gulliver\Gulliver\obj\Release\Gulliver.pdb
 X:\Gulliver\Gulliver\bin\Release\LumenWorks.Framework.IO.dll
+X:\Gulliver\Gulliver\obj\Release\Gulliver.Screen.resources
