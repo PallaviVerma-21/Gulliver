@@ -1,4 +1,4 @@
-namespace Gulliver
+namespace GulliverII
 {
     partial class flcsSetLeading
     {
@@ -44,7 +44,7 @@ namespace Gulliver
             this.leadingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lockTheLeadingDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bsSetLeadings = new System.Windows.Forms.BindingSource(this.components);
-            this.packagesDS1 = new Gulliver.PackagesDS();
+            this.packagesDS1 = new GulliverII.PackagesDS();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonHeaderGroup7)).BeginInit();

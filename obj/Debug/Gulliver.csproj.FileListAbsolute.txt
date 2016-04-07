@@ -60,7 +60,6 @@ X:\Gulliver\Gulliver\obj\Debug\Gulliver.flcsFABSetting.resources
 X:\Gulliver\Gulliver\bin\Debug\Microsoft.WindowsAPICodePack.dll
 X:\Gulliver\Gulliver\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 X:\Gulliver\Gulliver\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
-X:\Gulliver\Gulliver\bin\Debug\LumenWorks.Framework.IO.dll
 X:\Gulliver\Gulliver\bin\Debug\Microsoft.WindowsAPICodePack.pdb
 X:\Gulliver\Gulliver\bin\Debug\Microsoft.WindowsAPICodePack.xml
 X:\Gulliver\Gulliver\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb

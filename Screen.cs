@@ -10,7 +10,7 @@ using System.IO;
 using System.Configuration;
 using System.Threading;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class Screen : Form
     {
@@ -21,9 +21,9 @@ namespace Gulliver
             notifyIcon.Text = "Gulliver 2 - " + Application.ProductVersion + "V";
             notifyIcon.BalloonTipText = "Gulliver 2 - " + Application.ProductVersion + "V";
 
-            PackageGenerator.Tool.gulliverDefaultpath = ConfigurationManager.AppSettings["gulliverDefaultPath"].ToString().Replace("%LOCALAPPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            PackageGenerator.Tool.gulliverBucket = ConfigurationManager.AppSettings["gulliverBucket"].ToString().Replace("%APPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-            PackageGenerator.Tool.gulliverNewBucket = ConfigurationManager.AppSettings["gulliverNewBucket"].ToString().Replace("%LOCALAPPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            PackageGenerator.Tool.gulliverDefaultpath = ConfigurationManager.AppSettings["GulliverDefaultPath"].ToString().Replace("%LOCALAPPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            PackageGenerator.Tool.gulliverBucket = ConfigurationManager.AppSettings["GulliverBucket"].ToString().Replace("%APPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+            PackageGenerator.Tool.gulliverNewBucket = ConfigurationManager.AppSettings["GulliverNewBucket"].ToString().Replace("%LOCALAPPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             PackageGenerator.Tool.userSettingFilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\PDF Writer\\Gulliver";
             CreatePDFFolderStructure();
             bgWorker.WorkerSupportsCancellation = true;
@@ -55,7 +55,7 @@ namespace Gulliver
                 System.IO.Directory.CreateDirectory(PackageGenerator.Tool.userSettingFilePath);
 
 
-            System.IO.File.Copy(ConfigurationManager.AppSettings["gulliverSettingFlies"].ToString() + "\\settings.ini", PackageGenerator.Tool.userSettingFilePath + "\\settings.ini", true);
+            System.IO.File.Copy(ConfigurationManager.AppSettings["GulliverSettingFlies"].ToString() + "\\settings.ini", PackageGenerator.Tool.userSettingFilePath + "\\settings.ini", true);
             System.IO.StreamReader reader = new StreamReader(PackageGenerator.Tool.userSettingFilePath + "\\settings.ini");
             string s = reader.ReadToEnd().Replace("%APPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             reader.Close();
@@ -122,6 +122,11 @@ namespace Gulliver
         {
             flcsLibrary libraryWindow = new flcsLibrary();
             libraryWindow.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }      
         
     }

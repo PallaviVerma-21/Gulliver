@@ -10,8 +10,9 @@ using ComponentFactory.Krypton.Toolkit;
 using System.Diagnostics;
 using System.Collections;
 using System.Threading;
+using DataGridViewAutoFilter;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class flcsLibrary : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
@@ -115,6 +116,7 @@ namespace Gulliver
                 //ProgressBar();
                 flcsMain flcsMain = new flcsMain(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value));
                 flcsMain.Show();
+                DisplayAllPackageOffers(false);
                 StopProgressBar();
 
             }
@@ -168,6 +170,7 @@ namespace Gulliver
            flcsMain formMain = new flcsMain();
            StopProgressBar();
            formMain.ShowDialog();
+           DisplayAllPackageOffers(false);
         }
 
         private void healthSafetyDocumentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -233,8 +236,38 @@ namespace Gulliver
             fabSettingForm.ShowDialog();
         }
 
-        #endregion       
+        private void showAllLabel_Click(object sender, EventArgs e)
+        {
+            DataGridViewAutoFilterTextBoxColumn.RemoveFilter(dataGridViewLibrary);
+        }
 
-      
+        private void dataGridViewLibrary_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            String filterStatus = DataGridViewAutoFilterColumnHeaderCell
+           .GetFilterStatus(dataGridViewLibrary);
+            if (String.IsNullOrEmpty(filterStatus))
+            {
+                showAllLabel.Visible = false;
+                fiterStatusLabel.Visible = false;
+            }
+            else
+            {
+                showAllLabel.Visible = true;
+                fiterStatusLabel.Visible = true;
+                fiterStatusLabel.Text = filterStatus;
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            DisplayAllPackageOffers(false);
+        }
+
+        private void cmbSuppliers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayAllPackageOffers(false);
+        }
+
+        #endregion    
     }
 }

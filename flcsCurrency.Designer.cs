@@ -1,4 +1,4 @@
-namespace Gulliver
+namespace GulliverII
 {
     partial class flcsCurrency
     {
@@ -32,8 +32,8 @@ namespace Gulliver
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsCurrency));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.bsCurrency = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryDS = new Gulliver.LibraryDS();
-            this.packagesDS = new Gulliver.PackagesDS();
+            this.libraryDS = new GulliverII.LibraryDS();
+            this.packagesDS = new GulliverII.PackagesDS();
             this.hotelContractHeader = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtSearchbox = new System.Windows.Forms.TextBox();

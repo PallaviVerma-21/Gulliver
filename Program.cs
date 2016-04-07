@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace Gulliver
+namespace GulliverII
 {
     static class Program
     {

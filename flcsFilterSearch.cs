@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Collections;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class flcsFilterSearch : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
@@ -19,11 +19,11 @@ namespace Gulliver
         public bool returnToMainwindow = false;
         public bool pressok = false;
 
-        public flcsFilterSearch(List<string> durations, List<string> depUKAirportsList, List<string> depGermanAirportsList, List<string> depUSAAirportsList, List<string> departureAirports, DateTime startDate, DateTime endDate)
+        public flcsFilterSearch(List<string> durations, List<string> depUKAirportsList, List<string> depGermanAirportsList, List<string> depUSAAirportsList, List<string> departureAirports, List<string> depCanadianAirportsList, DateTime startDate, DateTime endDate)
         {
             InitializeComponent();
             FillDurations(durations);
-            FillDepAirports(depUKAirportsList, depGermanAirportsList, depUSAAirportsList, departureAirports);
+            FillDepAirports(depUKAirportsList, depGermanAirportsList, depUSAAirportsList,depCanadianAirportsList, departureAirports);
             dtpStartDate.Value = startDate;
             dtpEndDate.Value = endDate;
         }
@@ -37,7 +37,7 @@ namespace Gulliver
             }
         }
 
-        private void FillDepAirports(List<string> depUKAirportsList, List<string> depGermanAirportsList, List<string> depUSAAirportsList, List<string> departureSelectedAirports)
+        private void FillDepAirports(List<string> depUKAirportsList, List<string> depGermanAirportsList, List<string> depUSAAirportsList, List<string> depCanadianAirportsList, List<string> departureSelectedAirports)
         {
             List<string> specialAirports = new List<string>() { "BHX", "BRS", "EDI", "EMA", "GLA", "LGW", "LPL", "LTN", "MAN", "NCL", "SEN", "STN" };
 
@@ -76,6 +76,18 @@ namespace Gulliver
                 else
                     cbUSAirports.Items.Add(item, false);
             }
+
+
+            foreach (string code in depCanadianAirportsList)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = code.Trim();
+                item.Value = code.Trim();
+                if (departureSelectedAirports.Contains(code.Trim()))
+                    cbCanadianAirports.Items.Add(item, true);
+                else
+                    cbCanadianAirports.Items.Add(item, false);
+            }
         }
 
         private void Search()
@@ -90,6 +102,8 @@ namespace Gulliver
             foreach (ComboBoxItem departure in cbGermanAirports.CheckedItems)
                 selectedDepartureAirports.Add(departure.Value.ToString());
             foreach (ComboBoxItem departure in cbUSAirports.CheckedItems)
+                selectedDepartureAirports.Add(departure.Value.ToString());
+            foreach (ComboBoxItem departure in cbCanadianAirports.CheckedItems)
                 selectedDepartureAirports.Add(departure.Value.ToString());
 
             startDate = dtpStartDate.Value;
@@ -108,6 +122,30 @@ namespace Gulliver
         {
            Search();
            this.Close();
+        }
+
+        private void cbAllCanadians_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= cbCanadianAirports.Items.Count - 1; i++)
+                cbCanadianAirports.SetItemCheckState(i, (cbAllCanadians.Checked ? CheckState.Checked : CheckState.Unchecked));
+        }
+
+        private void cbAllUS_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= cbUSAirports.Items.Count - 1; i++)
+                cbUSAirports.SetItemCheckState(i, (cbAllUS.Checked ? CheckState.Checked : CheckState.Unchecked));
+        }
+
+        private void cbAllGerman_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= cbGermanAirports.Items.Count - 1; i++)
+                cbGermanAirports.SetItemCheckState(i, (cbAllGerman.Checked ? CheckState.Checked : CheckState.Unchecked));
+        }
+
+        private void cbAllAirports_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= cbDepartureAirports.Items.Count - 1; i++)
+                cbDepartureAirports.SetItemCheckState(i, (cbAllAirports.Checked ? CheckState.Checked : CheckState.Unchecked));
         }        
        
     }

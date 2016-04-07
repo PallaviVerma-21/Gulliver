@@ -8,16 +8,16 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Linq;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class flcsCurrency : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        private GulliverLibrary.QueryHandler gulliverQueryHandler;
+        private GulliverLibrary.QueryHandler GulliverIIQueryHandler;
         private List<GulliverLibrary.Currency> currencys;
 
         public flcsCurrency()
         {
-            gulliverQueryHandler = new GulliverLibrary.QueryHandler();
+            GulliverIIQueryHandler = new GulliverLibrary.QueryHandler();
             InitializeComponent();
             FillCurrency(txtSearchbox.Text.Trim());
             SetText(txtSearchbox, "Search currency here ...");
@@ -26,7 +26,7 @@ namespace Gulliver
         private void FillCurrency(string searchText)
         {
             libraryDS.Currency.Rows.Clear();
-            currencys = gulliverQueryHandler.GetAllCurrencys();
+            currencys = GulliverIIQueryHandler.GetAllCurrencys();
 
             if (searchText.Trim() != string.Empty && searchText != "Search currency here ...")
                 currencys = currencys.Where(m => m.currency.Trim().ToUpper().Contains(searchText.ToUpper().Trim())).ToList();
@@ -64,7 +64,7 @@ namespace Gulliver
                 {
                     case System.Windows.Forms.DialogResult.Yes:
                         dataGridViewCurrencys.Rows.Remove((DataGridViewRow)dataGridViewCurrencys.Rows[e.RowIndex]);
-                        gulliverQueryHandler.DeleteCurrencyByCurrency(Convert.ToString(dataGridViewCurrencys.Rows[e.RowIndex].Cells[1].Value));
+                        GulliverIIQueryHandler.DeleteCurrencyByCurrency(Convert.ToString(dataGridViewCurrencys.Rows[e.RowIndex].Cells[1].Value));
                         break;
 
                     case System.Windows.Forms.DialogResult.No:
@@ -96,7 +96,7 @@ namespace Gulliver
         private void btnSave_Click(object sender, EventArgs e)
         {
            List<GulliverLibrary.Currency> currencys = GetCurrencys();
-           gulliverQueryHandler.SaveCurrency(currencys);
+           GulliverIIQueryHandler.SaveCurrency(currencys);
            this.Close();
         }
 

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Linq;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class flcsAutoUpdateSetting : ComponentFactory.Krypton.Toolkit.KryptonForm
     {

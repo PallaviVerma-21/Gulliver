@@ -1,4 +1,4 @@
-﻿namespace Gulliver
+﻿namespace GulliverII
 {
     partial class Screen
     {
@@ -49,17 +49,17 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::Gulliver.Properties.Resources._2image1;
+            this.pictureBox2.BackgroundImage = global::GulliverII.Properties.Resources._2image1;
             this.pictureBox2.Location = new System.Drawing.Point(-1, 81);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(260, 260);
+            this.pictureBox2.Size = new System.Drawing.Size(260, 262);
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Gulliver.Properties.Resources._1writing;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
+            this.pictureBox1.BackgroundImage = global::GulliverII.Properties.Resources._1writing;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(260, 80);
             this.pictureBox1.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             this.notifyIcon.ContextMenuStrip = this.contextMenuStrip;
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "Gulliver";
+            this.notifyIcon.Text = "GulliverII";
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
@@ -87,12 +87,12 @@
             this.exitToolStripMenuItem1,
             this.exitToolStripMenuItem2});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(104, 54);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 76);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(100, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem1
             // 
@@ -100,7 +100,7 @@
             this.mixAndMatchFlightsToolStripMenuItem,
             this.libraryToolStripMenuItem});
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem1.Text = "&Tools";
             // 
             // mixAndMatchFlightsToolStripMenuItem
@@ -120,8 +120,9 @@
             // exitToolStripMenuItem2
             // 
             this.exitToolStripMenuItem2.Name = "exitToolStripMenuItem2";
-            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem2.Text = "&Exit";
+            this.exitToolStripMenuItem2.Click += new System.EventHandler(this.exitToolStripMenuItem2_Click);
             // 
             // bgWorker
             // 
@@ -143,7 +144,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(260, 359);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(242)))), ((int)(((byte)(230)))));
+            this.ClientSize = new System.Drawing.Size(260, 343);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

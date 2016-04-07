@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Linq;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class flcsOptionalExtra : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
@@ -29,15 +29,15 @@ namespace Gulliver
 
         private void FillOptionalExtras()
         {
-            this.gulliverDS.OptionalExtra.Clear();
+            this.GulliverIIDS.OptionalExtra.Clear();
 
             foreach (GulliverLibrary.DealOptionalExtra extra in optioanlExtras)
-                this.gulliverDS.OptionalExtra.AddOptionalExtraRow(extra.id, "Delete", extra.description.Trim(), extra.included, extra.adultCost, extra.childCost);
+                this.GulliverIIDS.OptionalExtra.AddOptionalExtraRow(extra.id, "Delete", extra.description.Trim(), extra.included, extra.adultCost, extra.childCost);
         }
 
         private void flcsOptionalExtra_FormClosing(object sender, FormClosingEventArgs e)
         {
-            optioanlExtras = (from c in this.gulliverDS.OptionalExtra
+            optioanlExtras = (from c in this.GulliverIIDS.OptionalExtra
                             where !c.IsDescriptionNull() && !c.IsAdult_CostNull() && !c.IsChild_CostNull()
                             select new GulliverLibrary.DealOptionalExtra
                             {

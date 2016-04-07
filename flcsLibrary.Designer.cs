@@ -1,4 +1,4 @@
-namespace Gulliver
+namespace GulliverII
 {
     partial class flcsLibrary
     {
@@ -38,17 +38,8 @@ namespace Gulliver
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.dataGridViewLibrary = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.viewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.offerNameDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dealDirectoryNameDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.onSalesDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.expiredDateDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.copyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.bsLibrary = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryDS = new Gulliver.LibraryDS();
+            this.libraryDS = new GulliverII.LibraryDS();
             this.statusstrip = new System.Windows.Forms.StatusStrip();
             this.fiterStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.showAllLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -89,6 +80,15 @@ namespace Gulliver
             this.dataGridViewAutoFilterTextBoxColumn10 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.dataGridViewLinkColumn3 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.viewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.offerNameDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dealDirectoryNameDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.onSalesDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.expiredDateDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.copyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
@@ -153,6 +153,9 @@ namespace Gulliver
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dataGridViewLibrary.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewLibrary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewLibrary.AutoGenerateColumns = false;
             this.dataGridViewLibrary.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridViewLibrary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -180,7 +183,7 @@ namespace Gulliver
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.dataGridViewLibrary.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewLibrary.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dataGridViewLibrary.Size = new System.Drawing.Size(1254, 572);
+            this.dataGridViewLibrary.Size = new System.Drawing.Size(1248, 572);
             this.dataGridViewLibrary.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridViewLibrary.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dataGridViewLibrary.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlAlternate;
@@ -196,84 +199,7 @@ namespace Gulliver
             this.dataGridViewLibrary.StateCommon.HeaderRow.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewLibrary.TabIndex = 25;
             this.dataGridViewLibrary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLibrary_CellContentClick);
-            // 
-            // deleteDataGridViewTextBoxColumn
-            // 
-            this.deleteDataGridViewTextBoxColumn.DataPropertyName = "Delete";
-            this.deleteDataGridViewTextBoxColumn.HeaderText = "Delete";
-            this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
-            this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.deleteDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // viewDataGridViewTextBoxColumn
-            // 
-            this.viewDataGridViewTextBoxColumn.DataPropertyName = "View";
-            this.viewDataGridViewTextBoxColumn.HeaderText = "View";
-            this.viewDataGridViewTextBoxColumn.Name = "viewDataGridViewTextBoxColumn";
-            this.viewDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.viewDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.viewDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // supplierDataGridViewTextBoxColumn
-            // 
-            this.supplierDataGridViewTextBoxColumn.DataPropertyName = "Supplier";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.supplierDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.supplierDataGridViewTextBoxColumn.HeaderText = "Media";
-            this.supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
-            this.supplierDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.supplierDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // offerNameDataGridViewTextBoxColumn
-            // 
-            this.offerNameDataGridViewTextBoxColumn.DataPropertyName = "Offer Name";
-            this.offerNameDataGridViewTextBoxColumn.HeaderText = "Deal Name";
-            this.offerNameDataGridViewTextBoxColumn.Name = "offerNameDataGridViewTextBoxColumn";
-            this.offerNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.offerNameDataGridViewTextBoxColumn.Width = 430;
-            // 
-            // dealDirectoryNameDataGridViewTextBoxColumn
-            // 
-            this.dealDirectoryNameDataGridViewTextBoxColumn.DataPropertyName = "Deal Directory Name";
-            this.dealDirectoryNameDataGridViewTextBoxColumn.HeaderText = "Deal Directory Name";
-            this.dealDirectoryNameDataGridViewTextBoxColumn.Name = "dealDirectoryNameDataGridViewTextBoxColumn";
-            this.dealDirectoryNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dealDirectoryNameDataGridViewTextBoxColumn.Visible = false;
-            this.dealDirectoryNameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // onSalesDataGridViewTextBoxColumn
-            // 
-            this.onSalesDataGridViewTextBoxColumn.DataPropertyName = "On Sales";
-            this.onSalesDataGridViewTextBoxColumn.HeaderText = "On Sales";
-            this.onSalesDataGridViewTextBoxColumn.Name = "onSalesDataGridViewTextBoxColumn";
-            this.onSalesDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.onSalesDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // expiredDateDataGridViewTextBoxColumn
-            // 
-            this.expiredDateDataGridViewTextBoxColumn.DataPropertyName = "Expired Date";
-            this.expiredDateDataGridViewTextBoxColumn.HeaderText = "Expired Date";
-            this.expiredDateDataGridViewTextBoxColumn.Name = "expiredDateDataGridViewTextBoxColumn";
-            this.expiredDateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.expiredDateDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // copyDataGridViewTextBoxColumn
-            // 
-            this.copyDataGridViewTextBoxColumn.DataPropertyName = "Copy";
-            this.copyDataGridViewTextBoxColumn.HeaderText = "Copy";
-            this.copyDataGridViewTextBoxColumn.Name = "copyDataGridViewTextBoxColumn";
-            this.copyDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.copyDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.copyDataGridViewTextBoxColumn.Width = 80;
+            this.dataGridViewLibrary.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewLibrary_DataBindingComplete);
             // 
             // bsLibrary
             // 
@@ -300,6 +226,8 @@ namespace Gulliver
             // 
             // fiterStatusLabel
             // 
+            this.fiterStatusLabel.ForeColor = System.Drawing.Color.White;
+            this.fiterStatusLabel.LinkColor = System.Drawing.Color.White;
             this.fiterStatusLabel.Name = "fiterStatusLabel";
             this.fiterStatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
@@ -311,6 +239,7 @@ namespace Gulliver
             this.showAllLabel.Name = "showAllLabel";
             this.showAllLabel.Size = new System.Drawing.Size(53, 17);
             this.showAllLabel.Text = "&Show All";
+            this.showAllLabel.Click += new System.EventHandler(this.showAllLabel_Click);
             // 
             // libraryProgressbar
             // 
@@ -327,6 +256,7 @@ namespace Gulliver
             this.cmbSuppliers.Name = "cmbSuppliers";
             this.cmbSuppliers.Size = new System.Drawing.Size(375, 21);
             this.cmbSuppliers.TabIndex = 4;
+            this.cmbSuppliers.SelectedIndexChanged += new System.EventHandler(this.cmbSuppliers_SelectedIndexChanged);
             // 
             // kryptonLabel1
             // 
@@ -340,8 +270,6 @@ namespace Gulliver
             // 
             // cbShowAll
             // 
-            this.cbShowAll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbShowAll.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
             this.cbShowAll.Location = new System.Drawing.Point(980, 46);
             this.cbShowAll.Name = "cbShowAll";
@@ -353,12 +281,11 @@ namespace Gulliver
             // 
             // txtSearch
             // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(550, 46);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(340, 20);
             this.txtSearch.TabIndex = 1;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // menuStrip
             // 
@@ -383,14 +310,14 @@ namespace Gulliver
             this.newOfferToolStripMenuItem,
             this.toolStripSeparator1});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.fileToolStripMenuItem.Image = global::Gulliver.Properties.Resources.list_add;
+            this.fileToolStripMenuItem.Image = global::GulliverII.Properties.Resources.list_add;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.fileToolStripMenuItem.Text = "&Add";
             // 
             // newOfferToolStripMenuItem
             // 
-            this.newOfferToolStripMenuItem.Image = global::Gulliver.Properties.Resources.fileview_text;
+            this.newOfferToolStripMenuItem.Image = global::GulliverII.Properties.Resources.fileview_text;
             this.newOfferToolStripMenuItem.Name = "newOfferToolStripMenuItem";
             this.newOfferToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.newOfferToolStripMenuItem.Text = "&New Deal";
@@ -406,14 +333,14 @@ namespace Gulliver
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.healthSafetyDocumentToolStripMenuItem});
             this.optionsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.optionsToolStripMenuItem.Image = global::Gulliver.Properties.Resources.template;
+            this.optionsToolStripMenuItem.Image = global::GulliverII.Properties.Resources.template;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.optionsToolStripMenuItem.Text = "&Templates";
             // 
             // healthSafetyDocumentToolStripMenuItem
             // 
-            this.healthSafetyDocumentToolStripMenuItem.Image = global::Gulliver.Properties.Resources.epack_locked;
+            this.healthSafetyDocumentToolStripMenuItem.Image = global::GulliverII.Properties.Resources.epack_locked;
             this.healthSafetyDocumentToolStripMenuItem.Name = "healthSafetyDocumentToolStripMenuItem";
             this.healthSafetyDocumentToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.healthSafetyDocumentToolStripMenuItem.Text = "Health && Safety Document";
@@ -427,14 +354,14 @@ namespace Gulliver
             this.updateUSABestDealPageToolStripMenuItem,
             this.updateSAGABestDealPageToolStripMenuItem});
             this.fleetwayWebUpdatesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.fleetwayWebUpdatesToolStripMenuItem.Image = global::Gulliver.Properties.Resources.internet;
+            this.fleetwayWebUpdatesToolStripMenuItem.Image = global::GulliverII.Properties.Resources.internet;
             this.fleetwayWebUpdatesToolStripMenuItem.Name = "fleetwayWebUpdatesToolStripMenuItem";
             this.fleetwayWebUpdatesToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
             this.fleetwayWebUpdatesToolStripMenuItem.Text = "&Fleetway Web Updates";
             // 
             // updateBestDealPageToolStripMenuItem
             // 
-            this.updateBestDealPageToolStripMenuItem.Image = global::Gulliver.Properties.Resources.united_kingdom_great_britain;
+            this.updateBestDealPageToolStripMenuItem.Image = global::GulliverII.Properties.Resources.united_kingdom_great_britain;
             this.updateBestDealPageToolStripMenuItem.Name = "updateBestDealPageToolStripMenuItem";
             this.updateBestDealPageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.updateBestDealPageToolStripMenuItem.Text = "&Update Best Deal Page";
@@ -442,7 +369,7 @@ namespace Gulliver
             // 
             // updateGermanBestDealPageToolStripMenuItem
             // 
-            this.updateGermanBestDealPageToolStripMenuItem.Image = global::Gulliver.Properties.Resources.germany;
+            this.updateGermanBestDealPageToolStripMenuItem.Image = global::GulliverII.Properties.Resources.germany;
             this.updateGermanBestDealPageToolStripMenuItem.Name = "updateGermanBestDealPageToolStripMenuItem";
             this.updateGermanBestDealPageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.updateGermanBestDealPageToolStripMenuItem.Text = "&Update German Best Deal Page";
@@ -450,14 +377,14 @@ namespace Gulliver
             // 
             // updateUSABestDealPageToolStripMenuItem
             // 
-            this.updateUSABestDealPageToolStripMenuItem.Image = global::Gulliver.Properties.Resources.united_states_of_america;
+            this.updateUSABestDealPageToolStripMenuItem.Image = global::GulliverII.Properties.Resources.united_states_of_america;
             this.updateUSABestDealPageToolStripMenuItem.Name = "updateUSABestDealPageToolStripMenuItem";
             this.updateUSABestDealPageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.updateUSABestDealPageToolStripMenuItem.Text = "&Update USA Best Deal Page";
             // 
             // updateSAGABestDealPageToolStripMenuItem
             // 
-            this.updateSAGABestDealPageToolStripMenuItem.Image = global::Gulliver.Properties.Resources.knewstuff;
+            this.updateSAGABestDealPageToolStripMenuItem.Image = global::GulliverII.Properties.Resources.knewstuff;
             this.updateSAGABestDealPageToolStripMenuItem.Name = "updateSAGABestDealPageToolStripMenuItem";
             this.updateSAGABestDealPageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.updateSAGABestDealPageToolStripMenuItem.Text = "&Update SAGA Best Deal Page";
@@ -476,14 +403,14 @@ namespace Gulliver
             this.currencyToolStripMenuItem,
             this.fABSettingToolStripMenuItem});
             this.settingToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.settingToolStripMenuItem.Image = global::Gulliver.Properties.Resources.settings1;
+            this.settingToolStripMenuItem.Image = global::GulliverII.Properties.Resources.settings1;
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
             this.settingToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.settingToolStripMenuItem.Text = "&Setting";
             // 
             // mediasToolStripMenuItem
             // 
-            this.mediasToolStripMenuItem.Image = global::Gulliver.Properties.Resources.stock_channel;
+            this.mediasToolStripMenuItem.Image = global::GulliverII.Properties.Resources.stock_channel;
             this.mediasToolStripMenuItem.Name = "mediasToolStripMenuItem";
             this.mediasToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.mediasToolStripMenuItem.Text = "&Channels";
@@ -491,7 +418,7 @@ namespace Gulliver
             // 
             // baggagesToolStripMenuItem
             // 
-            this.baggagesToolStripMenuItem.Image = global::Gulliver.Properties.Resources.suitcase;
+            this.baggagesToolStripMenuItem.Image = global::GulliverII.Properties.Resources.suitcase;
             this.baggagesToolStripMenuItem.Name = "baggagesToolStripMenuItem";
             this.baggagesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.baggagesToolStripMenuItem.Text = "&Baggage";
@@ -499,7 +426,7 @@ namespace Gulliver
             // 
             // currencyToolStripMenuItem
             // 
-            this.currencyToolStripMenuItem.Image = global::Gulliver.Properties.Resources.coins;
+            this.currencyToolStripMenuItem.Image = global::GulliverII.Properties.Resources.coins;
             this.currencyToolStripMenuItem.Name = "currencyToolStripMenuItem";
             this.currencyToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.currencyToolStripMenuItem.Text = "&Currency";
@@ -624,6 +551,90 @@ namespace Gulliver
             this.dataGridViewLinkColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewLinkColumn3.Width = 80;
             // 
+            // deleteDataGridViewTextBoxColumn
+            // 
+            this.deleteDataGridViewTextBoxColumn.DataPropertyName = "Delete";
+            this.deleteDataGridViewTextBoxColumn.HeaderText = "Delete";
+            this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
+            this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.deleteDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // viewDataGridViewTextBoxColumn
+            // 
+            this.viewDataGridViewTextBoxColumn.DataPropertyName = "View";
+            this.viewDataGridViewTextBoxColumn.HeaderText = "View";
+            this.viewDataGridViewTextBoxColumn.Name = "viewDataGridViewTextBoxColumn";
+            this.viewDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.viewDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.viewDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // supplierDataGridViewTextBoxColumn
+            // 
+            this.supplierDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.supplierDataGridViewTextBoxColumn.DataPropertyName = "Supplier";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.supplierDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.supplierDataGridViewTextBoxColumn.FillWeight = 273F;
+            this.supplierDataGridViewTextBoxColumn.HeaderText = "Media";
+            this.supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
+            this.supplierDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // offerNameDataGridViewTextBoxColumn
+            // 
+            this.offerNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.offerNameDataGridViewTextBoxColumn.DataPropertyName = "Offer Name";
+            this.offerNameDataGridViewTextBoxColumn.FillWeight = 430F;
+            this.offerNameDataGridViewTextBoxColumn.HeaderText = "Deal Name";
+            this.offerNameDataGridViewTextBoxColumn.Name = "offerNameDataGridViewTextBoxColumn";
+            this.offerNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dealDirectoryNameDataGridViewTextBoxColumn
+            // 
+            this.dealDirectoryNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dealDirectoryNameDataGridViewTextBoxColumn.DataPropertyName = "Deal Directory Name";
+            this.dealDirectoryNameDataGridViewTextBoxColumn.FillWeight = 250F;
+            this.dealDirectoryNameDataGridViewTextBoxColumn.HeaderText = "Deal Directory Name";
+            this.dealDirectoryNameDataGridViewTextBoxColumn.Name = "dealDirectoryNameDataGridViewTextBoxColumn";
+            this.dealDirectoryNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dealDirectoryNameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // onSalesDataGridViewTextBoxColumn
+            // 
+            this.onSalesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.onSalesDataGridViewTextBoxColumn.DataPropertyName = "On Sales";
+            this.onSalesDataGridViewTextBoxColumn.FillWeight = 150F;
+            this.onSalesDataGridViewTextBoxColumn.HeaderText = "On Sales";
+            this.onSalesDataGridViewTextBoxColumn.Name = "onSalesDataGridViewTextBoxColumn";
+            this.onSalesDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.onSalesDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // expiredDateDataGridViewTextBoxColumn
+            // 
+            this.expiredDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.expiredDateDataGridViewTextBoxColumn.DataPropertyName = "Expired Date";
+            this.expiredDateDataGridViewTextBoxColumn.FillWeight = 120F;
+            this.expiredDateDataGridViewTextBoxColumn.HeaderText = "Expired Date";
+            this.expiredDateDataGridViewTextBoxColumn.Name = "expiredDateDataGridViewTextBoxColumn";
+            this.expiredDateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // copyDataGridViewTextBoxColumn
+            // 
+            this.copyDataGridViewTextBoxColumn.DataPropertyName = "Copy";
+            this.copyDataGridViewTextBoxColumn.HeaderText = "Copy";
+            this.copyDataGridViewTextBoxColumn.Name = "copyDataGridViewTextBoxColumn";
+            this.copyDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.copyDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.copyDataGridViewTextBoxColumn.Width = 80;
+            // 
             // flcsLibrary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -692,15 +703,6 @@ namespace Gulliver
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dataGridViewAutoFilterTextBoxColumn10;
         private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn3;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private System.Windows.Forms.DataGridViewLinkColumn deleteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn viewDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn supplierDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn offerNameDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dealDirectoryNameDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn onSalesDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn expiredDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn copyDataGridViewTextBoxColumn;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
@@ -710,6 +712,15 @@ namespace Gulliver
         private System.Windows.Forms.ToolStripMenuItem updateSAGABestDealPageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem currencyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fABSettingToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewLinkColumn deleteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewLinkColumn viewDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn supplierDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn offerNameDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dealDirectoryNameDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn onSalesDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn expiredDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewLinkColumn copyDataGridViewTextBoxColumn;
     }
 }
 

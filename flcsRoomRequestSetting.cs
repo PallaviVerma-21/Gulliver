@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class flcsRoomRequestSetting : ComponentFactory.Krypton.Toolkit.KryptonForm
     {

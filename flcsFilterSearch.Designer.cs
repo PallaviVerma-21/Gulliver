@@ -1,4 +1,4 @@
-namespace Gulliver
+namespace GulliverII
 {
     partial class flcsFilterSearch
     {
@@ -40,10 +40,10 @@ namespace Gulliver
             this.cbDurations = new System.Windows.Forms.CheckedListBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.lblStartDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dtpStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.lblEndDate = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.dtpEndDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.dtpStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.dtpEndDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabUKAirports = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,6 +60,11 @@ namespace Gulliver
             this.cbUSAirports = new System.Windows.Forms.CheckedListBox();
             this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbAllUS = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbCanadianAirports = new System.Windows.Forms.CheckedListBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cbAllCanadians = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -75,6 +80,9 @@ namespace Gulliver
             this.tabUSAirports.SuspendLayout();
             this.tableLayoutPanel45.SuspendLayout();
             this.flowLayoutPanel20.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -187,10 +195,10 @@ namespace Gulliver
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.89773F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.10227F));
             this.tableLayoutPanel7.Controls.Add(this.lblStartDate, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.dtpStartDate, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.lblEndDate, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.dtpEndDate, 1, 1);
             this.tableLayoutPanel7.Controls.Add(this.btnSearch, 2, 2);
+            this.tableLayoutPanel7.Controls.Add(this.dtpStartDate, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.dtpEndDate, 1, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(334, 254);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -209,15 +217,6 @@ namespace Gulliver
             this.lblStartDate.TabIndex = 2;
             this.lblStartDate.Values.Text = "Start Date";
             // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.CalendarTodayDate = new System.DateTime(2014, 9, 11, 0, 0, 0, 0);
-            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(91, 3);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(125, 21);
-            this.dtpStartDate.TabIndex = 3;
-            // 
             // lblEndDate
             // 
             this.lblEndDate.Location = new System.Drawing.Point(3, 30);
@@ -225,15 +224,6 @@ namespace Gulliver
             this.lblEndDate.Size = new System.Drawing.Size(60, 20);
             this.lblEndDate.TabIndex = 5;
             this.lblEndDate.Values.Text = "End Date";
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.CalendarTodayDate = new System.DateTime(2014, 9, 11, 0, 0, 0, 0);
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(91, 30);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(125, 21);
-            this.dtpEndDate.TabIndex = 4;
             // 
             // btnSearch
             // 
@@ -248,12 +238,29 @@ namespace Gulliver
             this.btnSearch.Values.Text = "Search";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpStartDate.Location = new System.Drawing.Point(91, 3);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(125, 21);
+            this.dtpStartDate.TabIndex = 15;
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEndDate.Location = new System.Drawing.Point(91, 30);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(125, 21);
+            this.dtpEndDate.TabIndex = 16;
+            // 
             // tabControl1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.tabControl1, 2);
             this.tabControl1.Controls.Add(this.tabUKAirports);
             this.tabControl1.Controls.Add(this.tabGermanAP);
             this.tabControl1.Controls.Add(this.tabUSAirports);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
@@ -320,6 +327,7 @@ namespace Gulliver
             this.cbAllAirports.TabIndex = 12;
             this.cbAllAirports.Text = "All";
             this.cbAllAirports.Values.Text = "All";
+            this.cbAllAirports.CheckedChanged += new System.EventHandler(this.cbAllAirports_CheckedChanged);
             // 
             // tabGermanAP
             // 
@@ -380,6 +388,7 @@ namespace Gulliver
             this.cbAllGerman.TabIndex = 12;
             this.cbAllGerman.Text = "All";
             this.cbAllGerman.Values.Text = "All";
+            this.cbAllGerman.CheckedChanged += new System.EventHandler(this.cbAllGerman_CheckedChanged);
             // 
             // tabUSAirports
             // 
@@ -439,6 +448,68 @@ namespace Gulliver
             this.cbAllUS.TabIndex = 12;
             this.cbAllUS.Text = "All";
             this.cbAllUS.Values.Text = "All";
+            this.cbAllUS.CheckedChanged += new System.EventHandler(this.cbAllUS_CheckedChanged);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.tableLayoutPanel2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(675, 219);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Canadian Departure Airport";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.cbCanadianAirports, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(669, 213);
+            this.tableLayoutPanel2.TabIndex = 57;
+            // 
+            // cbCanadianAirports
+            // 
+            this.cbCanadianAirports.CheckOnClick = true;
+            this.cbCanadianAirports.ColumnWidth = 100;
+            this.cbCanadianAirports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbCanadianAirports.FormattingEnabled = true;
+            this.cbCanadianAirports.Location = new System.Drawing.Point(3, 33);
+            this.cbCanadianAirports.MultiColumn = true;
+            this.cbCanadianAirports.Name = "cbCanadianAirports";
+            this.cbCanadianAirports.Size = new System.Drawing.Size(663, 177);
+            this.cbCanadianAirports.TabIndex = 10;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.cbAllCanadians);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(245, 24);
+            this.flowLayoutPanel1.TabIndex = 43;
+            // 
+            // cbAllCanadians
+            // 
+            this.cbAllCanadians.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
+            this.cbAllCanadians.Location = new System.Drawing.Point(3, 3);
+            this.cbAllCanadians.Name = "cbAllCanadians";
+            this.cbAllCanadians.Size = new System.Drawing.Size(37, 20);
+            this.cbAllCanadians.TabIndex = 12;
+            this.cbAllCanadians.Text = "All";
+            this.cbAllCanadians.Values.Text = "All";
+            this.cbAllCanadians.CheckedChanged += new System.EventHandler(this.cbAllCanadians_CheckedChanged);
             // 
             // flcsFilterSearch
             // 
@@ -475,6 +546,11 @@ namespace Gulliver
             this.tableLayoutPanel45.ResumeLayout(false);
             this.flowLayoutPanel20.ResumeLayout(false);
             this.flowLayoutPanel20.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -491,9 +567,7 @@ namespace Gulliver
         private System.Windows.Forms.CheckedListBox cbDurations;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblStartDate;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpStartDate;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblEndDate;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpEndDate;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSearch;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabUKAirports;
@@ -511,6 +585,13 @@ namespace Gulliver
         private System.Windows.Forms.CheckedListBox cbUSAirports;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel20;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbAllUS;
+        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpStartDate;
+        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker dtpEndDate;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.CheckedListBox cbCanadianAirports;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbAllCanadians;
     }
 }
 

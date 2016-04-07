@@ -1,4 +1,4 @@
-namespace Gulliver
+namespace GulliverII
 {
     partial class flcsBackupPackage
     {
@@ -79,7 +79,7 @@ namespace Gulliver
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oldSellAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsPackageBackup = new System.Windows.Forms.BindingSource(this.components);
-            this.packagesDS = new Gulliver.PackagesDS();
+            this.packagesDS = new GulliverII.PackagesDS();
             this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
             this.fiterStatusLabelH = new System.Windows.Forms.ToolStripStatusLabel();
             this.showAllLabelH = new System.Windows.Forms.ToolStripStatusLabel();

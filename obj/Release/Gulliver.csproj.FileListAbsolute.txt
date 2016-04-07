@@ -43,7 +43,6 @@ X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsFilterColumns.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsBackupPackage.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsFilterSearch.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsMain.resources
-X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsLandingWindow.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsMedias.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsOptionalExtra.resources
 X:\Gulliver\Gulliver\obj\Release\Gulliver.flcsPackages.resources
@@ -58,5 +57,14 @@ X:\Gulliver\Gulliver\obj\Release\Gulliver.exe.manifest
 X:\Gulliver\Gulliver\obj\Release\Gulliver.application
 X:\Gulliver\Gulliver\obj\Release\Gulliver.exe
 X:\Gulliver\Gulliver\obj\Release\Gulliver.pdb
-X:\Gulliver\Gulliver\bin\Release\LumenWorks.Framework.IO.dll
 X:\Gulliver\Gulliver\obj\Release\Gulliver.Screen.resources
+X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.dll
+X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll
+X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.pdb
+X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.xml
+X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.Shell.pdb
+X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
+X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+X:\Gulliver\Gulliver\obj\Release\GulliverII.Properties.Resources.resources

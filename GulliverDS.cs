@@ -1,6 +1,10 @@
-﻿namespace Gulliver {
+﻿namespace GulliverII
+{
+}
+namespace GulliverII
+{
     
     
-    public partial class GulliverDS {
+    public partial class GulliverIIDS {
     }
 }

@@ -1,4 +1,4 @@
-namespace Gulliver
+namespace GulliverII
 {
     partial class flcsOptionalExtra
     {
@@ -44,7 +44,7 @@ namespace Gulliver
             this.adultCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.childCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsOptionalcosting = new System.Windows.Forms.BindingSource(this.components);
-            this.gulliverDS = new Gulliver.GulliverDS();
+            this.GulliverIIDS = new GulliverII.GulliverIIDS();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +58,7 @@ namespace Gulliver
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOptionalcosting)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gulliverDS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GulliverIIDS)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -186,12 +186,12 @@ namespace Gulliver
             // bsOptionalcosting
             // 
             this.bsOptionalcosting.DataMember = "OptionalExtra";
-            this.bsOptionalcosting.DataSource = this.gulliverDS;
+            this.bsOptionalcosting.DataSource = this.GulliverIIDS;
             // 
-            // gulliverDS
+            // GulliverIIDS
             // 
-            this.gulliverDS.DataSetName = "GulliverDS";
-            this.gulliverDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.GulliverIIDS.DataSetName = "GulliverIIDS";
+            this.GulliverIIDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -245,7 +245,7 @@ namespace Gulliver
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExtras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOptionalcosting)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gulliverDS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GulliverIIDS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -261,7 +261,7 @@ namespace Gulliver
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dataGridViewExtras;
         private System.Windows.Forms.BindingSource bsOptionalcosting;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
-        private GulliverDS gulliverDS;
+        private GulliverIIDS GulliverIIDS;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewLinkColumn deleteDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn1;

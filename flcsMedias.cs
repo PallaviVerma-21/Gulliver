@@ -8,16 +8,16 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Linq;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class flcsMedias : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
-        private GulliverLibrary.QueryHandler gulliverQueryHandler;
+        private GulliverLibrary.QueryHandler GulliverIIQueryHandler;
         private List<GulliverLibrary.Media> medias;
 
         public flcsMedias()
         {
-            gulliverQueryHandler = new GulliverLibrary.QueryHandler();
+            GulliverIIQueryHandler = new GulliverLibrary.QueryHandler();
             InitializeComponent();
             FillMedias(txtSearchbox.Text.Trim());
             SetText(txtSearchbox, "Search media name here ...");
@@ -25,20 +25,20 @@ namespace Gulliver
 
         private void FillMedias(string searchText)
         {
-            packagesDS.Media.Rows.Clear();
-            medias = gulliverQueryHandler.GetAllMedias();
+           packagesDS.Media.Rows.Clear();
+           medias = GulliverIIQueryHandler.GetAllMedias();
 
-            if (searchText.Trim() != string.Empty && searchText != "Search media name here ...")
+           if (searchText.Trim() != string.Empty && searchText != "Search media name here ...")
             medias = medias.Where(m => m.supplier.Trim().ToUpper().Contains(searchText.ToUpper().Trim())).ToList();
 
-            foreach (GulliverLibrary.Media media in medias.OrderBy(m => m.supplier.Trim()))
-                packagesDS.Media.AddMediaRow("Delete", media.id, media.supplier.Trim(), media.channelCode.Trim(), media.commission, ((media.pleaseNote != null)? media.pleaseNote.Trim(): string.Empty));            
+           foreach (GulliverLibrary.Media media in medias.OrderBy(m => m.supplier.Trim()))
+             packagesDS.Media.AddMediaRow("Delete", media.id, media.supplier.Trim(), media.channelCode.Trim(), media.commission, ((media.pleaseNote != null)? media.pleaseNote.Trim(): string.Empty));            
         }
 
         private void SetText(TextBox txtSearchbox, string text)
         {
-            txtSearchbox.Text = text;
-            txtSearchbox.ForeColor = Color.Gray;
+           txtSearchbox.Text = text;
+           txtSearchbox.ForeColor = Color.Gray;
         }
 
         private void txtSearchbox_Enter(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace Gulliver
                 {
                     case System.Windows.Forms.DialogResult.Yes:
                         dataGridViewMedias.Rows.Remove((DataGridViewRow)dataGridViewMedias.Rows[e.RowIndex]);
-                        gulliverQueryHandler.DeleteMediaById(Convert.ToInt32(dataGridViewMedias.Rows[e.RowIndex].Cells[1].Value));
+                       // GulliverIIQueryHandler.DeleteMediaById(Convert.ToInt32(dataGridViewMedias.Rows[e.RowIndex].Cells[1].Value));
                         break;
 
                     case System.Windows.Forms.DialogResult.No:
@@ -104,7 +104,7 @@ namespace Gulliver
         private void btnSave_Click(object sender, EventArgs e)
         {
            List<GulliverLibrary.Media> medias = GetMedias();
-           gulliverQueryHandler.SaveMedia(medias);
+           GulliverIIQueryHandler.SaveMedia(medias);
            this.Close();
         }
 
@@ -137,8 +137,6 @@ namespace Gulliver
                 case System.Windows.Forms.DialogResult.No:
                     return;
             }
-        }
-        
-       
+        }               
     }
 }

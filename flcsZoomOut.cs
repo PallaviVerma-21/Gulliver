@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class flcsZoomOut : ComponentFactory.Krypton.Toolkit.KryptonForm
     {

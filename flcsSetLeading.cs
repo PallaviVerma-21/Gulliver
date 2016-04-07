@@ -9,7 +9,7 @@ using ComponentFactory.Krypton.Toolkit;
 using DataGridViewAutoFilter;
 using System.Linq;
 
-namespace Gulliver
+namespace GulliverII
 {
     public partial class flcsSetLeading : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
