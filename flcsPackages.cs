@@ -318,6 +318,7 @@ namespace GulliverII
         {
             bool found = true;
             progressBar.Visible = true;
+            progressBar.Value = 0;
             progressBar.Value++;
                            
             if (Convert.ToInt32(e.KeyChar) == 13)
@@ -336,7 +337,7 @@ namespace GulliverII
 
                 if (ids.Count > 0)
                 {
-                    progressBar.Maximum = ids.Count+5;
+                    progressBar.Maximum = ids.Count+10;
 
                     foreach (PackagesDS.PackageRow h in this.packagesDS.Package.Where(h => ids.Any(i => i == h.hiddenNumber)).ToList())
                     {
