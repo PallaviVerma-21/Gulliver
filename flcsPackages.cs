@@ -28,13 +28,14 @@ namespace GulliverII
         public bool saved = false;
         public List<GulliverLibrary.Package> packages;
 
-        public flcsPackages(List<GulliverLibrary.Package> packages, int dealId, bool compared, List<GulliverLibrary.Package> packagesToBackUp)
+        public flcsPackages(PackageGenerator.PackageHandler packageHandler, List<GulliverLibrary.Package> packages, int dealId, bool compared, List<GulliverLibrary.Package> packagesToBackUp)
         {
           InitializeComponent();
           travelZooSuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("traveltypesuppliers");
           timesSuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers");
           seSupplier = PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers");
-          packageHandler = new PackageGenerator.PackageHandler();
+          this.packageHandler = packageHandler;
+              //= new PackageGenerator.PackageHandler();
           deal = packageHandler.GetDealById(dealId);
           icosting = PackageGenerator.FactoryCosting.GetCostingOBj(deal.Media.id, deal.id);
           this.dealId = dealId;
@@ -151,6 +152,26 @@ namespace GulliverII
             visibleColumns = objFilterColumn.visibleColumns;
             VisibleColumns();
         }
+
+        private void VisibleDefaultColumns()
+        {
+            visibleColumns = dataGridViewHolidays.Columns.Cast<DataGridViewColumn>().Where(c => c.Visible).Select(c => c.DataPropertyName.Trim()).ToList();
+            string invisibleColumns = packageHandler.GetMiscSettingByKey("invisibleColumns").value;
+
+            visibleColumns = visibleColumns.Where(v => !invisibleColumns.Split('#').Contains(v)).ToList();
+            VisibleColumns();
+        }
+
+        private void VisibleColumns()
+        {
+            foreach (DataGridViewColumn column in dataGridViewHolidays.Columns.Cast<DataGridViewColumn>())
+            {
+                if (!visibleColumns.Contains(column.DataPropertyName))
+                    column.Visible = false;
+                else
+                    column.Visible = true;
+            }
+        }
         
         private void setLeadingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -243,7 +264,7 @@ namespace GulliverII
             if (e.ColumnIndex == 27)
             {
                 int selectedCellCount = dataGridViewHolidays.GetCellCount(DataGridViewElementStates.Selected);
-                if (selectedCellCount > 1)
+                if (selectedCellCount > 0)
                 {
                     dataGridViewHolidays.ContextMenuStrip = cms;
                     cms.Visible = true;
@@ -258,7 +279,7 @@ namespace GulliverII
             else if (e.ColumnIndex == 24)
             {
                 int selectedCellCount = dataGridViewHolidays.GetCellCount(DataGridViewElementStates.Selected);
-                if (selectedCellCount > 1)
+                if (selectedCellCount > 0)
                 {
                     dataGridViewHolidays.ContextMenuStrip = cmsCommission;
                     cmsCommission.Visible = true;
@@ -273,7 +294,7 @@ namespace GulliverII
             else if (e.ColumnIndex == 26)
             {
                 int selectedCellCount = dataGridViewHolidays.GetCellCount(DataGridViewElementStates.Selected);
-                if (selectedCellCount > 1)
+                if (selectedCellCount > 0)
                 {
                     dataGridViewHolidays.ContextMenuStrip = cmsMarkup;
                     cmsMarkup.Visible = true;
@@ -296,7 +317,9 @@ namespace GulliverII
         private void toolStripTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool found = true;
-            
+            progressBar.Visible = true;
+            progressBar.Value++;
+                           
             if (Convert.ToInt32(e.KeyChar) == 13)
             {
                 List<int> ids = new List<int>();
@@ -313,6 +336,8 @@ namespace GulliverII
 
                 if (ids.Count > 0)
                 {
+                    progressBar.Maximum = ids.Count+5;
+
                     foreach (PackagesDS.PackageRow h in this.packagesDS.Package.Where(h => ids.Any(i => i == h.hiddenNumber)).ToList())
                     {
                         GulliverLibrary.Package package = new GulliverLibrary.Package();
@@ -326,12 +351,14 @@ namespace GulliverII
                          h.nett = package.nett;
                          h.commission = package.commission;
                          h.profit = package.profit;
+                         progressBar.Value++;
                     }
                 }
 
                 dataGridViewHolidays.ContextMenuStrip = null;
                 txtValue.Text = string.Empty;
                 cms.Visible = false;
+                progressBar.Visible = false;
             }
         }
 
@@ -363,7 +390,7 @@ namespace GulliverII
                         package.sellAt = h.sellAt;
                         package.profit = h.profit;
 
-                        package = icosting.CalculateFinalCostings(package, deal.commission, "commission", Convert.ToDecimal(txtCommission.Text.Trim()));
+                        package = icosting.CalculateFinalCostings(package, deal.commission, "commission", Convert.ToDecimal(txtCommission.Text.Trim().Replace("%", string.Empty)));
                         h.sellAt = package.sellAt;
                         h.nett = package.nett;
                         h.commission = package.commission;
@@ -450,18 +477,7 @@ namespace GulliverII
                     dataGridViewHolidays.Columns.Cast<DataGridViewColumn>().SingleOrDefault(c => c.HeaderText.ToString() == cbPackageColumns.SelectedItem.ToString()).Visible = false;
             }
         }
-
-        private void VisibleColumns()
-        {
-            foreach (DataGridViewColumn column in dataGridViewHolidays.Columns.Cast<DataGridViewColumn>())
-            {
-                if ((!visibleColumns.Contains(column.DataPropertyName)) || column.DataPropertyName == "hotelKey" || column.DataPropertyName == "id" || column.DataPropertyName == "hiddenNumber" || column.DataPropertyName == "flightId")
-                    column.Visible = false;
-                else
-                    column.Visible = true;
-            }
-        }
-
+        
         private List<GulliverLibrary.Package> ReadePackagesByGridview()
         {
             int count = 1;
@@ -675,6 +691,19 @@ namespace GulliverII
                 cbPackageColumns.Items.AddRange(visibleColumnsCompared.Split('#'));
 
             }
+
+            int count = 0;
+            List<int> selectedItems = new List<int>();
+            foreach (string item in cbPackageColumns.Items)
+            {
+                if (visibleColumns.Contains(item))
+                    selectedItems.Add(count);
+                count++;
+            }
+
+            for (int i = 0; i < cbPackageColumns.Items.Count; i++)
+                if (selectedItems.Contains(i))
+                    cbPackageColumns.SetItemChecked(i, true);
         }
 
         private void DisplayHolidays(List<GulliverLibrary.Package> packages)
@@ -726,7 +755,7 @@ namespace GulliverII
             }
 
             if (isDataGridViewFormatted)
-                isDataGridViewFormatted = false;
+                isDataGridViewFormatted = false;           
 
             lblTotal.Text = (packages.Count > 0) ? "Total: " + packages.Count + " holidays" : "Total: " + packages.Count + " holiday";
 

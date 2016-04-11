@@ -226,9 +226,10 @@ namespace GulliverII
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabUKAirports = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbDepartureAirports = new System.Windows.Forms.CheckedListBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbAllAirports = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.cbAirportGroups = new System.Windows.Forms.CheckedListBox();
+            this.cbDepartureAirports = new System.Windows.Forms.CheckedListBox();
             this.tabGermanAP = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel44 = new System.Windows.Forms.TableLayoutPanel();
             this.cbGermanAirports = new System.Windows.Forms.CheckedListBox();
@@ -554,8 +555,6 @@ namespace GulliverII
             this.txtTripAdvisorLink = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel30 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtHowToBook = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.cmsDestinationText = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolDestinationText = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonLabel58 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtHotelLink = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
@@ -661,6 +660,8 @@ namespace GulliverII
             this.kryptonLabel49 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
             this.txtDestinationText = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.cmsDestinationText = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolDestinationText = new System.Windows.Forms.ToolStripMenuItem();
             this.txtDestinationTitle = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel50 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonCheckSet1 = new ComponentFactory.Krypton.Toolkit.KryptonCheckSet(this.components);
@@ -924,7 +925,6 @@ namespace GulliverII
             this.tableLayoutPanel32.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ddlPriorities)).BeginInit();
             this.tableLayoutPanel33.SuspendLayout();
-            this.cmsDestinationText.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ddlBrand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbLanuages)).BeginInit();
@@ -970,6 +970,7 @@ namespace GulliverII
             this.tableLayoutPanel28.SuspendLayout();
             this.cmsAccessibilityText.SuspendLayout();
             this.tableLayoutPanel29.SuspendLayout();
+            this.cmsDestinationText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSet1)).BeginInit();
             this.cms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsOptionalExtras)).BeginInit();
@@ -1811,7 +1812,7 @@ namespace GulliverII
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.77453F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.22547F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 714F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 722F));
             this.tableLayoutPanel4.Controls.Add(this.cbOcupancy, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.kryptonLabel6, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 2, 2);
@@ -1843,7 +1844,7 @@ namespace GulliverII
             this.cbOcupancy.Location = new System.Drawing.Point(3, 40);
             this.cbOcupancy.MultiColumn = true;
             this.cbOcupancy.Name = "cbOcupancy";
-            this.cbOcupancy.Size = new System.Drawing.Size(252, 70);
+            this.cbOcupancy.Size = new System.Drawing.Size(248, 70);
             this.cbOcupancy.TabIndex = 58;
             this.cbOcupancy.SelectedIndexChanged += new System.EventHandler(this.cbOcupancy_SelectedIndexChanged);
             // 
@@ -1863,7 +1864,7 @@ namespace GulliverII
             this.flowLayoutPanel1.Controls.Add(this.btnCancel);
             this.flowLayoutPanel1.Controls.Add(this.progressBarTP1);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(511, 116);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(503, 116);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.flowLayoutPanel1.Size = new System.Drawing.Size(706, 31);
@@ -1923,10 +1924,10 @@ namespace GulliverII
             this.cbBoards.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBoards.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbBoards.FormattingEnabled = true;
-            this.cbBoards.Location = new System.Drawing.Point(511, 40);
+            this.cbBoards.Location = new System.Drawing.Point(503, 40);
             this.cbBoards.MultiColumn = true;
             this.cbBoards.Name = "cbBoards";
-            this.cbBoards.Size = new System.Drawing.Size(709, 70);
+            this.cbBoards.Size = new System.Drawing.Size(717, 70);
             this.cbBoards.TabIndex = 57;
             this.cbBoards.SelectedIndexChanged += new System.EventHandler(this.cbBoards_SelectedIndexChanged);
             // 
@@ -1941,9 +1942,9 @@ namespace GulliverII
             this.flowLayoutPanel19.Controls.Add(this.kryptonLabel52);
             this.flowLayoutPanel19.Controls.Add(this.txtInfantAgeTo);
             this.flowLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel19.Location = new System.Drawing.Point(261, 40);
+            this.flowLayoutPanel19.Location = new System.Drawing.Point(257, 40);
             this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(244, 70);
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(240, 70);
             this.flowLayoutPanel19.TabIndex = 59;
             // 
             // kryptonLabel54
@@ -2012,7 +2013,7 @@ namespace GulliverII
             // 
             // kryptonLabel56
             // 
-            this.kryptonLabel56.Location = new System.Drawing.Point(261, 3);
+            this.kryptonLabel56.Location = new System.Drawing.Point(257, 3);
             this.kryptonLabel56.Name = "kryptonLabel56";
             this.kryptonLabel56.Size = new System.Drawing.Size(87, 20);
             this.kryptonLabel56.TabIndex = 60;
@@ -2026,17 +2027,17 @@ namespace GulliverII
             this.tableLayoutPanel48.Controls.Add(this.txtSearchBoard, 1, 0);
             this.tableLayoutPanel48.Controls.Add(this.kryptonLabel7, 0, 0);
             this.tableLayoutPanel48.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel48.Location = new System.Drawing.Point(511, 3);
+            this.tableLayoutPanel48.Location = new System.Drawing.Point(503, 3);
             this.tableLayoutPanel48.Name = "tableLayoutPanel48";
             this.tableLayoutPanel48.RowCount = 1;
             this.tableLayoutPanel48.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel48.Size = new System.Drawing.Size(709, 31);
+            this.tableLayoutPanel48.Size = new System.Drawing.Size(717, 31);
             this.tableLayoutPanel48.TabIndex = 73;
             // 
             // txtSearchBoard
             // 
             this.txtSearchBoard.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchBoard.Location = new System.Drawing.Point(167, 3);
+            this.txtSearchBoard.Location = new System.Drawing.Point(175, 3);
             this.txtSearchBoard.Name = "txtSearchBoard";
             this.txtSearchBoard.Size = new System.Drawing.Size(246, 23);
             this.txtSearchBoard.TabIndex = 72;
@@ -2653,18 +2654,19 @@ namespace GulliverII
             // cbFlightTypes
             // 
             this.cbFlightTypes.CheckOnClick = true;
-            this.cbFlightTypes.ColumnWidth = 100;
+            this.cbFlightTypes.ColumnWidth = 110;
             this.cbFlightTypes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cbFlightTypes.FormattingEnabled = true;
             this.cbFlightTypes.Items.AddRange(new object[] {
             "FAB",
             "Flight Sheet",
             "Amadeus",
-            "FAB Mix & Match"});
+            "FAB Mix & Match",
+            "Airberlin"});
             this.cbFlightTypes.Location = new System.Drawing.Point(3, 29);
             this.cbFlightTypes.MultiColumn = true;
             this.cbFlightTypes.Name = "cbFlightTypes";
-            this.cbFlightTypes.Size = new System.Drawing.Size(453, 19);
+            this.cbFlightTypes.Size = new System.Drawing.Size(520, 19);
             this.cbFlightTypes.TabIndex = 1;
             // 
             // tableLayoutPanel12
@@ -3207,38 +3209,24 @@ namespace GulliverII
             this.tableLayoutPanel10.AutoSize = true;
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel10.Controls.Add(this.cbDepartureAirports, 0, 3);
             this.tableLayoutPanel10.Controls.Add(this.flowLayoutPanel5, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.cbDepartureAirports, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 4;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel10.RowCount = 2;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(583, 152);
             this.tableLayoutPanel10.TabIndex = 55;
-            // 
-            // cbDepartureAirports
-            // 
-            this.cbDepartureAirports.CheckOnClick = true;
-            this.cbDepartureAirports.ColumnWidth = 100;
-            this.cbDepartureAirports.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbDepartureAirports.FormattingEnabled = true;
-            this.cbDepartureAirports.Location = new System.Drawing.Point(3, 33);
-            this.cbDepartureAirports.MultiColumn = true;
-            this.cbDepartureAirports.Name = "cbDepartureAirports";
-            this.cbDepartureAirports.Size = new System.Drawing.Size(577, 116);
-            this.cbDepartureAirports.TabIndex = 10;
             // 
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.Controls.Add(this.cbAllAirports);
+            this.flowLayoutPanel5.Controls.Add(this.cbAirportGroups);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(245, 24);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(577, 70);
             this.flowLayoutPanel5.TabIndex = 43;
             // 
             // cbAllAirports
@@ -3251,6 +3239,31 @@ namespace GulliverII
             this.cbAllAirports.Text = "All";
             this.cbAllAirports.Values.Text = "All";
             this.cbAllAirports.CheckedChanged += new System.EventHandler(this.cbAllAirports_CheckedChanged);
+            // 
+            // cbAirportGroups
+            // 
+            this.cbAirportGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbAirportGroups.CheckOnClick = true;
+            this.cbAirportGroups.ColumnWidth = 155;
+            this.cbAirportGroups.FormattingEnabled = true;
+            this.cbAirportGroups.Location = new System.Drawing.Point(46, 3);
+            this.cbAirportGroups.MultiColumn = true;
+            this.cbAirportGroups.Name = "cbAirportGroups";
+            this.cbAirportGroups.Size = new System.Drawing.Size(528, 64);
+            this.cbAirportGroups.TabIndex = 13;
+            this.cbAirportGroups.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cbAirportGroups_ItemCheck);
+            // 
+            // cbDepartureAirports
+            // 
+            this.cbDepartureAirports.CheckOnClick = true;
+            this.cbDepartureAirports.ColumnWidth = 70;
+            this.cbDepartureAirports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbDepartureAirports.FormattingEnabled = true;
+            this.cbDepartureAirports.Location = new System.Drawing.Point(3, 79);
+            this.cbDepartureAirports.MultiColumn = true;
+            this.cbDepartureAirports.Name = "cbDepartureAirports";
+            this.cbDepartureAirports.Size = new System.Drawing.Size(577, 70);
+            this.cbDepartureAirports.TabIndex = 10;
             // 
             // tabGermanAP
             // 
@@ -4216,7 +4229,7 @@ namespace GulliverII
             this.tableLayoutPanel46.ColumnCount = 3;
             this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.76768F));
             this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.23232F));
-            this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 738F));
+            this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 746F));
             this.tableLayoutPanel46.Controls.Add(this.kryptonLabel5, 0, 0);
             this.tableLayoutPanel46.Controls.Add(this.txtSearchbox, 1, 0);
             this.tableLayoutPanel46.Controls.Add(this.cbShowCosting, 2, 0);
@@ -4238,7 +4251,7 @@ namespace GulliverII
             // 
             // txtSearchbox
             // 
-            this.txtSearchbox.Location = new System.Drawing.Point(84, 3);
+            this.txtSearchbox.Location = new System.Drawing.Point(82, 3);
             this.txtSearchbox.Name = "txtSearchbox";
             this.txtSearchbox.Size = new System.Drawing.Size(351, 20);
             this.txtSearchbox.TabIndex = 70;
@@ -4249,7 +4262,7 @@ namespace GulliverII
             // cbShowCosting
             // 
             this.cbShowCosting.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbShowCosting.Location = new System.Drawing.Point(487, 3);
+            this.cbShowCosting.Location = new System.Drawing.Point(479, 3);
             this.cbShowCosting.Name = "cbShowCosting";
             this.cbShowCosting.Size = new System.Drawing.Size(103, 20);
             this.cbShowCosting.TabIndex = 71;
@@ -7029,7 +7042,6 @@ namespace GulliverII
             // txtHowToBook
             // 
             this.tableLayoutPanel31.SetColumnSpan(this.txtHowToBook, 3);
-            this.txtHowToBook.ContextMenuStrip = this.cmsDestinationText;
             this.txtHowToBook.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtHowToBook.Location = new System.Drawing.Point(3, 247);
             this.txtHowToBook.Multiline = true;
@@ -7037,21 +7049,6 @@ namespace GulliverII
             this.txtHowToBook.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtHowToBook.Size = new System.Drawing.Size(1209, 90);
             this.txtHowToBook.TabIndex = 65;
-            // 
-            // cmsDestinationText
-            // 
-            this.cmsDestinationText.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmsDestinationText.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolDestinationText});
-            this.cmsDestinationText.Name = "cmsHowTobook";
-            this.cmsDestinationText.Size = new System.Drawing.Size(130, 26);
-            // 
-            // toolDestinationText
-            // 
-            this.toolDestinationText.Name = "toolDestinationText";
-            this.toolDestinationText.Size = new System.Drawing.Size(129, 22);
-            this.toolDestinationText.Text = "Zoom Out";
-            this.toolDestinationText.Click += new System.EventHandler(this.toolDestinationText_Click);
             // 
             // kryptonLabel58
             // 
@@ -8244,6 +8241,21 @@ namespace GulliverII
             this.txtDestinationText.Size = new System.Drawing.Size(592, 231);
             this.txtDestinationText.TabIndex = 1;
             // 
+            // cmsDestinationText
+            // 
+            this.cmsDestinationText.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmsDestinationText.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolDestinationText});
+            this.cmsDestinationText.Name = "cmsHowTobook";
+            this.cmsDestinationText.Size = new System.Drawing.Size(130, 26);
+            // 
+            // toolDestinationText
+            // 
+            this.toolDestinationText.Name = "toolDestinationText";
+            this.toolDestinationText.Size = new System.Drawing.Size(129, 22);
+            this.toolDestinationText.Text = "Zoom Out";
+            this.toolDestinationText.Click += new System.EventHandler(this.toolDestinationText_Click);
+            // 
             // txtDestinationTitle
             // 
             this.txtDestinationTitle.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -8700,7 +8712,6 @@ namespace GulliverII
             ((System.ComponentModel.ISupportInitialize)(this.ddlPriorities)).EndInit();
             this.tableLayoutPanel33.ResumeLayout(false);
             this.tableLayoutPanel33.PerformLayout();
-            this.cmsDestinationText.ResumeLayout(false);
             this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ddlBrand)).EndInit();
@@ -8761,6 +8772,7 @@ namespace GulliverII
             this.cmsAccessibilityText.ResumeLayout(false);
             this.tableLayoutPanel29.ResumeLayout(false);
             this.tableLayoutPanel29.PerformLayout();
+            this.cmsDestinationText.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonCheckSet1)).EndInit();
             this.cms.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsOptionalExtras)).EndInit();
@@ -9493,6 +9505,7 @@ namespace GulliverII
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbAllCanadianAirports;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnUpdatePrices;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbTakeFollowingDayFromDeparture;
+        private System.Windows.Forms.CheckedListBox cbAirportGroups;
     }
 }
 
