@@ -4609,7 +4609,7 @@ namespace GulliverII {
             public string Reference {
                 get {
                     try {
-                        return ((string)(this[this.tableImage.ReferenceColumn]));
+                        return ((string)( (!IsReferenceNull()? this[this.tableImage.ReferenceColumn]:string.Empty)));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Reference\' in table \'Image\' is DBNull.", e);
@@ -4641,7 +4641,7 @@ namespace GulliverII {
             public string Alt_Text {
                 get {
                     try {
-                        return ((string)(this[this.tableImage.Alt_TextColumn]));
+                        return ((string)((!IsAlt_TextNull() ? this[this.tableImage.Alt_TextColumn] : string.Empty))); 
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Alt Text\' in table \'Image\' is DBNull.", e);
@@ -4657,7 +4657,7 @@ namespace GulliverII {
             public string Description {
                 get {
                     try {
-                        return ((string)(this[this.tableImage.DescriptionColumn]));
+                        return ((string)((!IsDescriptionNull() ? this[this.tableImage.DescriptionColumn] : string.Empty))); 
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'Image\' is DBNull.", e);

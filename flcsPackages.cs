@@ -27,6 +27,7 @@ namespace GulliverII
         GulliverLibrary.Deal deal;
         public bool saved = false;
         public List<GulliverLibrary.Package> packages;
+        private bool done10PercentCalculation = false;
 
         public flcsPackages(PackageGenerator.PackageHandler packageHandler, List<GulliverLibrary.Package> packages, int dealId, bool compared, List<GulliverLibrary.Package> packagesToBackUp)
         {
@@ -114,6 +115,11 @@ namespace GulliverII
                 
         private void btnCalculateTenPercentLeading_Click(object sender, EventArgs e)
         {
+            if (done10PercentCalculation)
+            {
+                MessageBox.Show("Please clear previous calculation before recalculate!", "10% Leading Calculation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             lblMsg.Text = "Processing ...";
             lblMsg.Visible = true;
             progressBar.Visible = true;
@@ -122,7 +128,7 @@ namespace GulliverII
             progressBar.Value = 1;
             
             progressBar.Value++;
-            List<GulliverLibrary.Package> packages = ReadePackagesByGridview();
+            List<GulliverLibrary.Package> packages = ReadPackagesByGridview();
             progressBar.Value++;
             List<GulliverLibrary.Package> stoppedHolidays = packages.Where(h => h.status == "Not available anymore").ToList();
             progressBar.Value++;
@@ -133,6 +139,7 @@ namespace GulliverII
                 packages = packages.Where(h => h.status != "New").ToList();
 
             progressBar.Value++;
+            this.packages = ReadPackagesByGridview();
             List<GulliverLibrary.Package> processedPackages = icosting.CalcuateCostings(packages);
             progressBar.Value++;
             processedPackages.AddRange(stoppedHolidays);
@@ -143,6 +150,8 @@ namespace GulliverII
             progressBar.Visible = false;
             lblMsg.Text = string.Empty;
             Application.DoEvents();
+            done10PercentCalculation = true;
+            btnClear10PercentCalculation.Visible = true;
         }
 
         private void manipulateDataToolStripMenuItem_Click(object sender, EventArgs e)
@@ -212,7 +221,7 @@ namespace GulliverII
             progressBar.Value++;
             decimal commission = (100 - deal.commission / 100);
            // icosting = PackageGenerator.FactoryCosting.GetCostingOBj(deal.Media.id, deal.id);
-            packages = ReadePackagesByGridview();
+            packages = ReadPackagesByGridview();
 
             if (compared)
             {
@@ -449,6 +458,22 @@ namespace GulliverII
             }
         }
 
+        private void btnClear10PercentCalculation_Click(object sender, EventArgs e)
+        {
+            progressBar.Visible = true;
+            progressBar.Maximum = 3;
+            Application.DoEvents();
+            progressBar.Value = 1;
+            progressBar.Value++;
+            isDataGridViewFormatted = true;
+            DisplayHolidays(packages);
+            progressBar.Value++;
+            progressBar.Visible = false;
+            Application.DoEvents();
+            done10PercentCalculation = false;
+            btnClear10PercentCalculation.Visible = false;
+        }
+
         #endregion
 
         #region methods
@@ -479,7 +504,7 @@ namespace GulliverII
             }
         }
         
-        private List<GulliverLibrary.Package> ReadePackagesByGridview()
+        private List<GulliverLibrary.Package> ReadPackagesByGridview()
         {
             int count = 1;
 
@@ -663,13 +688,25 @@ namespace GulliverII
         public void DisplayButtonByMedia()
         {
             if (seSupplier.Contains(supplierId))
+            {
                 btnCalculateTenPercentLeading.Visible = true;
+                btnClear10PercentCalculation.Visible = false;
+            }
             else if (travelZooSuppliers.Contains(supplierId))
+            {
                 btnCalculateTenPercentLeading.Visible = false;
+                btnClear10PercentCalculation.Visible = false;
+            }
             else if ((timesSuppliers.Contains(supplierId)))
+            {
                 btnCalculateTenPercentLeading.Visible = false;
+                btnClear10PercentCalculation.Visible = false;
+            }
             else
+            {
                 btnCalculateTenPercentLeading.Visible = false;
+                btnClear10PercentCalculation.Visible = false;
+            }
         }
 
         private void DisplayDefaultColumns()
@@ -763,6 +800,8 @@ namespace GulliverII
         }
 
         #endregion         
+
+       
 
         
     }

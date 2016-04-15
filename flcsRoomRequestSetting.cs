@@ -19,7 +19,7 @@ namespace GulliverII
         public flcsRoomRequestSetting(string id, int dealId)
         {
            this.id = id;
-           packageHandler = new PackageGenerator.PackageHandler();
+           packageHandler = new PackageGenerator.PackageHandler(false);
            hotelContract = packageHandler.GetHotelContractByRecno(Convert.ToInt32(id), dealId);
            roomRequestSetting = packageHandler.GetRoomRequestSettingByContractIdAndDeal(hotelContract.id, hotelContract.Deal.id);
            InitializeComponent();

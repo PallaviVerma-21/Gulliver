@@ -21,7 +21,7 @@ namespace GulliverII
         public flcsLibrary()
         {
            InitializeComponent();
-           packageHandler = new PackageGenerator.PackageHandler();
+           packageHandler = new PackageGenerator.PackageHandler(false);
            DisplayAllPackageOffers(true);                   
         }
 
@@ -30,6 +30,7 @@ namespace GulliverII
         private void DisplayAllPackageOffers(bool first)
         {
             libraryProgressbar.PerformStep();
+            packageHandler = new PackageGenerator.PackageHandler(true);
             List<GulliverLibrary.Deal> deals = packageHandler.GetFilteredPackageOffers(txtSearch.Text.Trim().ToUpper(), cbShowAll.Checked);
 
             if (first)
@@ -100,7 +101,7 @@ namespace GulliverII
 
                         StartProgressBar(25);
                          if (packageHandler == null)
-                            packageHandler = new PackageGenerator.PackageHandler();
+                            packageHandler = new PackageGenerator.PackageHandler(false);
                          packageHandler.DeleteDealById(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value), libraryProgressbar);
                          DisplayAllPackageOffers(false);
                        StopProgressBar();
@@ -115,7 +116,7 @@ namespace GulliverII
                 StartProgressBar(2);
                 //ProgressBar();
                 flcsMain flcsMain = new flcsMain(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value));
-                flcsMain.Show();
+                flcsMain.ShowDialog();
                 DisplayAllPackageOffers(false);
                 StopProgressBar();
 
@@ -128,7 +129,7 @@ namespace GulliverII
 
                         StartProgressBar(25);
                         if (packageHandler == null)
-                            packageHandler = new PackageGenerator.PackageHandler();
+                            packageHandler = new PackageGenerator.PackageHandler(false);
                         packageHandler.CopyDeal(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value), libraryProgressbar);
                         cbShowAll.Checked = true;
                         DisplayAllPackageOffers(false);

@@ -37,7 +37,7 @@ namespace GulliverII
            email = new PackageGenerator.Email();
            queryHandler = new MySqlDataHandler.QueryHandler();
            gulliverQueryHandler = new GulliverLibrary.QueryHandler();
-           packageHandler = new PackageGenerator.PackageHandler();
+           packageHandler = new PackageGenerator.PackageHandler(true);
            dataProcessor = new LandingPageHandler.DataProcessor();
            visibleColumns = new List<string>();
            SetupDefaultWindow(true);          
@@ -51,7 +51,7 @@ namespace GulliverII
             email = new PackageGenerator.Email();
             queryHandler = new MySqlDataHandler.QueryHandler();
             gulliverQueryHandler = new GulliverLibrary.QueryHandler();
-            packageHandler = new PackageGenerator.PackageHandler();
+            packageHandler = new PackageGenerator.PackageHandler(true);
             dataProcessor = new LandingPageHandler.DataProcessor();
             dealId = id;
             visibleColumns = new List<string>();
@@ -594,9 +594,10 @@ namespace GulliverII
 
             if (packageForm.saved)
             {
-                packageHandler = new PackageGenerator.PackageHandler();
-                List<GulliverLibrary.Package> packagesList = packageHandler.GetPackagesByDeal(dealId);
+                GulliverLibrary.QueryHandler gulliverQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;");
+                List<GulliverLibrary.Package> packagesList = gulliverQueryHandler.GetPackagesByDeal(dealId);
                 deal = packageHandler.GetDealById(dealId);
+                deal.Packages = packagesList;
                 FillPackages(packagesList);
             }
         }                          
@@ -903,11 +904,11 @@ namespace GulliverII
                 
                 if (deal.DealInformation.HotelInformation == null)
                 {
-                    deal.DealInformation.HotelInformation = new GulliverLibrary.HotelInformation();
-                    deal.DealInformation.HotelInformation.longitude = txtLongitude.Text.Trim();
-                    deal.DealInformation.HotelInformation.latitude = txtLatitude.Text.Trim();
+                    deal.DealInformation.HotelInformation = new GulliverLibrary.HotelInformation();                   
                 }
 
+                deal.DealInformation.HotelInformation.longitude = txtLongitude.Text.Trim();
+                deal.DealInformation.HotelInformation.latitude = txtLatitude.Text.Trim();
                 deal.DealInformation.HotelInformation.hotelHeader = txtHotelTitle.Text.Trim();                
                 deal.DealInformation.introduction = txtDealIntro.Text.Trim();
                 deal.DealInformation.childPrices = txtChildPrice.Text.Trim();
@@ -918,7 +919,7 @@ namespace GulliverII
                 deal.DealInformation.HotelInformation.countryText = txtCountryText.Text.Trim();
 
                 GulliverLibrary.Link linkTA = new GulliverLibrary.Link();
-                linkTA.name = "tripAdvisorLink";
+                linkTA.name = "Trip Advisor Link";
                 linkTA.url = txtTripAdvisorLink.Text.Trim();
                 linkTA.Deal = deal;
                 if (linkTA.url.Trim() != string.Empty)
@@ -943,18 +944,25 @@ namespace GulliverII
                 deal.DealInformation.goLiveOnBestDealPage = cbGoLiveOnBestDealPage.Checked;
 
                 GulliverLibrary.Link linkHW = new GulliverLibrary.Link();
-                linkHW.name = "hotelWebsiteLink";
+                linkHW.name = "Hotel Website Link";
                 linkHW.Deal = deal;
                 linkHW.url = txtYouTubeLink.Text.Trim();
                 if (linkTA.url.Trim() != string.Empty)
                     links.Add(linkHW);
 
                 GulliverLibrary.Link pageLink = new GulliverLibrary.Link();
-                pageLink.name = "landingPageLink";
+                pageLink.name = "Landing Page Link";
                 pageLink.Deal = deal;
                 pageLink.url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
                 if (pageLink.url.Trim() != string.Empty)
-                links.Add(pageLink);               
+                links.Add(pageLink);
+
+                GulliverLibrary.Link channelLink = new GulliverLibrary.Link();
+                channelLink.name = "Channel Page Link";
+                channelLink.Deal = deal;
+                channelLink.url = txtChannelLink.Text.Trim();
+                if (channelLink.url.Trim() != string.Empty)
+                    links.Add(channelLink);               
 
                 List<GulliverLibrary.Image> dealImages = new List<GulliverLibrary.Image>();
                 foreach (GulliverIIDS.ImageRow imageRow in this.GulliverIIDS.Image)
@@ -1003,6 +1011,14 @@ namespace GulliverII
                 SetStepProgressBar(progressBarMenu);
                 progressBarMenu.Value = progressBarMenu.Maximum;
                 VisibleProgressBar(progressBarMenu, false);
+
+                if (deal.DealInstructions == null)
+                    deal.DealInstructions = new GulliverLibrary.DealInstruction();
+
+                deal.DealInstructions.howToBook = txtHowToBook.Text.Trim();
+                deal.DealInstructions.Deal = deal;
+                deal.DealInstructions.importantUpsell = txtImportantUpsell.Text.Trim();
+                deal.DealInstructions.pleaseNote = txtPleasenoteII.Text.Trim();
                 
                 if (deal.id != 0)
                 {
@@ -1730,10 +1746,13 @@ namespace GulliverII
 
         private void FillNewDurationCostingForNewDuration(List<string> durations)
         {
+            
+
             if (costingsDS.DurationCosting != null)
             {
                 if (deal.occupancy != null && deal.occupancy != string.Empty)
                 {
+                    OccupancyComboBox.DataSource = deal.occupancy.Split('#').ToList();
                     List<string> durationCostingOccupancys = (costingsDS.DurationCosting != null && costingsDS.DurationCosting.Count > 0) ? costingsDS.DurationCosting.Select(d => d.Duration.ToString()).Distinct().ToList() : new List<string>();
                     List<string> newDurations = durations.Where(o => !durationCostingOccupancys.Any(d => d == o.ToString())).Select(o => o.ToString()).ToList();
 
@@ -1845,7 +1864,7 @@ namespace GulliverII
         private void FillTripperExtras(List<int> tripperExtraRecnos, string searchText, bool showCost)
         {
             List<MySqlDataHandler.AcCGuiD> accomGuids = queryHandler.GetAccomGuidByApt("EXR");
-            accomGuids = accomGuids.Where(a => a.ValidTo >= DateTime.Today).ToList();
+            accomGuids = accomGuids.Where(a => a.ValidTo >= DateTime.Today && !Convert.ToBoolean(a.Grouped.Value)).ToList();
            
             List<MySqlDataHandler.Currency> currencies = currencies = queryHandler.GetCurrency();
             
@@ -2084,7 +2103,7 @@ namespace GulliverII
             txtSubHeader.Text = (deal.DealInformation.subHeader != null) ? deal.DealInformation.subHeader : string.Empty;
             txtLongitude.Text = (deal.DealInformation.longitude != null) ? deal.DealInformation.longitude : string.Empty;
             txtLatitude.Text = (deal.DealInformation.latitude != null) ? deal.DealInformation.latitude : string.Empty;
-            txtYouTubeLink.Text = gulliverQueryHandler.GetLinkByName("youTubeLink", deal.id);
+            txtYouTubeLink.Text = gulliverQueryHandler.GetLinkByName("YouTube Link", deal.id);
             txtDealIntro.Text = (deal.DealInformation.introduction != null) ? deal.DealInformation.introduction : string.Empty;
             txtChildPrice.Text = (deal.DealInformation.childPrices != null) ? deal.DealInformation.childPrices : string.Empty;
             txtOptionalExtras.Text = (deal.DealInformation.optionalExtras != null) ? deal.DealInformation.optionalExtras : string.Empty;
@@ -2098,7 +2117,7 @@ namespace GulliverII
             txtCountryTitle.Text = (deal.DealInformation.HotelInformation.countryHeader != null) ? deal.DealInformation.HotelInformation.countryHeader.Trim() : string.Empty;
             txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
             txtHowToBook.Text = (deal.DealInformation.howToBook != null) ? deal.DealInformation.howToBook.Trim() : string.Empty;
-            txtTripAdvisorLink.Text = gulliverQueryHandler.GetLinkByName("tripAdvisorLink", deal.id);   
+            txtTripAdvisorLink.Text = gulliverQueryHandler.GetLinkByName("Trip Advisor Link", deal.id);   
             
             cmbCurrency.SelectedItem = (deal.DealInformation.dealCurrency == null || deal.DealInformation.dealCurrency == string.Empty) ? "GBP" : deal.DealInformation.dealCurrency.Trim();
             cmbLanuages.SelectedItem = (deal.DealInformation.language == null || deal.DealInformation.language == string.Empty) ? "English" : deal.DealInformation.language;
@@ -2115,12 +2134,24 @@ namespace GulliverII
             rbDays.Checked = (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Days") ? true : false;
             rbNights.Checked = (deal.DealInformation.diplayNightsOrDays == null || (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Nights") || deal.DealInformation.diplayNightsOrDays == string.Empty) ? true : false;
             optionalCostings = (deal.DealInformation.optionalExtras != null) ? deal.DealExtras.ToList() : new List<GulliverLibrary.DealOptionalExtra>();
-            txtHotelLink.Text = gulliverQueryHandler.GetLinkByName("hotelWebsiteLink", deal.id);   
+            txtHotelLink.Text = gulliverQueryHandler.GetLinkByName("Hotel Website Link", deal.id);
+            txtChannelLink.Text = gulliverQueryHandler.GetLinkByName("Channel Page Link", deal.id);   
             FillImages();
             FillReviews();
+            FillDealInstructions();
             btnStopPage.Enabled = true;
             btnMakePageLive.Enabled = true;
             btnUpdateFleetwayPage.Enabled = true;
+        }
+
+        private void FillDealInstructions()
+        {
+            if (deal.DealInstructions != null)
+            {
+                txtHowToBook.Text = ((deal.DealInstructions.howToBook != null) ? deal.DealInstructions.howToBook.Trim() : string.Empty);
+                txtImportantUpsell.Text = ((deal.DealInstructions.importantUpsell != null) ? deal.DealInstructions.importantUpsell.Trim() : string.Empty);
+                txtPleasenoteII.Text = ((deal.DealInstructions.pleaseNote != null) ? deal.DealInstructions.pleaseNote.Trim() : string.Empty);
+            }
         }
 
         private void FillImages()
@@ -2139,9 +2170,9 @@ namespace GulliverII
             else
             {
                 foreach (GulliverLibrary.Image image in deal.DealImages)
-                    GulliverIIDS.Image.AddImageRow(image.id, "Delete", image.reference, image.title, image.altText, image.description);
+                    GulliverIIDS.Image.AddImageRow(image.id, "Delete", image.reference, image.title, image.altText, image.description);                
             }
-
+            Id1.Visible = false;
         }
 
         private void FillReviews()
@@ -2151,6 +2182,7 @@ namespace GulliverII
                 foreach (GulliverLibrary.Review review in deal.DealReviews)
                     GulliverIIDS.Review.AddReviewRow(review.id, "Delete", review.date, review.source, review.stars, review.title, review.text, review.link);
             }
+            Column1.Visible = false;
         }
 
         private void FillHotelInformation(GulliverLibrary.HotelInformation hotelInformation)
@@ -3453,8 +3485,10 @@ namespace GulliverII
             
             if (packageForm.saved)
             {
-                packageHandler = new PackageGenerator.PackageHandler();
-                packages = packageHandler.GetPackagesByDeal(dealId);
+                GulliverLibrary.QueryHandler gulliverQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;");
+                List<GulliverLibrary.Package> packagesList = gulliverQueryHandler.GetPackagesByDeal(dealId);
+                deal = packageHandler.GetDealById(dealId);
+                packages = packagesList;
                 FillPackages(packages);
                 tabMain.SelectedTab = tabPage5;
             }
@@ -3501,10 +3535,12 @@ namespace GulliverII
 
             if (packageForm.saved)
             {
-               deal = packageHandler.GetDealById(dealId);
-               packages = packageHandler.GetPackagesByDeal(dealId);
-               FillPackages(packages);
-               tabMain.SelectedTab = tabPage5;
+                GulliverLibrary.QueryHandler gulliverQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;");
+                List<GulliverLibrary.Package> packagesList = gulliverQueryHandler.GetPackagesByDeal(dealId);
+                deal = packageHandler.GetDealById(dealId);
+                packages = packagesList;
+                FillPackages(packages);
+                tabMain.SelectedTab = tabPage5;
             }
         }
         

@@ -180,6 +180,7 @@ namespace GulliverII
             this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblFlightTypes = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.cbSelectCheapestFromAllFlighttypes = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.cbFlightTypes = new System.Windows.Forms.CheckedListBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.kryptonLabel25 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -553,9 +554,9 @@ namespace GulliverII
             this.txtYouTubeLink = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtTripAdvisorLink = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel30 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtHowToBook = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel58 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtHotelLink = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.txtChannelLink = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.kryptonLabel26 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel35 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
@@ -589,7 +590,7 @@ namespace GulliverII
             this.statusStrip4 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dGVReviews = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.dataGridViewTextBoxColumn101 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn102 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -603,7 +604,7 @@ namespace GulliverII
             this.statusStrip7 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel10 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridviewImages = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.dataGridViewTextBoxColumn98 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.referenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -632,6 +633,17 @@ namespace GulliverII
             this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.includesZoomout = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonLabel45 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.tabPage21 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel50 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel51 = new System.Windows.Forms.TableLayoutPanel();
+            this.kryptonLabel59 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtImportantUpsell = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.tableLayoutPanel52 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtPleasenoteII = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel60 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.tableLayoutPanel54 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtHowToBook = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel62 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
@@ -681,7 +693,6 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsOptionalExtras = new System.Windows.Forms.BindingSource(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.cbFlightTypes = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -958,6 +969,11 @@ namespace GulliverII
             this.cmsPleaseNote.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             this.cmsMenu.SuspendLayout();
+            this.tabPage21.SuspendLayout();
+            this.tableLayoutPanel50.SuspendLayout();
+            this.tableLayoutPanel51.SuspendLayout();
+            this.tableLayoutPanel52.SuspendLayout();
+            this.tableLayoutPanel54.SuspendLayout();
             this.tabPage10.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             this.tableLayoutPanel24.SuspendLayout();
@@ -1812,7 +1828,7 @@ namespace GulliverII
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.77453F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.22547F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 724F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 732F));
             this.tableLayoutPanel4.Controls.Add(this.cbOcupancy, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.kryptonLabel6, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 2, 2);
@@ -1844,7 +1860,7 @@ namespace GulliverII
             this.cbOcupancy.Location = new System.Drawing.Point(3, 40);
             this.cbOcupancy.MultiColumn = true;
             this.cbOcupancy.Name = "cbOcupancy";
-            this.cbOcupancy.Size = new System.Drawing.Size(247, 70);
+            this.cbOcupancy.Size = new System.Drawing.Size(243, 70);
             this.cbOcupancy.TabIndex = 58;
             this.cbOcupancy.SelectedIndexChanged += new System.EventHandler(this.cbOcupancy_SelectedIndexChanged);
             // 
@@ -1864,7 +1880,7 @@ namespace GulliverII
             this.flowLayoutPanel1.Controls.Add(this.btnCancel);
             this.flowLayoutPanel1.Controls.Add(this.progressBarTP1);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(501, 116);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(493, 116);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.flowLayoutPanel1.Size = new System.Drawing.Size(706, 31);
@@ -1924,10 +1940,10 @@ namespace GulliverII
             this.cbBoards.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBoards.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbBoards.FormattingEnabled = true;
-            this.cbBoards.Location = new System.Drawing.Point(501, 40);
+            this.cbBoards.Location = new System.Drawing.Point(493, 40);
             this.cbBoards.MultiColumn = true;
             this.cbBoards.Name = "cbBoards";
-            this.cbBoards.Size = new System.Drawing.Size(719, 70);
+            this.cbBoards.Size = new System.Drawing.Size(727, 70);
             this.cbBoards.TabIndex = 57;
             this.cbBoards.SelectedIndexChanged += new System.EventHandler(this.cbBoards_SelectedIndexChanged);
             // 
@@ -1942,9 +1958,9 @@ namespace GulliverII
             this.flowLayoutPanel19.Controls.Add(this.kryptonLabel52);
             this.flowLayoutPanel19.Controls.Add(this.txtInfantAgeTo);
             this.flowLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel19.Location = new System.Drawing.Point(256, 40);
+            this.flowLayoutPanel19.Location = new System.Drawing.Point(252, 40);
             this.flowLayoutPanel19.Name = "flowLayoutPanel19";
-            this.flowLayoutPanel19.Size = new System.Drawing.Size(239, 70);
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(235, 70);
             this.flowLayoutPanel19.TabIndex = 59;
             // 
             // kryptonLabel54
@@ -2013,7 +2029,7 @@ namespace GulliverII
             // 
             // kryptonLabel56
             // 
-            this.kryptonLabel56.Location = new System.Drawing.Point(256, 3);
+            this.kryptonLabel56.Location = new System.Drawing.Point(252, 3);
             this.kryptonLabel56.Name = "kryptonLabel56";
             this.kryptonLabel56.Size = new System.Drawing.Size(87, 20);
             this.kryptonLabel56.TabIndex = 60;
@@ -2027,17 +2043,17 @@ namespace GulliverII
             this.tableLayoutPanel48.Controls.Add(this.txtSearchBoard, 1, 0);
             this.tableLayoutPanel48.Controls.Add(this.kryptonLabel7, 0, 0);
             this.tableLayoutPanel48.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel48.Location = new System.Drawing.Point(501, 3);
+            this.tableLayoutPanel48.Location = new System.Drawing.Point(493, 3);
             this.tableLayoutPanel48.Name = "tableLayoutPanel48";
             this.tableLayoutPanel48.RowCount = 1;
             this.tableLayoutPanel48.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel48.Size = new System.Drawing.Size(719, 31);
+            this.tableLayoutPanel48.Size = new System.Drawing.Size(727, 31);
             this.tableLayoutPanel48.TabIndex = 73;
             // 
             // txtSearchBoard
             // 
             this.txtSearchBoard.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchBoard.Location = new System.Drawing.Point(177, 3);
+            this.txtSearchBoard.Location = new System.Drawing.Point(185, 3);
             this.txtSearchBoard.Name = "txtSearchBoard";
             this.txtSearchBoard.Size = new System.Drawing.Size(246, 23);
             this.txtSearchBoard.TabIndex = 72;
@@ -2650,6 +2666,23 @@ namespace GulliverII
             this.cbSelectCheapestFromAllFlighttypes.TabIndex = 2;
             this.cbSelectCheapestFromAllFlighttypes.Text = "Select cheapest from all flight types";
             this.cbSelectCheapestFromAllFlighttypes.Values.Text = "Select cheapest from all flight types";
+            // 
+            // cbFlightTypes
+            // 
+            this.cbFlightTypes.CheckOnClick = true;
+            this.cbFlightTypes.ColumnWidth = 110;
+            this.cbFlightTypes.FormattingEnabled = true;
+            this.cbFlightTypes.Items.AddRange(new object[] {
+            "FAB",
+            "Flight Sheet",
+            "Amadeus",
+            "FAB Mix & Match",
+            "Airberlin"});
+            this.cbFlightTypes.Location = new System.Drawing.Point(3, 29);
+            this.cbFlightTypes.MultiColumn = true;
+            this.cbFlightTypes.Name = "cbFlightTypes";
+            this.cbFlightTypes.Size = new System.Drawing.Size(580, 19);
+            this.cbFlightTypes.TabIndex = 46;
             // 
             // tableLayoutPanel12
             // 
@@ -4211,7 +4244,7 @@ namespace GulliverII
             this.tableLayoutPanel46.ColumnCount = 3;
             this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.76768F));
             this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.23232F));
-            this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 748F));
+            this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 756F));
             this.tableLayoutPanel46.Controls.Add(this.kryptonLabel5, 0, 0);
             this.tableLayoutPanel46.Controls.Add(this.txtSearchbox, 1, 0);
             this.tableLayoutPanel46.Controls.Add(this.cbShowCosting, 2, 0);
@@ -4227,13 +4260,13 @@ namespace GulliverII
             // 
             this.kryptonLabel5.Location = new System.Drawing.Point(3, 3);
             this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(73, 20);
+            this.kryptonLabel5.Size = new System.Drawing.Size(72, 20);
             this.kryptonLabel5.TabIndex = 69;
             this.kryptonLabel5.Values.Text = "Description";
             // 
             // txtSearchbox
             // 
-            this.txtSearchbox.Location = new System.Drawing.Point(82, 3);
+            this.txtSearchbox.Location = new System.Drawing.Point(81, 3);
             this.txtSearchbox.Name = "txtSearchbox";
             this.txtSearchbox.Size = new System.Drawing.Size(351, 20);
             this.txtSearchbox.TabIndex = 70;
@@ -4244,7 +4277,7 @@ namespace GulliverII
             // cbShowCosting
             // 
             this.cbShowCosting.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbShowCosting.Location = new System.Drawing.Point(477, 3);
+            this.cbShowCosting.Location = new System.Drawing.Point(469, 3);
             this.cbShowCosting.Name = "cbShowCosting";
             this.cbShowCosting.Size = new System.Drawing.Size(103, 20);
             this.cbShowCosting.TabIndex = 71;
@@ -4302,7 +4335,7 @@ namespace GulliverII
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage11.Size = new System.Drawing.Size(1215, 614);
             this.tabPage11.TabIndex = 0;
-            this.tabPage11.Text = "Base /Duration/ Weekday Markup      ";
+            this.tabPage11.Text = "Base /Duration/ Weekday Supplement    ";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel42
@@ -4521,7 +4554,7 @@ namespace GulliverII
             this.kryptonHeaderGroup11.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup11.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonHeaderGroup11.TabIndex = 23;
-            this.kryptonHeaderGroup11.ValuesPrimary.Heading = "Weekday Markup";
+            this.kryptonHeaderGroup11.ValuesPrimary.Heading = "Weekday Supplement";
             this.kryptonHeaderGroup11.ValuesPrimary.Image = null;
             // 
             // statusStrip11
@@ -4615,7 +4648,7 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn41.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn41.DataPropertyName = "AdultMarkup";
             this.dataGridViewTextBoxColumn41.FillWeight = 110F;
-            this.dataGridViewTextBoxColumn41.HeaderText = "Adult Markup";
+            this.dataGridViewTextBoxColumn41.HeaderText = "Adult Supplement";
             this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
             // 
             // dataGridViewTextBoxColumn45
@@ -4623,7 +4656,7 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn45.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn45.DataPropertyName = "ChildMarkup";
             this.dataGridViewTextBoxColumn45.FillWeight = 110F;
-            this.dataGridViewTextBoxColumn45.HeaderText = "Child Markup";
+            this.dataGridViewTextBoxColumn45.HeaderText = "Child Supplement";
             this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
             // 
             // bsWeekdayMarkups
@@ -4923,7 +4956,7 @@ namespace GulliverII
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage12.Size = new System.Drawing.Size(1215, 614);
             this.tabPage12.TabIndex = 1;
-            this.tabPage12.Text = "RoomType/Supplier Markup     ";
+            this.tabPage12.Text = "RoomType/Supplier Supplement   ";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel36
@@ -4962,7 +4995,7 @@ namespace GulliverII
             this.kryptonHeaderGroup12.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup12.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonHeaderGroup12.TabIndex = 23;
-            this.kryptonHeaderGroup12.ValuesPrimary.Heading = "Supplier Markup";
+            this.kryptonHeaderGroup12.ValuesPrimary.Heading = "Supplier Supplement";
             this.kryptonHeaderGroup12.ValuesPrimary.Image = null;
             // 
             // statusStrip12
@@ -5045,7 +5078,7 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn56.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn56.DataPropertyName = "AdultMarkup";
             this.dataGridViewTextBoxColumn56.FillWeight = 110F;
-            this.dataGridViewTextBoxColumn56.HeaderText = "Adult Markup";
+            this.dataGridViewTextBoxColumn56.HeaderText = "Adult ";
             this.dataGridViewTextBoxColumn56.Name = "dataGridViewTextBoxColumn56";
             // 
             // dataGridViewTextBoxColumn61
@@ -5053,7 +5086,7 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn61.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn61.DataPropertyName = "ChildMarkup";
             this.dataGridViewTextBoxColumn61.FillWeight = 110F;
-            this.dataGridViewTextBoxColumn61.HeaderText = "Child Markup";
+            this.dataGridViewTextBoxColumn61.HeaderText = "Child ";
             this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
             // 
             // bsSupplierMarkups
@@ -5083,7 +5116,7 @@ namespace GulliverII
             this.kryptonHeaderGroup9.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup9.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonHeaderGroup9.TabIndex = 22;
-            this.kryptonHeaderGroup9.ValuesPrimary.Heading = "Room Type Markup";
+            this.kryptonHeaderGroup9.ValuesPrimary.Heading = "Room Type Supplement";
             this.kryptonHeaderGroup9.ValuesPrimary.Image = null;
             // 
             // statusStrip9
@@ -5198,7 +5231,7 @@ namespace GulliverII
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Size = new System.Drawing.Size(1215, 614);
             this.tabPage15.TabIndex = 4;
-            this.tabPage15.Text = "Departure and Arrival Airport Markup            ";
+            this.tabPage15.Text = "Departure and Arrival Airport Supplement";
             this.tabPage15.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel39
@@ -5239,7 +5272,7 @@ namespace GulliverII
             this.kryptonHeaderGroup10.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup10.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonHeaderGroup10.TabIndex = 25;
-            this.kryptonHeaderGroup10.ValuesPrimary.Heading = "Arrival Airport Markup";
+            this.kryptonHeaderGroup10.ValuesPrimary.Heading = "Arrival Airport Supplement";
             this.kryptonHeaderGroup10.ValuesPrimary.Image = null;
             // 
             // statusStrip10
@@ -5324,7 +5357,7 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn72.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn72.DataPropertyName = "AdultMarkup";
             this.dataGridViewTextBoxColumn72.FillWeight = 110F;
-            this.dataGridViewTextBoxColumn72.HeaderText = "Adult Markup";
+            this.dataGridViewTextBoxColumn72.HeaderText = "Adult ";
             this.dataGridViewTextBoxColumn72.Name = "dataGridViewTextBoxColumn72";
             // 
             // dataGridViewTextBoxColumn79
@@ -5332,7 +5365,7 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn79.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn79.DataPropertyName = "ChildMarkup";
             this.dataGridViewTextBoxColumn79.FillWeight = 110F;
-            this.dataGridViewTextBoxColumn79.HeaderText = "Child Markup";
+            this.dataGridViewTextBoxColumn79.HeaderText = "Child ";
             this.dataGridViewTextBoxColumn79.Name = "dataGridViewTextBoxColumn79";
             // 
             // bsArrivalAirportMarkups
@@ -5362,7 +5395,7 @@ namespace GulliverII
             this.kryptonHeaderGroup15.StateCommon.HeaderPrimary.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.kryptonHeaderGroup15.StateCommon.HeaderPrimary.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kryptonHeaderGroup15.TabIndex = 24;
-            this.kryptonHeaderGroup15.ValuesPrimary.Heading = "Departure Airport Markup";
+            this.kryptonHeaderGroup15.ValuesPrimary.Heading = "Departure Airport Supplement";
             this.kryptonHeaderGroup15.ValuesPrimary.Image = null;
             // 
             // statusStrip15
@@ -5448,7 +5481,7 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn64.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn64.DataPropertyName = "AdultMarkup";
             this.dataGridViewTextBoxColumn64.FillWeight = 110F;
-            this.dataGridViewTextBoxColumn64.HeaderText = "Adult Markup";
+            this.dataGridViewTextBoxColumn64.HeaderText = "Adult";
             this.dataGridViewTextBoxColumn64.Name = "dataGridViewTextBoxColumn64";
             // 
             // dataGridViewTextBoxColumn65
@@ -5456,7 +5489,7 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn65.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn65.DataPropertyName = "ChildMarkup";
             this.dataGridViewTextBoxColumn65.FillWeight = 110F;
-            this.dataGridViewTextBoxColumn65.HeaderText = "Child Markup";
+            this.dataGridViewTextBoxColumn65.HeaderText = "Child";
             this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
             // 
             // bsDepartureAirportMarkups
@@ -5956,6 +5989,7 @@ namespace GulliverII
             "OB Departure",
             "OB Arrival",
             "IB Departure",
+            "IB Arrival",
             "Adults",
             "Children",
             "Infants",
@@ -6706,6 +6740,7 @@ namespace GulliverII
             this.tabControl2.Controls.Add(this.tabPage16);
             this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Controls.Add(this.tabPage9);
+            this.tabControl2.Controls.Add(this.tabPage21);
             this.tabControl2.Controls.Add(this.tabPage10);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -6742,27 +6777,25 @@ namespace GulliverII
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel31.AutoSize = true;
             this.tableLayoutPanel31.ColumnCount = 3;
-            this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 811F));
-            this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.15651F));
+            this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.82702F));
+            this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.01648F));
             this.tableLayoutPanel31.Controls.Add(this.kryptonHeaderGroup7, 0, 0);
-            this.tableLayoutPanel31.Controls.Add(this.cbAirportByAvailability, 2, 6);
+            this.tableLayoutPanel31.Controls.Add(this.cbAirportByAvailability, 2, 5);
             this.tableLayoutPanel31.Controls.Add(this.tableLayoutPanel33, 0, 1);
             this.tableLayoutPanel31.Controls.Add(this.kryptonLabel30, 0, 2);
-            this.tableLayoutPanel31.Controls.Add(this.txtHowToBook, 0, 3);
-            this.tableLayoutPanel31.Controls.Add(this.kryptonLabel58, 0, 4);
-            this.tableLayoutPanel31.Controls.Add(this.txtHotelLink, 1, 4);
+            this.tableLayoutPanel31.Controls.Add(this.kryptonLabel58, 0, 3);
+            this.tableLayoutPanel31.Controls.Add(this.txtHotelLink, 1, 3);
+            this.tableLayoutPanel31.Controls.Add(this.txtChannelLink, 1, 2);
             this.tableLayoutPanel31.Location = new System.Drawing.Point(0, 171);
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
-            this.tableLayoutPanel31.RowCount = 8;
+            this.tableLayoutPanel31.RowCount = 6;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 153F));
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
-            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel31.Size = new System.Drawing.Size(1215, 488);
             this.tableLayoutPanel31.TabIndex = 30;
             // 
@@ -6941,7 +6974,7 @@ namespace GulliverII
             // cbAirportByAvailability
             // 
             this.cbAirportByAvailability.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbAirportByAvailability.Location = new System.Drawing.Point(998, 408);
+            this.cbAirportByAvailability.Location = new System.Drawing.Point(974, 406);
             this.cbAirportByAvailability.Name = "cbAirportByAvailability";
             this.cbAirportByAvailability.Size = new System.Drawing.Size(181, 20);
             this.cbAirportByAvailability.TabIndex = 63;
@@ -6992,8 +7025,7 @@ namespace GulliverII
             // txtYouTubeLink
             // 
             this.txtYouTubeLink.AlwaysActive = false;
-            this.txtYouTubeLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtYouTubeLink.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtYouTubeLink.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
             this.txtYouTubeLink.Location = new System.Drawing.Point(184, 3);
             this.txtYouTubeLink.Name = "txtYouTubeLink";
@@ -7003,8 +7035,7 @@ namespace GulliverII
             // txtTripAdvisorLink
             // 
             this.txtTripAdvisorLink.AlwaysActive = false;
-            this.txtTripAdvisorLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtTripAdvisorLink.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTripAdvisorLink.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
             this.txtTripAdvisorLink.Location = new System.Drawing.Point(184, 29);
             this.txtTripAdvisorLink.Name = "txtTripAdvisorLink";
@@ -7017,40 +7048,41 @@ namespace GulliverII
             | System.Windows.Forms.AnchorStyles.Left)));
             this.kryptonLabel30.Location = new System.Drawing.Point(3, 220);
             this.kryptonLabel30.Name = "kryptonLabel30";
-            this.kryptonLabel30.Size = new System.Drawing.Size(82, 21);
+            this.kryptonLabel30.Size = new System.Drawing.Size(80, 21);
             this.kryptonLabel30.TabIndex = 64;
-            this.kryptonLabel30.Values.Text = "How to book ";
-            // 
-            // txtHowToBook
-            // 
-            this.tableLayoutPanel31.SetColumnSpan(this.txtHowToBook, 3);
-            this.txtHowToBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHowToBook.Location = new System.Drawing.Point(3, 247);
-            this.txtHowToBook.Multiline = true;
-            this.txtHowToBook.Name = "txtHowToBook";
-            this.txtHowToBook.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtHowToBook.Size = new System.Drawing.Size(1209, 90);
-            this.txtHowToBook.TabIndex = 65;
+            this.kryptonLabel30.Values.Text = "Channel Link";
             // 
             // kryptonLabel58
             // 
-            this.kryptonLabel58.Location = new System.Drawing.Point(3, 343);
+            this.kryptonLabel58.Location = new System.Drawing.Point(3, 247);
             this.kryptonLabel58.Name = "kryptonLabel58";
-            this.kryptonLabel58.Size = new System.Drawing.Size(68, 20);
+            this.kryptonLabel58.Size = new System.Drawing.Size(66, 20);
             this.kryptonLabel58.TabIndex = 66;
-            this.kryptonLabel58.Values.Text = "Hotel Link:";
+            this.kryptonLabel58.Values.Text = "Hotel Link";
             // 
             // txtHotelLink
             // 
             this.txtHotelLink.AlwaysActive = false;
-            this.txtHotelLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtHotelLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel31.SetColumnSpan(this.txtHotelLink, 2);
             this.txtHotelLink.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-            this.txtHotelLink.Location = new System.Drawing.Point(187, 343);
+            this.txtHotelLink.Location = new System.Drawing.Point(187, 247);
             this.txtHotelLink.Name = "txtHotelLink";
-            this.txtHotelLink.Size = new System.Drawing.Size(1022, 20);
+            this.txtHotelLink.Size = new System.Drawing.Size(1025, 20);
             this.txtHotelLink.TabIndex = 67;
+            // 
+            // txtChannelLink
+            // 
+            this.txtChannelLink.AlwaysActive = false;
+            this.txtChannelLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel31.SetColumnSpan(this.txtChannelLink, 2);
+            this.txtChannelLink.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
+            this.txtChannelLink.Location = new System.Drawing.Point(187, 220);
+            this.txtChannelLink.Name = "txtChannelLink";
+            this.txtChannelLink.Size = new System.Drawing.Size(1025, 20);
+            this.txtChannelLink.TabIndex = 68;
             // 
             // tableLayoutPanel17
             // 
@@ -7426,7 +7458,7 @@ namespace GulliverII
             this.dGVReviews.AutoGenerateColumns = false;
             this.dGVReviews.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVReviews.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn101,
+            this.Column1,
             this.dataGridViewTextBoxColumn102,
             this.dateDataGridViewTextBoxColumn1,
             this.sourceDataGridViewTextBoxColumn,
@@ -7450,12 +7482,12 @@ namespace GulliverII
             this.dGVReviews.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVReviews_RowEnter);
             this.dGVReviews.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dGVReviews_UserDeletingRow);
             // 
-            // dataGridViewTextBoxColumn101
+            // Column1
             // 
-            this.dataGridViewTextBoxColumn101.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn101.HeaderText = "id";
-            this.dataGridViewTextBoxColumn101.Name = "dataGridViewTextBoxColumn101";
-            this.dataGridViewTextBoxColumn101.Visible = false;
+            this.Column1.DataPropertyName = "id";
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
             // 
             // dataGridViewTextBoxColumn102
             // 
@@ -7574,7 +7606,7 @@ namespace GulliverII
             this.dataGridviewImages.AutoGenerateColumns = false;
             this.dataGridviewImages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridviewImages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn98,
+            this.Id1,
             this.Delete,
             this.referenceDataGridViewTextBoxColumn,
             this.titleDataGridViewTextBoxColumn,
@@ -7595,12 +7627,12 @@ namespace GulliverII
             this.dataGridviewImages.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridviewImages_RowEnter);
             this.dataGridviewImages.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridviewImages_UserDeletingRow);
             // 
-            // dataGridViewTextBoxColumn98
+            // Id1
             // 
-            this.dataGridViewTextBoxColumn98.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn98.HeaderText = "id";
-            this.dataGridViewTextBoxColumn98.Name = "dataGridViewTextBoxColumn98";
-            this.dataGridViewTextBoxColumn98.Visible = false;
+            this.Id1.DataPropertyName = "id";
+            this.Id1.HeaderText = "Column1";
+            this.Id1.Name = "Id1";
+            this.Id1.Visible = false;
             // 
             // Delete
             // 
@@ -7911,6 +7943,166 @@ namespace GulliverII
             this.kryptonLabel45.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.kryptonLabel45.TabIndex = 0;
             this.kryptonLabel45.Values.Text = "What is included";
+            // 
+            // tabPage21
+            // 
+            this.tabPage21.Controls.Add(this.tableLayoutPanel50);
+            this.tabPage21.Location = new System.Drawing.Point(4, 29);
+            this.tabPage21.Name = "tabPage21";
+            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage21.Size = new System.Drawing.Size(1215, 607);
+            this.tabPage21.TabIndex = 5;
+            this.tabPage21.Text = "Deal Directory Information";
+            this.tabPage21.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel50
+            // 
+            this.tableLayoutPanel50.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel50.ColumnCount = 2;
+            this.tableLayoutPanel50.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.07133F));
+            this.tableLayoutPanel50.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.92867F));
+            this.tableLayoutPanel50.Controls.Add(this.tableLayoutPanel51, 1, 0);
+            this.tableLayoutPanel50.Controls.Add(this.tableLayoutPanel52, 0, 1);
+            this.tableLayoutPanel50.Controls.Add(this.tableLayoutPanel54, 0, 0);
+            this.tableLayoutPanel50.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel50.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel50.Name = "tableLayoutPanel50";
+            this.tableLayoutPanel50.RowCount = 2;
+            this.tableLayoutPanel50.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel50.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel50.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel50.Size = new System.Drawing.Size(1209, 601);
+            this.tableLayoutPanel50.TabIndex = 14;
+            // 
+            // tableLayoutPanel51
+            // 
+            this.tableLayoutPanel51.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel51.ColumnCount = 1;
+            this.tableLayoutPanel51.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel51.Controls.Add(this.kryptonLabel59, 0, 0);
+            this.tableLayoutPanel51.Controls.Add(this.txtImportantUpsell, 0, 8);
+            this.tableLayoutPanel51.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel51.Location = new System.Drawing.Point(608, 3);
+            this.tableLayoutPanel51.Name = "tableLayoutPanel51";
+            this.tableLayoutPanel51.RowCount = 9;
+            this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel51.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel51.Size = new System.Drawing.Size(598, 294);
+            this.tableLayoutPanel51.TabIndex = 2;
+            // 
+            // kryptonLabel59
+            // 
+            this.kryptonLabel59.Dock = System.Windows.Forms.DockStyle.Left;
+            this.kryptonLabel59.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.kryptonLabel59.Location = new System.Drawing.Point(3, 3);
+            this.kryptonLabel59.Name = "kryptonLabel59";
+            this.kryptonLabel59.Size = new System.Drawing.Size(102, 20);
+            this.kryptonLabel59.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.kryptonLabel59.TabIndex = 0;
+            this.kryptonLabel59.Values.Text = "Important Upsell";
+            // 
+            // txtImportantUpsell
+            // 
+            this.txtImportantUpsell.ContextMenuStrip = this.cmsChildPrices;
+            this.txtImportantUpsell.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtImportantUpsell.Location = new System.Drawing.Point(3, 29);
+            this.txtImportantUpsell.Multiline = true;
+            this.txtImportantUpsell.Name = "txtImportantUpsell";
+            this.txtImportantUpsell.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtImportantUpsell.Size = new System.Drawing.Size(592, 262);
+            this.txtImportantUpsell.TabIndex = 1;
+            // 
+            // tableLayoutPanel52
+            // 
+            this.tableLayoutPanel52.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel52.ColumnCount = 1;
+            this.tableLayoutPanel50.SetColumnSpan(this.tableLayoutPanel52, 2);
+            this.tableLayoutPanel52.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel52.Controls.Add(this.txtPleasenoteII, 0, 1);
+            this.tableLayoutPanel52.Controls.Add(this.kryptonLabel60, 0, 0);
+            this.tableLayoutPanel52.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel52.Location = new System.Drawing.Point(3, 303);
+            this.tableLayoutPanel52.Name = "tableLayoutPanel52";
+            this.tableLayoutPanel52.RowCount = 2;
+            this.tableLayoutPanel52.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel52.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel52.Size = new System.Drawing.Size(1203, 295);
+            this.tableLayoutPanel52.TabIndex = 49;
+            // 
+            // txtPleasenoteII
+            // 
+            this.txtPleasenoteII.ContextMenuStrip = this.cmsOptionalExtras;
+            this.txtPleasenoteII.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPleasenoteII.Location = new System.Drawing.Point(3, 29);
+            this.txtPleasenoteII.Multiline = true;
+            this.txtPleasenoteII.Name = "txtPleasenoteII";
+            this.txtPleasenoteII.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPleasenoteII.Size = new System.Drawing.Size(1197, 325);
+            this.txtPleasenoteII.TabIndex = 1;
+            // 
+            // kryptonLabel60
+            // 
+            this.kryptonLabel60.Dock = System.Windows.Forms.DockStyle.Left;
+            this.kryptonLabel60.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.kryptonLabel60.Location = new System.Drawing.Point(3, 3);
+            this.kryptonLabel60.Name = "kryptonLabel60";
+            this.kryptonLabel60.Size = new System.Drawing.Size(75, 20);
+            this.kryptonLabel60.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.kryptonLabel60.TabIndex = 0;
+            this.kryptonLabel60.Values.Text = "Please Note";
+            // 
+            // tableLayoutPanel54
+            // 
+            this.tableLayoutPanel54.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel54.ColumnCount = 1;
+            this.tableLayoutPanel54.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel54.Controls.Add(this.txtHowToBook, 0, 8);
+            this.tableLayoutPanel54.Controls.Add(this.kryptonLabel62, 0, 0);
+            this.tableLayoutPanel54.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel54.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel54.Name = "tableLayoutPanel54";
+            this.tableLayoutPanel54.RowCount = 9;
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel54.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel54.Size = new System.Drawing.Size(599, 294);
+            this.tableLayoutPanel54.TabIndex = 2;
+            // 
+            // txtHowToBook
+            // 
+            this.txtHowToBook.ContextMenuStrip = this.cmsMenu;
+            this.txtHowToBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtHowToBook.Location = new System.Drawing.Point(3, 29);
+            this.txtHowToBook.Multiline = true;
+            this.txtHowToBook.Name = "txtHowToBook";
+            this.txtHowToBook.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtHowToBook.Size = new System.Drawing.Size(593, 262);
+            this.txtHowToBook.TabIndex = 1;
+            // 
+            // kryptonLabel62
+            // 
+            this.kryptonLabel62.Dock = System.Windows.Forms.DockStyle.Left;
+            this.kryptonLabel62.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalPanel;
+            this.kryptonLabel62.Location = new System.Drawing.Point(3, 3);
+            this.kryptonLabel62.Name = "kryptonLabel62";
+            this.kryptonLabel62.Size = new System.Drawing.Size(82, 20);
+            this.kryptonLabel62.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.kryptonLabel62.TabIndex = 0;
+            this.kryptonLabel62.Values.Text = "How to book";
             // 
             // tabPage10
             // 
@@ -8361,23 +8553,6 @@ namespace GulliverII
             this.bsOptionalExtras.DataMember = "OptionalExtra";
             this.bsOptionalExtras.DataSource = this.GulliverIIDS;
             // 
-            // cbFlightTypes
-            // 
-            this.cbFlightTypes.CheckOnClick = true;
-            this.cbFlightTypes.ColumnWidth = 110;
-            this.cbFlightTypes.FormattingEnabled = true;
-            this.cbFlightTypes.Items.AddRange(new object[] {
-            "FAB",
-            "Flight Sheet",
-            "Amadeus",
-            "FAB Mix & Match",
-            "Airberlin"});
-            this.cbFlightTypes.Location = new System.Drawing.Point(3, 29);
-            this.cbFlightTypes.MultiColumn = true;
-            this.cbFlightTypes.Name = "cbFlightTypes";
-            this.cbFlightTypes.Size = new System.Drawing.Size(580, 19);
-            this.cbFlightTypes.TabIndex = 46;
-            // 
             // flcsMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8754,6 +8929,14 @@ namespace GulliverII
             this.tableLayoutPanel22.ResumeLayout(false);
             this.tableLayoutPanel22.PerformLayout();
             this.cmsMenu.ResumeLayout(false);
+            this.tabPage21.ResumeLayout(false);
+            this.tableLayoutPanel50.ResumeLayout(false);
+            this.tableLayoutPanel51.ResumeLayout(false);
+            this.tableLayoutPanel51.PerformLayout();
+            this.tableLayoutPanel52.ResumeLayout(false);
+            this.tableLayoutPanel52.PerformLayout();
+            this.tableLayoutPanel54.ResumeLayout(false);
+            this.tableLayoutPanel54.PerformLayout();
             this.tabPage10.ResumeLayout(false);
             this.tableLayoutPanel23.ResumeLayout(false);
             this.tableLayoutPanel24.ResumeLayout(false);
@@ -9340,7 +9523,6 @@ namespace GulliverII
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dGVReviews;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel30;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtHowToBook;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblProductCode;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtProductCode;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
@@ -9430,27 +9612,12 @@ namespace GulliverII
         private System.Windows.Forms.DataGridViewTextBoxColumn endDateDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewComboBoxColumn carParkingCurrency;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn69;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn56;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
         private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn66;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn67;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn68;
         private System.Windows.Forms.DataGridViewComboBoxColumn roomTypeCombobox;
         private System.Windows.Forms.DataGridViewTextBoxColumn adultDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn childDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn76;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn77;
-        private System.Windows.Forms.DataGridViewComboBoxColumn destiantionAirportComboBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn72;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn79;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn73;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn74;
-        private System.Windows.Forms.DataGridViewComboBoxColumn departureAirportComboBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn64;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn65;
         private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn80;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn81;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn dataGridViewTextBoxColumn82;
@@ -9462,11 +9629,6 @@ namespace GulliverII
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
         private System.Windows.Forms.DataGridViewTextBoxColumn AdultMarkup;
         private System.Windows.Forms.DataGridViewTextBoxColumn ChildMarkup;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn62;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn63;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxColumn weekDayComboBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
         private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn85;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn86;
         private System.Windows.Forms.DataGridViewTextBoxColumn noOfRoomsDataGridViewTextBoxColumn2;
@@ -9474,20 +9636,6 @@ namespace GulliverII
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn dataGridViewTextBoxColumn88;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn96;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn97;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn101;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn102;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sourceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn starsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn textDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn linkDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn98;
-        private System.Windows.Forms.DataGridViewLinkColumn Delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn referenceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn altTextDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn100;
         private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn36;
         private System.Windows.Forms.DataGridViewTextBoxColumn recno;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
@@ -9505,6 +9653,52 @@ namespace GulliverII
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbTakeFollowingDayFromDeparture;
         private System.Windows.Forms.CheckedListBox cbAirportGroups;
         private System.Windows.Forms.CheckedListBox cbFlightTypes;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn62;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn63;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewComboBoxColumn weekDayComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn69;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn56;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn76;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn77;
+        private System.Windows.Forms.DataGridViewComboBoxColumn destiantionAirportComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn72;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn79;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn73;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn74;
+        private System.Windows.Forms.DataGridViewComboBoxColumn departureAirportComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn64;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn65;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtChannelLink;
+        private System.Windows.Forms.TabPage tabPage21;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel50;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel51;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel59;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtImportantUpsell;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel52;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtPleasenoteII;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel60;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel54;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtHowToBook;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel62;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewTextBoxColumn102;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn starsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn linkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
+        private System.Windows.Forms.DataGridViewLinkColumn Delete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn referenceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn altTextDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn100;
     }
 }
 

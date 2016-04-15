@@ -32,6 +32,7 @@ namespace GulliverII
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsPackages));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btnClear10PercentCalculation = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.cbFinalizePrices = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -177,6 +178,7 @@ namespace GulliverII
             // 
             // kryptonPanel
             // 
+            this.kryptonPanel.Controls.Add(this.btnClear10PercentCalculation);
             this.kryptonPanel.Controls.Add(this.btnDelete);
             this.kryptonPanel.Controls.Add(this.cbFinalizePrices);
             this.kryptonPanel.Controls.Add(this.btnSave);
@@ -193,10 +195,26 @@ namespace GulliverII
             this.kryptonPanel.Size = new System.Drawing.Size(1440, 780);
             this.kryptonPanel.TabIndex = 0;
             // 
+            // btnClear10PercentCalculation
+            // 
+            this.btnClear10PercentCalculation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear10PercentCalculation.Location = new System.Drawing.Point(304, 748);
+            this.btnClear10PercentCalculation.Name = "btnClear10PercentCalculation";
+            this.btnClear10PercentCalculation.Size = new System.Drawing.Size(187, 25);
+            this.btnClear10PercentCalculation.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnClear10PercentCalculation.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnClear10PercentCalculation.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnClear10PercentCalculation.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear10PercentCalculation.StatePressed.Back.Color1 = System.Drawing.Color.Gold;
+            this.btnClear10PercentCalculation.StatePressed.Back.Color2 = System.Drawing.Color.Gold;
+            this.btnClear10PercentCalculation.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.btnClear10PercentCalculation.TabIndex = 36;
+            this.btnClear10PercentCalculation.Values.Text = "Clear 10% Calculation";
+            this.btnClear10PercentCalculation.Click += new System.EventHandler(this.btnClear10PercentCalculation_Click);
+            // 
             // btnDelete
             // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Location = new System.Drawing.Point(1078, 748);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(117, 25);
@@ -224,8 +242,7 @@ namespace GulliverII
             // 
             // cbFinalizePrices
             // 
-            this.cbFinalizePrices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbFinalizePrices.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbFinalizePrices.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
             this.cbFinalizePrices.Location = new System.Drawing.Point(4, 753);
             this.cbFinalizePrices.Name = "cbFinalizePrices";
@@ -236,8 +253,7 @@ namespace GulliverII
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Location = new System.Drawing.Point(1314, 748);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(117, 25);
@@ -271,8 +287,7 @@ namespace GulliverII
             // 
             // lblMsg
             // 
-            this.lblMsg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMsg.Location = new System.Drawing.Point(926, 753);
             this.lblMsg.Name = "lblMsg";
             this.lblMsg.Size = new System.Drawing.Size(113, 20);
@@ -282,8 +297,7 @@ namespace GulliverII
             // 
             // cbIncludeNew
             // 
-            this.cbIncludeNew.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbIncludeNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbIncludeNew.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
             this.cbIncludeNew.Location = new System.Drawing.Point(737, 753);
             this.cbIncludeNew.Name = "cbIncludeNew";
@@ -295,8 +309,7 @@ namespace GulliverII
             // 
             // btnCalculateTenPercentLeading
             // 
-            this.btnCalculateTenPercentLeading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCalculateTenPercentLeading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCalculateTenPercentLeading.Location = new System.Drawing.Point(511, 748);
             this.btnCalculateTenPercentLeading.Name = "btnCalculateTenPercentLeading";
             this.btnCalculateTenPercentLeading.Size = new System.Drawing.Size(187, 25);
@@ -397,6 +410,8 @@ namespace GulliverII
             // 
             // cbPackageColumns
             // 
+            this.cbPackageColumns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbPackageColumns.BackColor = System.Drawing.Color.White;
             this.cbPackageColumns.CheckOnClick = true;
             this.cbPackageColumns.ColumnWidth = 110;
@@ -432,6 +447,7 @@ namespace GulliverII
             "OB Departure",
             "OB Arrival",
             "IB Departure",
+            "IB Arrival",
             "Adults",
             "Children",
             "Infants",
@@ -1545,6 +1561,7 @@ namespace GulliverII
         private System.Windows.Forms.ContextMenuStrip cmsMarkup;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripTextBox txtMarkup;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear10PercentCalculation;
     }
 }
 

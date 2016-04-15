@@ -17,7 +17,7 @@ namespace GulliverII
 
         public flcsAutoUpdateSetting(int dealId)
         {
-           packageHandler = new PackageGenerator.PackageHandler();
+           packageHandler = new PackageGenerator.PackageHandler(false);
            deal = packageHandler.GetDealById(dealId);
            InitializeComponent();
            FillAutoUpdateSettings(dealId);
