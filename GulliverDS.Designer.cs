@@ -3837,7 +3837,7 @@ namespace GulliverII {
             public bool Include {
                 get {
                     try {
-                        return ((bool)(this[this.tableExtra.IncludeColumn]));
+                        return ((!this.IsIncludeNull())? (bool)(this[this.tableExtra.IncludeColumn]): false);
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Include\' in table \'Extra\' is DBNull.", e);

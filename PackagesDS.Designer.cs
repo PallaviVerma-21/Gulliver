@@ -2990,7 +2990,7 @@ namespace GulliverII {
             public string hotelKey {
                 get {
                     try {
-                        return ((string)(this[this.tablePackage.hotelKeyColumn]));
+                        return ( (!this.IshotelKeyNull())?(string)(this[this.tablePackage.hotelKeyColumn]):string.Empty);
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'hotelKey\' in table \'Package\' is DBNull.", e);

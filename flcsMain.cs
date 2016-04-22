@@ -40,6 +40,7 @@ namespace GulliverII
            packageHandler = new PackageGenerator.PackageHandler(true);
            dataProcessor = new LandingPageHandler.DataProcessor();
            visibleColumns = new List<string>();
+
            SetupDefaultWindow(true);          
            FillMedias(0);
            FillDealType(0);           
@@ -88,6 +89,16 @@ namespace GulliverII
                extra.isIncluded = false;
                extra.adultPrice = 0;
                extra.childPrice = 0;
+               dtpBookBy.Value = DateTime.Today;
+               dtpSalesOn.Value = DateTime.Today;
+               dtpEndDate.Value = DateTime.Today;
+               dtpStartDate.Value = DateTime.Today;
+               GulliverLibrary.Extra extraI = new GulliverLibrary.Extra();
+               extraI.description = "CAA";
+               extraI.isIncluded = false;
+               extraI.adultPrice = 7;
+               extraI.childPrice = 0;
+               extras.Add(extraI); 
                extras.Add(extra); 
                FillExtras(extras);
                lblOfferCreatedBy.Text = "Created by " + Environment.UserName;
@@ -887,10 +898,16 @@ namespace GulliverII
                     deal.DealInformation.HotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);                    
                 }
 
+                if (txtLongitude.Text.Trim() == string.Empty || txtLatitude.Text.Trim() == string.Empty)
+                {
+                    MessageBox.Show("Please enter GEO codes before save!");
+                    return;
+                }
+
                 SetStepProgressBar(progressBarMenu);
                 List<GulliverLibrary.Link> links = new List<GulliverLibrary.Link>();
                 GulliverLibrary.Link link = new GulliverLibrary.Link();
-                link.name = "youTubeLink";
+                link.name = "YouTube Link";
                 link.Deal = deal;
                 link.url = txtYouTubeLink.Text.Trim();
                 if (link.url.Trim() != string.Empty)
@@ -946,7 +963,7 @@ namespace GulliverII
                 GulliverLibrary.Link linkHW = new GulliverLibrary.Link();
                 linkHW.name = "Hotel Website Link";
                 linkHW.Deal = deal;
-                linkHW.url = txtYouTubeLink.Text.Trim();
+                linkHW.url = txtHotelLink.Text.Trim();
                 if (linkTA.url.Trim() != string.Empty)
                     links.Add(linkHW);
 
@@ -1594,6 +1611,7 @@ namespace GulliverII
             }
 
             FillRoomTypeComboBox(hotelContracts);
+          // List<MySqlDataHandler.Expand> selectedExpands =  queryHandler.GetAllBuildings(hotelContracts.Select(s => s.accomcode.Trim()).ToList());
         }
 
         private void FillOccupancy()
@@ -1604,8 +1622,8 @@ namespace GulliverII
             occupancys.Add("2A 2C 0I", "2,2,0");
             occupancys.Add("2A 2C 1I", "2,2,1");
             occupancys.Add("2A 0C 1I", "2,0,1");
-
-
+            occupancys.Add("3A 0C 0I", "3,0,0");
+            
             foreach (string key in occupancys.Keys)
             {
                 ComboBoxItem item = new ComboBoxItem();
@@ -1730,9 +1748,9 @@ namespace GulliverII
                         {
                             GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration));
                             if (durationCosting != null)
-                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
+                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy,durationCosting.roomType.Trim(), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
                             else
-                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, 0, 0, 0, 0, 0, 0, "£", 0);
+                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy,string.Empty, 0, 0, 0, 0, 0, 0, "£", 0);
                         }
                     }
 
@@ -1746,8 +1764,6 @@ namespace GulliverII
 
         private void FillNewDurationCostingForNewDuration(List<string> durations)
         {
-            
-
             if (costingsDS.DurationCosting != null)
             {
                 if (deal.occupancy != null && deal.occupancy != string.Empty)
@@ -1762,9 +1778,9 @@ namespace GulliverII
                         {
                             GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration));
                             if (durationCosting != null)
-                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
+                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy,durationCosting.roomType.Trim(), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
                             else
-                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, 0, 0, 0, 0, 0, 0, "£", 0);
+                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy,string.Empty, 0, 0, 0, 0, 0, 0, "£", 0);
                         }
                     }
 
@@ -1780,14 +1796,18 @@ namespace GulliverII
         {
             List<string> roomTypes = hotelContracts.Select(h => h.accomcode).Distinct().ToList();
             List<string> roomNames = new List<string>();
+            List<string> roomNamesII = new List<string>();
 
             foreach (string roomType in roomTypes)
             {
                 MySqlDataHandler.Expand expand = packageHandler.GetBuildingByCodes(roomType);
                 roomNames.Add(expand.Building.Trim() + "-" + roomType);
+                roomNamesII.Add(expand.Building.Trim());
             }
 
             roomTypeCombobox.DataSource = roomNames;
+            roomNamesII.Add(string.Empty);
+            roomTypeCB.DataSource = roomNamesII;
         }
 
         private void FillDepartureAirportComboBox(List<string> departureAirports)
@@ -1856,8 +1876,7 @@ namespace GulliverII
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = currecncy.Currency1;
                 item.Value = currecncy.Currency1;
-                ddlCurrency.Items.Add(item);
-               
+                ddlCurrency.Items.Add(item);               
             }
         }   
 
@@ -1980,6 +1999,17 @@ namespace GulliverII
         {
             GulliverIIDS.ManualContract.Rows.Clear();
 
+            if (manualHotelContracts != null && manualHotelContracts.Count > 0)
+            {
+                txtRoomType.Text = manualHotelContracts.First().roomType.Trim();
+                foreach(ComboBoxItem item in ddlCurrency.Items)
+                {
+                    if (item.Value.ToString() == manualHotelContracts.First().currency.Trim())
+                        ddlCurrency.SelectedItem = item;
+                }
+                roomTypeCB.DataSource = new List<string>() { string.Empty, txtRoomType.Text.Trim().ToUpper() };
+            }
+
             foreach (GulliverLibrary.ManualHotelContract manualContract in manualHotelContracts)
                 GulliverIIDS.ManualContract.AddManualContractRow("Delete", manualContract.id, manualContract.fromDate, manualContract.toDate, manualContract.price, manualContract.allotment);
         }
@@ -2024,7 +2054,7 @@ namespace GulliverII
             if (durationCostings != null && durationCostings.Count > 0)
             {
                 foreach (GulliverLibrary.DurationCosting durationCosting in durationCostings)
-                 costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);                
+                    costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.roomType.Trim(), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);                
             }
         }
 
@@ -2037,7 +2067,7 @@ namespace GulliverII
                 foreach (string duration in deal.durations.Split('#'))
                 {
                     foreach (string occupancy in deal.occupancy.Split('#'))
-                      costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, 0, 0, 0, 0, 0, 0, "£", 0);                    
+                      costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy,string.Empty, 0, 0, 0, 0, 0, 0, "£", 0);                    
                 }
             }
         }
@@ -2107,15 +2137,20 @@ namespace GulliverII
             txtDealIntro.Text = (deal.DealInformation.introduction != null) ? deal.DealInformation.introduction : string.Empty;
             txtChildPrice.Text = (deal.DealInformation.childPrices != null) ? deal.DealInformation.childPrices : string.Empty;
             txtOptionalExtras.Text = (deal.DealInformation.optionalExtras != null) ? deal.DealInformation.optionalExtras : string.Empty;
-            txtPleasenote.Text = (deal.DealInformation.pleaseNote != null) ? deal.DealInformation.pleaseNote : string.Empty;            
-            txtHotelText.Text = (deal.DealInformation.HotelInformation.hotelBodyText != null) ? deal.DealInformation.HotelInformation.hotelBodyText : string.Empty;            
-            txtDestinationText.Text = (deal.DealInformation.HotelInformation.destinationText != null) ? deal.DealInformation.HotelInformation.destinationText : string.Empty;
-            txtCountryText.Text = (deal.DealInformation.HotelInformation.countryText != null) ? deal.DealInformation.HotelInformation.countryText : string.Empty;
-            txtKeyInformationText.Text = (deal.DealInformation.HotelInformation.keyInformation != null) ? deal.DealInformation.HotelInformation.keyInformation.Trim() : string.Empty;
-            txtAccessibilityText.Text = (deal.DealInformation.HotelInformation.accessibility != null) ? deal.DealInformation.HotelInformation.accessibility.Trim() : string.Empty;
-            txtDestinationTitle.Text = (deal.DealInformation.HotelInformation.destinationHeader != null) ? deal.DealInformation.HotelInformation.destinationHeader.Trim() : string.Empty;
-            txtCountryTitle.Text = (deal.DealInformation.HotelInformation.countryHeader != null) ? deal.DealInformation.HotelInformation.countryHeader.Trim() : string.Empty;
-            txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
+            txtPleasenote.Text = (deal.DealInformation.pleaseNote != null) ? deal.DealInformation.pleaseNote : string.Empty;
+            //deal.DealInformation.HotelInformation = packageHandler.GetHotelInformationByGeoCodes(deal.DealInformation.longitude.Trim(), deal.DealInformation.latitude.Trim());
+            
+            if (deal.DealInformation.HotelInformation != null)
+            {
+                txtHotelText.Text = (deal.DealInformation.HotelInformation.hotelBodyText != null) ? deal.DealInformation.HotelInformation.hotelBodyText : string.Empty;
+                txtDestinationText.Text = (deal.DealInformation.HotelInformation.destinationText != null) ? deal.DealInformation.HotelInformation.destinationText : string.Empty;
+                txtCountryText.Text = (deal.DealInformation.HotelInformation.countryText != null) ? deal.DealInformation.HotelInformation.countryText : string.Empty;
+                txtKeyInformationText.Text = (deal.DealInformation.HotelInformation.keyInformation != null) ? deal.DealInformation.HotelInformation.keyInformation.Trim() : string.Empty;
+                txtAccessibilityText.Text = (deal.DealInformation.HotelInformation.accessibility != null) ? deal.DealInformation.HotelInformation.accessibility.Trim() : string.Empty;
+                txtDestinationTitle.Text = (deal.DealInformation.HotelInformation.destinationHeader != null) ? deal.DealInformation.HotelInformation.destinationHeader.Trim() : string.Empty;
+                txtCountryTitle.Text = (deal.DealInformation.HotelInformation.countryHeader != null) ? deal.DealInformation.HotelInformation.countryHeader.Trim() : string.Empty;
+                txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
+            }
             txtHowToBook.Text = (deal.DealInformation.howToBook != null) ? deal.DealInformation.howToBook.Trim() : string.Empty;
             txtTripAdvisorLink.Text = gulliverQueryHandler.GetLinkByName("Trip Advisor Link", deal.id);   
             
@@ -2425,14 +2460,15 @@ namespace GulliverII
             {
                 dataGVDurationCosting.Rows[e.RowIndex].Cells[0].Value = "Delete";
                 dataGVDurationCosting.Rows[e.RowIndex].Cells[1].Value = "0";
-                dataGVDurationCosting.Rows[e.RowIndex].Cells[4].Value = "0";
+                dataGVDurationCosting.Rows[e.RowIndex].Cells[4].Value = "";
                 dataGVDurationCosting.Rows[e.RowIndex].Cells[5].Value = "0";
                 dataGVDurationCosting.Rows[e.RowIndex].Cells[6].Value = "0";
                 dataGVDurationCosting.Rows[e.RowIndex].Cells[7].Value = "0";
                 dataGVDurationCosting.Rows[e.RowIndex].Cells[8].Value = "0";
                 dataGVDurationCosting.Rows[e.RowIndex].Cells[9].Value = "0";
-                dataGVDurationCosting.Rows[e.RowIndex].Cells[10].Value = "£";
-                dataGVDurationCosting.Rows[e.RowIndex].Cells[11].Value = "0";
+                dataGVDurationCosting.Rows[e.RowIndex].Cells[10].Value = "0";
+                dataGVDurationCosting.Rows[e.RowIndex].Cells[11].Value = "£";
+                dataGVDurationCosting.Rows[e.RowIndex].Cells[12].Value = "0";
             }
         }
 
@@ -3013,8 +3049,14 @@ namespace GulliverII
         {
             List<GulliverLibrary.ManualHotelContract> manualContracts = new List<GulliverLibrary.ManualHotelContract>();
 
-            if (dataGridViewHotelContracts.Rows.Count > 0)
+            if (GulliverIIDS.ManualContract.Rows.Count > 0)
             {
+                if (ddlCurrency.SelectedItem == null)
+                {
+                    MessageBox.Show("Please enter currecny for manual contracts!","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    return;
+                }
+
                 foreach (GulliverIIDS.ManualContractRow contract in GulliverIIDS.ManualContract.Rows)
                 {
                     GulliverLibrary.ManualHotelContract manualContract = new GulliverLibrary.ManualHotelContract();
@@ -3025,6 +3067,7 @@ namespace GulliverII
                     manualContract.fromDate = contract.fromDate;
                     manualContract.toDate = contract.toDate;
                     manualContract.price = contract.price;
+                    manualContract.roomType = txtRoomType.Text.Trim();
                     manualContracts.Add(manualContract);
                 }
             }
@@ -3211,6 +3254,7 @@ namespace GulliverII
                 objDurCostings.Deal = deal;
                 objDurCostings.id = durationCosting.id;
                 objDurCostings.duration = Convert.ToInt32(durationCosting.Duration);
+                objDurCostings.roomType = durationCosting.RoomType.Trim();
                 objDurCostings.occupancy = durationCosting.Occupancy;
                 objDurCostings.minSellAt = durationCosting.MinSellAt;
                 objDurCostings.maxSellAt = durationCosting.MaxSellAt;
@@ -3545,6 +3589,11 @@ namespace GulliverII
         }
         
         #endregion                                         
+
+        private void txtRoomType_TextChanged(object sender, EventArgs e)
+        {
+            roomTypeCB.DataSource = new List<string>() { string.Empty, txtRoomType.Text.Trim().ToUpper() };
+        }
        
     }
 }

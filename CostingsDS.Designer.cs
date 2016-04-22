@@ -2096,6 +2096,8 @@ namespace GulliverII {
             
             private global::System.Data.DataColumn columnOccupancy;
             
+            private global::System.Data.DataColumn columnRoomType;
+            
             private global::System.Data.DataColumn columnMinSellAt;
             
             private global::System.Data.DataColumn columnMaxSellAt;
@@ -2174,6 +2176,14 @@ namespace GulliverII {
             public global::System.Data.DataColumn OccupancyColumn {
                 get {
                     return this.columnOccupancy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RoomTypeColumn {
+                get {
+                    return this.columnRoomType;
                 }
             }
             
@@ -2278,13 +2288,14 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DurationCostingRow AddDurationCostingRow(string Delete, int id, string Duration, string Occupancy, decimal MinSellAt, decimal MaxSellAt, decimal ChildMinSellAt, decimal ChildMaxSellAt, decimal MinMLeading, decimal MinMStandard, string MimMStandardType, decimal IncreasedBy) {
+            public DurationCostingRow AddDurationCostingRow(string Delete, int id, string Duration, string Occupancy, string RoomType, decimal MinSellAt, decimal MaxSellAt, decimal ChildMinSellAt, decimal ChildMaxSellAt, decimal MinMLeading, decimal MinMStandard, string MimMStandardType, decimal IncreasedBy) {
                 DurationCostingRow rowDurationCostingRow = ((DurationCostingRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Delete,
                         id,
                         Duration,
                         Occupancy,
+                        RoomType,
                         MinSellAt,
                         MaxSellAt,
                         ChildMinSellAt,
@@ -2319,6 +2330,7 @@ namespace GulliverII {
                 this.columnid = base.Columns["id"];
                 this.columnDuration = base.Columns["Duration"];
                 this.columnOccupancy = base.Columns["Occupancy"];
+                this.columnRoomType = base.Columns["RoomType"];
                 this.columnMinSellAt = base.Columns["MinSellAt"];
                 this.columnMaxSellAt = base.Columns["MaxSellAt"];
                 this.columnChildMinSellAt = base.Columns["ChildMinSellAt"];
@@ -2340,6 +2352,8 @@ namespace GulliverII {
                 base.Columns.Add(this.columnDuration);
                 this.columnOccupancy = new global::System.Data.DataColumn("Occupancy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOccupancy);
+                this.columnRoomType = new global::System.Data.DataColumn("RoomType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoomType);
                 this.columnMinSellAt = new global::System.Data.DataColumn("MinSellAt", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMinSellAt);
                 this.columnMaxSellAt = new global::System.Data.DataColumn("MaxSellAt", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -4320,6 +4334,22 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RoomType {
+                get {
+                    try {
+                        return ((string)(this[this.tableDurationCosting.RoomTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RoomType\' in table \'DurationCosting\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDurationCosting.RoomTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal MinSellAt {
                 get {
                     try {
@@ -4492,6 +4522,18 @@ namespace GulliverII {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOccupancyNull() {
                 this[this.tableDurationCosting.OccupancyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRoomTypeNull() {
+                return this.IsNull(this.tableDurationCosting.RoomTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRoomTypeNull() {
+                this[this.tableDurationCosting.RoomTypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
