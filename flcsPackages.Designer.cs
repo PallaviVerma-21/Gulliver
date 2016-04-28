@@ -1336,14 +1336,14 @@ namespace GulliverII
             this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.valueToolStripMenuItem});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(153, 48);
+            this.cms.Size = new System.Drawing.Size(110, 26);
             // 
             // valueToolStripMenuItem
             // 
             this.valueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.txtValue});
             this.valueToolStripMenuItem.Name = "valueToolStripMenuItem";
-            this.valueToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.valueToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.valueToolStripMenuItem.Text = "&Value: ";
             // 
             // txtValue

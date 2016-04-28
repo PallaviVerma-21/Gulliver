@@ -297,6 +297,8 @@ namespace GulliverII
             // 
             // cbEnableRoomReservation
             // 
+            this.cbEnableRoomReservation.Checked = true;
+            this.cbEnableRoomReservation.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbEnableRoomReservation.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
             this.cbEnableRoomReservation.Location = new System.Drawing.Point(3, 3);
             this.cbEnableRoomReservation.Name = "cbEnableRoomReservation";

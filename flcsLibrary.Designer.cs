@@ -30,7 +30,6 @@ namespace GulliverII
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsLibrary));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
@@ -38,8 +37,6 @@ namespace GulliverII
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.dataGridViewLibrary = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.bsLibrary = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryDS = new GulliverII.LibraryDS();
             this.statusstrip = new System.Windows.Forms.StatusStrip();
             this.fiterStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.showAllLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -80,25 +77,27 @@ namespace GulliverII
             this.dataGridViewAutoFilterTextBoxColumn10 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.dataGridViewLinkColumn3 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.bsLibrary = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryDS = new GulliverII.LibraryDS();
             this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.viewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.offerNameDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dealDirectoryNameDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.onSalesDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.expiredDateDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.supplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.offerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.onSalesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expiredDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updatePageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.copyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLibrary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLibrary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).BeginInit();
             this.statusstrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSuppliers)).BeginInit();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLibrary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -165,9 +164,9 @@ namespace GulliverII
             this.idDataGridViewTextBoxColumn,
             this.supplierDataGridViewTextBoxColumn,
             this.offerNameDataGridViewTextBoxColumn,
-            this.dealDirectoryNameDataGridViewTextBoxColumn,
             this.onSalesDataGridViewTextBoxColumn,
             this.expiredDateDataGridViewTextBoxColumn,
+            this.updatePageDataGridViewTextBoxColumn,
             this.copyDataGridViewTextBoxColumn});
             this.dataGridViewLibrary.DataSource = this.bsLibrary;
             this.dataGridViewLibrary.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
@@ -176,12 +175,12 @@ namespace GulliverII
             this.dataGridViewLibrary.Name = "dataGridViewLibrary";
             this.dataGridViewLibrary.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.dataGridViewLibrary.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
-            this.dataGridViewLibrary.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
+            this.dataGridViewLibrary.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewLibrary.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dataGridViewLibrary.Size = new System.Drawing.Size(1248, 572);
             this.dataGridViewLibrary.StateCommon.Background.Color1 = System.Drawing.Color.White;
@@ -200,16 +199,6 @@ namespace GulliverII
             this.dataGridViewLibrary.TabIndex = 25;
             this.dataGridViewLibrary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLibrary_CellContentClick);
             this.dataGridViewLibrary.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewLibrary_DataBindingComplete);
-            // 
-            // bsLibrary
-            // 
-            this.bsLibrary.DataMember = "Library";
-            this.bsLibrary.DataSource = this.libraryDS;
-            // 
-            // libraryDS
-            // 
-            this.libraryDS.DataSetName = "LibraryDS";
-            this.libraryDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // statusstrip
             // 
@@ -551,23 +540,35 @@ namespace GulliverII
             this.dataGridViewLinkColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewLinkColumn3.Width = 80;
             // 
+            // bsLibrary
+            // 
+            this.bsLibrary.DataMember = "Library";
+            this.bsLibrary.DataSource = this.libraryDS;
+            // 
+            // libraryDS
+            // 
+            this.libraryDS.DataSetName = "LibraryDS";
+            this.libraryDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // deleteDataGridViewTextBoxColumn
             // 
+            this.deleteDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.deleteDataGridViewTextBoxColumn.DataPropertyName = "Delete";
+            this.deleteDataGridViewTextBoxColumn.FillWeight = 50F;
             this.deleteDataGridViewTextBoxColumn.HeaderText = "Delete";
             this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
             this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.deleteDataGridViewTextBoxColumn.Width = 80;
             // 
             // viewDataGridViewTextBoxColumn
             // 
+            this.viewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.viewDataGridViewTextBoxColumn.DataPropertyName = "View";
+            this.viewDataGridViewTextBoxColumn.FillWeight = 50F;
             this.viewDataGridViewTextBoxColumn.HeaderText = "View";
             this.viewDataGridViewTextBoxColumn.Name = "viewDataGridViewTextBoxColumn";
             this.viewDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.viewDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.viewDataGridViewTextBoxColumn.Width = 80;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -580,60 +581,50 @@ namespace GulliverII
             // 
             this.supplierDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.supplierDataGridViewTextBoxColumn.DataPropertyName = "Supplier";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.supplierDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.supplierDataGridViewTextBoxColumn.FillWeight = 273F;
-            this.supplierDataGridViewTextBoxColumn.HeaderText = "Media";
+            this.supplierDataGridViewTextBoxColumn.FillWeight = 200F;
+            this.supplierDataGridViewTextBoxColumn.HeaderText = "Supplier";
             this.supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
-            this.supplierDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // offerNameDataGridViewTextBoxColumn
             // 
             this.offerNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.offerNameDataGridViewTextBoxColumn.DataPropertyName = "Offer Name";
-            this.offerNameDataGridViewTextBoxColumn.FillWeight = 430F;
+            this.offerNameDataGridViewTextBoxColumn.FillWeight = 200F;
             this.offerNameDataGridViewTextBoxColumn.HeaderText = "Deal Name";
             this.offerNameDataGridViewTextBoxColumn.Name = "offerNameDataGridViewTextBoxColumn";
-            this.offerNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dealDirectoryNameDataGridViewTextBoxColumn
-            // 
-            this.dealDirectoryNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dealDirectoryNameDataGridViewTextBoxColumn.DataPropertyName = "Deal Directory Name";
-            this.dealDirectoryNameDataGridViewTextBoxColumn.FillWeight = 250F;
-            this.dealDirectoryNameDataGridViewTextBoxColumn.HeaderText = "Deal Directory Name";
-            this.dealDirectoryNameDataGridViewTextBoxColumn.Name = "dealDirectoryNameDataGridViewTextBoxColumn";
-            this.dealDirectoryNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dealDirectoryNameDataGridViewTextBoxColumn.Visible = false;
             // 
             // onSalesDataGridViewTextBoxColumn
             // 
-            this.onSalesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.onSalesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.onSalesDataGridViewTextBoxColumn.DataPropertyName = "On Sales";
-            this.onSalesDataGridViewTextBoxColumn.FillWeight = 150F;
             this.onSalesDataGridViewTextBoxColumn.HeaderText = "On Sales";
             this.onSalesDataGridViewTextBoxColumn.Name = "onSalesDataGridViewTextBoxColumn";
-            this.onSalesDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.onSalesDataGridViewTextBoxColumn.Width = 82;
             // 
             // expiredDateDataGridViewTextBoxColumn
             // 
             this.expiredDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.expiredDateDataGridViewTextBoxColumn.DataPropertyName = "Expired Date";
-            this.expiredDateDataGridViewTextBoxColumn.FillWeight = 120F;
             this.expiredDateDataGridViewTextBoxColumn.HeaderText = "Expired Date";
             this.expiredDateDataGridViewTextBoxColumn.Name = "expiredDateDataGridViewTextBoxColumn";
-            this.expiredDateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // updatePageDataGridViewTextBoxColumn
+            // 
+            this.updatePageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.updatePageDataGridViewTextBoxColumn.DataPropertyName = "Update Page";
+            this.updatePageDataGridViewTextBoxColumn.FillWeight = 80F;
+            this.updatePageDataGridViewTextBoxColumn.HeaderText = "Update Page";
+            this.updatePageDataGridViewTextBoxColumn.Name = "updatePageDataGridViewTextBoxColumn";
+            this.updatePageDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.updatePageDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // copyDataGridViewTextBoxColumn
             // 
+            this.copyDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.copyDataGridViewTextBoxColumn.DataPropertyName = "Copy";
             this.copyDataGridViewTextBoxColumn.HeaderText = "Copy";
             this.copyDataGridViewTextBoxColumn.Name = "copyDataGridViewTextBoxColumn";
             this.copyDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.copyDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.copyDataGridViewTextBoxColumn.Width = 80;
             // 
             // flcsLibrary
             // 
@@ -652,13 +643,13 @@ namespace GulliverII
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLibrary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLibrary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).EndInit();
             this.statusstrip.ResumeLayout(false);
             this.statusstrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSuppliers)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLibrary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -715,11 +706,11 @@ namespace GulliverII
         private System.Windows.Forms.DataGridViewLinkColumn deleteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn viewDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn supplierDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn offerNameDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dealDirectoryNameDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn onSalesDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn expiredDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn offerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn onSalesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expiredDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewLinkColumn updatePageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn copyDataGridViewTextBoxColumn;
     }
 }

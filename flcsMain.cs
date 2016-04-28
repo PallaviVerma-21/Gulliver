@@ -20,16 +20,13 @@ namespace GulliverII
         private GulliverLibrary.QueryHandler gulliverQueryHandler;
         private GulliverLibrary.Deal deal;
         private PackageGenerator.PackageHandler packageHandler;
-        private LandingPageHandler.DataProcessor dataProcessor;
         private PackageGenerator.ICosting icosting;
         private List<int> selectedTripperExtras;
         List<GulliverLibrary.Package> packages;
         int supplierId = 0;
         int dealId = 0;
-        private List<string> visibleColumns;
-        private List<GulliverLibrary.DealOptionalExtra> optionalCostings;
-        private bool cancel = false;
-        private bool save = false;
+        private List<string> visibleColumns;        
+  
         
         public flcsMain()
         {
@@ -38,7 +35,6 @@ namespace GulliverII
            queryHandler = new MySqlDataHandler.QueryHandler();
            gulliverQueryHandler = new GulliverLibrary.QueryHandler();
            packageHandler = new PackageGenerator.PackageHandler(true);
-           dataProcessor = new LandingPageHandler.DataProcessor();
            visibleColumns = new List<string>();
 
            SetupDefaultWindow(true);          
@@ -53,7 +49,6 @@ namespace GulliverII
             queryHandler = new MySqlDataHandler.QueryHandler();
             gulliverQueryHandler = new GulliverLibrary.QueryHandler();
             packageHandler = new PackageGenerator.PackageHandler(true);
-            dataProcessor = new LandingPageHandler.DataProcessor();
             dealId = id;
             visibleColumns = new List<string>();
             SetupDefaultWindow(false);            
@@ -74,8 +69,7 @@ namespace GulliverII
             FillCurrencyComboBox();
             
             selectedTripperExtras = new List<int>();
-            deal = new GulliverLibrary.Deal();
-            optionalCostings = new List<GulliverLibrary.DealOptionalExtra>();
+            deal = new GulliverLibrary.Deal();            
             SetText(txtSearchbox, "Search Transfers here ...");
             SetText(txtSearchBoard, "Search Board Basis here ...");
             
@@ -103,7 +97,7 @@ namespace GulliverII
                FillExtras(extras);
                lblOfferCreatedBy.Text = "Created by " + Environment.UserName;
                lblOfferCreatedBy.Visible = true;
-               FillDefaultImages();
+               
             }
 
             this.tabMain.DrawMode = TabDrawMode.OwnerDrawFixed;
@@ -112,22 +106,13 @@ namespace GulliverII
             this.tabControl3.DrawMode = TabDrawMode.OwnerDrawFixed;
             this.tabControl3.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl3_DrawItem);
 
-            this.tabControl2.DrawMode = TabDrawMode.OwnerDrawFixed;
-            this.tabControl2.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl2_DrawItem);
+            this.tabControl4.DrawMode = TabDrawMode.OwnerDrawFixed;
+            this.tabControl4.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl2_DrawItem);
 
             tabMain.TabPages.Remove(tabPage14);
         }
 
-        private void FillDefaultImages()
-        {
-            GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "best deal page image", string.Empty, string.Empty);
-            GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "top left image", string.Empty, string.Empty);
-            GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "top right image", string.Empty, string.Empty);
-            GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "bottom left image", string.Empty, string.Empty);
-            GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "bottom right image", string.Empty, string.Empty);
-            GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "body image", string.Empty, string.Empty);
-            GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "slider image", string.Empty, string.Empty);
-        }
+        
 
         private void SetText(TextBox txtSearchbox, string text)
         {
@@ -290,6 +275,11 @@ namespace GulliverII
         
         #region events
 
+        private void txtRoomType_TextChanged(object sender, EventArgs e)
+        {
+            roomTypeCB.DataSource = new List<string>() { string.Empty, txtRoomType.Text.Trim().ToUpper() };
+        }
+
         private void cbAirportGroups_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             bool checkeD = cbAirportGroups.GetItemChecked(e.Index);
@@ -306,11 +296,6 @@ namespace GulliverII
             }
         }
 
-        private void tabControl2_MouseClick(object sender, MouseEventArgs e)
-        {
-            lblMessage.Visible = false;
-            lblError.Visible = false;
-        }
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -395,7 +380,7 @@ namespace GulliverII
             Brush backBrush = new SolidBrush(System.Drawing.ColorTranslator.FromHtml("#73A2DB"));
             Brush foreBrush = new SolidBrush(System.Drawing.ColorTranslator.FromHtml("#004080"));
 
-            if (e.Index == this.tabControl2.SelectedIndex)
+            if (e.Index == this.tabControl4.SelectedIndex)
             {
                 tabFont = new Font("Segoe UI", 11, FontStyle.Bold, GraphicsUnit.Pixel);
                 backBrush = new SolidBrush(System.Drawing.ColorTranslator.FromHtml("#73A2DB"));
@@ -404,7 +389,7 @@ namespace GulliverII
             else
                 tabFont = new Font("Segoe UI", 11, FontStyle.Regular, GraphicsUnit.Pixel);
 
-            string tabName = this.tabControl2.TabPages[e.Index].Text;
+            string tabName = this.tabControl4.TabPages[e.Index].Text;
             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Center;
             e.Graphics.FillRectangle(backBrush, e.Bounds);
@@ -414,7 +399,7 @@ namespace GulliverII
             //Dispose objects
             sf.Dispose();
 
-            if (e.Index == this.tabControl2.SelectedIndex)
+            if (e.Index == this.tabControl4.SelectedIndex)
             {
               tabFont.Dispose();
               backBrush.Dispose();
@@ -587,11 +572,7 @@ namespace GulliverII
             SortBoardBasis();
         }
 
-        private void tabControl2_MouseEnter(object sender, EventArgs e)
-        {
-            lblMessage.Visible = false;
-            lblError.Visible = false;
-        }
+   
 
         private void cbShowCosting_CheckedChanged(object sender, EventArgs e)
         {
@@ -683,30 +664,9 @@ namespace GulliverII
             FillOccupancyComboBox(cbOcupancy.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()).ToList());
         }
 
-        private void txtLongitude_TextChanged(object sender, EventArgs e)
-        {
-            if (txtLongitude.Text.Trim() != string.Empty && txtLatitude.Text.Trim() != string.Empty)
-            {
-                GulliverLibrary.HotelInformation hotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);
+     
 
-                if (hotelInformation != null)
-                    FillHotelInformation(hotelInformation);
-            }
-        }
-
-        private void txtLatitude_TextChanged(object sender, EventArgs e)
-        {
-            GulliverLibrary.HotelInformation hotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);
-
-            if (hotelInformation != null)
-            {
-                if (deal.DealInformation == null)
-                    deal.DealInformation = new GulliverLibrary.DealInformation();
-
-                deal.DealInformation.HotelInformation = hotelInformation;
-                FillHotelInformation(hotelInformation);
-            }
-        } 
+       
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -760,48 +720,9 @@ namespace GulliverII
             }
         }
 
-        private void btnMakePageLive_Click(object sender, EventArgs e)
-        {
-            if (deal.id != 0)
-            {
-                string message = dataProcessor.MakePageLive(deal);
-                if (message != string.Empty)
-                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
-                {
-                    string url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-                    System.Diagnostics.Process.Start(url);
-                    this.Focus();
-                }
-            }
-            else
-                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
-        }
+        
 
-        private void btnStopPage_Click(object sender, EventArgs e)
-        {
-
-            if (deal.id != 0)
-            {
-                save = true;
-                string message = dataProcessor.UpdateFleetwayPage(deal, cbAirportByAvailability.Checked, true);
-
-                if (message != string.Empty)
-                {
-                    lblError.Visible = true;
-                    lblError.Text = message;
-                }
-                else
-                {
-                    email.SendStoppedPage(deal);
-                    string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-                    System.Diagnostics.Process.Start(url);
-                    this.Focus();
-                }
-            }
-            else
-                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
-        }
+ 
 
         private void SecretEscapeFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -871,296 +792,149 @@ namespace GulliverII
             progressBarMenu.Visible = false;
             Application.DoEvents();
             MessageBox.Show("Email has been sent sucessfully! ");
-        }                          
-
-        private void btnSavePage_Click(object sender, EventArgs e)
-        {
-            lblError.Visible = false;
-            lblMessage.Visible = false;
-            VisibleProgressBar(progressBarMenu, true);
-            System.Threading.Thread.Sleep(500);
-            if (cmbCurrency.SelectedItem == null || cmbLanuages.SelectedItem == null)
-            {
-                MessageBox.Show("Please select deal currency and lanuage before save!");
-                return;
-            }
-
-            try
-            {
-                if (deal.DealInformation == null)
-                {
-                    deal.DealInformation = new GulliverLibrary.DealInformation();
-                    if (txtLongitude.Text.Trim() == string.Empty || txtLatitude.Text.Trim() == string.Empty)
-                    {
-                        MessageBox.Show("Please enter GEO codes before save!");
-                        return;
-                    }
-                    deal.DealInformation.HotelInformation = packageHandler.GetHotelInformationByGeoCodes(txtLongitude.Text, txtLatitude.Text);                    
-                }
-
-                if (txtLongitude.Text.Trim() == string.Empty || txtLatitude.Text.Trim() == string.Empty)
-                {
-                    MessageBox.Show("Please enter GEO codes before save!");
-                    return;
-                }
-
-                SetStepProgressBar(progressBarMenu);
-                List<GulliverLibrary.Link> links = new List<GulliverLibrary.Link>();
-                GulliverLibrary.Link link = new GulliverLibrary.Link();
-                link.name = "YouTube Link";
-                link.Deal = deal;
-                link.url = txtYouTubeLink.Text.Trim();
-                if (link.url.Trim() != string.Empty)
-                links.Add(link);
-
-                deal.DealInformation.mainHeader = txtMainHeader.Text.Trim();
-                deal.DealInformation.Deal = deal;
-                deal.DealInformation.subHeader = txtSubHeader.Text.Trim();
-                deal.DealInformation.longitude = txtLongitude.Text.Trim();
-                deal.DealInformation.latitude = txtLatitude.Text.Trim();
-                
-                if (deal.DealInformation.HotelInformation == null)
-                {
-                    deal.DealInformation.HotelInformation = new GulliverLibrary.HotelInformation();                   
-                }
-
-                deal.DealInformation.HotelInformation.longitude = txtLongitude.Text.Trim();
-                deal.DealInformation.HotelInformation.latitude = txtLatitude.Text.Trim();
-                deal.DealInformation.HotelInformation.hotelHeader = txtHotelTitle.Text.Trim();                
-                deal.DealInformation.introduction = txtDealIntro.Text.Trim();
-                deal.DealInformation.childPrices = txtChildPrice.Text.Trim();
-                deal.DealInformation.optionalExtras = txtOptionalExtras.Text.Trim();
-                deal.DealInformation.pleaseNote = txtPleasenote.Text.Trim();
-                deal.DealInformation.HotelInformation.hotelBodyText = txtHotelText.Text.Trim();
-                deal.DealInformation.HotelInformation.destinationText = txtDestinationText.Text.Trim();
-                deal.DealInformation.HotelInformation.countryText = txtCountryText.Text.Trim();
-
-                GulliverLibrary.Link linkTA = new GulliverLibrary.Link();
-                linkTA.name = "Trip Advisor Link";
-                linkTA.url = txtTripAdvisorLink.Text.Trim();
-                linkTA.Deal = deal;
-                if (linkTA.url.Trim() != string.Empty)
-                links.Add(linkTA);
-
-                deal.DealInformation.howToBook = txtHowToBook.Text.Trim();
-                deal.DealInformation.HotelInformation.accessibility = txtAccessibilityText.Text;
-                deal.DealInformation.HotelInformation.keyInformation = txtKeyInformationText.Text;
-                deal.DealInformation.dealCurrency = cmbCurrency.SelectedItem.ToString();
-                deal.DealInformation.language = cmbLanuages.SelectedItem.ToString();
-                deal.DealInformation.pageName = txtPageName.Text.Trim();
-                deal.DealInformation.leadPrice = txtLeadPrice.Text.Trim();
-                deal.DealInformation.bestDealHeader = txtBestDealHeader.Text.Trim();
-                deal.DealInformation.bestDealDescription = txtBestDealDescription.Text.Trim();
-                deal.DealInformation.HotelInformation.destinationHeader = txtDestinationTitle.Text.Trim();
-                deal.DealInformation.HotelInformation.countryHeader = txtCountryTitle.Text.Trim();
-                deal.DealInformation.brand = (ddlBrand.SelectedItem != null) ? ddlBrand.SelectedItem.ToString() : string.Empty;
-                deal.DealInformation.topHeader = txtTopHeader.Text.Trim();
-                deal.DealInformation.defaultDuration = (ddlDurations.SelectedItem != null && ddlDurations.SelectedItem != string.Empty) ? Convert.ToInt32(ddlDurations.SelectedItem) : 0;
-                deal.DealInformation.diplayNightsOrDays = (rbDays.Checked) ? "Days" : "Nights";
-                deal.DealInformation.priority = Convert.ToInt32(ddlPriorities.SelectedItem);
-                deal.DealInformation.goLiveOnBestDealPage = cbGoLiveOnBestDealPage.Checked;
-
-                GulliverLibrary.Link linkHW = new GulliverLibrary.Link();
-                linkHW.name = "Hotel Website Link";
-                linkHW.Deal = deal;
-                linkHW.url = txtHotelLink.Text.Trim();
-                if (linkTA.url.Trim() != string.Empty)
-                    links.Add(linkHW);
-
-                GulliverLibrary.Link pageLink = new GulliverLibrary.Link();
-                pageLink.name = "Landing Page Link";
-                pageLink.Deal = deal;
-                pageLink.url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-                if (pageLink.url.Trim() != string.Empty)
-                links.Add(pageLink);
-
-                GulliverLibrary.Link channelLink = new GulliverLibrary.Link();
-                channelLink.name = "Channel Page Link";
-                channelLink.Deal = deal;
-                channelLink.url = txtChannelLink.Text.Trim();
-                if (channelLink.url.Trim() != string.Empty)
-                    links.Add(channelLink);               
-
-                List<GulliverLibrary.Image> dealImages = new List<GulliverLibrary.Image>();
-                foreach (GulliverIIDS.ImageRow imageRow in this.GulliverIIDS.Image)
-                {
-                    if ((imageRow.Reference != null) && (imageRow.Title != null))
-                    {
-                        try
-                        {
-                            GulliverLibrary.Image dealImage = new GulliverLibrary.Image();
-                            dealImage.id = imageRow.id;
-                            dealImage.Deal = deal;
-                            dealImage.reference = (imageRow.Reference != null) ? imageRow.Reference : string.Empty;
-                            dealImage.altText = (imageRow.Alt_Text != null) ? imageRow.Alt_Text : string.Empty;
-                            dealImage.description = (imageRow.Description != null) ? imageRow.Description : string.Empty;
-                            dealImage.title = (imageRow.Title != null) ? imageRow.Title : string.Empty;
-                            dealImages.Add(dealImage);
-                        }
-                        catch { }
-                    }
-                }
-
-                SetStepProgressBar(progressBarMenu);
-                List<GulliverLibrary.Review> dealReviews = new List<GulliverLibrary.Review>();
-
-                foreach (GulliverIIDS.ReviewRow reviewRow in this.GulliverIIDS.Review)
-                {
-                    try
-                    {
-                        GulliverLibrary.Review review = new GulliverLibrary.Review();
-                        review.id = reviewRow.id;
-                        review.Deal = deal;
-                        review.date = reviewRow.Date;
-                        review.source = (reviewRow.Source != null) ? reviewRow.Source : string.Empty;
-                        review.stars = (reviewRow.Stars != null) ? reviewRow.Stars : 0;
-                        review.link = (reviewRow.Link != null) ? reviewRow.Link : string.Empty;
-                        review.text = (reviewRow.Text != null) ? reviewRow.Text : string.Empty;
-                        review.title = (reviewRow.Title != null) ? reviewRow.Title : string.Empty;
-                        dealReviews.Add(review);
-                    }
-                    catch { }
-                }
-
-                deal.DealImages = dealImages;
-                deal.DealReviews = dealReviews;
-                deal.Links = links;
-                SetStepProgressBar(progressBarMenu);
-                progressBarMenu.Value = progressBarMenu.Maximum;
-                VisibleProgressBar(progressBarMenu, false);
-
-                if (deal.DealInstructions == null)
-                    deal.DealInstructions = new GulliverLibrary.DealInstruction();
-
-                deal.DealInstructions.howToBook = txtHowToBook.Text.Trim();
-                deal.DealInstructions.Deal = deal;
-                deal.DealInstructions.importantUpsell = txtImportantUpsell.Text.Trim();
-                deal.DealInstructions.pleaseNote = txtPleasenoteII.Text.Trim();
-                
-                if (deal.id != 0)
-                {
-                    packageHandler.SaveDealInformation(deal);
-                    btnStopPage.Enabled = true;
-                    btnMakePageLive.Enabled = true;
-                    btnUpdateFleetwayPage.Enabled = true;
-                }
-                else
-                    lblError.Text = "Please save the deal before add any deal information for page!";
-
-                MessageBox.Show("Information has been saved successfully!","Save!",MessageBoxButtons.OK,MessageBoxIcon.Information);
-              
-            }
-            catch
-            {
-                MessageBox.Show("Error while saving the details, please check and try again!", "Erroe!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lblError.Visible = true;
-            }
-            VisibleProgressBar(progressBarMenu, false);
         }
 
-        private void btnCancelPage_Click(object sender, EventArgs e)
-        {
-            switch (MessageBox.Show("This will not save all changes - continue?", "Save Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-            {
-                case System.Windows.Forms.DialogResult.Yes:
-                    this.Close();
-                    break;
+        //private void SaveDealInformartion()
+        //{
+        //    SetStepProgressBar(progressBarMenu);
+        //    List<GulliverLibrary.Link> links = new List<GulliverLibrary.Link>();
+        //    GulliverLibrary.Link link = new GulliverLibrary.Link();
+        //    link.name = "YouTube Link";
+        //    link.Deal = deal;
+        //    link.url = txtYouTubeLink.Text.Trim();
+        //    if (link.url.Trim() != string.Empty)
+        //        links.Add(link);
 
-                case System.Windows.Forms.DialogResult.No:
-                    break;
-            }
-        }
+        //    deal.DealInformation.mainHeader = txtMainHeader.Text.Trim();
+        //    deal.DealInformation.Deal = deal;
+        //    deal.DealInformation.subHeader = txtSubHeader.Text.Trim();
+        //    deal.DealInformation.longitude = txtLongitude.Text.Trim();
+        //    deal.DealInformation.latitude = txtLatitude.Text.Trim();
 
-        private void btnOptionalcostings_Click(object sender, EventArgs e)
-        {
-            flcsOptionalExtra objOptionalExtras = new flcsOptionalExtra(optionalCostings, deal.id, packageHandler);
-            objOptionalExtras.ShowDialog();
-        }
+        //    //deal.DealInformation.HotelInformation = gulliverQueryHandler.GetHotelInformationByGeoCodes(deal.DealInformation.longitude.Trim(), deal.DealInformation.latitude.Trim());
+           
+           
+        //        GulliverLibrary.HotelInformation hotelInformation = new GulliverLibrary.HotelInformation();
+        //        hotelInformation.longitude = txtLongitude.Text.Trim();
+        //        hotelInformation.latitude = txtLatitude.Text.Trim();
+        //        hotelInformation.hotelHeader = txtHotelTitle.Text.Trim();
+        //        hotelInformation.hotelBodyText = txtHotelText.Text.Trim();
+        //        hotelInformation.destinationText = txtDestinationText.Text.Trim();
+        //        hotelInformation.countryText = txtCountryText.Text.Trim();
+        //        hotelInformation.accessibility = txtAccessibilityText.Text;
+        //        hotelInformation.keyInformation = txtKeyInformationText.Text;
+        //        hotelInformation.destinationHeader = txtDestinationTitle.Text.Trim();
+        //        hotelInformation.countryHeader = txtCountryTitle.Text.Trim();
+        //        gulliverQueryHandler.UpdateHotelInformation(hotelInformation);
 
-        private void includesZoomout_Click(object sender, EventArgs e)
-        {
-            flcsZoomOut zoomout = new flcsZoomOut(txtDealIntro.Text.Trim(), "What is included");
-            zoomout.ShowDialog();
-            txtDealIntro.Text = zoomout.text.Trim();
-        }
+        //    deal.DealInformation.HotelInformation = hotelInformation;
+        //    deal.DealInformation.introduction = txtDealIntro.Text.Trim();
+        //    deal.DealInformation.childPrices = txtChildPrice.Text.Trim();
+        //    deal.DealInformation.optionalExtras = txtOptionalExtras.Text.Trim();
+        //    deal.DealInformation.pleaseNote = txtPleasenote.Text.Trim();
+     
+        //    GulliverLibrary.Link linkTA = new GulliverLibrary.Link();
+        //    linkTA.name = "Trip Advisor Link";
+        //    linkTA.url = txtTripAdvisorLink.Text.Trim();
+        //    linkTA.Deal = deal;
+        //    if (linkTA.url.Trim() != string.Empty)
+        //        links.Add(linkTA);
 
-        private void toolChildPrices_Click(object sender, EventArgs e)
-        {
-            flcsZoomOut zoomout = new flcsZoomOut(txtChildPrice.Text.Trim(), "Child Price");
-            zoomout.ShowDialog();
-            txtChildPrice.Text = zoomout.text.Trim();
-        }
+        //    deal.DealInformation.howToBook = txtHowToBook.Text.Trim();
+        //    deal.DealInformation.dealCurrency = (cmbCurrency.SelectedItem != null) ? cmbCurrency.SelectedItem.ToString() : "GBP";
+        //    deal.DealInformation.language = (cmbLanuages.SelectedItem != null) ? cmbLanuages.SelectedItem.ToString() : "English";
+        //    deal.DealInformation.pageName = txtPageName.Text.Trim();
+        //    deal.DealInformation.leadPrice = txtLeadPrice.Text.Trim();
+        //    deal.DealInformation.bestDealHeader = txtBestDealHeader.Text.Trim();
+        //    deal.DealInformation.bestDealDescription = txtBestDealDescription.Text.Trim();
+        //    deal.DealInformation.brand = (ddlBrand.SelectedItem != null) ? ddlBrand.SelectedItem.ToString() : string.Empty;
+        //    deal.DealInformation.topHeader = txtTopHeader.Text.Trim();
+        //    deal.DealInformation.defaultDuration = (ddlDurations.SelectedItem != null && ddlDurations.SelectedItem != string.Empty) ? Convert.ToInt32(ddlDurations.SelectedItem) : 0;
+        //    deal.DealInformation.diplayNightsOrDays = (rbDays.Checked) ? "Days" : "Nights";
+        //    deal.DealInformation.priority = Convert.ToInt32(ddlPriorities.SelectedItem);
+        //    deal.DealInformation.goLiveOnBestDealPage = cbGoLiveOnBestDealPage.Checked;
 
-        private void toolOptionalExtras_Click(object sender, EventArgs e)
-        {
-            flcsZoomOut zoomout = new flcsZoomOut(txtOptionalExtras.Text.Trim(), "Optional Extras");
-            zoomout.ShowDialog();
-            txtOptionalExtras.Text = zoomout.text.Trim();
-        }
+        //    GulliverLibrary.Link linkHW = new GulliverLibrary.Link();
+        //    linkHW.name = "Hotel Website Link";
+        //    linkHW.Deal = deal;
+        //    linkHW.url = txtHotelLink.Text.Trim();
+        //    if (linkTA.url.Trim() != string.Empty)
+        //        links.Add(linkHW);
 
-        private void toolPleasenote_Click(object sender, EventArgs e)
-        {
-            flcsZoomOut zoomout = new flcsZoomOut(txtPleasenote.Text.Trim(), "Please Note");
-            zoomout.ShowDialog();
-            txtPleasenote.Text = zoomout.text.Trim();
-        }
+        //    GulliverLibrary.Link pageLink = new GulliverLibrary.Link();
+        //    pageLink.name = "Landing Page Link";
+        //    pageLink.Deal = deal;
+        //    pageLink.url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+        //    if (pageLink.url.Trim() != string.Empty)
+        //        links.Add(pageLink);
 
-        private void toolHotelText_Click(object sender, EventArgs e)
-        {
-            flcsZoomOut zoomout = new flcsZoomOut(txtHotelText.Text.Trim(), "Hotel Text");
-            zoomout.ShowDialog();
-            txtHotelText.Text = zoomout.text.Trim();
-        }
+        //    GulliverLibrary.Link channelLink = new GulliverLibrary.Link();
+        //    channelLink.name = "Channel Page Link";
+        //    channelLink.Deal = deal;
+        //    channelLink.url = txtChannelLink.Text.Trim();
+        //    if (channelLink.url.Trim() != string.Empty)
+        //        links.Add(channelLink);
 
-        private void toolDestinationText_Click(object sender, EventArgs e)
-        {
-            flcsZoomOut zoomout = new flcsZoomOut(txtDestinationText.Text.Trim(), "Destination Text");
-            zoomout.ShowDialog();
-            txtDestinationText.Text = zoomout.text.Trim();
-        }
+        //    List<GulliverLibrary.Image> dealImages = new List<GulliverLibrary.Image>();
+        //    foreach (GulliverIIDS.ImageRow imageRow in this.GulliverIIDS.Image)
+        //    {
+        //        if ((imageRow.Reference != null) && (imageRow.Title != null))
+        //        {
+        //            try
+        //            {
+        //                GulliverLibrary.Image dealImage = new GulliverLibrary.Image();
+        //                dealImage.id = imageRow.id;
+        //                dealImage.Deal = deal;
+        //                dealImage.reference = (imageRow.Reference != null) ? imageRow.Reference : string.Empty;
+        //                dealImage.altText = (imageRow.Alt_Text != null) ? imageRow.Alt_Text : string.Empty;
+        //                dealImage.description = (imageRow.Description != null) ? imageRow.Description : string.Empty;
+        //                dealImage.title = (imageRow.Title != null) ? imageRow.Title : string.Empty;
+        //                dealImages.Add(dealImage);
+        //            }
+        //            catch { }
+        //        }
+        //    }
 
-        private void toolCountryText_Click(object sender, EventArgs e)
-        {
-            flcsZoomOut zoomout = new flcsZoomOut(txtCountryText.Text.Trim(), "Country Text");
-            zoomout.ShowDialog();
-            txtCountryText.Text = zoomout.text.Trim();
-        }
+        //    SetStepProgressBar(progressBarMenu);
+        //    List<GulliverLibrary.Review> dealReviews = new List<GulliverLibrary.Review>();
 
-        private void toolKeyInformationText_Click(object sender, EventArgs e)
-        {
-            flcsZoomOut zoomout = new flcsZoomOut(txtKeyInformationText.Text.Trim(), "Key Information");
-            zoomout.ShowDialog();
-            txtKeyInformationText.Text = zoomout.text.Trim();
-        }
+        //    foreach (GulliverIIDS.ReviewRow reviewRow in this.GulliverIIDS.Review)
+        //    {
+        //        try
+        //        {
+        //            GulliverLibrary.Review review = new GulliverLibrary.Review();
+        //            review.id = reviewRow.id;
+        //            review.Deal = deal;
+        //            review.date = reviewRow.Date;
+        //            review.source = (reviewRow.Source != null) ? reviewRow.Source : string.Empty;
+        //            review.stars = (reviewRow.Stars != null) ? reviewRow.Stars : 0;
+        //            review.link = (reviewRow.Link != null) ? reviewRow.Link : string.Empty;
+        //            review.text = (reviewRow.Text != null) ? reviewRow.Text : string.Empty;
+        //            review.title = (reviewRow.Title != null) ? reviewRow.Title : string.Empty;
+        //            dealReviews.Add(review);
+        //        }
+        //        catch { }
+        //    }
 
-        private void toolAccessibilityText_Click(object sender, EventArgs e)
-        {
-            flcsZoomOut zoomout = new flcsZoomOut(txtAccessibilityText.Text.Trim(), "Accessibility");
-            zoomout.ShowDialog();
-            txtAccessibilityText.Text = zoomout.text.Trim();
-        }
+        //    deal.DealImages = dealImages;
+        //    deal.DealReviews = dealReviews;
+        //    deal.Links = links;
+        //    SetStepProgressBar(progressBarMenu);
+        //    progressBarMenu.Value = progressBarMenu.Maximum;
+        //    VisibleProgressBar(progressBarMenu, false);
+        //}
 
-        private void btnUpdateFleetwayPage_Click(object sender, EventArgs e)
+        private void SaveDealInstruction()
         {
-            if (deal.id != 0)
-            {
-                deal = packageHandler.GetDealById(dealId);
-                string message = dataProcessor.UpdateFleetwayPage(deal, cbAirportByAvailability.Checked, false);
-                if (message != string.Empty)
-                {
-                    lblError.Visible = true;
-                    lblError.Text = message;
-                }
-                else
-                {
-                    string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-                    System.Diagnostics.Process.Start(url);
-                    this.Focus();
-                }
-            }
-            else
-                MessageBox.Show("Please save the offer before you genarate any page for Fleetway website!");
-        }
+            if (deal.DealInstructions == null)
+                deal.DealInstructions = new GulliverLibrary.DealInstruction();
+
+            deal.DealInstructions.howToBook = txtHowToBook.Text.Trim();
+            deal.DealInstructions.Deal = deal;
+            deal.DealInstructions.importantUpsell = txtImportantUpsell.Text.Trim();
+            deal.DealInstructions.pleaseNote = txtPleasenoteII.Text.Trim();
+            packageHandler.UpdateDealInstruction(deal.DealInstructions);
+        }      
 
         private void toCSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1461,13 +1235,18 @@ namespace GulliverII
                     FillPackages(deal.Packages.ToList());
 
                 if (deal.ManualHotelContracts != null && deal.ManualHotelContracts.Count > 0)
+                {
                     FillHotelContracts(deal.ManualHotelContracts.ToList());
+                    FillSupplements(deal.Supplements.ToList());
+                    FillFreenights(deal.FreeNights.ToList());
+                    FillBlackouts(deal.Blackouts.ToList());
+                    FillDiscounts(deal.Discounts.ToList());
+                }
 
                 // tab 5
-                if (deal.DealInformation != null)
-                    FillDealInformation();
-                else
-                    FillDefaultImages();
+                if (deal.DealInstructions != null)
+                    FillDealInstructions();
+               
             }
         }
 
@@ -1476,7 +1255,11 @@ namespace GulliverII
             List<string> currencys = packageHandler.GetAllCurrencys();
             carParkingCurrency.DataSource = currencys;
             carHireCurrency.DataSource = currencys;
-            cmbCurrency.DataSource = currencys;
+           // cmbCurrency.DataSource = currencys;
+            supplementCurrencyCB.DataSource = currencys;
+
+            List<string> types = new List<string> { "%", "price" };
+            DiscountType.DataSource = types;
         }
 
         private void DisplayDefaultColumns()
@@ -1526,7 +1309,6 @@ namespace GulliverII
         private void FillDurationComboBox(List<string> durations)
         {
             DurationComboBox.DataSource = durations;
-            ddlDurations.DataSource = durations;
             FillNewDurationCostingForNewDuration(durations);
         }
 
@@ -1611,7 +1393,43 @@ namespace GulliverII
             }
 
             FillRoomTypeComboBox(hotelContracts);
-          // List<MySqlDataHandler.Expand> selectedExpands =  queryHandler.GetAllBuildings(hotelContracts.Select(s => s.accomcode.Trim()).ToList());
+          
+        }
+
+        private void FillSupplements(List<GulliverLibrary.Supplement> supplements)
+        {
+            this.GulliverIIDS.Supplements.Clear();
+
+            if (supplements != null)
+                foreach (GulliverLibrary.Supplement s in supplements.OrderBy(s => s.fromDate))
+                    this.GulliverIIDS.Supplements.AddSupplementsRow("Delete", s.id, s.fromDate, s.toDate, s.currency, s.price);
+        }
+
+        private void FillDiscounts(List<GulliverLibrary.Discount> discounts)
+        {
+            this.GulliverIIDS.Discounts.Clear();
+
+            if (discounts != null)
+                foreach (GulliverLibrary.Discount d in discounts.OrderBy(d => d.fromDate))
+                    this.GulliverIIDS.Discounts.AddDiscountsRow("Delete", d.id, d.fromDate, d.toDate, d.discount, (d.type.Trim() == "1") ? "%" : d.type.Trim());
+        }
+
+        private void FillBlackouts(List<GulliverLibrary.Blackout> blackouts)
+        {
+            this.GulliverIIDS.Blackouts.Clear();
+
+            if (blackouts != null)
+                foreach (GulliverLibrary.Blackout b in blackouts.OrderBy(b => b.fromDate))
+                    this.GulliverIIDS.Blackouts.AddBlackoutsRow("Delete", b.id, b.fromDate, b.toDate);
+        }
+
+        private void FillFreenights(List<GulliverLibrary.FreeNight> freeNights)
+        {
+            this.GulliverIIDS.Freenights.Clear();
+
+            if (freeNights != null)
+                foreach (GulliverLibrary.FreeNight f in freeNights.OrderBy(f => f.fromDate))
+                    this.GulliverIIDS.Freenights.AddFreenightsRow("Delete", f.id, f.fromDate, f.toDate, f.actual, f.paid);
         }
 
         private void FillOccupancy()
@@ -2001,7 +1819,7 @@ namespace GulliverII
 
             if (manualHotelContracts != null && manualHotelContracts.Count > 0)
             {
-                txtRoomType.Text = manualHotelContracts.First().roomType.Trim();
+                txtRoomType.Text = (manualHotelContracts.First().roomType != null) ? manualHotelContracts.First().roomType.Trim() : string.Empty;
                 foreach(ComboBoxItem item in ddlCurrency.Items)
                 {
                     if (item.Value.ToString() == manualHotelContracts.First().currency.Trim())
@@ -2054,7 +1872,7 @@ namespace GulliverII
             if (durationCostings != null && durationCostings.Count > 0)
             {
                 foreach (GulliverLibrary.DurationCosting durationCosting in durationCostings)
-                    costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.roomType.Trim(), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);                
+                    costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, ((durationCosting.roomType != null)?durationCosting.roomType.Trim():string.Empty), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);                
             }
         }
 
@@ -2126,58 +1944,7 @@ namespace GulliverII
             }
         }
 
-        private void FillDealInformation()
-        {
-            
-            txtMainHeader.Text = (deal.DealInformation.mainHeader != null) ? deal.DealInformation.mainHeader : string.Empty;
-            txtSubHeader.Text = (deal.DealInformation.subHeader != null) ? deal.DealInformation.subHeader : string.Empty;
-            txtLongitude.Text = (deal.DealInformation.longitude != null) ? deal.DealInformation.longitude : string.Empty;
-            txtLatitude.Text = (deal.DealInformation.latitude != null) ? deal.DealInformation.latitude : string.Empty;
-            txtYouTubeLink.Text = gulliverQueryHandler.GetLinkByName("YouTube Link", deal.id);
-            txtDealIntro.Text = (deal.DealInformation.introduction != null) ? deal.DealInformation.introduction : string.Empty;
-            txtChildPrice.Text = (deal.DealInformation.childPrices != null) ? deal.DealInformation.childPrices : string.Empty;
-            txtOptionalExtras.Text = (deal.DealInformation.optionalExtras != null) ? deal.DealInformation.optionalExtras : string.Empty;
-            txtPleasenote.Text = (deal.DealInformation.pleaseNote != null) ? deal.DealInformation.pleaseNote : string.Empty;
-            //deal.DealInformation.HotelInformation = packageHandler.GetHotelInformationByGeoCodes(deal.DealInformation.longitude.Trim(), deal.DealInformation.latitude.Trim());
-            
-            if (deal.DealInformation.HotelInformation != null)
-            {
-                txtHotelText.Text = (deal.DealInformation.HotelInformation.hotelBodyText != null) ? deal.DealInformation.HotelInformation.hotelBodyText : string.Empty;
-                txtDestinationText.Text = (deal.DealInformation.HotelInformation.destinationText != null) ? deal.DealInformation.HotelInformation.destinationText : string.Empty;
-                txtCountryText.Text = (deal.DealInformation.HotelInformation.countryText != null) ? deal.DealInformation.HotelInformation.countryText : string.Empty;
-                txtKeyInformationText.Text = (deal.DealInformation.HotelInformation.keyInformation != null) ? deal.DealInformation.HotelInformation.keyInformation.Trim() : string.Empty;
-                txtAccessibilityText.Text = (deal.DealInformation.HotelInformation.accessibility != null) ? deal.DealInformation.HotelInformation.accessibility.Trim() : string.Empty;
-                txtDestinationTitle.Text = (deal.DealInformation.HotelInformation.destinationHeader != null) ? deal.DealInformation.HotelInformation.destinationHeader.Trim() : string.Empty;
-                txtCountryTitle.Text = (deal.DealInformation.HotelInformation.countryHeader != null) ? deal.DealInformation.HotelInformation.countryHeader.Trim() : string.Empty;
-                txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
-            }
-            txtHowToBook.Text = (deal.DealInformation.howToBook != null) ? deal.DealInformation.howToBook.Trim() : string.Empty;
-            txtTripAdvisorLink.Text = gulliverQueryHandler.GetLinkByName("Trip Advisor Link", deal.id);   
-            
-            cmbCurrency.SelectedItem = (deal.DealInformation.dealCurrency == null || deal.DealInformation.dealCurrency == string.Empty) ? "GBP" : deal.DealInformation.dealCurrency.Trim();
-            cmbLanuages.SelectedItem = (deal.DealInformation.language == null || deal.DealInformation.language == string.Empty) ? "English" : deal.DealInformation.language;
-            ddlPriorities.SelectedItem = (deal.DealInformation.priority != null) ? deal.DealInformation.priority.ToString() : "0";
-            cbGoLiveOnBestDealPage.Checked = (deal.DealInformation.goLiveOnBestDealPage != null) ? deal.DealInformation.goLiveOnBestDealPage : false;
-            txtPageName.Text = (deal.DealInformation.pageName != null) ? deal.DealInformation.pageName : string.Empty;
-            txtLeadPrice.Text = (deal.DealInformation.leadPrice != null) ? deal.DealInformation.leadPrice : string.Empty;
-            txtBestDealHeader.Text = (deal.DealInformation.bestDealHeader != null) ? deal.DealInformation.bestDealHeader : string.Empty;
-            txtBestDealDescription.Text = (deal.DealInformation.bestDealDescription != null) ? deal.DealInformation.bestDealDescription : string.Empty;
-            ddlBrand.SelectedItem = (deal.DealInformation.brand != null) ? deal.DealInformation.brand : string.Empty;
-            txtTopHeader.Text = (deal.DealInformation.topHeader != null) ? deal.DealInformation.topHeader : string.Empty;
-            //ddlDurations.Items.AddRange((deal.durations != null && deal.durations != string.Empty) ? deal.durations.Split('#').ToArray() : new List<string>().ToArray());
-            ddlDurations.SelectedItem = (deal.DealInformation.defaultDuration != 0) ? deal.DealInformation.defaultDuration.ToString() : "0";
-            rbDays.Checked = (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Days") ? true : false;
-            rbNights.Checked = (deal.DealInformation.diplayNightsOrDays == null || (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Nights") || deal.DealInformation.diplayNightsOrDays == string.Empty) ? true : false;
-            optionalCostings = (deal.DealInformation.optionalExtras != null) ? deal.DealExtras.ToList() : new List<GulliverLibrary.DealOptionalExtra>();
-            txtHotelLink.Text = gulliverQueryHandler.GetLinkByName("Hotel Website Link", deal.id);
-            txtChannelLink.Text = gulliverQueryHandler.GetLinkByName("Channel Page Link", deal.id);   
-            FillImages();
-            FillReviews();
-            FillDealInstructions();
-            btnStopPage.Enabled = true;
-            btnMakePageLive.Enabled = true;
-            btnUpdateFleetwayPage.Enabled = true;
-        }
+      
 
         private void FillDealInstructions()
         {
@@ -2189,48 +1956,8 @@ namespace GulliverII
             }
         }
 
-        private void FillImages()
-        {
-            if (deal.DealImages == null || deal.DealImages.Count == 0)
-            {
-                deal.DealImages = new List<GulliverLibrary.Image>();
-                GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "best deal page image", string.Empty, string.Empty);
-                GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "top left image", string.Empty, string.Empty);
-                GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "top right image", string.Empty, string.Empty);
-                GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "bottom left image", string.Empty, string.Empty);
-                GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "bottom right image", string.Empty, string.Empty);
-                GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "body image", string.Empty, string.Empty);
-                GulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "slider image", string.Empty, string.Empty);
-            }
-            else
-            {
-                foreach (GulliverLibrary.Image image in deal.DealImages)
-                    GulliverIIDS.Image.AddImageRow(image.id, "Delete", image.reference, image.title, image.altText, image.description);                
-            }
-            Id1.Visible = false;
-        }
-
-        private void FillReviews()
-        {
-            if (deal.DealReviews != null)
-            {
-                foreach (GulliverLibrary.Review review in deal.DealReviews)
-                    GulliverIIDS.Review.AddReviewRow(review.id, "Delete", review.date, review.source, review.stars, review.title, review.text, review.link);
-            }
-            Column1.Visible = false;
-        }
-
-        private void FillHotelInformation(GulliverLibrary.HotelInformation hotelInformation)
-        {
-            txtHotelText.Text = hotelInformation.hotelBodyText;
-            txtHotelTitle.Text = hotelInformation.hotelHeader;
-            txtDestinationTitle.Text = hotelInformation.destinationHeader;
-            txtDestinationText.Text = hotelInformation.destinationText;
-            txtCountryTitle.Text = hotelInformation.countryHeader;
-            txtCountryText.Text = hotelInformation.countryText;
-            txtKeyInformationText.Text = hotelInformation.keyInformation;
-            txtAccessibilityText.Text = hotelInformation.accessibility;
-        }
+      
+       
         
         #endregion
 
@@ -2269,30 +1996,7 @@ namespace GulliverII
                 catch { }
             }
         }
-
-        //tripper hotel contracts 
-        //private void dataGridviewContracts_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex >= 0 && dataGridviewContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewContracts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Select")
-        //    {
-        //        try
-        //        {
-        //            switch (MessageBox.Show("This will delete selected hotel contract - continue?", "Delete Hotel Contract", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-        //            {
-        //                case System.Windows.Forms.DialogResult.Yes:
-        //                    dataGridviewContracts.Rows.Remove((DataGridViewRow)dataGridviewContracts.Rows[e.RowIndex]);
-        //                    break;
-
-        //                case System.Windows.Forms.DialogResult.No:
-        //                    return;
-        //            }
-        //        }
-        //        catch { }
-        //    }
-        //}
-
-        //extras
-       
+               
         private void dataGridViewExtras_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewExtras.Rows[e.RowIndex].Cells[1].Value == null)
@@ -2892,6 +2596,189 @@ namespace GulliverII
             }
         }
 
+        //suplement
+
+        private void dataGridviewSupplemet_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridviewSupplemet.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewSupplemet.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            {
+                dataGridviewSupplemet.CurrentCell = (dataGridviewSupplemet.Rows.Count == 0) ? dataGridviewSupplemet.Rows[0].Cells[0] : null;
+
+                switch (MessageBox.Show("This will delete selected supplement - continue?", "Supplement", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    case System.Windows.Forms.DialogResult.Yes:
+                        dataGridviewSupplemet.Rows.Remove((DataGridViewRow)dataGridviewSupplemet.Rows[e.RowIndex]);
+                        break;
+
+                    case System.Windows.Forms.DialogResult.No:
+                        return;
+                }
+            }
+            
+        }
+
+        private void dataGridviewSupplemet_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridviewSupplemet.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                dataGridviewSupplemet.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGridviewSupplemet.Rows[e.RowIndex].Cells[1].Value = "0";
+                dataGridviewSupplemet.Rows[e.RowIndex].Cells[4].Value = "";
+                dataGridviewSupplemet.Rows[e.RowIndex].Cells[5].Value = "0";
+            }
+        }
+
+        private void dataGridviewSupplemet_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            switch (MessageBox.Show("This will delete selected supplement - continue?", "Delete Supplement", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                case System.Windows.Forms.DialogResult.Yes:
+                    dataGridviewSupplemet.Rows.Remove(e.Row);
+                    break;
+
+                case System.Windows.Forms.DialogResult.No:
+                    e.Cancel = true;
+                    return;
+            }
+        }
+
+        //blackout
+
+        private void dataGridviewBlackouts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridviewBlackouts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewBlackouts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            {
+                dataGridviewBlackouts.CurrentCell = (dataGridviewBlackouts.Rows.Count == 0) ? dataGridviewBlackouts.Rows[0].Cells[0] : null;
+
+                switch (MessageBox.Show("This will delete selected blackout - continue?", "Blackout", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    case System.Windows.Forms.DialogResult.Yes:
+                        dataGridviewBlackouts.Rows.Remove((DataGridViewRow)dataGridviewBlackouts.Rows[e.RowIndex]);
+                        break;
+
+                    case System.Windows.Forms.DialogResult.No:
+                        return;
+                }
+            }
+        }
+
+        private void dataGridviewBlackouts_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            switch (MessageBox.Show("This will delete selected blackout - continue?", "Delete Blackout", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                case System.Windows.Forms.DialogResult.Yes:
+                    dataGridviewBlackouts.Rows.Remove(e.Row);
+                    break;
+
+                case System.Windows.Forms.DialogResult.No:
+                    e.Cancel = true;
+                    return;
+            }
+        }
+
+        private void dataGridviewBlackouts_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridviewBlackouts.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                dataGridviewBlackouts.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGridviewBlackouts.Rows[e.RowIndex].Cells[1].Value = "0";
+                
+            }
+        }
+
+        //freenights
+
+        private void dataGridviewFreenights_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridviewFreenights.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewFreenights.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            {
+                dataGridviewFreenights.CurrentCell = (dataGridviewFreenights.Rows.Count == 0) ? dataGridviewFreenights.Rows[0].Cells[0] : null;
+
+                switch (MessageBox.Show("This will delete selected freenight - continue?", "Freenight", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    case System.Windows.Forms.DialogResult.Yes:
+                        dataGridviewFreenights.Rows.Remove((DataGridViewRow)dataGridviewFreenights.Rows[e.RowIndex]);
+                        break;
+
+                    case System.Windows.Forms.DialogResult.No:
+                        return;
+                }
+            }
+        }
+
+        private void dataGridviewFreenights_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            switch (MessageBox.Show("This will delete selected freenight - continue?", "Delete Freenight", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                case System.Windows.Forms.DialogResult.Yes:
+                    dataGridviewFreenights.Rows.Remove(e.Row);
+                    break;
+
+                case System.Windows.Forms.DialogResult.No:
+                    e.Cancel = true;
+                    return;
+            }
+        }
+
+        private void dataGridviewFreenights_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridviewFreenights.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                dataGridviewFreenights.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGridviewFreenights.Rows[e.RowIndex].Cells[1].Value = "0";
+                dataGridviewFreenights.Rows[e.RowIndex].Cells[4].Value = "0";
+                dataGridviewFreenights.Rows[e.RowIndex].Cells[5].Value = "0";
+
+            }
+        }
+
+
+        //discounts
+
+        private void dataGridviewDiscounts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridviewDiscounts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewDiscounts.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            {
+                dataGridviewDiscounts.CurrentCell = (dataGridviewDiscounts.Rows.Count == 0) ? dataGridviewDiscounts.Rows[0].Cells[0] : null;
+
+                switch (MessageBox.Show("This will delete selected discounts - continue?", "Discounts", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    case System.Windows.Forms.DialogResult.Yes:
+                        dataGridviewDiscounts.Rows.Remove((DataGridViewRow)dataGridviewDiscounts.Rows[e.RowIndex]);
+                        break;
+
+                    case System.Windows.Forms.DialogResult.No:
+                        return;
+                }
+            }
+        }
+
+        private void dataGridviewDiscounts_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridviewFreenights.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                dataGridviewDiscounts.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGridviewDiscounts.Rows[e.RowIndex].Cells[1].Value = "0";
+                dataGridviewDiscounts.Rows[e.RowIndex].Cells[4].Value = "0";
+                dataGridviewDiscounts.Rows[e.RowIndex].Cells[5].Value = "%";
+
+            }
+        }
+
+        private void dataGridviewDiscounts_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            switch (MessageBox.Show("This will delete selected discount - continue?", "Delete Discount", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                case System.Windows.Forms.DialogResult.Yes:
+                    dataGridviewDiscounts.Rows.Remove(e.Row);
+                    break;
+
+                case System.Windows.Forms.DialogResult.No:
+                    e.Cancel = true;
+                    return;
+            }
+        }
+
        
         //tripper extras       
 
@@ -2909,110 +2796,23 @@ namespace GulliverII
             }
         }
 
-        //images
-
-        private void dataGridviewImages_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && dataGridviewImages.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridviewImages.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
-            {
-                dataGridviewImages.CurrentCell = (dataGridviewImages.Rows.Count == 0) ? dataGridviewImages.Rows[0].Cells[0] : null;
-
-                switch (MessageBox.Show("This will delete selected image - continue?", "Delete Images", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                {
-                    case System.Windows.Forms.DialogResult.Yes:
-                        dataGridviewImages.Rows.Remove((DataGridViewRow)dataGridviewImages.Rows[e.RowIndex]);
-                        break;
-
-                    case System.Windows.Forms.DialogResult.No:
-                        return;
-                }
-            }
-        }
-
-        private void dataGridviewImages_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dataGridviewImages.Rows[e.RowIndex].Cells[0].Value == null)
-            {
-                dataGridviewImages.Rows[e.RowIndex].Cells[0].Value = "0";
-                dataGridviewImages.Rows[e.RowIndex].Cells[1].Value = "Delete";
-                dataGridviewImages.Rows[e.RowIndex].Cells[2].Value = "";
-                dataGridviewImages.Rows[e.RowIndex].Cells[3].Value = "";
-                dataGridviewImages.Rows[e.RowIndex].Cells[4].Value = "";
-                dataGridviewImages.Rows[e.RowIndex].Cells[5].Value = "";
-            }
-        }
-
-        private void dataGridviewImages_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            switch (MessageBox.Show("This will delete selected Image - continue?", "Delete Images", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-            {
-                case System.Windows.Forms.DialogResult.Yes:
-                    dataGridviewImages.Rows.Remove(e.Row);
-                    break;
-
-                case System.Windows.Forms.DialogResult.No:
-                    e.Cancel = true;
-                    return;
-            }
-        }
-
-        //reviews
-        private void dGVReviews_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (e.RowIndex >= 0 && dGVReviews.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dGVReviews.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
-            {
-                dGVReviews.CurrentCell = (dGVReviews.Rows.Count == 0) ? dGVReviews.Rows[0].Cells[0] : null;
-                try
-                {
-                    switch (MessageBox.Show("This will delete selected review - continue?", "Delete Reviews", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                    {
-                        case System.Windows.Forms.DialogResult.Yes:
-                            dGVReviews.Rows.Remove((DataGridViewRow)dGVReviews.Rows[e.RowIndex]);
-                            break;
-
-                        case System.Windows.Forms.DialogResult.No:
-                            return;
-                    }
-                }
-                catch { }
-            }
-
-        }
-
-        private void dGVReviews_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dGVReviews.Rows[e.RowIndex].Cells[0].Value == null)
-            {
-                dGVReviews.Rows[e.RowIndex].Cells[0].Value = "0";
-                dGVReviews.Rows[e.RowIndex].Cells[1].Value = "Delete";
-                dGVReviews.Rows[e.RowIndex].Cells[2].Value = "";
-                dGVReviews.Rows[e.RowIndex].Cells[3].Value = "";
-                dGVReviews.Rows[e.RowIndex].Cells[4].Value = "0";
-                dGVReviews.Rows[e.RowIndex].Cells[5].Value = "";
-                dGVReviews.Rows[e.RowIndex].Cells[6].Value = "";
-                dGVReviews.Rows[e.RowIndex].Cells[7].Value = "";
-            }
-        }
-
-        private void dGVReviews_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            switch (MessageBox.Show("This will delete selected Review - continue?", "Delete Review", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-            {
-                case System.Windows.Forms.DialogResult.Yes:
-                    dGVReviews.Rows.Remove(e.Row);
-                    break;
-
-                case System.Windows.Forms.DialogResult.No:
-                    e.Cancel = true;
-                    return;
-            }
-        }
        
 
         #endregion
 
         #region SaveMethods
+
+        private void btnSaveDealInstructionInformation_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveDealInstruction();
+                MessageBox.Show("Information has been saved successfully!", "Save!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error while saving the details, please check and try again!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         //tab 1
         public void SaveHotelContracts()
@@ -3070,10 +2870,76 @@ namespace GulliverII
                     manualContract.roomType = txtRoomType.Text.Trim();
                     manualContracts.Add(manualContract);
                 }
-            }
 
-            packageHandler.UpdateManaulHotelContract(manualContracts, deal.id);
+                packageHandler.UpdateManaulHotelContract(manualContracts, deal.id);
+                SaveSupplements();
+                SaveFreenights();
+                SaveBlackouts();
+                SaveDiscounts();
+            }           
         }
+
+        private void SaveSupplements()
+        {
+            List<GulliverLibrary.Supplement> supplements = (from s in this.GulliverIIDS.Supplements
+                                                            select new GulliverLibrary.Supplement
+                                                              {
+                                                                  id = s.id,
+                                                                  fromDate = s.FromDate.Date,
+                                                                  toDate = s.ToDate.Date,
+                                                                  currency = s.Currency,
+                                                                  price = s.PricePerPerson,
+                                                                  Deal = deal
+                                                              }).ToList();
+            packageHandler.UpdateSupplements(supplements, deal.id);
+        }
+
+        public void SaveFreenights()
+        {
+            List<GulliverLibrary.FreeNight> freeNights = (from f in this.GulliverIIDS.Freenights
+                                                            select new GulliverLibrary.FreeNight
+                                                            {
+                                                                id = f.id,
+                                                                fromDate = f.FromDate.Date,
+                                                                toDate = f.ToDate.Date,
+                                                                actual = f.ActualDuration,
+                                                                paid = f.PaidDuration,
+                                                                Deal = deal
+                                                            }).ToList();
+
+            packageHandler.UpdateFreenights(freeNights, deal.id);
+        }
+
+        public void SaveDiscounts()
+        {
+            List<GulliverLibrary.Discount> discounts = (from d in this.GulliverIIDS.Discounts
+                                                        select new GulliverLibrary.Discount
+                                                          {
+                                                              id = d.id,
+                                                              fromDate = d.From.Date,
+                                                              toDate = d.To.Date,
+                                                              discount = d.Discount,
+                                                              Deal = deal,
+                                                              type = (d.Type.Trim() == "%" ? "1" : d.Type.Trim())
+                                                          }).ToList();
+
+            packageHandler.UpdateDiscounts(discounts, deal.id);
+        }
+
+        public void SaveBlackouts()
+        {
+            List<GulliverLibrary.Blackout> balckouts = (from b in this.GulliverIIDS.Blackouts
+                                                        select new GulliverLibrary.Blackout
+                                                          {
+                                                              id = b.id,
+                                                              fromDate = b.FromDate.Date,
+                                                              toDate = b.ToDate.Date,
+                                                              Deal = deal
+                                                          }).ToList();
+
+            packageHandler.UpdateBlackouts(balckouts, deal.id);
+        }
+
 
         public void SaveChildAge()
         {
@@ -3093,55 +2959,62 @@ namespace GulliverII
         //tab 2
         private bool SaveFlights()
         {
-            SetStepProgressBar(progressBarTP2);
-            deal.arrivalAirports = txtArrivalAirports.Text.Trim();
-            deal.startDate = dtpStartDate.Value;
-            deal.endDate = dtpEndDate.Value;
-            deal.durations = string.Join("#", cbDurations.CheckedItems.Cast<string>().ToArray());
-            
-            List<string> departureAirports = new List<string>();
-            departureAirports.AddRange(cbDepartureAirports.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()));
-            departureAirports.AddRange(cbUSAirports.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()));
-            departureAirports.AddRange(cbGermanAirports.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()));
-            departureAirports.AddRange(cbCanadianAirports.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()));
-
-            deal.departureAirports = string.Join("#", departureAirports.Distinct().ToArray());
-            deal.isFAB = cbFlightTypes.GetItemChecked(0);
-            deal.isFlightSheet = cbFlightTypes.GetItemChecked(1);
-            deal.isAmadeus = cbFlightTypes.GetItemChecked(2);
-            deal.isFABMM = cbFlightTypes.GetItemChecked(3);
-            deal.filteredAirlines = string.Join("#", cbAirlines.CheckedItems.Cast<string>().ToArray());
-            deal.baggageType = (rbnBGPP.Checked) ? "1" : ((rbnBGTwo.Checked) ? "2" : "0");
-            deal.filteredWeekdays = string.Join("#", cbWeekDays.CheckedItems.Cast<string>().ToArray());
-            deal.filteredFlightTimesOBDeparture = ftOBDepartureFrom.Text.Trim() + "#" + ftOBDepartureTo.Text.Trim();
-            deal.filteredFlightTimesOBArrival = ftOBArrivalFrom.Text.Trim() + "#" + ftOBArrivalTo.Text.Trim();
-            deal.filteredFlightTimesIBDeparture = ftIBDepartureFrom.Text.Trim() + "#" + ftIBDepartureTo.Text.Trim();
-            deal.filteredFlightTimesIBArrival = ftIBArrivalFrom.Text.Trim() + "#" + ftIBArrivalTo.Text.Trim();
-            deal.lastupdatedTime = DateTime.Now;
-            deal.Media = (ddlMedias.SelectedItem != null) ? gulliverQueryHandler.GetMediaByCode(((ComboBoxItem)ddlMedias.SelectedItem).Value.ToString()) : null;
-            deal.takeFollowingDateFromDeparture = cbTakeFollowingDayFromDeparture.Checked;
-            if (deal.Media == null)
+            try
             {
-                MessageBox.Show("Please select valid media before you go to next step!");
-                return false;
-            }
+                SetStepProgressBar(progressBarTP2);
+                deal.arrivalAirports = txtArrivalAirports.Text.Trim();
+                deal.startDate = dtpStartDate.Value;
+                deal.endDate = dtpEndDate.Value;
+                deal.durations = string.Join("#", cbDurations.CheckedItems.Cast<string>().ToArray());
 
-            deal.DealType = (ddlDealTypes.SelectedItem != null) ? gulliverQueryHandler.GetDealTypeById(Convert.ToInt32(((ComboBoxItem)ddlDealTypes.SelectedItem).Value.ToString())) : null;
-            if (deal.DealType == null)
+                List<string> departureAirports = new List<string>();
+                departureAirports.AddRange(cbDepartureAirports.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()));
+                departureAirports.AddRange(cbUSAirports.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()));
+                departureAirports.AddRange(cbGermanAirports.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()));
+                departureAirports.AddRange(cbCanadianAirports.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()));
+
+                deal.departureAirports = string.Join("#", departureAirports.Distinct().ToArray());
+                deal.isFAB = cbFlightTypes.GetItemChecked(0);
+                deal.isFlightSheet = cbFlightTypes.GetItemChecked(1);
+                deal.isAmadeus = cbFlightTypes.GetItemChecked(2);
+                deal.isFABMM = cbFlightTypes.GetItemChecked(3);
+                deal.filteredAirlines = string.Join("#", cbAirlines.CheckedItems.Cast<string>().ToArray());
+                deal.baggageType = (rbnBGPP.Checked) ? "1" : ((rbnBGTwo.Checked) ? "2" : "0");
+                deal.filteredWeekdays = string.Join("#", cbWeekDays.CheckedItems.Cast<string>().ToArray());
+                deal.filteredFlightTimesOBDeparture = ftOBDepartureFrom.Text.Trim() + "#" + ftOBDepartureTo.Text.Trim();
+                deal.filteredFlightTimesOBArrival = ftOBArrivalFrom.Text.Trim() + "#" + ftOBArrivalTo.Text.Trim();
+                deal.filteredFlightTimesIBDeparture = ftIBDepartureFrom.Text.Trim() + "#" + ftIBDepartureTo.Text.Trim();
+                deal.filteredFlightTimesIBArrival = ftIBArrivalFrom.Text.Trim() + "#" + ftIBArrivalTo.Text.Trim();
+                deal.lastupdatedTime = DateTime.Now;
+                deal.Media = (ddlMedias.SelectedItem != null) ? gulliverQueryHandler.GetMediaByCode(((ComboBoxItem)ddlMedias.SelectedItem).Value.ToString()) : null;
+                deal.takeFollowingDateFromDeparture = cbTakeFollowingDayFromDeparture.Checked;
+                if (deal.Media == null)
+                {
+                    MessageBox.Show("Please select valid media before you go to next step!");
+                    return false;
+                }
+
+                deal.DealType = (ddlDealTypes.SelectedItem != null) ? gulliverQueryHandler.GetDealTypeById(Convert.ToInt32(((ComboBoxItem)ddlDealTypes.SelectedItem).Value.ToString())) : null;
+                if (deal.DealType == null)
+                {
+                    MessageBox.Show("Please select valid deal type before you go to next step!");
+                    return false;
+                }
+
+                dealId = packageHandler.UpdateDeal(deal);
+                deal = packageHandler.GetDealById(dealId);
+                SetStepProgressBar(progressBarTP2);
+                //SaveHotelContracts();
+
+                SetStepProgressBar(progressBarTP2);
+                SaveChildAge();
+                SetStepProgressBar(progressBarTP2);
+                deal = packageHandler.GetDealById(dealId);
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select valid deal type before you go to next step!");
-                return false;
+                MessageBox.Show("Error while saving the details, please check and try again!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            dealId = packageHandler.UpdateDeal(deal);
-            deal = packageHandler.GetDealById(dealId);
-            SetStepProgressBar(progressBarTP2);
-            //SaveHotelContracts();
-
-            SetStepProgressBar(progressBarTP2);
-            SaveChildAge();
-            SetStepProgressBar(progressBarTP2);
-            deal = packageHandler.GetDealById(dealId);
             return true;
         }
 
@@ -3588,12 +3461,11 @@ namespace GulliverII
             }
         }
         
-        #endregion                                         
+        #endregion                                              
 
-        private void txtRoomType_TextChanged(object sender, EventArgs e)
-        {
-            roomTypeCB.DataSource = new List<string>() { string.Empty, txtRoomType.Text.Trim().ToUpper() };
-        }
+    
+
+      
        
     }
 }

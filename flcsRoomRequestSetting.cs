@@ -65,6 +65,7 @@ namespace GulliverII
             roomRequestSetting.emailFrom = txtEmailFrom.Text;
             roomRequestSetting.emailType = (rbnGroup.Checked) ? "Group" : "NotGroup";
             roomRequestSetting.isRoomRequestEnable = cbEnableRoomReservation.Checked;
+            roomRequestSetting.Deal.enableRoomRequest = cbEnableRoomReservation.Checked;
 
             packageHandler.UpdateRoomRequestSetting(roomRequestSetting);
             MessageBox.Show("Details saved successfully!");

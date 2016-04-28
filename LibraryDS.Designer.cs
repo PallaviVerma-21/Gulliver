@@ -353,6 +353,8 @@ namespace GulliverII {
             
             private global::System.Data.DataColumn columnView;
             
+            private global::System.Data.DataColumn columnUpdate_Page;
+            
             private global::System.Data.DataColumn columnid;
             
             private global::System.Data.DataColumn columnSupplier;
@@ -413,6 +415,14 @@ namespace GulliverII {
             public global::System.Data.DataColumn ViewColumn {
                 get {
                     return this.columnView;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Update_PageColumn {
+                get {
+                    return this.columnUpdate_Page;
                 }
             }
             
@@ -509,11 +519,12 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LibraryRow AddLibraryRow(string Delete, string View, int id, string Supplier, string Offer_Name, string Deal_Directory_Name, string On_Sales, string Expired_Date, string Copy) {
+            public LibraryRow AddLibraryRow(string Delete, string View, string Update_Page, int id, string Supplier, string Offer_Name, string Deal_Directory_Name, string On_Sales, string Expired_Date, string Copy) {
                 LibraryRow rowLibraryRow = ((LibraryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Delete,
                         View,
+                        Update_Page,
                         id,
                         Supplier,
                         Offer_Name,
@@ -545,6 +556,7 @@ namespace GulliverII {
             internal void InitVars() {
                 this.columnDelete = base.Columns["Delete"];
                 this.columnView = base.Columns["View"];
+                this.columnUpdate_Page = base.Columns["Update Page"];
                 this.columnid = base.Columns["id"];
                 this.columnSupplier = base.Columns["Supplier"];
                 this.columnOffer_Name = base.Columns["Offer Name"];
@@ -561,6 +573,8 @@ namespace GulliverII {
                 base.Columns.Add(this.columnDelete);
                 this.columnView = new global::System.Data.DataColumn("View", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnView);
+                this.columnUpdate_Page = new global::System.Data.DataColumn("Update Page", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUpdate_Page);
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
                 this.columnSupplier = new global::System.Data.DataColumn("Supplier", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1313,6 +1327,22 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Update_Page {
+                get {
+                    try {
+                        return ((string)(this[this.tableLibrary.Update_PageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Update Page\' in table \'Library\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLibrary.Update_PageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int id {
                 get {
                     try {
@@ -1445,6 +1475,18 @@ namespace GulliverII {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetViewNull() {
                 this[this.tableLibrary.ViewColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUpdate_PageNull() {
+                return this.IsNull(this.tableLibrary.Update_PageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUpdate_PageNull() {
+                this[this.tableLibrary.Update_PageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

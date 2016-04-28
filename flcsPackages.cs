@@ -758,7 +758,7 @@ namespace GulliverII
             int count = 0;
 
             foreach (GulliverLibrary.Package p in packages)
-            {
+            {               
                 this.packagesDS.Package.AddPackageRow("Delete", p.id, count, (p.leading) ? 1 : 0, p.date.ToString("MMMM"), p.date.DayOfWeek.ToString(), p.date, (p.status.Contains("New") ? "NEW" : (p.status.Contains("Not available") ? "STOPPED" : p.status.Contains("increased") ? "UP" : p.status.Contains("decreased") ? "DOWN" : string.Empty)), p.hotelKey, p.departureAirport, p.destinationAirport, p.duration, p.obDepartureTime.Trim(), p.obArrivalTime.Trim(), p.ibDepartureTime.Trim(), p.ibArrivalTime.Trim(), p.board.Trim(), Math.Round(p.flightPrice, 2), p.airline, p.obFlightNo, p.ibFlightNo, p.roomType, p.occupancy, p.adults, p.children, p.infants, Math.Round(p.hotelPrice, 2), Math.Round(p.childHotelPrice, 2), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting, p.carParkingCosting, Math.Round(p.commission, 2), Math.Round(p.profit, 2), Math.Round(p.nett, 2), Convert.ToInt32(p.sellAt), p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), (p.status != null ? p.status : string.Empty), ((p.oldSellAt != null) ? Convert.ToInt32(p.oldSellAt) : 0), p.isStandardRoom);
                 count++;
             }
