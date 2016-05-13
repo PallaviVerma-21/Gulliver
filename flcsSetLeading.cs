@@ -47,21 +47,22 @@ namespace GulliverII
 
         private void flcsSetLeading_FormClosing(object sender, FormClosingEventArgs e)
         {
-            GulliverLibrary.Deal deal = packageHandler.GetDealById(dealId);
+            using (GulliverLibrary.Deal deal = packageHandler.GetDealById(dealId))
+            {
+                leadingPrices = (from l in this.packagesDS1.LeadingPrices
+                                 select new GulliverLibrary.LeadingPrice
+                                 {
+                                     id = l.id,
+                                     Deal = deal,
+                                     duration = l.Duration,
+                                     occupancy = l.Occupancy,
+                                     departureAirport = l.DepartureAirport,
+                                     leadingPrice = l.Leading_Price,
+                                     lockTheLeading = l.LockTheLeading
 
-            leadingPrices = (from l in this.packagesDS1.LeadingPrices
-                             select new GulliverLibrary.LeadingPrice
-                             {
-                                 id = l.id,
-                                 Deal = deal,
-                                 duration = l.Duration,
-                                 occupancy = l.Occupancy,
-                                 departureAirport = l.DepartureAirport,
-                                 leadingPrice = l.Leading_Price,
-                                 lockTheLeading  = l.LockTheLeading
-
-                             }).ToList();
-            packageHandler.UpdateLeadingPrices(leadingPrices, deal.id);
+                                 }).ToList();
+                packageHandler.UpdateLeadingPrices(leadingPrices, deal.id);
+            }
         }
 
         #endregion

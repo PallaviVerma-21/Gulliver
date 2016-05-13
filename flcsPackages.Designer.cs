@@ -32,6 +32,7 @@ namespace GulliverII
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsPackages));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.cbDisableProfitField = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.btnClear10PercentCalculation = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnDelete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.cbFinalizePrices = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
@@ -178,6 +179,7 @@ namespace GulliverII
             // 
             // kryptonPanel
             // 
+            this.kryptonPanel.Controls.Add(this.cbDisableProfitField);
             this.kryptonPanel.Controls.Add(this.btnClear10PercentCalculation);
             this.kryptonPanel.Controls.Add(this.btnDelete);
             this.kryptonPanel.Controls.Add(this.cbFinalizePrices);
@@ -195,12 +197,23 @@ namespace GulliverII
             this.kryptonPanel.Size = new System.Drawing.Size(1440, 780);
             this.kryptonPanel.TabIndex = 0;
             // 
+            // cbDisableProfitField
+            // 
+            this.cbDisableProfitField.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbDisableProfitField.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
+            this.cbDisableProfitField.Location = new System.Drawing.Point(903, 748);
+            this.cbDisableProfitField.Name = "cbDisableProfitField";
+            this.cbDisableProfitField.Size = new System.Drawing.Size(169, 20);
+            this.cbDisableProfitField.TabIndex = 38;
+            this.cbDisableProfitField.Text = "Update only SellAt column";
+            this.cbDisableProfitField.Values.Text = "Update only SellAt column";
+            // 
             // btnClear10PercentCalculation
             // 
             this.btnClear10PercentCalculation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear10PercentCalculation.Location = new System.Drawing.Point(304, 748);
+            this.btnClear10PercentCalculation.Location = new System.Drawing.Point(121, 748);
             this.btnClear10PercentCalculation.Name = "btnClear10PercentCalculation";
-            this.btnClear10PercentCalculation.Size = new System.Drawing.Size(187, 25);
+            this.btnClear10PercentCalculation.Size = new System.Drawing.Size(165, 25);
             this.btnClear10PercentCalculation.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnClear10PercentCalculation.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnClear10PercentCalculation.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -288,7 +301,7 @@ namespace GulliverII
             // lblMsg
             // 
             this.lblMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMsg.Location = new System.Drawing.Point(926, 753);
+            this.lblMsg.Location = new System.Drawing.Point(624, 748);
             this.lblMsg.Name = "lblMsg";
             this.lblMsg.Size = new System.Drawing.Size(113, 20);
             this.lblMsg.TabIndex = 32;
@@ -299,7 +312,7 @@ namespace GulliverII
             // 
             this.cbIncludeNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbIncludeNew.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbIncludeNew.Location = new System.Drawing.Point(737, 753);
+            this.cbIncludeNew.Location = new System.Drawing.Point(752, 748);
             this.cbIncludeNew.Name = "cbIncludeNew";
             this.cbIncludeNew.Size = new System.Drawing.Size(145, 20);
             this.cbIncludeNew.TabIndex = 29;
@@ -310,9 +323,9 @@ namespace GulliverII
             // btnCalculateTenPercentLeading
             // 
             this.btnCalculateTenPercentLeading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCalculateTenPercentLeading.Location = new System.Drawing.Point(511, 748);
+            this.btnCalculateTenPercentLeading.Location = new System.Drawing.Point(292, 748);
             this.btnCalculateTenPercentLeading.Name = "btnCalculateTenPercentLeading";
-            this.btnCalculateTenPercentLeading.Size = new System.Drawing.Size(187, 25);
+            this.btnCalculateTenPercentLeading.Size = new System.Drawing.Size(163, 25);
             this.btnCalculateTenPercentLeading.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnCalculateTenPercentLeading.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.btnCalculateTenPercentLeading.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
@@ -1562,6 +1575,7 @@ namespace GulliverII
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripTextBox txtMarkup;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear10PercentCalculation;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbDisableProfitField;
     }
 }
 

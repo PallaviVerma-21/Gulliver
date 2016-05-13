@@ -27,8 +27,7 @@ namespace GulliverII
             dealPageHandler = new PackageGenerator.PackageHandler(true);
             deal = dealPageHandler.GetDealById(id);
             dataProcessor = new LandingPageHandler.DataProcessor();
-
-            
+                        
             this.tabControl2.DrawMode = TabDrawMode.OwnerDrawFixed;
             this.tabControl2.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl2_DrawItem);
             ddlDurations.DataSource = deal.durations.Split('#').ToList();
@@ -94,8 +93,7 @@ namespace GulliverII
         }
 
         private void FillDealInformation()
-        {
-            
+        {            
             txtMainHeader.Text = (deal.DealInformation.mainHeader != null) ? deal.DealInformation.mainHeader : string.Empty;
             txtSubHeader.Text = (deal.DealInformation.subHeader != null) ? deal.DealInformation.subHeader : string.Empty;
             txtLongitude.Text = (deal.DealInformation.longitude != null) ? deal.DealInformation.longitude : string.Empty;
@@ -106,6 +104,7 @@ namespace GulliverII
             txtOptionalExtras.Text = (deal.DealInformation.optionalExtras != null) ? deal.DealInformation.optionalExtras : string.Empty;
             txtPleasenote.Text = (deal.DealInformation.pleaseNote != null) ? deal.DealInformation.pleaseNote : string.Empty;
             deal.DealInformation.HotelInformation = dealPageHandler.GetHotelInformationByGeoCodes(deal.DealInformation.longitude.Trim(), deal.DealInformation.latitude.Trim());      
+            
             if (deal.DealInformation.HotelInformation != null)
             {
                 txtHotelText.Text = (deal.DealInformation.HotelInformation.hotelBodyText != null) ? deal.DealInformation.HotelInformation.hotelBodyText : string.Empty;
@@ -118,8 +117,7 @@ namespace GulliverII
                 txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
             }
 
-            txtTripAdvisorLink.Text = dealPageHandler.GetLinkByName("Trip Advisor Link", deal.id);   
-            
+            txtTripAdvisorLink.Text = dealPageHandler.GetLinkByName("Trip Advisor Link", deal.id);               
             cmbCurrency.SelectedItem = (deal.DealInformation.dealCurrency == null || deal.DealInformation.dealCurrency == string.Empty) ? "GBP" : deal.DealInformation.dealCurrency.Trim();
             cmbLanuages.SelectedItem = (deal.DealInformation.language == null || deal.DealInformation.language == string.Empty) ? "English" : deal.DealInformation.language;
             ddlPriorities.SelectedItem = (deal.DealInformation.priority != null) ? deal.DealInformation.priority.ToString() : "0";
@@ -199,12 +197,15 @@ namespace GulliverII
         {
             SetStepProgressBar(progressBar);
             List<GulliverLibrary.Link> links = new List<GulliverLibrary.Link>();
-            GulliverLibrary.Link link = new GulliverLibrary.Link();
-            link.name = "YouTube Link";
-            link.Deal = deal;
-            link.url = txtYouTubeLink.Text.Trim();
-            if (link.url.Trim() != string.Empty)
-                links.Add(link);
+
+            using (GulliverLibrary.Link link = new GulliverLibrary.Link())
+            {
+                link.name = "YouTube Link";
+                link.Deal = deal;
+                link.url = txtYouTubeLink.Text.Trim();
+                if (link.url.Trim() != string.Empty)
+                    links.Add(link);
+            }
 
             deal.DealInformation.mainHeader = txtMainHeader.Text.Trim();
             deal.DealInformation.Deal = deal;
@@ -215,31 +216,35 @@ namespace GulliverII
             //deal.DealInformation.HotelInformation = gulliverQueryHandler.GetHotelInformationByGeoCodes(deal.DealInformation.longitude.Trim(), deal.DealInformation.latitude.Trim());
 
 
-            GulliverLibrary.HotelInformation hotelInformation = new GulliverLibrary.HotelInformation();
-            hotelInformation.longitude = txtLongitude.Text.Trim();
-            hotelInformation.latitude = txtLatitude.Text.Trim();
-            hotelInformation.hotelHeader = txtHotelTitle.Text.Trim();
-            hotelInformation.hotelBodyText = txtHotelText.Text.Trim();
-            hotelInformation.destinationText = txtDestinationText.Text.Trim();
-            hotelInformation.countryText = txtCountryText.Text.Trim();
-            hotelInformation.accessibility = txtAccessibilityText.Text;
-            hotelInformation.keyInformation = txtKeyInformationText.Text;
-            hotelInformation.destinationHeader = txtDestinationTitle.Text.Trim();
-            hotelInformation.countryHeader = txtCountryTitle.Text.Trim();
-            dealPageHandler.UpdateHotelInformation(hotelInformation);
+            using (GulliverLibrary.HotelInformation hotelInformation = new GulliverLibrary.HotelInformation())
+            {
+                hotelInformation.longitude = txtLongitude.Text.Trim();
+                hotelInformation.latitude = txtLatitude.Text.Trim();
+                hotelInformation.hotelHeader = txtHotelTitle.Text.Trim();
+                hotelInformation.hotelBodyText = txtHotelText.Text.Trim();
+                hotelInformation.destinationText = txtDestinationText.Text.Trim();
+                hotelInformation.countryText = txtCountryText.Text.Trim();
+                hotelInformation.accessibility = txtAccessibilityText.Text;
+                hotelInformation.keyInformation = txtKeyInformationText.Text;
+                hotelInformation.destinationHeader = txtDestinationTitle.Text.Trim();
+                hotelInformation.countryHeader = txtCountryTitle.Text.Trim();
+                dealPageHandler.UpdateHotelInformation(hotelInformation);
+                deal.DealInformation.HotelInformation = hotelInformation;
+            }
 
-            deal.DealInformation.HotelInformation = hotelInformation;
             deal.DealInformation.introduction = txtDealIntro.Text.Trim();
             deal.DealInformation.childPrices = txtChildPrice.Text.Trim();
             deal.DealInformation.optionalExtras = txtOptionalExtras.Text.Trim();
             deal.DealInformation.pleaseNote = txtPleasenote.Text.Trim();
 
-            GulliverLibrary.Link linkTA = new GulliverLibrary.Link();
-            linkTA.name = "Trip Advisor Link";
-            linkTA.url = txtTripAdvisorLink.Text.Trim();
-            linkTA.Deal = deal;
-            if (linkTA.url.Trim() != string.Empty)
-                links.Add(linkTA);
+            using (GulliverLibrary.Link linkTA = new GulliverLibrary.Link())
+            {
+                linkTA.name = "Trip Advisor Link";
+                linkTA.url = txtTripAdvisorLink.Text.Trim();
+                linkTA.Deal = deal;
+                if (linkTA.url.Trim() != string.Empty)
+                    links.Add(linkTA);
+            }
 
             
             deal.DealInformation.dealCurrency = (cmbCurrency.SelectedItem != null) ? cmbCurrency.SelectedItem.ToString() : "GBP";
@@ -255,26 +260,33 @@ namespace GulliverII
             deal.DealInformation.priority = Convert.ToInt32(ddlPriorities.SelectedItem);
             deal.DealInformation.goLiveOnBestDealPage = cbGoLiveOnBestDealPage.Checked;
 
-            GulliverLibrary.Link linkHW = new GulliverLibrary.Link();
-            linkHW.name = "Hotel Website Link";
-            linkHW.Deal = deal;
-            linkHW.url = txtHotelLink.Text.Trim();
-            if (linkTA.url.Trim() != string.Empty)
-                links.Add(linkHW);
+            using (GulliverLibrary.Link linkHW = new GulliverLibrary.Link())
+            {
+                linkHW.name = "Hotel Website Link";
+                linkHW.Deal = deal;
+                linkHW.url = txtHotelLink.Text.Trim();
+                if (linkHW.url.Trim() != string.Empty)
+                    links.Add(linkHW);
+            }
 
-            GulliverLibrary.Link pageLink = new GulliverLibrary.Link();
-            pageLink.name = "Landing Page Link";
-            pageLink.Deal = deal;
-            pageLink.url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-            if (pageLink.url.Trim() != string.Empty)
-                links.Add(pageLink);
+            using (GulliverLibrary.Link pageLink = new GulliverLibrary.Link())
+            {
+                pageLink.name = "Landing Page Link";
+                pageLink.Deal = deal;
+                pageLink.url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                if (pageLink.url.Trim() != string.Empty)
+                    links.Add(pageLink);
+            }
 
-            GulliverLibrary.Link channelLink = new GulliverLibrary.Link();
-            channelLink.name = "Channel Page Link";
-            channelLink.Deal = deal;
-            channelLink.url = txtChannelLink.Text.Trim();
-            if (channelLink.url.Trim() != string.Empty)
-                links.Add(channelLink);
+
+            using (GulliverLibrary.Link channelLink = new GulliverLibrary.Link())
+            {
+                channelLink.name = "Channel Page Link";
+                channelLink.Deal = deal;
+                channelLink.url = txtChannelLink.Text.Trim();
+                if (channelLink.url.Trim() != string.Empty)
+                    links.Add(channelLink);
+            }
 
             List<GulliverLibrary.Image> dealImages = new List<GulliverLibrary.Image>();
             foreach (GulliverIIDS.ImageRow imageRow in this.gulliverIIDS.Image)
@@ -283,14 +295,16 @@ namespace GulliverII
                 {
                     try
                     {
-                        GulliverLibrary.Image dealImage = new GulliverLibrary.Image();
-                        dealImage.id = imageRow.id;
-                        dealImage.Deal = deal;
-                        dealImage.reference = (imageRow.Reference != null) ? imageRow.Reference : string.Empty;
-                        dealImage.altText = (imageRow.Alt_Text != null) ? imageRow.Alt_Text : string.Empty;
-                        dealImage.description = (imageRow.Description != null) ? imageRow.Description : string.Empty;
-                        dealImage.title = (imageRow.Title != null) ? imageRow.Title : string.Empty;
-                        dealImages.Add(dealImage);
+                        using (GulliverLibrary.Image dealImage = new GulliverLibrary.Image())
+                        {
+                            dealImage.id = imageRow.id;
+                            dealImage.Deal = deal;
+                            dealImage.reference = (imageRow.Reference != null) ? imageRow.Reference : string.Empty;
+                            dealImage.altText = (imageRow.Alt_Text != null) ? imageRow.Alt_Text : string.Empty;
+                            dealImage.description = (imageRow.Description != null) ? imageRow.Description : string.Empty;
+                            dealImage.title = (imageRow.Title != null) ? imageRow.Title : string.Empty;
+                            dealImages.Add(dealImage);
+                        }
                     }
                     catch { }
                 }
@@ -303,16 +317,18 @@ namespace GulliverII
             {
                 try
                 {
-                    GulliverLibrary.Review review = new GulliverLibrary.Review();
-                    review.id = reviewRow.id;
-                    review.Deal = deal;
-                    review.date = reviewRow.Date;
-                    review.source = (reviewRow.Source != null) ? reviewRow.Source : string.Empty;
-                    review.stars = (reviewRow.Stars != null) ? reviewRow.Stars : 0;
-                    review.link = (reviewRow.Link != null) ? reviewRow.Link : string.Empty;
-                    review.text = (reviewRow.Text != null) ? reviewRow.Text : string.Empty;
-                    review.title = (reviewRow.Title != null) ? reviewRow.Title : string.Empty;
-                    dealReviews.Add(review);
+                    using (GulliverLibrary.Review review = new GulliverLibrary.Review())
+                    {
+                        review.id = reviewRow.id;
+                        review.Deal = deal;
+                        review.date = reviewRow.Date;
+                        review.source = (reviewRow.Source != null) ? reviewRow.Source : string.Empty;
+                        review.stars = (reviewRow.Stars != null) ? reviewRow.Stars : 0;
+                        review.link = (reviewRow.Link != null) ? reviewRow.Link : string.Empty;
+                        review.text = (reviewRow.Text != null) ? reviewRow.Text : string.Empty;
+                        review.title = (reviewRow.Title != null) ? reviewRow.Title : string.Empty;
+                        dealReviews.Add(review);
+                    }
                 }
                 catch { }
             }
@@ -429,7 +445,6 @@ namespace GulliverII
 
         private void btnStopPage_Click(object sender, EventArgs e)
         {
-
             if (deal.id != 0)
             {
                 save = true;
@@ -452,15 +467,13 @@ namespace GulliverII
                 MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
         }
        
-
         private void btnSavePage_Click(object sender, EventArgs e)
         {
             lblError.Visible = false;
             lblMessage.Visible = false;
             VisibleProgressBar(progressBar, true);
             System.Threading.Thread.Sleep(500);
-
-
+            
             try
             {
                 if (deal.DealInformation == null)
@@ -492,6 +505,7 @@ namespace GulliverII
                 MessageBox.Show("Error while saving the details, please check and try again!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblError.Visible = true;
             }
+
             VisibleProgressBar(progressBar, false);
         }
 
@@ -510,72 +524,92 @@ namespace GulliverII
 
         private void btnOptionalcostings_Click(object sender, EventArgs e)
         {
-            flcsOptionalExtra objOptionalExtras = new flcsOptionalExtra(optionalCostings, deal.id, dealPageHandler);
-            objOptionalExtras.ShowDialog();
-            optionalCostings = objOptionalExtras.optioanlExtras;
+            using (flcsOptionalExtra objOptionalExtras = new flcsOptionalExtra(optionalCostings, deal.id, dealPageHandler))
+            {
+                objOptionalExtras.ShowDialog();
+                optionalCostings = objOptionalExtras.optioanlExtras;
+            }
         }
 
         private void includesZoomout_Click(object sender, EventArgs e)
         {
-            flcsZoomOut zoomout = new flcsZoomOut(txtDealIntro.Text.Trim(), "What is included");
-            zoomout.ShowDialog();
-            txtDealIntro.Text = zoomout.text.Trim();
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtDealIntro.Text.Trim(), "What is included"))
+            {
+                zoomout.ShowDialog();
+                txtDealIntro.Text = zoomout.text.Trim();
+            }
         }
 
         private void toolChildPrices_Click(object sender, EventArgs e)
         {
-            flcsZoomOut zoomout = new flcsZoomOut(txtChildPrice.Text.Trim(), "Child Price");
-            zoomout.ShowDialog();
-            txtChildPrice.Text = zoomout.text.Trim();
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtChildPrice.Text.Trim(), "Child Price"))
+            {
+                zoomout.ShowDialog();
+                txtChildPrice.Text = zoomout.text.Trim();
+            }
         }
 
         private void toolOptionalExtras_Click(object sender, EventArgs e)
         {
-            flcsZoomOut zoomout = new flcsZoomOut(txtOptionalExtras.Text.Trim(), "Optional Extras");
-            zoomout.ShowDialog();
-            txtOptionalExtras.Text = zoomout.text.Trim();
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtOptionalExtras.Text.Trim(), "Optional Extras"))
+            {
+                zoomout.ShowDialog();
+                txtOptionalExtras.Text = zoomout.text.Trim();
+            }
         }
 
         private void toolPleasenote_Click(object sender, EventArgs e)
         {
-            flcsZoomOut zoomout = new flcsZoomOut(txtPleasenote.Text.Trim(), "Please Note");
-            zoomout.ShowDialog();
-            txtPleasenote.Text = zoomout.text.Trim();
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtPleasenote.Text.Trim(), "Please Note"))
+            {
+                zoomout.ShowDialog();
+                txtPleasenote.Text = zoomout.text.Trim();
+            }
         }
 
         private void toolHotelText_Click(object sender, EventArgs e)
         {
-            flcsZoomOut zoomout = new flcsZoomOut(txtHotelText.Text.Trim(), "Hotel Text");
-            zoomout.ShowDialog();
-            txtHotelText.Text = zoomout.text.Trim();
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtHotelText.Text.Trim(), "Hotel Text"))
+            {
+                zoomout.ShowDialog();
+                txtHotelText.Text = zoomout.text.Trim();
+            }
         }
 
         private void toolDestinationText_Click(object sender, EventArgs e)
         {
-            flcsZoomOut zoomout = new flcsZoomOut(txtDestinationText.Text.Trim(), "Destination Text");
-            zoomout.ShowDialog();
-            txtDestinationText.Text = zoomout.text.Trim();
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtDestinationText.Text.Trim(), "Destination Text"))
+            {
+                zoomout.ShowDialog();
+                txtDestinationText.Text = zoomout.text.Trim();
+            }
         }
 
         private void toolCountryText_Click(object sender, EventArgs e)
         {
-            flcsZoomOut zoomout = new flcsZoomOut(txtCountryText.Text.Trim(), "Country Text");
-            zoomout.ShowDialog();
-            txtCountryText.Text = zoomout.text.Trim();
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtCountryText.Text.Trim(), "Country Text"))
+            {
+                zoomout.ShowDialog();
+                txtCountryText.Text = zoomout.text.Trim();
+            }
         }
 
         private void toolKeyInformationText_Click(object sender, EventArgs e)
         {
-            flcsZoomOut zoomout = new flcsZoomOut(txtKeyInformationText.Text.Trim(), "Key Information");
-            zoomout.ShowDialog();
-            txtKeyInformationText.Text = zoomout.text.Trim();
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtKeyInformationText.Text.Trim(), "Key Information"))
+            {
+                zoomout.ShowDialog();
+                txtKeyInformationText.Text = zoomout.text.Trim();
+            }
         }
 
         private void toolAccessibilityText_Click(object sender, EventArgs e)
         {
-            flcsZoomOut zoomout = new flcsZoomOut(txtAccessibilityText.Text.Trim(), "Accessibility");
-            zoomout.ShowDialog();
-            txtAccessibilityText.Text = zoomout.text.Trim();
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtAccessibilityText.Text.Trim(), "Accessibility"))
+            {
+                zoomout.ShowDialog();
+                txtAccessibilityText.Text = zoomout.text.Trim();
+            }
         }
 
         private void btnUpdateFleetwayPage_Click(object sender, EventArgs e)

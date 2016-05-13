@@ -3198,7 +3198,7 @@ namespace GulliverII {
             public string roomType {
                 get {
                     try {
-                        return ((string)(this[this.tablePackage.roomTypeColumn]));
+                        return ((!this.IsroomTypeNull())? (string)(this[this.tablePackage.roomTypeColumn]):string.Empty);
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'roomType\' in table \'Package\' is DBNull.", e);

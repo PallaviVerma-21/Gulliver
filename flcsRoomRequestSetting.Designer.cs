@@ -326,7 +326,7 @@ namespace GulliverII
             this.Name = "flcsRoomRequestSetting";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Load += new System.EventHandler(this.flcsRoomRequestSetting_Load);
+            //this.Load += new System.EventHandler(this.flcsRoomRequestSetting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
             this.kryptonPanel.PerformLayout();

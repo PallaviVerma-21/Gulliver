@@ -56,12 +56,17 @@ namespace GulliverII
 
 
             System.IO.File.Copy(ConfigurationManager.AppSettings["GulliverSettingFlies"].ToString() + "\\settings.ini", PackageGenerator.Tool.userSettingFilePath + "\\settings.ini", true);
-            System.IO.StreamReader reader = new StreamReader(PackageGenerator.Tool.userSettingFilePath + "\\settings.ini");
-            string s = reader.ReadToEnd().Replace("%APPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            reader.Close();
-            System.IO.StreamWriter writer = new StreamWriter(PackageGenerator.Tool.userSettingFilePath + "\\settings.ini", false);
-            writer.WriteLine(s);
-            writer.Close();
+            using (System.IO.StreamReader reader = new StreamReader(PackageGenerator.Tool.userSettingFilePath + "\\settings.ini"))
+            {
+                string s = reader.ReadToEnd().Replace("%APPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+                reader.Close();
+
+                using (System.IO.StreamWriter writer = new StreamWriter(PackageGenerator.Tool.userSettingFilePath + "\\settings.ini", false))
+                {
+                    writer.WriteLine(s);
+                    writer.Close();
+                }
+            }
 
             if (!Directory.Exists("C:\\TEMP"))
                 Directory.CreateDirectory("C:\\TEMP");
@@ -97,8 +102,7 @@ namespace GulliverII
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            flcsLibrary libraryWindow = new flcsLibrary();
-            libraryWindow.ShowDialog();
+            using(flcsLibrary libraryWindow = new flcsLibrary()) libraryWindow.ShowDialog();            
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -114,14 +118,12 @@ namespace GulliverII
 
         private void mixAndMatchFlightsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsMain formMain = new flcsMain();
-            formMain.ShowDialog();
+            using (flcsMain formMain = new flcsMain()) formMain.ShowDialog();        
         }
 
         private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsLibrary libraryWindow = new flcsLibrary();
-            libraryWindow.ShowDialog();
+            using(flcsLibrary libraryWindow = new flcsLibrary()) libraryWindow.ShowDialog();           
         }
 
         private void exitToolStripMenuItem2_Click(object sender, EventArgs e)

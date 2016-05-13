@@ -106,11 +106,13 @@ namespace GulliverII
 
             foreach (LibraryDS.CurrencyRow row in this.libraryDS.Currency.Where(c => !c.IsCurrencyNull()))
             {
-                GulliverLibrary.Currency currency = new GulliverLibrary.Currency();
-                currency.currency = row.Currency.Trim();
-                currency.exchangeRate = row.ExchangeRate;
-                currency.sellAtRate = row.SellAtRate;
-                currencys.Add(currency);
+                using (GulliverLibrary.Currency currency = new GulliverLibrary.Currency())
+                {
+                    currency.currency = row.Currency.Trim();
+                    currency.exchangeRate = row.ExchangeRate;
+                    currency.sellAtRate = row.SellAtRate;
+                    currencys.Add(currency);
+                }
             }
 
             return currencys;

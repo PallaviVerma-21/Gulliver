@@ -90,9 +90,7 @@ namespace GulliverII
                     }
                     catch { }
                 }
-            }
-
-            //FillMedias(txtSearchbox.Text.Trim());
+            }            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -108,10 +106,12 @@ namespace GulliverII
 
             foreach (LibraryDS.BaggageRow row in this.libraryDS.Baggage.Where(b => b.airline != null))
             {
-                GulliverLibrary.BaggagePrice baggage = new GulliverLibrary.BaggagePrice();
-                baggage.airline = row.airline.Trim();
-                baggage.price = row.price;
-                baggages.Add(baggage);
+                using (GulliverLibrary.BaggagePrice baggage = new GulliverLibrary.BaggagePrice())
+                {
+                    baggage.airline = row.airline.Trim();
+                    baggage.price = row.price;
+                    baggages.Add(baggage);
+                }
             }
 
             return baggages;

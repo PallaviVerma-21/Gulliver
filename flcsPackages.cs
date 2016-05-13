@@ -8,10 +8,11 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using DataGridViewAutoFilter;
 using System.Linq;
+using PackageGenerator;
 
 namespace GulliverII
 {
-    public partial class flcsPackages : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class flcsPackages : ComponentFactory.Krypton.Toolkit.KryptonForm , IDisposable
     {
         private int dealId;
         private PackageGenerator.PackageHandler packageHandler;
@@ -36,7 +37,6 @@ namespace GulliverII
           timesSuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers");
           seSupplier = PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers");
           this.packageHandler = packageHandler;
-              //= new PackageGenerator.PackageHandler();
           deal = packageHandler.GetDealById(dealId);
           icosting = PackageGenerator.FactoryCosting.GetCostingOBj(deal.Media.id, deal.id);
           this.dealId = dealId;
@@ -105,7 +105,8 @@ namespace GulliverII
                 dataGridViewHolidays.Rows.Cast<DataGridViewRow>().Select(row => row.Cells[Summary.Name]).Where(cell => cell.Value != null && cell.Value.ToString().Contains("NEW")).ToList().ForEach(cell => cell.Style.BackColor = Color.Blue);
             }
 
-           dataGridViewHolidays.Rows.Cast<DataGridViewRow>().Where(row => row.Cells[flightId.Name].Value != null && row.Cells[flightId.Name].Value.ToString() == "1").Select(row => row.Cells[sellAt.Name]).ToList().ForEach(cell => cell.Style.BackColor = Color.Orange);
+            if (Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(supplierId))
+            dataGridViewHolidays.Rows.Cast<DataGridViewRow>().Where(row => row.Cells[flightId.Name].Value != null && row.Cells[flightId.Name].Value.ToString() == "1").Select(row => row.Cells[sellAt.Name]).ToList().ForEach(cell => cell.Style.BackColor = Color.Orange);
         }
 
         private void showAllLabelH_Click(object sender, EventArgs e)
@@ -120,6 +121,7 @@ namespace GulliverII
                 MessageBox.Show("Please clear previous calculation before recalculate!", "10% Leading Calculation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
             lblMsg.Text = "Processing ...";
             lblMsg.Visible = true;
             progressBar.Visible = true;
@@ -156,9 +158,12 @@ namespace GulliverII
 
         private void manipulateDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsFilterColumns objFilterColumn = new flcsFilterColumns(this.packagesDS.PackageBackup.Columns.Cast<DataColumn>().Select(c => c.ColumnName).ToList(), visibleColumns);
-            objFilterColumn.ShowDialog();
-            visibleColumns = objFilterColumn.visibleColumns;
+            using (flcsFilterColumns objFilterColumn = new flcsFilterColumns(this.packagesDS.PackageBackup.Columns.Cast<DataColumn>().Select(c => c.ColumnName).ToList(), visibleColumns))
+            {
+                objFilterColumn.ShowDialog();
+                visibleColumns = objFilterColumn.visibleColumns;
+            }
+            
             VisibleColumns();
         }
 
@@ -184,8 +189,7 @@ namespace GulliverII
         
         private void setLeadingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsSetLeading setLeadings = new flcsSetLeading(dealId, packageHandler);
-            setLeadings.ShowDialog();
+           using( flcsSetLeading setLeadings = new flcsSetLeading(dealId, packageHandler))setLeadings.ShowDialog();
         }
 
         private void btnPackageColumnShow_MouseClick(object sender, MouseEventArgs e)
@@ -350,18 +354,29 @@ namespace GulliverII
 
                     foreach (PackagesDS.PackageRow h in this.packagesDS.Package.Where(h => ids.Any(i => i == h.hiddenNumber)).ToList())
                     {
-                        GulliverLibrary.Package package = new GulliverLibrary.Package();
-                        package.commission = h.commission;
-                        package.nett = h.nett;
-                        package.sellAt = h.sellAt;
-                        package.profit = h.profit;
+                        if (!cbDisableProfitField.Checked)
+                        {
+                            GulliverLibrary.Package package = new GulliverLibrary.Package();
+                            package.commission = h.commission;
+                            package.nett = h.nett;
+                            package.sellAt = h.sellAt;
+                            package.profit = h.profit;
 
-                         package = icosting.CalculateFinalCostings(package,deal.commission,"sellat",Convert.ToDecimal(txtValue.Text.Trim()));
-                         h.sellAt = package.sellAt;
-                         h.nett = package.nett;
-                         h.commission = package.commission;
-                         h.profit = package.profit;
-                         progressBar.Value++;
+
+                            GulliverLibrary.Package packageI = icosting.CalculateFinalCostings(package, deal.commission, "sellat", Convert.ToDecimal(txtValue.Text.Trim()));
+                            h.sellAt = packageI.sellAt;
+                            h.nett = packageI.nett;
+                            h.commission = packageI.commission;
+                            h.profit = packageI.profit;
+                        }
+                        else
+                        {
+                           h.sellAt = Convert.ToDecimal(txtValue.Text.Trim());
+                           h.flightId = 1;
+                                                  
+                        }
+                        progressBar.Value++;
+
                     }
                 }
 
@@ -394,17 +409,26 @@ namespace GulliverII
                 {
                     foreach (PackagesDS.PackageRow h in this.packagesDS.Package.Where(h => ids.Any(i => i == h.hiddenNumber)).ToList())
                     {
-                        GulliverLibrary.Package package = new GulliverLibrary.Package();
-                        package.commission = h.commission;
-                        package.nett = h.nett;
-                        package.sellAt = h.sellAt;
-                        package.profit = h.profit;
+                       // using (
 
-                        package = icosting.CalculateFinalCostings(package, deal.commission, "commission", Convert.ToDecimal(txtCommission.Text.Trim().Replace("%", string.Empty)));
-                        h.sellAt = package.sellAt;
-                        h.nett = package.nett;
-                        h.commission = package.commission;
-                        h.profit = package.profit;
+                        GulliverLibrary.Package package = new GulliverLibrary.Package();
+                        //{
+                            package.commission = h.commission;
+                            package.nett = h.nett;
+                            package.sellAt = h.sellAt;
+                            package.profit = h.profit;
+
+                            //using (
+
+                            GulliverLibrary.Package packageI = icosting.CalculateFinalCostings(package, deal.commission, "commission", Convert.ToDecimal(txtCommission.Text.Trim().Replace("%", string.Empty)));
+
+                            //{
+                                h.sellAt = packageI.sellAt;
+                                h.nett = packageI.nett;
+                                h.commission = packageI.commission;
+                                h.profit = packageI.profit;
+                            //}
+                        //}
                     }
                 }
 
@@ -436,19 +460,29 @@ namespace GulliverII
                 {
                     foreach (PackagesDS.PackageRow h in this.packagesDS.Package.Where(h => ids.Any(i => i == h.hiddenNumber)).ToList())
                     {
-                        GulliverLibrary.Package package = new GulliverLibrary.Package();
-                        package.commission = h.commission;
-                        package.nett = h.nett;
-                        package.totalMarkup = h.totalMarkup;
-                        package.sellAt = h.sellAt;
-                        package.profit = h.profit;
+                        //using (
 
-                        package = icosting.CalculateFinalCostings(package, deal.commission, "markup", Convert.ToDecimal(txtMarkup.Text.Trim()));
-                        h.sellAt = package.sellAt;
-                        h.nett = package.nett;
-                        h.totalMarkup = package.totalMarkup;
-                        h.commission = package.commission;
-                        h.profit = package.profit;
+                        GulliverLibrary.Package package = new GulliverLibrary.Package();
+                        //)
+                        //{
+                            package.commission = h.commission;
+                            package.nett = h.nett;
+                            package.totalMarkup = h.totalMarkup;
+                            package.sellAt = h.sellAt;
+                            package.profit = h.profit;
+
+                            //using (
+
+                            GulliverLibrary.Package packageI = icosting.CalculateFinalCostings(package, deal.commission, "markup", Convert.ToDecimal(txtMarkup.Text.Trim()));
+
+                            //{
+                                h.sellAt = packageI.sellAt;
+                                h.nett = packageI.nett;
+                                h.totalMarkup = packageI.totalMarkup;
+                                h.commission = packageI.commission;
+                                h.profit = packageI.profit;
+                            //}
+                       // }
                     }
                 }
 
@@ -490,9 +524,11 @@ namespace GulliverII
 
                 foreach (string column in cbPackageColumns.CheckedItems)
                 {
-                    DataGridViewColumn dataGridViewColumn = dataGridViewHolidays.Columns.Cast<DataGridViewColumn>().SingleOrDefault(c => c.HeaderText.ToString() == column);
-                    if (dataGridViewColumn != null)
-                        dataGridViewColumn.Visible = true;
+                    using (DataGridViewColumn dataGridViewColumn = dataGridViewHolidays.Columns.Cast<DataGridViewColumn>().SingleOrDefault(c => c.HeaderText.ToString() == column))
+                    {
+                        if (dataGridViewColumn != null)
+                            dataGridViewColumn.Visible = true;
+                    }
                 }
             }
             else
@@ -507,6 +543,7 @@ namespace GulliverII
         private List<GulliverLibrary.Package> ReadPackagesByGridview()
         {
             int count = 1;
+            bool travelzooSupplier = Tool.GetTravelzooFilePath().Split(',').Contains(deal.Media.id.ToString());
 
             List<GulliverLibrary.Package> packages = new List<GulliverLibrary.Package>();
             packages = (from h in this.packagesDS.Package
@@ -547,7 +584,7 @@ namespace GulliverII
                             status = h.status,
                             carhireCosting = h.carhireCosting,
                             carParkingCosting = h.carParkingCosting,
-                            profit = h.profit,
+                            profit = (h.flightId == 1 && travelzooSupplier)? Math.Round( h.sellAt - h.nett,2): h.profit,
                             hotelKey = h.hotelKey,
                             leading = (h.flightId == 1) ? true : false,
                             oldSellAt = h.oldSellAt,
@@ -691,21 +728,25 @@ namespace GulliverII
             {
                 btnCalculateTenPercentLeading.Visible = true;
                 btnClear10PercentCalculation.Visible = false;
+                cbDisableProfitField.Visible  = false;
             }
             else if (travelZooSuppliers.Contains(supplierId))
             {
                 btnCalculateTenPercentLeading.Visible = false;
                 btnClear10PercentCalculation.Visible = false;
+                cbDisableProfitField.Visible = true;
             }
             else if ((timesSuppliers.Contains(supplierId)))
             {
                 btnCalculateTenPercentLeading.Visible = false;
                 btnClear10PercentCalculation.Visible = false;
+                cbDisableProfitField.Visible = false;
             }
             else
             {
                 btnCalculateTenPercentLeading.Visible = false;
                 btnClear10PercentCalculation.Visible = false;
+                cbDisableProfitField.Visible = false;
             }
         }
 
@@ -800,5 +841,17 @@ namespace GulliverII
         }
 
         #endregion           
+
+          public void Dispose()
+        {
+           GC.Collect();
+           GC.WaitForPendingFinalizers();
+           GC.Collect();
+        }
+
+        ~flcsPackages()
+        {
+          Dispose();
+        }
     }
 }

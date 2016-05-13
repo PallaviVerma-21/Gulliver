@@ -12,6 +12,7 @@ namespace GulliverII
     public partial class flcsRoomRequestSetting : ComponentFactory.Krypton.Toolkit.KryptonForm
     {
         private string id;
+        private int dealId;
         private PackageGenerator.PackageHandler packageHandler;
         private GulliverLibrary.HotelContract hotelContract;
         private GulliverLibrary.RoomRequestSetting roomRequestSetting;
@@ -19,14 +20,19 @@ namespace GulliverII
         public flcsRoomRequestSetting(string id, int dealId)
         {
            this.id = id;
+           this.dealId = dealId;
            packageHandler = new PackageGenerator.PackageHandler(false);
            hotelContract = packageHandler.GetHotelContractByRecno(Convert.ToInt32(id), dealId);
+            if(hotelContract != null)
            roomRequestSetting = packageHandler.GetRoomRequestSettingByContractIdAndDeal(hotelContract.id, hotelContract.Deal.id);
+            else
+            roomRequestSetting = packageHandler.GetRoomRequestSettingByContractIdAndDeal(Convert.ToInt32(id), dealId);
            InitializeComponent();
            FillRoomRequestSettings();
         }
 
         #region methods
+     
         private void FillRoomRequestSettings()
         {
             if (roomRequestSetting != null)
@@ -56,8 +62,16 @@ namespace GulliverII
             if (roomRequestSetting == null)
             {
                 roomRequestSetting = new GulliverLibrary.RoomRequestSetting();
-                roomRequestSetting.Deal = hotelContract.Deal;
-                roomRequestSetting.offercontractId = hotelContract.id;
+                if (hotelContract != null)
+                {
+                   roomRequestSetting.Deal = hotelContract.Deal;
+                   roomRequestSetting.offercontractId = hotelContract.id;
+                }
+                else
+                {
+                   roomRequestSetting.Deal = packageHandler.GetDealById(dealId);
+                   roomRequestSetting.offercontractId = 0;
+                }                
             }
 
             roomRequestSetting.emailTo = string.Join("#", txtEmailTo.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None));
@@ -81,9 +95,6 @@ namespace GulliverII
         }
         #endregion
 
-        private void flcsRoomRequestSetting_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

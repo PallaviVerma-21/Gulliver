@@ -14,36 +14,36 @@ using DataGridViewAutoFilter;
 
 namespace GulliverII
 {
-    public partial class flcsLibrary : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class flcsLibrary : ComponentFactory.Krypton.Toolkit.KryptonForm, IDisposable
     {
         PackageGenerator.PackageHandler packageHandler;
       
         public flcsLibrary()
         {
-           InitializeComponent();
-           packageHandler = new PackageGenerator.PackageHandler(false);
-           DisplayAllPackageOffers(true);                   
+          InitializeComponent();
+          packageHandler = new PackageGenerator.PackageHandler(false);
+          DisplayAllPackageOffers(true);                   
         }
 
         #region methods
 
         private void DisplayAllPackageOffers(bool first)
         {
-            libraryProgressbar.PerformStep();
-            packageHandler = new PackageGenerator.PackageHandler(true);
-            List<GulliverLibrary.Deal> deals = packageHandler.GetFilteredPackageOffers(txtSearch.Text.Trim().ToUpper(), cbShowAll.Checked);
+           libraryProgressbar.PerformStep();
+           packageHandler = new PackageGenerator.PackageHandler(true);
+           List<GulliverLibrary.Deal> deals = packageHandler.GetFilteredPackageOffers(txtSearch.Text.Trim().ToUpper(), cbShowAll.Checked);
 
             if (first)
             {
-              List<GulliverLibrary.Media> medias = deals.Select(p => p.Media).Distinct().ToList();
-              FillSuppliers(medias);
+                List<GulliverLibrary.Media> medias = deals.Select(p => p.Media).Distinct().ToList();
+                FillSuppliers(medias);                             
             }
 
             if (cmbSuppliers.SelectedItem != null)
             {
                int supplierId = Convert.ToInt32(((ComboBoxItem)cmbSuppliers.SelectedItem).Value);
                
-                if (supplierId != 0)
+               if (supplierId != 0)
                     deals = deals.Where(p => p.Media.id == supplierId).ToList();
             }
 
@@ -52,24 +52,29 @@ namespace GulliverII
            
             foreach (GulliverLibrary.Deal deal in deals.OrderByDescending(p => p.dateOfPromotion))
                 this.libraryDS.Library.AddLibraryRow("Delete", "View", "Update", deal.id, deal.Media.supplier.Trim(), deal.name.Trim(), string.Empty , deal.dateOfPromotion.ToString("dd/MM/yyyy"), deal.endDateOfPromotion.ToString("dd/MM/yyyy"), "Copy");
-
+            
             libraryProgressbar.PerformStep();
+            packageHandler.Dispose();
         }
 
         private void FillSuppliers(List<GulliverLibrary.Media> medias)
         {
             cmbSuppliers.Items.Clear();
             ComboBoxItem itemI = new ComboBoxItem();
-            itemI.Text = "ALL";
-            itemI.Value = "0";
-            cmbSuppliers.Items.Add(itemI);
+            
+                itemI.Text = "ALL";
+                itemI.Value = "0";
+                cmbSuppliers.Items.Add(itemI);
+            
 
             foreach (GulliverLibrary.Media media in medias.OrderBy(s => s.supplier))
             {
-              ComboBoxItem item = new ComboBoxItem();
-              item.Text = media.supplier.Trim();
-              item.Value = media.id;
-              cmbSuppliers.Items.Add(item);
+                ComboBoxItem item = new ComboBoxItem();
+                
+                    item.Text = media.supplier.Trim();
+                    item.Value = media.id;
+                    cmbSuppliers.Items.Add(item);
+                
             }
         }
 
@@ -103,6 +108,7 @@ namespace GulliverII
                          if (packageHandler == null)
                             packageHandler = new PackageGenerator.PackageHandler(false);
                          packageHandler.DeleteDealById(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value), libraryProgressbar);
+                         packageHandler.Dispose();
                          DisplayAllPackageOffers(false);
                        StopProgressBar();
                         break;
@@ -117,6 +123,7 @@ namespace GulliverII
                 //ProgressBar();
                 flcsMain flcsMain = new flcsMain(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value));
                 flcsMain.ShowDialog();
+                flcsMain.Dispose();
                 DisplayAllPackageOffers(false);
                 StopProgressBar();
 
@@ -124,8 +131,7 @@ namespace GulliverII
             else if (e.RowIndex != -1 && dataGridViewLibrary.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridViewLibrary.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Update")
             {
                 StartProgressBar(2);
-                flcsDealPage flcsDealPage = new flcsDealPage(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value));
-                flcsDealPage.ShowDialog();
+                using( flcsDealPage flcsDealPage = new flcsDealPage(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value))) flcsDealPage.ShowDialog();
                 StopProgressBar();
 
             }
@@ -139,6 +145,7 @@ namespace GulliverII
                         if (packageHandler == null)
                             packageHandler = new PackageGenerator.PackageHandler(false);
                         packageHandler.CopyDeal(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value), libraryProgressbar);
+                        packageHandler.Dispose();
                         cbShowAll.Checked = true;
                         DisplayAllPackageOffers(false);
                        StopProgressBar();
@@ -176,9 +183,11 @@ namespace GulliverII
         private void newOfferToolStripMenuItem_Click(object sender, EventArgs e)
         {
            StartProgressBar(2);
-           flcsMain formMain = new flcsMain();
-           StopProgressBar();
-           formMain.ShowDialog();
+           using (flcsMain formMain = new flcsMain())
+           {
+               StopProgressBar();
+               formMain.ShowDialog();
+           }
            DisplayAllPackageOffers(false);
         }
 
@@ -216,38 +225,29 @@ namespace GulliverII
            MessageBox.Show("Started updating ELB website, you'll receive the updated email in few minutes!", "LHC/ELB Data Import", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void existToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void mediasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsMedias mediaForm = new flcsMedias();
-            mediaForm.ShowDialog();
+            using(flcsMedias mediaForm = new flcsMedias()) mediaForm.ShowDialog();
         }
 
         private void baggagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsBaggages baggagesForm = new flcsBaggages();
-            baggagesForm.ShowDialog();
+            using(flcsBaggages baggagesForm = new flcsBaggages())baggagesForm.ShowDialog();
         }
 
         private void currencyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsCurrency currencyForm = new flcsCurrency();
-            currencyForm.ShowDialog();
+           using(flcsCurrency currencyForm = new flcsCurrency()) currencyForm.ShowDialog();
         }
 
         private void fABSettingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsFABSetting fabSettingForm = new flcsFABSetting();
-            fabSettingForm.ShowDialog();
+           using(flcsFABSetting fabSettingForm = new flcsFABSetting()) fabSettingForm.ShowDialog();
         }
 
         private void showAllLabel_Click(object sender, EventArgs e)
         {
-            DataGridViewAutoFilterTextBoxColumn.RemoveFilter(dataGridViewLibrary);
+           DataGridViewAutoFilterTextBoxColumn.RemoveFilter(dataGridViewLibrary);
         }
 
         private void dataGridViewLibrary_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -269,7 +269,7 @@ namespace GulliverII
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            DisplayAllPackageOffers(false);
+          DisplayAllPackageOffers(false);
         }
 
         private void cmbSuppliers_SelectedIndexChanged(object sender, EventArgs e)
@@ -278,5 +278,17 @@ namespace GulliverII
         }
 
         #endregion    
+
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+        }
+
+        ~flcsLibrary()
+        {
+          Dispose();
+        }
     }
 }

@@ -9,7 +9,7 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace GulliverII
 {
-    public partial class flcsFABSetting : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class flcsFABSetting : ComponentFactory.Krypton.Toolkit.KryptonForm 
     {
         GulliverLibrary.QueryHandler gulliverQueryHandler;
 
@@ -31,13 +31,17 @@ namespace GulliverII
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            GulliverLibrary.MiscSetting miscSetting = gulliverQueryHandler.GetMiscSettingByName("fabServer");
-            miscSetting.value = (ddlFABServer.SelectedItem.ToString() == "Zara") ? "http://172.16.7.4/FindAndBook" : "http://172.16.7.14/FindAndBook";
-            gulliverQueryHandler.SaveMisSetting(miscSetting);
+            using (GulliverLibrary.MiscSetting miscSetting = gulliverQueryHandler.GetMiscSettingByName("fabServer"))
+            {
+                miscSetting.value = (ddlFABServer.SelectedItem.ToString() == "Zara") ? "http://172.16.7.4/FindAndBook" : "http://172.16.7.14/FindAndBook";
+                gulliverQueryHandler.SaveMisSetting(miscSetting);
+            }
 
-            GulliverLibrary.MiscSetting miscSettingII = gulliverQueryHandler.GetMiscSettingByName("maxDaysForRequest");
-            miscSettingII.value = ddlMaxDaysPerRequest.SelectedItem.ToString();
-            gulliverQueryHandler.SaveMisSetting(miscSettingII);
+            using (GulliverLibrary.MiscSetting miscSettingII = gulliverQueryHandler.GetMiscSettingByName("maxDaysForRequest"))
+            {
+                miscSettingII.value = ddlMaxDaysPerRequest.SelectedItem.ToString();
+                gulliverQueryHandler.SaveMisSetting(miscSettingII);
+            }
             this.Close();
         }
     }

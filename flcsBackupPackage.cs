@@ -44,45 +44,47 @@ namespace GulliverII
 
         private void RestorePackages()
         {
-            GulliverLibrary.Deal deal = packageHandler.GetDealById(dealId);
-            travelZooSuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("traveltypesuppliers");
-            timesSuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers");
-            seSupplier = PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers");
+            using (GulliverLibrary.Deal deal = packageHandler.GetDealById(dealId))
+            {
+                travelZooSuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("traveltypesuppliers");
+                timesSuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers");
+                seSupplier = PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers");
 
-            packages = (from h in packageBackups
-                        select new GulliverLibrary.Package
-                        {
-                            id = h.id,
-                            date = h.date,
-                            departureAirport = h.departureAirport,
-                            destinationAirport = h.destinationAirport,
-                            duration = h.duration,
-                            obDepartureTime = h.obDepartureTime,
-                            obArrivalTime = h.obArrivalTime,
-                            ibDepartureTime = h.ibDepartureTime,
-                            ibArrivalTime = h.ibArrivalTime,
-                            board = h.board,
-                            flightPrice = h.flightPrice,
-                            airline = h.airline,
-                            hotelPrice = h.hotelPrice,
-                            caa = h.caa,
-                            baggagePrice = h.baggagePrice,
-                            transfers = h.transfers,
-                            extras = h.extras,
-                            totalMarkup = h.totalMarkup,
-                            commission = h.commission,
-                            nett = h.nett,
-                            sellAt = h.sellAt,
-                            searchType = h.searchType,
-                            Deal = deal,
-                            status = h.status,
-                            carhireCosting = h.carhireCosting,
-                            carParkingCosting = (h.extras - (h.caa + h.baggagePrice + h.transfers + h.carhireCosting)),
-                            profit = ((travelZooSuppliers.Contains(deal.Media.id) || timesSuppliers.Contains(deal.Media.id)) ? h.totalMarkup : 0),
-                            hotelKey = string.Empty,
-                            leading = false
+                packages = (from h in packageBackups
+                            select new GulliverLibrary.Package
+                            {
+                                id = h.id,
+                                date = h.date,
+                                departureAirport = h.departureAirport,
+                                destinationAirport = h.destinationAirport,
+                                duration = h.duration,
+                                obDepartureTime = h.obDepartureTime,
+                                obArrivalTime = h.obArrivalTime,
+                                ibDepartureTime = h.ibDepartureTime,
+                                ibArrivalTime = h.ibArrivalTime,
+                                board = h.board,
+                                flightPrice = h.flightPrice,
+                                airline = h.airline,
+                                hotelPrice = h.hotelPrice,
+                                caa = h.caa,
+                                baggagePrice = h.baggagePrice,
+                                transfers = h.transfers,
+                                extras = h.extras,
+                                totalMarkup = h.totalMarkup,
+                                commission = h.commission,
+                                nett = h.nett,
+                                sellAt = h.sellAt,
+                                searchType = h.searchType,
+                                Deal = deal,
+                                status = h.status,
+                                carhireCosting = h.carhireCosting,
+                                carParkingCosting = (h.extras - (h.caa + h.baggagePrice + h.transfers + h.carhireCosting)),
+                                profit = ((travelZooSuppliers.Contains(deal.Media.id) || timesSuppliers.Contains(deal.Media.id)) ? h.totalMarkup : 0),
+                                hotelKey = string.Empty,
+                                leading = false
 
-                        }).ToList();
+                            }).ToList();
+            }
         }
 
         private void btnRestore_Click(object sender, EventArgs e)

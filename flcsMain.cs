@@ -13,7 +13,7 @@ using System.Configuration;
 
 namespace GulliverII
 {
-    public partial class flcsMain : ComponentFactory.Krypton.Toolkit.KryptonForm
+    public partial class flcsMain : ComponentFactory.Krypton.Toolkit.KryptonForm, IDisposable
     {
         private MySqlDataHandler.QueryHandler queryHandler;
         private PackageGenerator.Email email;
@@ -21,26 +21,30 @@ namespace GulliverII
         private GulliverLibrary.Deal deal;
         private PackageGenerator.PackageHandler packageHandler;
         private PackageGenerator.ICosting icosting;
+        private LandingPageHandler.DataProcessor dataProcessor;
         private List<int> selectedTripperExtras;
         List<GulliverLibrary.Package> packages;
+
         int supplierId = 0;
         int dealId = 0;
-        private List<string> visibleColumns;        
-  
-        
+        private List<string> visibleColumns;
+
+
         public flcsMain()
         {
-           InitializeComponent();
-           email = new PackageGenerator.Email();
-           queryHandler = new MySqlDataHandler.QueryHandler();
-           gulliverQueryHandler = new GulliverLibrary.QueryHandler();
-           packageHandler = new PackageGenerator.PackageHandler(true);
-           visibleColumns = new List<string>();
 
-           SetupDefaultWindow(true);          
-           FillMedias(0);
-           FillDealType(0);           
-        }        
+            InitializeComponent();
+            email = new PackageGenerator.Email();
+            queryHandler = new MySqlDataHandler.QueryHandler();
+            gulliverQueryHandler = new GulliverLibrary.QueryHandler();
+            packageHandler = new PackageGenerator.PackageHandler(true);
+            dataProcessor = new LandingPageHandler.DataProcessor();
+            visibleColumns = new List<string>();
+
+            SetupDefaultWindow(true);
+            FillMedias(0);
+            FillDealType(0);
+        }
 
         public flcsMain(int id)
         {
@@ -49,13 +53,14 @@ namespace GulliverII
             queryHandler = new MySqlDataHandler.QueryHandler();
             gulliverQueryHandler = new GulliverLibrary.QueryHandler();
             packageHandler = new PackageGenerator.PackageHandler(true);
+            dataProcessor = new LandingPageHandler.DataProcessor();
             dealId = id;
             visibleColumns = new List<string>();
-            SetupDefaultWindow(false);            
+            SetupDefaultWindow(false);
             FillDeal(id);
-            DisplayDefaultColumns();            
+            DisplayDefaultColumns();
         }
-        
+
         #region set methods
 
         private void SetupDefaultWindow(bool newDeal)
@@ -67,37 +72,44 @@ namespace GulliverII
             FillCurrecncys();
             FillFlightSuppliers();
             FillCurrencyComboBox();
-            
+
             selectedTripperExtras = new List<int>();
-            deal = new GulliverLibrary.Deal();            
+            deal = new GulliverLibrary.Deal();
+
+            deal.startDate = Convert.ToDateTime("01/01/1753");
+            deal.endDate = Convert.ToDateTime("01/01/1753");
+            deal.lastupdatedTime = Convert.ToDateTime("01/01/1753");
+            deal.dateOfPromotion = Convert.ToDateTime("01/01/1753");
+            deal.endDateOfPromotion = Convert.ToDateTime("01/01/1753");
+
             SetText(txtSearchbox, "Search Transfers here ...");
             SetText(txtSearchBoard, "Search Board Basis here ...");
-            
+
             if (newDeal)
             {
-               FillTripperExtras(new List<int>(), string.Empty, false);
-               btnUpdateDeal.Visible = false;
-               List<GulliverLibrary.Extra> extras = new List<GulliverLibrary.Extra>();
-               GulliverLibrary.Extra extra = new GulliverLibrary.Extra();
-               extra.description = "transfers";
-               extra.isIncluded = false;
-               extra.adultPrice = 0;
-               extra.childPrice = 0;
-               dtpBookBy.Value = DateTime.Today;
-               dtpSalesOn.Value = DateTime.Today;
-               dtpEndDate.Value = DateTime.Today;
-               dtpStartDate.Value = DateTime.Today;
-               GulliverLibrary.Extra extraI = new GulliverLibrary.Extra();
-               extraI.description = "CAA";
-               extraI.isIncluded = false;
-               extraI.adultPrice = 7;
-               extraI.childPrice = 0;
-               extras.Add(extraI); 
-               extras.Add(extra); 
-               FillExtras(extras);
-               lblOfferCreatedBy.Text = "Created by " + Environment.UserName;
-               lblOfferCreatedBy.Visible = true;
-               
+                FillTripperExtras(new List<int>(), string.Empty, false);
+                btnUpdateDeal.Visible = false;
+                List<GulliverLibrary.Extra> extras = new List<GulliverLibrary.Extra>();
+                GulliverLibrary.Extra extra = new GulliverLibrary.Extra();
+                extra.description = "transfers";
+                extra.isIncluded = false;
+                extra.adultPrice = 0;
+                extra.childPrice = 0;
+                dtpBookBy.Value = DateTime.Today;
+                dtpSalesOn.Value = DateTime.Today;
+                dtpEndDate.Value = DateTime.Today;
+                dtpStartDate.Value = DateTime.Today;
+                GulliverLibrary.Extra extraI = new GulliverLibrary.Extra();
+                extraI.description = "CAA";
+                extraI.isIncluded = false;
+                extraI.adultPrice = 7;
+                extraI.childPrice = 0;
+                extras.Add(extraI);
+                extras.Add(extra);
+                FillExtras(extras);
+                lblOfferCreatedBy.Text = "Created by " + Environment.UserName;
+                lblOfferCreatedBy.Visible = true;
+
             }
 
             this.tabMain.DrawMode = TabDrawMode.OwnerDrawFixed;
@@ -111,8 +123,6 @@ namespace GulliverII
 
             tabMain.TabPages.Remove(tabPage14);
         }
-
-        
 
         private void SetText(TextBox txtSearchbox, string text)
         {
@@ -132,9 +142,11 @@ namespace GulliverII
 
                 foreach (string column in cbPackageColumns.CheckedItems)
                 {
-                    DataGridViewColumn dataGridViewColumn = dataGridViewHolidays.Columns.Cast<DataGridViewColumn>().SingleOrDefault(c => c.HeaderText.ToString() == column);
-                    if (dataGridViewColumn != null)
-                        dataGridViewColumn.Visible = true;
+                    using (DataGridViewColumn dataGridViewColumn = dataGridViewHolidays.Columns.Cast<DataGridViewColumn>().SingleOrDefault(c => c.HeaderText.ToString() == column))
+                    {
+                        if (dataGridViewColumn != null)
+                            dataGridViewColumn.Visible = true;
+                    }
                 }
             }
             else
@@ -159,7 +171,6 @@ namespace GulliverII
             {
                 if (!tabCostings.TabPages.Contains(secretEscapeTP))
                     tabCostings.TabPages.Add(secretEscapeTP);
-                
             }
             else
                 tabCostings.TabPages.Remove(secretEscapeTP);
@@ -251,7 +262,7 @@ namespace GulliverII
                     column.Visible = true;
             }
         }
-        
+
         private void SetStepProgressBar(ProgressBar progressBar)
         {
             progressBar.Value++;
@@ -272,17 +283,81 @@ namespace GulliverII
         }
 
         #endregion
-        
+
         #region events
+
+        private void btnMakePageLive_Click(object sender, EventArgs e)
+        {
+            if (deal.id != 0)
+            {
+                string message = dataProcessor.MakePageLive(deal);
+                if (message != string.Empty)
+                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    string url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                    System.Diagnostics.Process.Start(url);
+                    this.Focus();
+                }
+            }
+            else
+                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
+
+        }
+
+        private void btnUpdtePageContent_Click(object sender, EventArgs e)
+        {
+            if (deal.id != 0)
+            {
+                deal = packageHandler.GetDealById(deal.id);
+                if (deal.DealInformation != null && deal.DealInformation.longitude != null && deal.DealInformation.latitude != null)
+                {
+                    deal.DealInformation.HotelInformation = packageHandler.GetHotelInformationByGeoCodes(deal.DealInformation.longitude.Trim(), deal.DealInformation.latitude.Trim());
+                    string message = dataProcessor.UpdateFleetwayPage(deal, false, false);
+                    if (message != string.Empty)
+                    {
+                        MessageBox.Show(message);
+                    }
+                    else
+                    {
+                        string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                        System.Diagnostics.Process.Start(url);
+                        this.Focus();
+                    }
+                }
+                else
+                    MessageBox.Show("Please update deal information before generat the page!");
+            }
+            else
+                MessageBox.Show("Please save the offer before you genarate any page for Fleetway website!");
+        }
+
+        private void btnRoomRequestSetting_Click(object sender, EventArgs e)
+        {
+            using (flcsRoomRequestSetting roomRequestSettingForm = new flcsRoomRequestSetting("0", deal.id))
+            {
+                roomRequestSettingForm.ShowDialog();
+            }
+        }
 
         private void txtRoomType_TextChanged(object sender, EventArgs e)
         {
             roomTypeCB.DataSource = new List<string>() { string.Empty, txtRoomType.Text.Trim().ToUpper() };
+
+            if (deal != null && deal.id != 0)
+            {
+                List<GulliverLibrary.DurationCosting> durationCostings = gulliverQueryHandler.GetDurationCostingByDealId(deal.id);
+                foreach (GulliverLibrary.DurationCosting durationCosting in durationCostings)
+                    durationCosting.roomType = txtRoomType.Text.Trim().ToUpper();
+                deal.DurationCostings = durationCostings;
+                FillDurationCostings(durationCostings);
+            }
         }
 
         private void cbAirportGroups_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             bool checkeD = cbAirportGroups.GetItemChecked(e.Index);
+
             if (cbAirportGroups.SelectedItem != null)
             {
                 List<string> airports = ((ComboBoxItem)cbAirportGroups.SelectedItem).Value.ToString().Split('#').ToList();
@@ -295,7 +370,6 @@ namespace GulliverII
                 }
             }
         }
-
 
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -311,7 +385,7 @@ namespace GulliverII
             }
             else
                 tabFont = new Font("Calibri", 12, FontStyle.Regular, GraphicsUnit.Pixel);
-            
+
             string tabName = this.tabMain.TabPages[e.Index].Text;
             this.tabMain.TabPages[e.Index].Width = 200;
             this.tabMain.TabPages[e.Index].Height = 100;
@@ -323,16 +397,16 @@ namespace GulliverII
             e.Graphics.DrawString(tabName, tabFont, foreBrush, r, sf);
             //Dispose objects
             sf.Dispose();
-           
+
             if (e.Index == this.tabMain.SelectedIndex)
             {
-               tabFont.Dispose();
-               backBrush.Dispose();
+                tabFont.Dispose();
+                backBrush.Dispose();
             }
             else
             {
-              backBrush.Dispose();
-              foreBrush.Dispose();
+                backBrush.Dispose();
+                foreBrush.Dispose();
             }
         }
 
@@ -340,7 +414,7 @@ namespace GulliverII
         {
             Font tabFont;
             Brush backBrush = new SolidBrush(System.Drawing.ColorTranslator.FromHtml("#73A2DB"));
-            Brush foreBrush = new SolidBrush(System.Drawing.ColorTranslator.FromHtml("#004080")); 
+            Brush foreBrush = new SolidBrush(System.Drawing.ColorTranslator.FromHtml("#004080"));
 
             if (e.Index == this.tabControl3.SelectedIndex)
             {
@@ -352,7 +426,7 @@ namespace GulliverII
                 tabFont = new Font("Segoe UI", 11, FontStyle.Regular, GraphicsUnit.Pixel);
 
             string tabName = this.tabControl3.TabPages[e.Index].Text;
-           
+
             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Center;
             e.Graphics.FillRectangle(backBrush, e.Bounds);
@@ -361,16 +435,16 @@ namespace GulliverII
             e.Graphics.DrawString(tabName, tabFont, foreBrush, r, sf);
             //Dispose objects
             sf.Dispose();
-           
+
             if (e.Index == this.tabControl3.SelectedIndex)
             {
-               tabFont.Dispose();
-               backBrush.Dispose();
+                tabFont.Dispose();
+                backBrush.Dispose();
             }
             else
             {
-               backBrush.Dispose();
-               foreBrush.Dispose();
+                backBrush.Dispose();
+                foreBrush.Dispose();
             }
         }
 
@@ -401,24 +475,24 @@ namespace GulliverII
 
             if (e.Index == this.tabControl4.SelectedIndex)
             {
-              tabFont.Dispose();
-              backBrush.Dispose();
+                tabFont.Dispose();
+                backBrush.Dispose();
             }
             else
             {
-              backBrush.Dispose();
-              foreBrush.Dispose();
+                backBrush.Dispose();
+                foreBrush.Dispose();
             }
-        }               
+        }
 
         private void ddlResorts_SelectedIndexChanged(object sender, EventArgs e)
         {
-          FillHotels(((ComboBoxItem)ddlResorts.SelectedItem).Value.ToString(), string.Empty);
+            FillHotels(((ComboBoxItem)ddlResorts.SelectedItem).Value.ToString(), string.Empty);
         }
 
         private void ddlAirports_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-           FillResorts();           
+            FillResorts();
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
@@ -426,38 +500,41 @@ namespace GulliverII
             List<int> ids = new List<int>();
             List<string> invalidContracts = new List<string>();
             List<string> exsisitingReconIds = (dataGridviewOfferContracts.Rows != null && dataGridviewOfferContracts.Rows.Count > 0) ?
-            dataGridviewOfferContracts.Rows.Cast<DataGridViewRow>().Where(r => r.Cells[1].Value != null).Select(r => r.Cells[1].Value.ToString().Trim()).ToList() : new List<string>();
+
+             dataGridviewOfferContracts.Rows.Cast<DataGridViewRow>().Where(r => r.Cells[1].Value != null).Select(r => r.Cells[1].Value.ToString().Trim()).ToList() : new List<string>();
 
             if (dataGridviewContracts.SelectedRows != null && dataGridviewContracts.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow r in dataGridviewContracts.SelectedRows)
+                {
                     if (Convert.ToDateTime(r.Cells[6].Value.ToString()) > DateTime.Now)
                     {
                         if (!exsisitingReconIds.Contains(r.Cells[1].Value.ToString().Trim()))
-                         ids.Add(Convert.ToInt32(r.Cells[1].Value.ToString()));
-                        
+                            ids.Add(Convert.ToInt32(r.Cells[1].Value.ToString()));
                     }
                     else
                         invalidContracts.Add(r.Cells[2].Value.ToString().Trim());
+                }
 
                 List<MySqlDataHandler.AcCGuiD> contracts = packageHandler.GetAccomGuidByRecNos(ids);
                 FillOfferContracts(contracts);
 
                 if (invalidContracts.Count > 0)
-                    MessageBox.Show("Please note that these contracts ("+ string.Join(", ", invalidContracts)+ ") have been expried! ");
-            }            
+                    MessageBox.Show("Please note that these contracts (" + string.Join(", ", invalidContracts) + ") have been expried! ");
+            }
         }
-        
+
         private void btnNext_Click(object sender, EventArgs e)
         {
-           bool sucess = SaveOfferDetails();
-           if (sucess)
-           {
-               if (cbCruiseDeal.Checked)
-                   tabMain.SelectedTab = tabPage3;
-               else
-                   tabMain.SelectedTab = tabPage2;
-           }
+            bool sucess = SaveOfferDetails();
+
+            if (sucess)
+            {
+                if (cbCruiseDeal.Checked)
+                    tabMain.SelectedTab = tabPage3;
+                else
+                    tabMain.SelectedTab = tabPage2;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -470,7 +547,7 @@ namespace GulliverII
 
                 case System.Windows.Forms.DialogResult.No:
                     break;
-            }            
+            }
         }
 
         private void btnFlightBack_Click(object sender, EventArgs e)
@@ -497,11 +574,12 @@ namespace GulliverII
             SaveFlights();
             SetStepProgressBar(progressBarTP4);
             SaveCostings();
-            if(PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(deal.Media.id))
+            if (PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(deal.Media.id))
                 SaveSecretEscapeCostings();
 
             SetStepProgressBar(progressBarTP4);
             CompareHolidays(deal);
+            btnRemoveOnlyStoppedSales.Visible = true;
             //VisibleProgressBar(progressBarTP4, false);
         }
 
@@ -572,8 +650,6 @@ namespace GulliverII
             SortBoardBasis();
         }
 
-   
-
         private void cbShowCosting_CheckedChanged(object sender, EventArgs e)
         {
             FillTripperExtras(selectedTripperExtras, txtSearchbox.Text.ToUpper().Trim(), cbShowCosting.Checked);
@@ -581,18 +657,22 @@ namespace GulliverII
 
         private void btnUpdatePrices_Click(object sender, EventArgs e)
         {
-            flcsPackages packageForm = new flcsPackages(packageHandler, deal.Packages.ToList(), dealId, false, new List<GulliverLibrary.Package>());
-            packageForm.ShowDialog();
-
-            if (packageForm.saved)
+            using (flcsPackages packageForm = new flcsPackages(packageHandler, deal.Packages.ToList(), dealId, false, new List<GulliverLibrary.Package>()))
             {
-                GulliverLibrary.QueryHandler gulliverQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;");
-                List<GulliverLibrary.Package> packagesList = gulliverQueryHandler.GetPackagesByDeal(dealId);
-                deal = packageHandler.GetDealById(dealId);
-                deal.Packages = packagesList;
-                FillPackages(packagesList);
+                packageForm.ShowDialog();
+
+                if (packageForm.saved)
+                {
+                    using (GulliverLibrary.QueryHandler gulliverQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;"))
+                    {
+                        List<GulliverLibrary.Package> packagesList = gulliverQueryHandler.GetPackagesByDeal(dealId);
+                        deal = packageHandler.GetDealById(dealId);
+                        deal.Packages = packagesList;
+                        FillPackages(packagesList);
+                    }
+                }
             }
-        }                          
+        }
 
         private void btnCostingNext_Click(object sender, EventArgs e)
         {
@@ -609,24 +689,26 @@ namespace GulliverII
                 SaveSecretEscapeCostings();
             SetStepProgressBar(progressBarTP4);
             SearchedHolidays(deal);
-           
+
             btnUpdateDeal.Visible = true;
-            //tabMain.TabPages.Add(tabPage5);
+            btnRemoveOnlyStoppedSales.Visible = true;
         }
 
         private void btnCostingBack_Click(object sender, EventArgs e)
         {
             tabMain.SelectedTab = tabPage3;
         }
-        
+
         private void ddlMedias_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlMedias.SelectedItem != null)
             {
                 int mediaId = Convert.ToInt32(((ComboBoxItem)ddlMedias.SelectedItem).Value);
-                GulliverLibrary.Media media = packageHandler.GetMediaById(mediaId);
-                if(media != null)
-                txtCommission.Text = (media.commission != 0) ? media.commission.ToString() : string.Empty;
+                using (GulliverLibrary.Media media = packageHandler.GetMediaById(mediaId))
+                {
+                    if (media != null)
+                        txtCommission.Text = (media.commission != 0) ? media.commission.ToString() : string.Empty;
+                }
 
                 if (PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers").Contains(mediaId) || PackageGenerator.Tool.GetSuppliersBySuppliertype("sagasuppliers").Contains(mediaId))
                 {
@@ -664,17 +746,15 @@ namespace GulliverII
             FillOccupancyComboBox(cbOcupancy.CheckedItems.Cast<ComboBoxItem>().Select(i => i.Value.ToString()).ToList());
         }
 
-     
-
-       
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             try
             {
                 string id = dataGridviewOfferContracts.SelectedCells[1].Value.ToString();
-                flcsRoomRequestSetting roomRequestSettingForm = new flcsRoomRequestSetting(id, dealId);
-                roomRequestSettingForm.ShowDialog();
+                using (flcsRoomRequestSetting roomRequestSettingForm = new flcsRoomRequestSetting(id, dealId))
+                {
+                    roomRequestSettingForm.ShowDialog();
+                }
             }
             catch { }
         }
@@ -720,10 +800,6 @@ namespace GulliverII
             }
         }
 
-        
-
- 
-
         private void SecretEscapeFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -762,9 +838,11 @@ namespace GulliverII
                 {
                     progressBar.Value++;
 
-                    PackageGenerator.Report report = new PackageGenerator.Report();
-                    List<GulliverLibrary.Package> updatedPackages = packageHandler.GetPackagesByDeal(dealId);
-                    report.WriteToDailyMailCSV(updatedPackages, sfd.FileName.Trim(), txtProductCode.Text.Trim());
+                    using (PackageGenerator.Report report = new PackageGenerator.Report())
+                    {
+                        List<GulliverLibrary.Package> updatedPackages = packageHandler.GetPackagesByDeal(dealId);
+                        report.WriteToDailyMailCSV(updatedPackages, sfd.FileName.Trim(), txtProductCode.Text.Trim());
+                    }
                     progressBar.Value++;
                     MessageBox.Show("Export to " + sfd.FileName);
 
@@ -812,8 +890,8 @@ namespace GulliverII
         //    deal.DealInformation.latitude = txtLatitude.Text.Trim();
 
         //    //deal.DealInformation.HotelInformation = gulliverQueryHandler.GetHotelInformationByGeoCodes(deal.DealInformation.longitude.Trim(), deal.DealInformation.latitude.Trim());
-           
-           
+
+
         //        GulliverLibrary.HotelInformation hotelInformation = new GulliverLibrary.HotelInformation();
         //        hotelInformation.longitude = txtLongitude.Text.Trim();
         //        hotelInformation.latitude = txtLatitude.Text.Trim();
@@ -832,7 +910,7 @@ namespace GulliverII
         //    deal.DealInformation.childPrices = txtChildPrice.Text.Trim();
         //    deal.DealInformation.optionalExtras = txtOptionalExtras.Text.Trim();
         //    deal.DealInformation.pleaseNote = txtPleasenote.Text.Trim();
-     
+
         //    GulliverLibrary.Link linkTA = new GulliverLibrary.Link();
         //    linkTA.name = "Trip Advisor Link";
         //    linkTA.url = txtTripAdvisorLink.Text.Trim();
@@ -934,7 +1012,7 @@ namespace GulliverII
             deal.DealInstructions.importantUpsell = txtImportantUpsell.Text.Trim();
             deal.DealInstructions.pleaseNote = txtPleasenoteII.Text.Trim();
             packageHandler.UpdateDealInstruction(deal.DealInstructions);
-        }      
+        }
 
         private void toCSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -988,22 +1066,28 @@ namespace GulliverII
 
         private void restoreFlightsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsBackupPackage objBackupPackage = new flcsBackupPackage(dealId, packageHandler.GetPackageBackupsByDeal(dealId), packageHandler);
-            objBackupPackage.ShowDialog();
+            using (flcsBackupPackage objBackupPackage = new flcsBackupPackage(dealId, packageHandler.GetPackageBackupsByDeal(dealId), packageHandler))
+            {
+                objBackupPackage.ShowDialog();
+            }
         }
 
         private void manipulateDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsFilterColumns objFilterColumn = new flcsFilterColumns(this.packagesDS.PackageBackup.Columns.Cast<DataColumn>().Select(c => c.ColumnName).ToList(), visibleColumns);
-            objFilterColumn.ShowDialog();
-            visibleColumns = objFilterColumn.visibleColumns;
-            VisibleColumns();
+            using (flcsFilterColumns objFilterColumn = new flcsFilterColumns(this.packagesDS.PackageBackup.Columns.Cast<DataColumn>().Select(c => c.ColumnName).ToList(), visibleColumns))
+            {
+                objFilterColumn.ShowDialog();
+                visibleColumns = objFilterColumn.visibleColumns;
+                VisibleColumns();
+            }
         }
 
         private void setLeadingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsSetLeading setLeadings = new flcsSetLeading(dealId, packageHandler);
-            setLeadings.ShowDialog();
+            using (flcsSetLeading setLeadings = new flcsSetLeading(dealId, packageHandler))
+            {
+                setLeadings.ShowDialog();
+            }
         }
 
         private void cbAllUS_CheckedChanged(object sender, EventArgs e)
@@ -1021,7 +1105,7 @@ namespace GulliverII
         private void cbAllGerman_CheckedChanged(object sender, EventArgs e)
         {
             for (int i = 0; i <= cbGermanAirports.Items.Count - 1; i++)
-                cbGermanAirports.SetItemCheckState(i, (cbAllGerman.Checked ? CheckState.Checked : CheckState.Unchecked));           
+                cbGermanAirports.SetItemCheckState(i, (cbAllGerman.Checked ? CheckState.Checked : CheckState.Unchecked));
         }
 
         private void cbAllAirports_CheckedChanged(object sender, EventArgs e)
@@ -1046,11 +1130,11 @@ namespace GulliverII
         {
             if (txtSearchbox.Text.Trim() == string.Empty)
                 SetText(txtSearchbox, "Search Transfers here ...");
-        }    
+        }
 
         private void txtSearchbox_TextChanged(object sender, EventArgs e)
         {
-          FillTripperExtras(selectedTripperExtras, txtSearchbox.Text.ToUpper().Trim(), cbShowCosting.Checked);
+            FillTripperExtras(selectedTripperExtras, txtSearchbox.Text.ToUpper().Trim(), cbShowCosting.Checked);
         }
 
         private void txtSearhHotelContract_Enter(object sender, EventArgs e)
@@ -1090,8 +1174,10 @@ namespace GulliverII
 
         private void autoUpdateSettingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsAutoUpdateSetting autoUpdateSetting = new flcsAutoUpdateSetting(dealId);
-            autoUpdateSetting.Show();
+            using (flcsAutoUpdateSetting autoUpdateSetting = new flcsAutoUpdateSetting(dealId))
+            {
+                autoUpdateSetting.Show();
+            }
         }
 
         private void cbAllDurations_CheckedChanged(object sender, EventArgs e)
@@ -1128,9 +1214,9 @@ namespace GulliverII
         private void cbPackageColumns_SelectedIndexChanged(object sender, EventArgs e)
         {
             VisibleAndInvisiblePackageColumns();
-        }               
+        }
 
-        #endregion                     
+        #endregion
 
         #region FillData
 
@@ -1193,9 +1279,10 @@ namespace GulliverII
                 cbFlightTypes.SetItemChecked(0, deal.isFAB);
                 cbFlightTypes.SetItemChecked(1, deal.isFlightSheet);
                 cbFlightTypes.SetItemChecked(2, deal.isAmadeus);
-                rbnBGPP.Checked = (deal.baggageType.Trim() == "1");
-                rbnBGTwo.Checked = (deal.baggageType.Trim() == "2");
-                rbnNoBaggage.Checked = (deal.baggageType.Trim() == "0");
+                cbFlightTypes.SetItemChecked(5, deal.isFABCache);
+                rbnBGPP.Checked = (deal.baggageType.Trim() == "1") ? true : false;
+                rbnBGTwo.Checked = (deal.baggageType.Trim() == "2") ? true : false;
+                rbnNoBaggage.Checked = (deal.baggageType.Trim() == "0") ? true : false;
                 ftOBDepartureFrom.Text = deal.filteredFlightTimesOBDeparture.Split('#').First().Trim();
                 ftOBDepartureTo.Text = deal.filteredFlightTimesOBDeparture.Split('#').Last().Trim();
                 ftOBArrivalFrom.Text = deal.filteredFlightTimesOBArrival.Split('#').First().Trim();
@@ -1233,6 +1320,8 @@ namespace GulliverII
 
                 if (deal.Packages != null && deal.Packages.Count > 0)
                     FillPackages(deal.Packages.ToList());
+                else
+                    btnRemoveOnlyStoppedSales.Visible = false;
 
                 if (deal.ManualHotelContracts != null && deal.ManualHotelContracts.Count > 0)
                 {
@@ -1246,7 +1335,7 @@ namespace GulliverII
                 // tab 5
                 if (deal.DealInstructions != null)
                     FillDealInstructions();
-               
+
             }
         }
 
@@ -1255,7 +1344,6 @@ namespace GulliverII
             List<string> currencys = packageHandler.GetAllCurrencys();
             carParkingCurrency.DataSource = currencys;
             carHireCurrency.DataSource = currencys;
-           // cmbCurrency.DataSource = currencys;
             supplementCurrencyCB.DataSource = currencys;
 
             List<string> types = new List<string> { "%", "price" };
@@ -1297,13 +1385,15 @@ namespace GulliverII
             foreach (GulliverLibrary.DealType dealType in packageHandler.GetAllDealTypes())
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = dealType.type.Trim();
-                item.Value = dealType.id;               
-                ddlDealTypes.Items.Add(item);
+               
+                    item.Text = dealType.type.Trim();
+                    item.Value = dealType.id;
+                    ddlDealTypes.Items.Add(item);
 
-                if (id == dealType.id)
-                    ddlDealTypes.SelectedItem = item;
-            }            
+                    if (id == dealType.id)
+                        ddlDealTypes.SelectedItem = item;
+                
+            }
         }
 
         private void FillDurationComboBox(List<string> durations)
@@ -1319,15 +1409,17 @@ namespace GulliverII
 
             foreach (MySqlDataHandler.AcCGuiD accomGuid in contracts.OrderByDescending(a => a.ValidFrom))
             {
-                MySqlDataHandler.Expand building = packageHandler.GetBuildingByCodes(accomGuid.AcComCode.Trim());
-                boards.Add(accomGuid.BoardBasis.Trim().ToUpper());
-                int adults = (int)((building != null) ? building.PricedOCc.Value : 0);
-                int maxKids = (int)((building != null) ? (building.MaxKids != null)?building.MaxKids.Value:0 : 0);
-                int children = maxKids;
-                adults -= children;
-                string occupancy = adults + "," + children + ",0";
-                occupancies.Add(occupancy);
-                GulliverIIDS.HotelContracts.AddHotelContractsRow("Delete", 0, (int)accomGuid.SrRecNo, accomGuid.FullName.Trim(), ((building.Building != null) ? building.Building.Trim() + " " + building.PricedOCc + " Occupancy" : string.Empty), accomGuid.BoardBasis.Trim(), accomGuid.ValidFrom.Value, accomGuid.ValidTo.Value, false);
+                using (MySqlDataHandler.Expand building = packageHandler.GetBuildingByCodes(accomGuid.AcComCode.Trim()))
+                {
+                    boards.Add(accomGuid.BoardBasis.Trim().ToUpper());
+                    int adults = (int)((building != null) ? building.PricedOCc.Value : 0);
+                    int maxKids = (int)((building != null) ? (building.MaxKids != null) ? building.MaxKids.Value : 0 : 0);
+                    int children = maxKids;
+                    adults -= children;
+                    string occupancy = adults + "," + children + ",0";
+                    occupancies.Add(occupancy);
+                    GulliverIIDS.HotelContracts.AddHotelContractsRow("Delete", 0, (int)accomGuid.SrRecNo, accomGuid.FullName.Trim(), ((building.Building != null) ? building.Building.Trim() + " " + building.PricedOCc + " Occupancy" : string.Empty), accomGuid.BoardBasis.Trim(), accomGuid.ValidFrom.Value, accomGuid.ValidTo.Value, false);
+                }
             }
 
             for (int i = 0; i < cbBoards.Items.Count; i++)
@@ -1338,7 +1430,7 @@ namespace GulliverII
             for (int i = 0; i < cbOcupancy.Items.Count; i++)
                 if (occupancies.Contains(((ComboBoxItem)cbOcupancy.Items[i]).Value))
                     cbOcupancy.SetItemChecked(i, true);
-            
+
         }
 
         private void FillResorts()
@@ -1354,9 +1446,11 @@ namespace GulliverII
             foreach (MySqlDataHandler.Resort resort in resorts)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = resort.ResortName.Trim() + " - (" + resort.ResortCode.Trim() + ")" + ((resort.Country != null && resort.Country != string.Empty) ? " Country: " + resort.Country : string.Empty) + ((resort.Supplier != null && resort.Supplier != string.Empty) ? " Supplier: " + resort.Supplier : string.Empty);
-                item.Value = resort.ResortCode.Trim();
-                ddlResorts.Items.Add(item);
+                
+                    item.Text = resort.ResortName.Trim() + " - (" + resort.ResortCode.Trim() + ")" + ((resort.Country != null && resort.Country != string.Empty) ? " Country: " + resort.Country : string.Empty) + ((resort.Supplier != null && resort.Supplier != string.Empty) ? " Supplier: " + resort.Supplier : string.Empty);
+                    item.Value = resort.ResortCode.Trim();
+                    ddlResorts.Items.Add(item);
+               
             }
 
             if (resorts.Count > 1 && txtSearhHotelContract.Text == string.Empty)
@@ -1368,15 +1462,16 @@ namespace GulliverII
             tripper.Contracts.Rows.Clear();
             List<MySqlDataHandler.AcCGuiD> hotels = packageHandler.GetHotelsByAirportAndResort(((ComboBoxItem)ddlAirports.SelectedItem).Value.ToString(), resortCode);
             hotels = hotels.Where(h => h.ValidTo > DateTime.Today && !Convert.ToBoolean(h.Grouped.Value)).ToList();
-            //
 
             if (searchText != string.Empty && searchText != "Search Contracts here ...".ToUpper())
                 hotels = hotels.Where(h => h.FullName.ToUpper().Contains(searchText.ToUpper())).ToList();
-          
+
             foreach (MySqlDataHandler.AcCGuiD accomGuid in hotels.OrderByDescending(a => a.ValidFrom))
             {
-               MySqlDataHandler.Expand building = packageHandler.GetBuildingByCodes(accomGuid.AcComCode.Trim());               
-               tripper.Contracts.AddContractsRow("Select", (int)accomGuid.SrRecNo, accomGuid.FullName.Trim(), ((building != null) ? building.Building.Trim() + " " + building.PricedOCc + " Occupancy" : string.Empty), accomGuid.BoardBasis.Trim(), accomGuid.ValidFrom.Value, accomGuid.ValidTo.Value);
+                using (MySqlDataHandler.Expand building = packageHandler.GetBuildingByCodes(accomGuid.AcComCode.Trim()))
+                {
+                    tripper.Contracts.AddContractsRow("Select", (int)accomGuid.SrRecNo, accomGuid.FullName.Trim(), ((building != null) ? building.Building.Trim() + " " + building.PricedOCc + " Occupancy" : string.Empty), accomGuid.BoardBasis.Trim(), accomGuid.ValidFrom.Value, accomGuid.ValidTo.Value);
+                }
             }
         }
 
@@ -1386,14 +1481,16 @@ namespace GulliverII
 
             foreach (GulliverLibrary.HotelContract hotelContract in hotelContracts)
             {
-                MySqlDataHandler.Expand building = packageHandler.GetBuildingByCodes(hotelContract.accomcode.Trim());
-                MySqlDataHandler.AcCGuiD accomGuid = packageHandler.GetAccomGuidByRecNo(hotelContract.recno);
-                GulliverIIDS.HotelContracts.AddHotelContractsRow("Delete", hotelContract.id, (int)hotelContract.recno, hotelContract.fullname.Trim(), building.Building.Trim() + " " + building.PricedOCc + " Occupancy", accomGuid.BoardBasis.Trim(), accomGuid.ValidFrom.Value, accomGuid.ValidTo.Value, hotelContract.isEntryRoom);
-
+                using (MySqlDataHandler.Expand building = packageHandler.GetBuildingByCodes(hotelContract.accomcode.Trim()))
+                {
+                    using (MySqlDataHandler.AcCGuiD accomGuid = packageHandler.GetAccomGuidByRecNo(hotelContract.recno))
+                    {
+                        GulliverIIDS.HotelContracts.AddHotelContractsRow("Delete", hotelContract.id, (int)hotelContract.recno, hotelContract.fullname.Trim(), building.Building.Trim() + " " + building.PricedOCc + " Occupancy", accomGuid.BoardBasis.Trim(), accomGuid.ValidFrom.Value, accomGuid.ValidTo.Value, hotelContract.isEntryRoom);
+                    }
+                }
             }
 
             FillRoomTypeComboBox(hotelContracts);
-          
         }
 
         private void FillSupplements(List<GulliverLibrary.Supplement> supplements)
@@ -1441,20 +1538,21 @@ namespace GulliverII
             occupancys.Add("2A 2C 1I", "2,2,1");
             occupancys.Add("2A 0C 1I", "2,0,1");
             occupancys.Add("3A 0C 0I", "3,0,0");
-            
+
             foreach (string key in occupancys.Keys)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = key;
-                item.Value = occupancys[key].ToString();
-                cbOcupancy.Items.Add(item);
+               
+                    item.Text = key;
+                    item.Value = occupancys[key].ToString();
+                    cbOcupancy.Items.Add(item);
+               
             }
         }
 
         private void FillMedias(int id)
         {
             ddlMedias.Items.Clear();
-
             ddlMedias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             ddlMedias.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             ddlMedias.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -1462,22 +1560,26 @@ namespace GulliverII
             List<GulliverLibrary.Media> suppliers = gulliverQueryHandler.GetAllMedias();
 
             ComboBoxItem itemI = new ComboBoxItem();
-            itemI.Text = "Please select";
-            itemI.Value = 0;
-            ddlMedias.Items.Add(itemI);
+            
+                itemI.Text = "Please select";
+                itemI.Value = 0;
+                ddlMedias.Items.Add(itemI);
 
-            if (id == 0)
-                ddlMedias.SelectedItem = itemI;
+                if (id == 0)
+                    ddlMedias.SelectedItem = itemI;
+           
 
             foreach (GulliverLibrary.Media supplier in suppliers.OrderBy(s => s.supplier))
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = supplier.supplier.Trim();
-                item.Value = supplier.id;
-                ddlMedias.Items.Add(item);
+                
+                    item.Text = supplier.supplier.Trim();
+                    item.Value = supplier.id;
+                    ddlMedias.Items.Add(item);
 
-                if (id == supplier.id)
-                    ddlMedias.SelectedItem = item;
+                    if (id == supplier.id)
+                        ddlMedias.SelectedItem = item;
+                
             }
 
         }
@@ -1489,9 +1591,11 @@ namespace GulliverII
             foreach (MySqlDataHandler.Board board in boards.OrderBy(b => b.BoardType.Trim()))
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = board.BoardType.Trim() + " (" + board.BoardCode.Trim() + ")";
-                item.Value = board.BoardCode.Trim();
-                cbBoards.Items.Add(item);
+                
+                    item.Text = board.BoardType.Trim() + " (" + board.BoardCode.Trim() + ")";
+                    item.Value = board.BoardCode.Trim();
+                    cbBoards.Items.Add(item);
+                
             }
 
             //SortBoardBasis();
@@ -1506,18 +1610,22 @@ namespace GulliverII
             foreach (TripperLibrary.UKAirport ukAirport in ukAirports)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = ukAirport.airportCode.Trim();
-                item.Value = ukAirport.airportCode.Trim();
-                cbDepartureAirports.Items.Add(item);
+                
+                    item.Text = ukAirport.airportCode.Trim();
+                    item.Value = ukAirport.airportCode.Trim();
+                    cbDepartureAirports.Items.Add(item);
+               
             }
 
             List<TripperLibrary.AirportGroup> airportGroups = packageHandler.GetAllAirportGroups();
             foreach (TripperLibrary.AirportGroup airportGroup in airportGroups.OrderBy(a => a.name))
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = airportGroup.name.Trim();
-                item.Value = airportGroup.airports.Trim();
-                cbAirportGroups.Items.Add(item);
+               
+                    item.Text = airportGroup.name.Trim();
+                    item.Value = airportGroup.airports.Trim();
+                    cbAirportGroups.Items.Add(item);
+               
             }
 
             List<TripperLibrary.GermanAirport> germanAirports = packageHandler.GetAllGermanAirports();
@@ -1525,29 +1633,35 @@ namespace GulliverII
             foreach (TripperLibrary.GermanAirport germanAirport in germanAirports)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = germanAirport.airportCode.Trim();
-                item.Value = germanAirport.airportCode.Trim();
-                cbGermanAirports.Items.Add(item);
+               
+                    item.Text = germanAirport.airportCode.Trim();
+                    item.Value = germanAirport.airportCode.Trim();
+                    cbGermanAirports.Items.Add(item);
+                
             }
 
             List<TripperLibrary.USAirport> usaAirports = packageHandler.GetAllUSAAirports();
 
             foreach (TripperLibrary.USAirport germanAirport in usaAirports)
             {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Text = germanAirport.airportCode.Trim();
-                item.Value = germanAirport.airportCode.Trim();
-                cbUSAirports.Items.Add(item);
+                   ComboBoxItem item = new ComboBoxItem();
+                
+                    item.Text = germanAirport.airportCode.Trim();
+                    item.Value = germanAirport.airportCode.Trim();
+                    cbUSAirports.Items.Add(item);
+               
             }
 
             List<TripperLibrary.CanadianAirport> candinAirports = packageHandler.GetAllCanadianAirports();
 
             foreach (TripperLibrary.CanadianAirport canadianAirport in candinAirports)
             {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Text = canadianAirport.airportCode.Trim();
-                item.Value = canadianAirport.airportCode.Trim();
-                cbCanadianAirports.Items.Add(item);
+               ComboBoxItem item = new ComboBoxItem();
+                
+                    item.Text = canadianAirport.airportCode.Trim();
+                    item.Value = canadianAirport.airportCode.Trim();
+                    cbCanadianAirports.Items.Add(item);
+                
             }
         }
 
@@ -1564,11 +1678,13 @@ namespace GulliverII
                     {
                         foreach (string duration in deal.durations.Split('#'))
                         {
-                            GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration));
-                            if (durationCosting != null)
-                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy,durationCosting.roomType.Trim(), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
-                            else
-                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy,string.Empty, 0, 0, 0, 0, 0, 0, "£", 0);
+                            using (GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration)))
+                            {
+                                if (durationCosting != null)
+                                    costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.roomType.Trim(), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
+                                else
+                                    costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, string.Empty, 0, 0, 0, 0, 0, 0, "£", 0);
+                            }
                         }
                     }
 
@@ -1594,11 +1710,13 @@ namespace GulliverII
                     {
                         foreach (string occupancy in deal.occupancy.Split('#'))
                         {
-                            GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration));
-                            if (durationCosting != null)
-                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy,durationCosting.roomType.Trim(), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
-                            else
-                                costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy,string.Empty, 0, 0, 0, 0, 0, 0, "£", 0);
+                            using (GulliverLibrary.DurationCosting durationCosting = deal.DurationCostings.SingleOrDefault(d => d.occupancy.Trim() == occupancy.Trim() && d.duration == Convert.ToInt32(duration)))
+                            {
+                                if (durationCosting != null)
+                                    costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, durationCosting.roomType.Trim(), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
+                                else
+                                    costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, string.Empty, 0, 0, 0, 0, 0, 0, "£", 0);
+                            }
                         }
                     }
 
@@ -1631,21 +1749,20 @@ namespace GulliverII
         private void FillDepartureAirportComboBox(List<string> departureAirports)
         {
             departureAirportComboBox.DataSource = departureAirports;
-            //cbCanadianAirports
         }
 
         private void FillDestinationAirportComboBox(List<string> destinationAirports)
         {
             destiantionAirportComboBox.DataSource = destinationAirports;
-        }       
-      
+        }
+
         private void FillPackages(List<GulliverLibrary.Package> packages)
         {
             packagesDS.Package.Clear();
             int count = 0;
             foreach (GulliverLibrary.Package p in packages)
                 packagesDS.Package.AddPackageRow("Delete", p.id, count, (p.leading) ? 1 : 0, p.date.ToString("MMMM"), p.date.DayOfWeek.ToString(), p.date, "", p.hotelKey, p.departureAirport.Trim(), p.destinationAirport.Trim(), p.duration, p.obDepartureTime, p.obArrivalTime, p.ibDepartureTime, p.ibArrivalTime, p.board, p.flightPrice, p.airline, p.obFlightNo, p.ibFlightNo, p.roomType, p.occupancy,
-                    p.adults, p.children, p.infants, Math.Round(p.hotelPrice,2), Math.Round(p.childHotelPrice), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting,p.carParkingCosting, p.commission, p.profit, p.nett, p.sellAt, p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), p.status, p.oldSellAt, p.isStandardRoom);
+                    p.adults, p.children, p.infants, Math.Round(p.hotelPrice, 2), Math.Round(p.childHotelPrice), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting, p.carParkingCosting, p.commission, p.profit, p.nett, p.sellAt, p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), p.status, p.oldSellAt, p.isStandardRoom);
 
             lblTotal.Text = (packages.Count > 0) ? "Total: " + packages.Count + " holidays" : "Total: " + packages.Count + " holiday";
 
@@ -1669,42 +1786,45 @@ namespace GulliverII
             {
                 if (entry.Value.ToString() != string.Empty)
                 {
-                   ComboBoxItem item = new ComboBoxItem();
-                   item.Text = entry.Value.ToString() + "- (" + entry.Key + ")";
-                   item.Value = entry.Key;
-                   ddlAirports.Items.Add(item);
+                    ComboBoxItem item = new ComboBoxItem();
+                    
+                        item.Text = entry.Value.ToString() + "- (" + entry.Key + ")";
+                        item.Value = entry.Key;
+                        ddlAirports.Items.Add(item);
+                    
                 }
-            }           
+            }
         }
 
         private void FillFlightSuppliers()
         {
-           List<string> flightAirlines = packageHandler.GetFlightSuppliers();
+            List<string> flightAirlines = packageHandler.GetFlightSuppliers();
 
-           foreach (string flightAirline in flightAirlines)
+            foreach (string flightAirline in flightAirlines)
                 cbAirlines.Items.Add(flightAirline);
         }
 
         private void FillCurrecncys()
         {
             List<MySqlDataHandler.Currency> currecncys = queryHandler.GetCurrency();
-
             foreach (MySqlDataHandler.Currency currecncy in currecncys.OrderBy(b => b.Currency1.Trim()))
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Text = currecncy.Currency1;
-                item.Value = currecncy.Currency1;
-                ddlCurrency.Items.Add(item);               
+               
+                    item.Text = currecncy.Currency1;
+                    item.Value = currecncy.Currency1;
+                    ddlCurrency.Items.Add(item);
+                
             }
-        }   
+        }
 
         private void FillTripperExtras(List<int> tripperExtraRecnos, string searchText, bool showCost)
         {
             List<MySqlDataHandler.AcCGuiD> accomGuids = queryHandler.GetAccomGuidByApt("EXR");
             accomGuids = accomGuids.Where(a => a.ValidTo >= DateTime.Today && !Convert.ToBoolean(a.Grouped.Value)).ToList();
-           
+
             List<MySqlDataHandler.Currency> currencies = currencies = queryHandler.GetCurrency();
-            
+
             if (searchText != string.Empty && searchText != "Search Transfers here ...".ToUpper())
                 accomGuids = accomGuids.Where(a => a.FullName.ToUpper().Contains(searchText.ToUpper())).ToList();
 
@@ -1726,18 +1846,18 @@ namespace GulliverII
                         extraCost = Math.Round(extraCost / exchangeRate, 2);
                     }
                 }
-                GulliverIIDS.TripperExtra.AddTripperExtraRow("Delete", (int)accomGuid.SrRecNo, 0, accomGuid.FullName.Trim(), accomGuid.ValidFrom.Value, accomGuid.ValidTo.Value,extraCost, tripperExtraRecnos.Contains((int)accomGuid.SrRecNo));
+                GulliverIIDS.TripperExtra.AddTripperExtraRow("Delete", (int)accomGuid.SrRecNo, 0, accomGuid.FullName.Trim(), accomGuid.ValidFrom.Value, accomGuid.ValidTo.Value, extraCost, tripperExtraRecnos.Contains((int)accomGuid.SrRecNo));
             }
 
-           dataGridviewTripperExtras.Columns[6].Visible = showCost;           
-        }                     
+            dataGridviewTripperExtras.Columns[6].Visible = showCost;
+        }
 
         private void FillSelectedOccupancy(string selectedOccupancys)
         {
             for (int i = 0; i < cbOcupancy.Items.Count; i++)
             {
-               if (selectedOccupancys.Contains( ((ComboBoxItem)cbOcupancy.Items[i]).Value.ToString()))
-                 cbOcupancy.SetItemChecked(i, true);
+                if (selectedOccupancys.Contains(((ComboBoxItem)cbOcupancy.Items[i]).Value.ToString()))
+                    cbOcupancy.SetItemChecked(i, true);
             }
 
             EnableDisableChildPrices(selectedOccupancys.Split('#').ToList());
@@ -1747,8 +1867,8 @@ namespace GulliverII
         {
             for (int i = 0; i < cbBoards.Items.Count; i++)
             {
-               if (selectedBoardBasis.Contains(((ComboBoxItem)cbBoards.Items[i]).Value.ToString()))
-                  cbBoards.SetItemChecked(i, true);
+                if (selectedBoardBasis.Contains(((ComboBoxItem)cbBoards.Items[i]).Value.ToString()))
+                    cbBoards.SetItemChecked(i, true);
             }
             SortBoardBasis();
         }
@@ -1793,11 +1913,11 @@ namespace GulliverII
             List<ComboBoxItem> items = new List<ComboBoxItem>();
 
             costingsDS.RoomTypeMarkup.Rows.Clear();
-            
+
             foreach (GulliverLibrary.RoomTypeMarkup roomTypeMarkup in roomTypeMarkups)
-            costingsDS.RoomTypeMarkup.AddRoomTypeMarkupRow("Delete", roomTypeMarkup.id, roomTypeMarkup.code.Trim(), roomTypeMarkup.roomType.Trim(), roomTypeMarkup.adultPrice, roomTypeMarkup.childPrice);
+                costingsDS.RoomTypeMarkup.AddRoomTypeMarkupRow("Delete", roomTypeMarkup.id, roomTypeMarkup.code.Trim(), roomTypeMarkup.roomType.Trim(), roomTypeMarkup.adultPrice, roomTypeMarkup.childPrice);
         }
-       
+
         private void FillWeekDayMarkups(List<GulliverLibrary.WeekDayMarkup> weekDayMarkups)
         {
             costingsDS.WeekdayMarkup.Rows.Clear();
@@ -1820,7 +1940,7 @@ namespace GulliverII
             if (manualHotelContracts != null && manualHotelContracts.Count > 0)
             {
                 txtRoomType.Text = (manualHotelContracts.First().roomType != null) ? manualHotelContracts.First().roomType.Trim() : string.Empty;
-                foreach(ComboBoxItem item in ddlCurrency.Items)
+                foreach (ComboBoxItem item in ddlCurrency.Items)
                 {
                     if (item.Value.ToString() == manualHotelContracts.First().currency.Trim())
                         ddlCurrency.SelectedItem = item;
@@ -1829,15 +1949,15 @@ namespace GulliverII
             }
 
             foreach (GulliverLibrary.ManualHotelContract manualContract in manualHotelContracts)
-                GulliverIIDS.ManualContract.AddManualContractRow("Delete", manualContract.id, manualContract.fromDate, manualContract.toDate, manualContract.price, manualContract.allotment);
+                GulliverIIDS.ManualContract.AddManualContractRow("Delete", manualContract.id, manualContract.fromDate.Date, manualContract.toDate.Date, manualContract.price, manualContract.allotment);
         }
 
         private void FillSecretEscapeCostings(GulliverLibrary.SecretEscapeMarkup secretEscapeMarkup)
         {
             if (secretEscapeMarkup != null)
             {
-              txtMinimumMarkup.Text = secretEscapeMarkup.leadingMarkup.ToString();
-              txtStandardMarkup.Text = secretEscapeMarkup.standardMarkup.ToString();
+                txtMinimumMarkup.Text = secretEscapeMarkup.leadingMarkup.ToString();
+                txtStandardMarkup.Text = secretEscapeMarkup.standardMarkup.ToString();
             }
         }
 
@@ -1852,7 +1972,7 @@ namespace GulliverII
         private void FillCarParking(List<GulliverLibrary.CarParking> carParkings)
         {
             GulliverIIDS.CarParking.Rows.Clear();
-           
+
             foreach (GulliverLibrary.CarParking carParking in carParkings)
                 GulliverIIDS.CarParking.AddCarParkingRow("Delete", carParking.id, carParking.startDate, carParking.endDate, carParking.currency, carParking.amount);
         }
@@ -1860,9 +1980,9 @@ namespace GulliverII
         private void FillExtras(List<GulliverLibrary.Extra> extras)
         {
             GulliverIIDS.Extra.Rows.Clear();
-            
+
             foreach (GulliverLibrary.Extra extra in extras)
-              GulliverIIDS.Extra.AddExtraRow("Delete", extra.id, extra.description.Trim(), extra.isIncluded, extra.adultPrice, extra.childPrice);            
+                GulliverIIDS.Extra.AddExtraRow("Delete", extra.id, extra.description.Trim(), extra.isIncluded, extra.adultPrice, extra.childPrice);
         }
 
         private void FillDurationCostings(List<GulliverLibrary.DurationCosting> durationCostings)
@@ -1872,7 +1992,7 @@ namespace GulliverII
             if (durationCostings != null && durationCostings.Count > 0)
             {
                 foreach (GulliverLibrary.DurationCosting durationCosting in durationCostings)
-                    costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, ((durationCosting.roomType != null)?durationCosting.roomType.Trim():string.Empty), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);                
+                    costingsDS.DurationCosting.AddDurationCostingRow("Delete", durationCosting.id, durationCosting.duration.ToString(), durationCosting.occupancy, ((durationCosting.roomType != null) ? durationCosting.roomType.Trim() : string.Empty), durationCosting.minSellAt, durationCosting.maxSellAt, durationCosting.minChildSellAt, durationCosting.maxChildSellAt, durationCosting.minMarkupFirstRange, durationCosting.minMarkupOtherRange, durationCosting.minMarkupOtherRangeType, durationCosting.increasedBy);
             }
         }
 
@@ -1885,7 +2005,7 @@ namespace GulliverII
                 foreach (string duration in deal.durations.Split('#'))
                 {
                     foreach (string occupancy in deal.occupancy.Split('#'))
-                      costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy,string.Empty, 0, 0, 0, 0, 0, 0, "£", 0);                    
+                        costingsDS.DurationCosting.AddDurationCostingRow("Delete", 0, duration, occupancy, string.Empty, 0, 0, 0, 0, 0, 0, "£", 0);
                 }
             }
         }
@@ -1894,8 +2014,8 @@ namespace GulliverII
         {
             for (int i = 0; i < cbDurations.Items.Count; i++)
             {
-               if (durations.Contains(cbDurations.Items[i].ToString()))
-                  cbDurations.SetItemChecked(i, true);
+                if (durations.Contains(cbDurations.Items[i].ToString()))
+                    cbDurations.SetItemChecked(i, true);
             }
         }
 
@@ -1944,8 +2064,6 @@ namespace GulliverII
             }
         }
 
-      
-
         private void FillDealInstructions()
         {
             if (deal.DealInstructions != null)
@@ -1956,9 +2074,6 @@ namespace GulliverII
             }
         }
 
-      
-       
-        
         #endregion
 
         #region DataGridviewCostings
@@ -1976,8 +2091,8 @@ namespace GulliverII
                     {
                         case System.Windows.Forms.DialogResult.Yes:
                             string board = dataGridviewOfferContracts.Rows[e.RowIndex].Cells[3].Value.ToString().Trim().ToUpper();
-                            List<string> boards = dataGridviewOfferContracts.Rows.Cast<DataGridViewRow>().Select(r => r.Cells[3].Value.ToString().Trim().ToUpper()).ToList();
 
+                            List<string> boards = dataGridviewOfferContracts.Rows.Cast<DataGridViewRow>().Select(r => r.Cells[3].Value.ToString().Trim().ToUpper()).ToList();
                             List<string> selectedBoards = boards.Where(b => b == board).ToList();
 
                             if (selectedBoards.Count == 1)
@@ -1996,7 +2111,7 @@ namespace GulliverII
                 catch { }
             }
         }
-               
+
         private void dataGridViewExtras_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewExtras.Rows[e.RowIndex].Cells[1].Value == null)
@@ -2010,7 +2125,7 @@ namespace GulliverII
 
         private void dataGridViewExtras_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >=0 && dataGridViewExtras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridViewExtras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGridViewExtras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridViewExtras.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
                 dataGridViewExtras.CurrentCell = (dataGridViewExtras.Rows.Count == 0) ? dataGridViewExtras.Rows[0].Cells[0] : null;
 
@@ -2039,7 +2154,7 @@ namespace GulliverII
                     return;
             }
         }
-                              
+
         // car parking
 
         private void dataGridviewCarparking_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -2084,7 +2199,7 @@ namespace GulliverII
                     return;
             }
         }
-                
+
 
         //car hire
 
@@ -2129,32 +2244,30 @@ namespace GulliverII
                 dataGridviewCarhire.Rows[e.RowIndex].Cells[4].Value = "GBP";
                 dataGridviewCarhire.Rows[e.RowIndex].Cells[5].Value = "0";
             }
-        }    
+        }
 
 
         // duration costing   
 
         private void dataGVDurationCosting_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           if (e.RowIndex >= 0 && dataGVDurationCosting.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVDurationCosting.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            if (e.RowIndex >= 0 && dataGVDurationCosting.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVDurationCosting.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            {
+                dataGVDurationCosting.CurrentCell = (dataGVDurationCosting.Rows.Count == 0) ? dataGVDurationCosting.Rows[0].Cells[0] : null;
+                try
                 {
-                    dataGVDurationCosting.CurrentCell = (dataGVDurationCosting.Rows.Count == 0) ? dataGVDurationCosting.Rows[0].Cells[0] : null;
-                    try
+                    switch (MessageBox.Show("This will delete selected duration costing - continue?", "Delete Duration Costings", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                     {
-                        switch (MessageBox.Show("This will delete selected duration costing - continue?", "Delete Duration Costings", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                        {
 
-                            case System.Windows.Forms.DialogResult.Yes:
-                                dataGVDurationCosting.Rows.Remove((DataGridViewRow)dataGVDurationCosting.Rows[e.RowIndex]);
-                                break;
+                        case System.Windows.Forms.DialogResult.Yes:
+                            dataGVDurationCosting.Rows.Remove((DataGridViewRow)dataGVDurationCosting.Rows[e.RowIndex]);
+                            break;
 
-                            case System.Windows.Forms.DialogResult.No:
-                                return;
-                        }
+                        case System.Windows.Forms.DialogResult.No:
+                            return;
                     }
-                    catch {} 
-                        
-                    
+                }
+                catch { }
             }
         }
 
@@ -2189,8 +2302,8 @@ namespace GulliverII
                     return;
             }
         }
-        
-        
+
+
         //markup
 
         private void dataGVMarkups_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -2235,8 +2348,8 @@ namespace GulliverII
             }
         }
 
-       
-       //weekday markup
+
+        //weekday markup
         private void dataGVWeekdayM_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dataGVWeekdayM.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVWeekdayM.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
@@ -2259,10 +2372,10 @@ namespace GulliverII
         {
             if (dataGVWeekdayM.Rows[e.RowIndex].Cells[1].Value == null)
             {
-               dataGVWeekdayM.Rows[e.RowIndex].Cells[0].Value = "Delete";
-               dataGVWeekdayM.Rows[e.RowIndex].Cells[1].Value = "0";
-               dataGVWeekdayM.Rows[e.RowIndex].Cells[2].Value = "";
-               dataGVWeekdayM.Rows[e.RowIndex].Cells[3].Value = "0";
+                dataGVWeekdayM.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGVWeekdayM.Rows[e.RowIndex].Cells[1].Value = "0";
+                dataGVWeekdayM.Rows[e.RowIndex].Cells[2].Value = "";
+                dataGVWeekdayM.Rows[e.RowIndex].Cells[3].Value = "0";
             }
         }
 
@@ -2286,6 +2399,7 @@ namespace GulliverII
             if (e.RowIndex >= 0 && dataGVRoomTypeMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGVRoomTypeMarkups.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
             {
                 dataGVRoomTypeMarkups.CurrentCell = (dataGVRoomTypeMarkups.Rows.Count == 0) ? dataGVRoomTypeMarkups.Rows[0].Cells[0] : null;
+
                 switch (MessageBox.Show("This will delete selected roomtype markup - continue?", "Roomtype Markup", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     case System.Windows.Forms.DialogResult.Yes:
@@ -2325,7 +2439,7 @@ namespace GulliverII
             }
         }
 
-       
+
         //suppler markups
         private void dataGVSupplierMarkups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -2367,11 +2481,11 @@ namespace GulliverII
                 dataGVSupplierMarkups.Rows[e.RowIndex].Cells[1].Value = "0";
                 dataGVSupplierMarkups.Rows[e.RowIndex].Cells[2].Value = "";
                 dataGVSupplierMarkups.Rows[e.RowIndex].Cells[3].Value = "0";
-                dataGVSupplierMarkups.Rows[e.RowIndex].Cells[4].Value = "0";   
+                dataGVSupplierMarkups.Rows[e.RowIndex].Cells[4].Value = "0";
             }
         }
-              
-        
+
+
         //departure markups
         private void dataGVDepartureApMarkups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -2415,8 +2529,8 @@ namespace GulliverII
                 dataGVDepartureApMarkups.Rows[e.RowIndex].Cells[3].Value = "0";
             }
         }
-        
-       
+
+
         //airport markups
         private void dataGVArrivalAirportMarkups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -2461,8 +2575,8 @@ namespace GulliverII
                 dataGVArrivalAirportMarkups.Rows[e.RowIndex].Cells[3].Value = "0";
             }
         }
-       
-       
+
+
         // daternage markup
         private void dataGVDateRangeMarkup_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -2486,9 +2600,9 @@ namespace GulliverII
         {
             if (dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[1].Value == null)
             {
-               dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[0].Value = "Delete";
-               dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[1].Value = "0";          
-               dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[4].Value = "0";
+                dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[1].Value = "0";
+                dataGVDateRangeMarkup.Rows[e.RowIndex].Cells[4].Value = "0";
             }
         }
 
@@ -2543,10 +2657,10 @@ namespace GulliverII
         {
             if (dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[1].Value == null)
             {
-               dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[0].Value = "Delete";
-               dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[1].Value = "0";
-               dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[2].Value = "0";
-               dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[5].Value = "0";
+                dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[1].Value = "0";
+                dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[2].Value = "0";
+                dataGVLowAvailabilityMarkup.Rows[e.RowIndex].Cells[5].Value = "0";
             }
         }
 
@@ -2557,10 +2671,10 @@ namespace GulliverII
         {
             if (dataGridViewHotelContracts.Rows[e.RowIndex].Cells[1].Value == null)
             {
-               dataGridViewHotelContracts.Rows[e.RowIndex].Cells[0].Value = "Delete";
-               dataGridViewHotelContracts.Rows[e.RowIndex].Cells[1].Value = "0";
-               dataGridViewHotelContracts.Rows[e.RowIndex].Cells[4].Value = "0";
-               dataGridViewHotelContracts.Rows[e.RowIndex].Cells[5].Value = "0";
+                dataGridViewHotelContracts.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGridViewHotelContracts.Rows[e.RowIndex].Cells[1].Value = "0";
+                dataGridViewHotelContracts.Rows[e.RowIndex].Cells[4].Value = "0";
+                dataGridViewHotelContracts.Rows[e.RowIndex].Cells[5].Value = "0";
             }
         }
 
@@ -2614,7 +2728,7 @@ namespace GulliverII
                         return;
                 }
             }
-            
+
         }
 
         private void dataGridviewSupplemet_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -2682,7 +2796,6 @@ namespace GulliverII
             {
                 dataGridviewBlackouts.Rows[e.RowIndex].Cells[0].Value = "Delete";
                 dataGridviewBlackouts.Rows[e.RowIndex].Cells[1].Value = "0";
-                
             }
         }
 
@@ -2728,7 +2841,6 @@ namespace GulliverII
                 dataGridviewFreenights.Rows[e.RowIndex].Cells[1].Value = "0";
                 dataGridviewFreenights.Rows[e.RowIndex].Cells[4].Value = "0";
                 dataGridviewFreenights.Rows[e.RowIndex].Cells[5].Value = "0";
-
             }
         }
 
@@ -2755,13 +2867,12 @@ namespace GulliverII
 
         private void dataGridviewDiscounts_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridviewFreenights.Rows[e.RowIndex].Cells[1].Value == null)
+            if (dataGridviewDiscounts.Rows[e.RowIndex].Cells[1].Value == null)
             {
                 dataGridviewDiscounts.Rows[e.RowIndex].Cells[0].Value = "Delete";
                 dataGridviewDiscounts.Rows[e.RowIndex].Cells[1].Value = "0";
                 dataGridviewDiscounts.Rows[e.RowIndex].Cells[4].Value = "0";
                 dataGridviewDiscounts.Rows[e.RowIndex].Cells[5].Value = "%";
-
             }
         }
 
@@ -2779,7 +2890,7 @@ namespace GulliverII
             }
         }
 
-       
+
         //tripper extras       
 
         private void dataGridviewTripperExtras_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -2796,7 +2907,6 @@ namespace GulliverII
             }
         }
 
-       
 
         #endregion
 
@@ -2808,7 +2918,8 @@ namespace GulliverII
             {
                 SaveDealInstruction();
                 MessageBox.Show("Information has been saved successfully!", "Save!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error while saving the details, please check and try again!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -2823,21 +2934,25 @@ namespace GulliverII
             {
                 foreach (GulliverIIDS.HotelContractsRow contract in GulliverIIDS.HotelContracts.Rows)
                 {
-                    GulliverLibrary.HotelContract hotelContract = new GulliverLibrary.HotelContract();
-                    MySqlDataHandler.AcCGuiD tripperAccomGuid = packageHandler.GetAccomGuidByRecNo(contract.Recno);
-
-                    if (tripperAccomGuid != null)
+                    using (GulliverLibrary.HotelContract hotelContract = new GulliverLibrary.HotelContract())
                     {
-                        hotelContract.id = contract.id;
-                        hotelContract.apt = tripperAccomGuid.Apt.Trim();
-                        hotelContract.recno = (int)tripperAccomGuid.SrRecNo;
-                        hotelContract.accomcode = tripperAccomGuid.AcComCode.Trim();
-                        hotelContract.codename = tripperAccomGuid.CodenAme.Trim();
-                        hotelContract.Deal = deal;
-                        hotelContract.fullname = tripperAccomGuid.FullName.Trim();
-                        hotelContract.resort = tripperAccomGuid.Resort.Trim();
-                        hotelContract.isEntryRoom = contract.EntryRoom;
-                        hotelContracts.Add(hotelContract);
+                        using (MySqlDataHandler.AcCGuiD tripperAccomGuid = packageHandler.GetAccomGuidByRecNo(contract.Recno))
+                        {
+
+                            if (tripperAccomGuid != null)
+                            {
+                                hotelContract.id = contract.id;
+                                hotelContract.apt = tripperAccomGuid.Apt.Trim();
+                                hotelContract.recno = (int)tripperAccomGuid.SrRecNo;
+                                hotelContract.accomcode = tripperAccomGuid.AcComCode.Trim();
+                                hotelContract.codename = tripperAccomGuid.CodenAme.Trim();
+                                hotelContract.Deal = deal;
+                                hotelContract.fullname = tripperAccomGuid.FullName.Trim();
+                                hotelContract.resort = tripperAccomGuid.Resort.Trim();
+                                hotelContract.isEntryRoom = contract.EntryRoom;
+                                hotelContracts.Add(hotelContract);
+                            }
+                        }
                     }
                 }
             }
@@ -2853,7 +2968,13 @@ namespace GulliverII
             {
                 if (ddlCurrency.SelectedItem == null)
                 {
-                    MessageBox.Show("Please enter currecny for manual contracts!","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Please enter currecny for manual contracts!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (txtRoomType.Text.Trim() == string.Empty)
+                {
+                    MessageBox.Show("Please enter room type for manual contracts!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
@@ -2864,8 +2985,8 @@ namespace GulliverII
                     manualContract.Deal = deal;
                     manualContract.allotment = contract.allotment;
                     manualContract.currency = ((ComboBoxItem)ddlCurrency.SelectedItem).Value.ToString();
-                    manualContract.fromDate = contract.fromDate;
-                    manualContract.toDate = contract.toDate;
+                    manualContract.fromDate = contract.fromDate.Date;
+                    manualContract.toDate = contract.toDate.Date;
                     manualContract.price = contract.price;
                     manualContract.roomType = txtRoomType.Text.Trim();
                     manualContracts.Add(manualContract);
@@ -2876,7 +2997,7 @@ namespace GulliverII
                 SaveFreenights();
                 SaveBlackouts();
                 SaveDiscounts();
-            }           
+            }
         }
 
         private void SaveSupplements()
@@ -2897,15 +3018,15 @@ namespace GulliverII
         public void SaveFreenights()
         {
             List<GulliverLibrary.FreeNight> freeNights = (from f in this.GulliverIIDS.Freenights
-                                                            select new GulliverLibrary.FreeNight
-                                                            {
-                                                                id = f.id,
-                                                                fromDate = f.FromDate.Date,
-                                                                toDate = f.ToDate.Date,
-                                                                actual = f.ActualDuration,
-                                                                paid = f.PaidDuration,
-                                                                Deal = deal
-                                                            }).ToList();
+                                                          select new GulliverLibrary.FreeNight
+                                                          {
+                                                              id = f.id,
+                                                              fromDate = f.FromDate.Date,
+                                                              toDate = f.ToDate.Date,
+                                                              actual = f.ActualDuration,
+                                                              paid = f.PaidDuration,
+                                                              Deal = deal
+                                                          }).ToList();
 
             packageHandler.UpdateFreenights(freeNights, deal.id);
         }
@@ -2943,17 +3064,19 @@ namespace GulliverII
 
         public void SaveChildAge()
         {
-            GulliverLibrary.ChildrenAge childAge = new GulliverLibrary.ChildrenAge();
-            childAge.Deal = deal;
-
-            if ((txtChildAgeFrom.Enabled && txtChildAgeTo.Enabled) || (txtInfantAgeFrom.Enabled && txtInfantAgeTo.Enabled))
+            using (GulliverLibrary.ChildrenAge childAge = new GulliverLibrary.ChildrenAge())
             {
-                childAge.childAgeFrom = Convert.ToDecimal(txtChildAgeFrom.Text);
-                childAge.childAgeTo = Convert.ToDecimal(txtChildAgeTo.Text);
-                childAge.infantAgeFrom = Convert.ToDecimal(txtInfantAgeFrom.Text);
-                childAge.infantAgeTo = Convert.ToDecimal(txtInfantAgeTo.Text);
-                packageHandler.UpdateChildAges(childAge, deal.id);
-            }        
+                childAge.Deal = deal;
+
+                if ((txtChildAgeFrom.Enabled && txtChildAgeTo.Enabled) || (txtInfantAgeFrom.Enabled && txtInfantAgeTo.Enabled))
+                {
+                    childAge.childAgeFrom = Convert.ToDecimal(txtChildAgeFrom.Text);
+                    childAge.childAgeTo = Convert.ToDecimal(txtChildAgeTo.Text);
+                    childAge.infantAgeFrom = Convert.ToDecimal(txtInfantAgeFrom.Text);
+                    childAge.infantAgeTo = Convert.ToDecimal(txtInfantAgeTo.Text);
+                    packageHandler.UpdateChildAges(childAge, deal.id);
+                }
+            }
         }
 
         //tab 2
@@ -2978,6 +3101,7 @@ namespace GulliverII
                 deal.isFlightSheet = cbFlightTypes.GetItemChecked(1);
                 deal.isAmadeus = cbFlightTypes.GetItemChecked(2);
                 deal.isFABMM = cbFlightTypes.GetItemChecked(3);
+                deal.isFABCache = cbFlightTypes.GetItemChecked(5);
                 deal.filteredAirlines = string.Join("#", cbAirlines.CheckedItems.Cast<string>().ToArray());
                 deal.baggageType = (rbnBGPP.Checked) ? "1" : ((rbnBGTwo.Checked) ? "2" : "0");
                 deal.filteredWeekdays = string.Join("#", cbWeekDays.CheckedItems.Cast<string>().ToArray());
@@ -2988,6 +3112,7 @@ namespace GulliverII
                 deal.lastupdatedTime = DateTime.Now;
                 deal.Media = (ddlMedias.SelectedItem != null) ? gulliverQueryHandler.GetMediaByCode(((ComboBoxItem)ddlMedias.SelectedItem).Value.ToString()) : null;
                 deal.takeFollowingDateFromDeparture = cbTakeFollowingDayFromDeparture.Checked;
+
                 if (deal.Media == null)
                 {
                     MessageBox.Show("Please select valid media before you go to next step!");
@@ -3027,19 +3152,22 @@ namespace GulliverII
             {
                 if (selectedTripperExtras.Contains(e.recno))
                 {
-                    GulliverLibrary.TripperExtra tripperExtra = new GulliverLibrary.TripperExtra();
-                    int recno = e.recno;
-                    MySqlDataHandler.AcCGuiD accomGuid = queryHandler.GetAccomGuidByRecNo(recno);
-
-                    tripperExtra.id = e.id;
-                    tripperExtra.accomcode = accomGuid.AcComCode;
-                    tripperExtra.apt = accomGuid.Apt;
-                    tripperExtra.codename = accomGuid.CodenAme;
-                    tripperExtra.Deal = deal;
-                    tripperExtra.fullname = accomGuid.FullName;
-                    tripperExtra.recno = e.recno;
-                    tripperExtra.resort = accomGuid.Resort;
-                    tripperExtras.Add(tripperExtra);
+                    using (GulliverLibrary.TripperExtra tripperExtra = new GulliverLibrary.TripperExtra())
+                    {
+                        int recno = e.recno;
+                        using (MySqlDataHandler.AcCGuiD accomGuid = queryHandler.GetAccomGuidByRecNo(recno))
+                        {
+                            tripperExtra.id = e.id;
+                            tripperExtra.accomcode = accomGuid.AcComCode;
+                            tripperExtra.apt = accomGuid.Apt;
+                            tripperExtra.codename = accomGuid.CodenAme;
+                            tripperExtra.Deal = deal;
+                            tripperExtra.fullname = accomGuid.FullName;
+                            tripperExtra.recno = e.recno;
+                            tripperExtra.resort = accomGuid.Resort;
+                            tripperExtras.Add(tripperExtra);
+                        }
+                    }
                 }
             }
 
@@ -3052,18 +3180,20 @@ namespace GulliverII
 
             foreach (GulliverIIDS.CarhireRow carhire in this.GulliverIIDS.Carhire)
             {
-               GulliverLibrary.CarHire objCarHire = new GulliverLibrary.CarHire();
-               objCarHire.amount = carhire.Amount;
-               objCarHire.currency = carhire.Currency;
-               objCarHire.Deal = deal;
-               objCarHire.endDate = carhire.EndDate;
-               objCarHire.startDate = carhire.StartDate;
-               objCarHire.id = carhire.id;
-               carHires.Add(objCarHire);
+                using (GulliverLibrary.CarHire objCarHire = new GulliverLibrary.CarHire())
+                {
+                    objCarHire.amount = carhire.Amount;
+                    objCarHire.currency = carhire.Currency;
+                    objCarHire.Deal = deal;
+                    objCarHire.endDate = carhire.EndDate;
+                    objCarHire.startDate = carhire.StartDate;
+                    objCarHire.id = carhire.id;
+                    carHires.Add(objCarHire);
+                }
             }
 
             packageHandler.UpdateCarHire(carHires, deal.id);
-        } 
+        }
 
         private void SaveCarParking()
         {
@@ -3071,14 +3201,16 @@ namespace GulliverII
 
             foreach (GulliverIIDS.CarParkingRow carParking in this.GulliverIIDS.CarParking)
             {
-              GulliverLibrary.CarParking objCarparking = new GulliverLibrary.CarParking();
-              objCarparking.amount = carParking.Amount;
-              objCarparking.currency = carParking.Currency;
-              objCarparking.Deal = deal;
-              objCarparking.endDate = carParking.EndDate;
-              objCarparking.startDate = carParking.StartDate;
-              objCarparking.id = carParking.id;
-              carParkings.Add(objCarparking);
+                using (GulliverLibrary.CarParking objCarparking = new GulliverLibrary.CarParking())
+                {
+                    objCarparking.amount = carParking.Amount;
+                    objCarparking.currency = carParking.Currency;
+                    objCarparking.Deal = deal;
+                    objCarparking.endDate = carParking.EndDate;
+                    objCarparking.startDate = carParking.StartDate;
+                    objCarparking.id = carParking.id;
+                    carParkings.Add(objCarparking);
+                }
             }
 
             packageHandler.UpdateCarParking(carParkings, deal.id);
@@ -3090,15 +3222,17 @@ namespace GulliverII
 
             foreach (GulliverIIDS.ExtraRow extraRow in this.GulliverIIDS.Extra)
             {
-                GulliverLibrary.Extra objExtra = new GulliverLibrary.Extra();
-                objExtra.adultPrice = extraRow.AdultPrice;
-                objExtra.childPrice = extraRow.ChildPrice;
-                objExtra.Deal = deal;
-                objExtra.description = extraRow.Description;
-                objExtra.isIncluded = extraRow.Include;
-                objExtra.id = extraRow.id;
-                extras.Add(objExtra);
-            }            
+                using (GulliverLibrary.Extra objExtra = new GulliverLibrary.Extra())
+                {
+                    objExtra.adultPrice = extraRow.AdultPrice;
+                    objExtra.childPrice = extraRow.ChildPrice;
+                    objExtra.Deal = deal;
+                    objExtra.description = extraRow.Description;
+                    objExtra.isIncluded = extraRow.Include;
+                    objExtra.id = extraRow.id;
+                    extras.Add(objExtra);
+                }
+            }
 
             packageHandler.UpdateExtras(extras, deal.id);
         }
@@ -3123,21 +3257,23 @@ namespace GulliverII
 
             foreach (CostingsDS.DurationCostingRow durationCosting in this.costingsDS.DurationCosting)
             {
-                GulliverLibrary.DurationCosting objDurCostings = new GulliverLibrary.DurationCosting();
-                objDurCostings.Deal = deal;
-                objDurCostings.id = durationCosting.id;
-                objDurCostings.duration = Convert.ToInt32(durationCosting.Duration);
-                objDurCostings.roomType = durationCosting.RoomType.Trim();
-                objDurCostings.occupancy = durationCosting.Occupancy;
-                objDurCostings.minSellAt = durationCosting.MinSellAt;
-                objDurCostings.maxSellAt = durationCosting.MaxSellAt;
-                objDurCostings.minChildSellAt = durationCosting.ChildMinSellAt;
-                objDurCostings.maxChildSellAt = durationCosting.ChildMaxSellAt;
-                objDurCostings.minMarkupFirstRange = durationCosting.MinMLeading;
-                objDurCostings.minMarkupOtherRange = durationCosting.MinMStandard;
-                objDurCostings.minMarkupOtherRangeType = durationCosting.MimMStandardType;
-                objDurCostings.increasedBy = durationCosting.IncreasedBy;
-                durationCostings.Add(objDurCostings);
+                using (GulliverLibrary.DurationCosting objDurCostings = new GulliverLibrary.DurationCosting())
+                {
+                    objDurCostings.Deal = deal;
+                    objDurCostings.id = durationCosting.id;
+                    objDurCostings.duration = Convert.ToInt32(durationCosting.Duration);
+                    objDurCostings.roomType = durationCosting.RoomType.Trim();
+                    objDurCostings.occupancy = durationCosting.Occupancy;
+                    objDurCostings.minSellAt = durationCosting.MinSellAt;
+                    objDurCostings.maxSellAt = durationCosting.MaxSellAt;
+                    objDurCostings.minChildSellAt = durationCosting.ChildMinSellAt;
+                    objDurCostings.maxChildSellAt = durationCosting.ChildMaxSellAt;
+                    objDurCostings.minMarkupFirstRange = durationCosting.MinMLeading;
+                    objDurCostings.minMarkupOtherRange = durationCosting.MinMStandard;
+                    objDurCostings.minMarkupOtherRangeType = durationCosting.MimMStandardType;
+                    objDurCostings.increasedBy = durationCosting.IncreasedBy;
+                    durationCostings.Add(objDurCostings);
+                }
             }
 
             packageHandler.UpdateDurationCostings(durationCostings, deal.id);
@@ -3145,12 +3281,14 @@ namespace GulliverII
 
         private void SaveSecretEscapeCostings()
         {
-            GulliverLibrary.SecretEscapeMarkup secretEscapeMarkups = new GulliverLibrary.SecretEscapeMarkup();
-            secretEscapeMarkups.Deal = deal;
-            secretEscapeMarkups.leadingMarkup = (txtMinimumMarkup.Text != string.Empty)?Convert.ToDecimal(txtMinimumMarkup.Text):0;
-            secretEscapeMarkups.standardMarkup = (txtStandardMarkup.Text != string.Empty)?Convert.ToDecimal(txtStandardMarkup.Text):0;
+            using (GulliverLibrary.SecretEscapeMarkup secretEscapeMarkups = new GulliverLibrary.SecretEscapeMarkup())
+            {
+                secretEscapeMarkups.Deal = deal;
+                secretEscapeMarkups.leadingMarkup = (txtMinimumMarkup.Text != string.Empty) ? Convert.ToDecimal(txtMinimumMarkup.Text) : 0;
+                secretEscapeMarkups.standardMarkup = (txtStandardMarkup.Text != string.Empty) ? Convert.ToDecimal(txtStandardMarkup.Text) : 0;
 
-            packageHandler.UpdateSecretEscapeMarkup(secretEscapeMarkups, deal.id);
+                packageHandler.UpdateSecretEscapeMarkup(secretEscapeMarkups, deal.id);
+            }
         }
 
         private void SaveDurationMarkup()
@@ -3159,13 +3297,15 @@ namespace GulliverII
 
             foreach (CostingsDS.DurationMarkupRow durationMarkup in this.costingsDS.DurationMarkup)
             {
-               GulliverLibrary.DurationMarkup objDurMarkup = new GulliverLibrary.DurationMarkup();
-               objDurMarkup.Deal = deal;
-               objDurMarkup.duration = durationMarkup.Duration;
-               objDurMarkup.id = durationMarkup.id;
-               objDurMarkup.adultMarkup = durationMarkup.AdultMarkup;
-               objDurMarkup.childMarkup = durationMarkup.ChildMarkup;
-               durationMarkups.Add(objDurMarkup);
+                using (GulliverLibrary.DurationMarkup objDurMarkup = new GulliverLibrary.DurationMarkup())
+                {
+                    objDurMarkup.Deal = deal;
+                    objDurMarkup.duration = durationMarkup.Duration;
+                    objDurMarkup.id = durationMarkup.id;
+                    objDurMarkup.adultMarkup = durationMarkup.AdultMarkup;
+                    objDurMarkup.childMarkup = durationMarkup.ChildMarkup;
+                    durationMarkups.Add(objDurMarkup);
+                }
             }
             packageHandler.UpdateDurationMarkup(durationMarkups, deal.id);
         }
@@ -3176,14 +3316,16 @@ namespace GulliverII
 
             foreach (CostingsDS.WeekdayMarkupRow weekDayMarkup in this.costingsDS.WeekdayMarkup)
             {
-               GulliverLibrary.WeekDayMarkup objWeekdayMarkup = new GulliverLibrary.WeekDayMarkup();
-               objWeekdayMarkup.Deal = deal;
-               objWeekdayMarkup.weekday = weekDayMarkup.Weekday;
-               objWeekdayMarkup.Deal = deal;
-               objWeekdayMarkup.id = weekDayMarkup.id;
-               objWeekdayMarkup.adultMarkup = weekDayMarkup.AdultMarkup;
-               objWeekdayMarkup.childMarkup = weekDayMarkup.ChildMarkup;
-               weekDayMarkups.Add(objWeekdayMarkup);
+                using (GulliverLibrary.WeekDayMarkup objWeekdayMarkup = new GulliverLibrary.WeekDayMarkup())
+                {
+                    objWeekdayMarkup.Deal = deal;
+                    objWeekdayMarkup.weekday = weekDayMarkup.Weekday;
+                    objWeekdayMarkup.Deal = deal;
+                    objWeekdayMarkup.id = weekDayMarkup.id;
+                    objWeekdayMarkup.adultMarkup = weekDayMarkup.AdultMarkup;
+                    objWeekdayMarkup.childMarkup = weekDayMarkup.ChildMarkup;
+                    weekDayMarkups.Add(objWeekdayMarkup);
+                }
             }
 
             packageHandler.UpdateWeekdayMarkup(weekDayMarkups, deal.id);
@@ -3195,14 +3337,16 @@ namespace GulliverII
 
             foreach (CostingsDS.RoomTypeMarkupRow roomTypeMarkup in this.costingsDS.RoomTypeMarkup)
             {
-               GulliverLibrary.RoomTypeMarkup objRoomtypeMarkup = new GulliverLibrary.RoomTypeMarkup();
-               objRoomtypeMarkup.Deal = deal;
-               objRoomtypeMarkup.roomType = roomTypeMarkup.Name;
-               objRoomtypeMarkup.code = roomTypeMarkup.code;
-               objRoomtypeMarkup.id = roomTypeMarkup.id;
-               objRoomtypeMarkup.adultPrice = roomTypeMarkup.Adult;
-               objRoomtypeMarkup.childPrice = roomTypeMarkup.Child;
-               roomTypeMarkups.Add(objRoomtypeMarkup);
+                using (GulliverLibrary.RoomTypeMarkup objRoomtypeMarkup = new GulliverLibrary.RoomTypeMarkup())
+                {
+                    objRoomtypeMarkup.Deal = deal;
+                    objRoomtypeMarkup.roomType = roomTypeMarkup.Name;
+                    objRoomtypeMarkup.code = roomTypeMarkup.code;
+                    objRoomtypeMarkup.id = roomTypeMarkup.id;
+                    objRoomtypeMarkup.adultPrice = roomTypeMarkup.Adult;
+                    objRoomtypeMarkup.childPrice = roomTypeMarkup.Child;
+                    roomTypeMarkups.Add(objRoomtypeMarkup);
+                }
             }
 
             packageHandler.UpdateRoomTypeMarkup(roomTypeMarkups, deal.id);
@@ -3214,12 +3358,14 @@ namespace GulliverII
 
             foreach (CostingsDS.SupplierMarkupRow supplierMarkup in this.costingsDS.SupplierMarkup)
             {
-               GulliverLibrary.SupplierMarkup objSupplierMarkup = new GulliverLibrary.SupplierMarkup();
-               objSupplierMarkup.Deal = deal;
-               objSupplierMarkup.supplier = supplierMarkup.Supplier;
-               objSupplierMarkup.id = supplierMarkup.id;
-               objSupplierMarkup.adultMarkup = supplierMarkup.AdultMarkup;
-               supplierMarkups.Add(objSupplierMarkup);
+                using (GulliverLibrary.SupplierMarkup objSupplierMarkup = new GulliverLibrary.SupplierMarkup())
+                {
+                    objSupplierMarkup.Deal = deal;
+                    objSupplierMarkup.supplier = supplierMarkup.Supplier;
+                    objSupplierMarkup.id = supplierMarkup.id;
+                    objSupplierMarkup.adultMarkup = supplierMarkup.AdultMarkup;
+                    supplierMarkups.Add(objSupplierMarkup);
+                }
             }
 
             packageHandler.UpdateSupplierMarkup(supplierMarkups, deal.id);
@@ -3231,13 +3377,15 @@ namespace GulliverII
 
             foreach (CostingsDS.DepartureAirportMarkupRow departureAPMarkup in this.costingsDS.DepartureAirportMarkup)
             {
-               GulliverLibrary.DepartureAirportMarkup objDepartureAPMarkup = new GulliverLibrary.DepartureAirportMarkup();
-               objDepartureAPMarkup.Deal = deal;
-               objDepartureAPMarkup.airport = departureAPMarkup.DepartureAirport;
-               objDepartureAPMarkup.id = departureAPMarkup.id;
-               objDepartureAPMarkup.adultMarkup = departureAPMarkup.AdultMarkup;
-               objDepartureAPMarkup.childMarkup = departureAPMarkup.ChildMarkup;
-               departureAirportMarkups.Add(objDepartureAPMarkup);
+                using (GulliverLibrary.DepartureAirportMarkup objDepartureAPMarkup = new GulliverLibrary.DepartureAirportMarkup())
+                {
+                    objDepartureAPMarkup.Deal = deal;
+                    objDepartureAPMarkup.airport = departureAPMarkup.DepartureAirport;
+                    objDepartureAPMarkup.id = departureAPMarkup.id;
+                    objDepartureAPMarkup.adultMarkup = departureAPMarkup.AdultMarkup;
+                    objDepartureAPMarkup.childMarkup = departureAPMarkup.ChildMarkup;
+                    departureAirportMarkups.Add(objDepartureAPMarkup);
+                }
             }
 
             packageHandler.UpdateDepartureAirportMarkup(departureAirportMarkups, deal.id);
@@ -3249,13 +3397,15 @@ namespace GulliverII
 
             foreach (CostingsDS.DestinationAirportMarkupRow destinationAPMarkup in this.costingsDS.DestinationAirportMarkup)
             {
-                GulliverLibrary.DestinationAirportMarkup objDestinationAPMarkup = new GulliverLibrary.DestinationAirportMarkup();
-               objDestinationAPMarkup.Deal = deal;
-               objDestinationAPMarkup.airport = destinationAPMarkup.Destination;
-               objDestinationAPMarkup.id = destinationAPMarkup.id;
-               objDestinationAPMarkup.adultMarkup = destinationAPMarkup.AdultMarkup;
-               objDestinationAPMarkup.childMarkup = destinationAPMarkup.ChildMarkup;
-               destinationAirportMarkups.Add(objDestinationAPMarkup);
+                using (GulliverLibrary.DestinationAirportMarkup objDestinationAPMarkup = new GulliverLibrary.DestinationAirportMarkup())
+                {
+                    objDestinationAPMarkup.Deal = deal;
+                    objDestinationAPMarkup.airport = destinationAPMarkup.Destination;
+                    objDestinationAPMarkup.id = destinationAPMarkup.id;
+                    objDestinationAPMarkup.adultMarkup = destinationAPMarkup.AdultMarkup;
+                    objDestinationAPMarkup.childMarkup = destinationAPMarkup.ChildMarkup;
+                    destinationAirportMarkups.Add(objDestinationAPMarkup);
+                }
             }
 
             packageHandler.UpdateDestinationAirportMarkup(destinationAirportMarkups, deal.id);
@@ -3267,14 +3417,16 @@ namespace GulliverII
 
             foreach (CostingsDS.DateRangeMarkupRow destinationAPMarkup in this.costingsDS.DateRangeMarkup)
             {
-               GulliverLibrary.DateRangeMarkup objDateRangeMarkup = new GulliverLibrary.DateRangeMarkup();
-               objDateRangeMarkup.Deal = deal;
-               objDateRangeMarkup.startDate = destinationAPMarkup.StartDate;
-               objDateRangeMarkup.id = destinationAPMarkup.id;
-               objDateRangeMarkup.endDate = destinationAPMarkup.EndDate;
-               objDateRangeMarkup.adultMarkup = destinationAPMarkup.AdultMarkup;
-               objDateRangeMarkup.childMarkup = destinationAPMarkup.ChildMarkup;
-               dateRangeMarkups.Add(objDateRangeMarkup);
+                using (GulliverLibrary.DateRangeMarkup objDateRangeMarkup = new GulliverLibrary.DateRangeMarkup())
+                {
+                    objDateRangeMarkup.Deal = deal;
+                    objDateRangeMarkup.startDate = destinationAPMarkup.StartDate;
+                    objDateRangeMarkup.id = destinationAPMarkup.id;
+                    objDateRangeMarkup.endDate = destinationAPMarkup.EndDate;
+                    objDateRangeMarkup.adultMarkup = destinationAPMarkup.AdultMarkup;
+                    objDateRangeMarkup.childMarkup = destinationAPMarkup.ChildMarkup;
+                    dateRangeMarkups.Add(objDateRangeMarkup);
+                }
             }
 
             packageHandler.UpdateDateRangeMarkup(dateRangeMarkups, deal.id);
@@ -3286,15 +3438,17 @@ namespace GulliverII
 
             foreach (CostingsDS.LowAvailabilityMarkupRow lowAvailabilityMarkup in this.costingsDS.LowAvailabilityMarkup)
             {
-               GulliverLibrary.LowAvailabilityMarkup objLowAvailabilityMarkup = new GulliverLibrary.LowAvailabilityMarkup();
-               objLowAvailabilityMarkup.Deal = deal;
-               objLowAvailabilityMarkup.startDate = lowAvailabilityMarkup.StartDate;
-               objLowAvailabilityMarkup.noOfRooms = lowAvailabilityMarkup.NoOfRooms;
-               objLowAvailabilityMarkup.id = lowAvailabilityMarkup.id;
-               objLowAvailabilityMarkup.endDate = lowAvailabilityMarkup.EndDate;
-               objLowAvailabilityMarkup.adultMarkup = lowAvailabilityMarkup.AdultMarkup;
-               objLowAvailabilityMarkup.childMarkup = lowAvailabilityMarkup.ChildMarkup;
-               lowAvailabilityMarkups.Add(objLowAvailabilityMarkup);
+                using (GulliverLibrary.LowAvailabilityMarkup objLowAvailabilityMarkup = new GulliverLibrary.LowAvailabilityMarkup())
+                {
+                    objLowAvailabilityMarkup.Deal = deal;
+                    objLowAvailabilityMarkup.startDate = lowAvailabilityMarkup.StartDate;
+                    objLowAvailabilityMarkup.noOfRooms = lowAvailabilityMarkup.NoOfRooms;
+                    objLowAvailabilityMarkup.id = lowAvailabilityMarkup.id;
+                    objLowAvailabilityMarkup.endDate = lowAvailabilityMarkup.EndDate;
+                    objLowAvailabilityMarkup.adultMarkup = lowAvailabilityMarkup.AdultMarkup;
+                    objLowAvailabilityMarkup.childMarkup = lowAvailabilityMarkup.ChildMarkup;
+                    lowAvailabilityMarkups.Add(objLowAvailabilityMarkup);
+                }
             }
 
             packageHandler.UpdateLowAvailabilityMarkup(lowAvailabilityMarkups, deal.id);
@@ -3314,10 +3468,10 @@ namespace GulliverII
             SaveDateRangeMarkup();
             SaveLowAvailabilityMarkup();
             deal = packageHandler.GetDealById(dealId);
-        }        
-       
+        }
+
         //save deal
-        
+
         private bool SaveOfferDetails()
         {
             VisibleProgressBar(progressBarTP1, true);
@@ -3333,7 +3487,6 @@ namespace GulliverII
                 MessageBox.Show("Please select valid media before you go to next step!");
                 return false;
             }
-
 
             deal.DealType = (ddlDealTypes.SelectedItem != null) ? gulliverQueryHandler.GetDealTypeById(Convert.ToInt32(((ComboBoxItem)ddlDealTypes.SelectedItem).Value.ToString())) : null;
             SetStepProgressBar(progressBarTP1);
@@ -3370,17 +3523,18 @@ namespace GulliverII
 
             return true;
         }
-        
+
         private void SearchedHolidays(GulliverLibrary.Deal deal)
         {
             FlightsHandler.SearchRequest searchRequest = new FlightsHandler.SearchRequest();
             searchRequest.IncludeFAB = deal.isFAB;
             searchRequest.IncludeFlightSheet = deal.isFlightSheet;
+            searchRequest.IncludeFABCache = deal.isFABCache;
             searchRequest.ImportFlights = false;
             searchRequest.IncludeOneWayMixMatch = deal.isFABMM;
             searchRequest.IncludeAmadeus = deal.isAmadeus;
             searchRequest.DepartureAirports = deal.departureAirports.Split('#').Distinct().ToList();
-            searchRequest.Durations = deal.durations.Split('#').Select(i => Convert.ToInt32(i)).ToList();
+            searchRequest.Durations = (deal.durations != string.Empty) ? deal.durations.Split('#').Select(i => Convert.ToInt32(i)).ToList() : new List<int>();
             searchRequest.ArrivalAirports = deal.arrivalAirports.ToUpper().Split('#').ToList<string>();
             searchRequest.StartDate = deal.startDate.Date;
             searchRequest.EndDate = deal.endDate.Date;
@@ -3394,79 +3548,128 @@ namespace GulliverII
             searchRequest.SelectedEndDate = searchRequest.EndDate;
             searchRequest.getChepestFromEachSupplier = cbSelectCheapestFromEachSupplier.Checked;
             packages = packageHandler.GenerateHolidays(searchRequest, deal, false);
-            
-            flcsPackages packageForm = new flcsPackages(packageHandler, packages, dealId, false, new List<GulliverLibrary.Package>());
-            packageForm.ShowDialog();
-            deal = packageHandler.GetDealById(dealId);
-            VisibleProgressBar(progressBarTP4, false);
-            
-            if (packageForm.saved)
+
+            using (flcsPackages packageForm = new flcsPackages(packageHandler, packages, dealId, false, new List<GulliverLibrary.Package>()))
             {
-                GulliverLibrary.QueryHandler gulliverQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;");
-                List<GulliverLibrary.Package> packagesList = gulliverQueryHandler.GetPackagesByDeal(dealId);
+                packageForm.ShowDialog();
+
                 deal = packageHandler.GetDealById(dealId);
-                packages = packagesList;
-                FillPackages(packages);
-                tabMain.SelectedTab = tabPage5;
+                VisibleProgressBar(progressBarTP4, false);
+
+                if (packageForm.saved)
+                {
+                    using (GulliverLibrary.QueryHandler objQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;"))
+                    {
+                        List<GulliverLibrary.Package> packagesList = objQueryHandler.GetPackagesByDeal(dealId);
+                        deal = packageHandler.GetDealById(dealId);
+                        packages = packagesList;
+                        FillPackages(packages);
+                        tabMain.SelectedTab = tabPage5;
+                    }
+                }
             }
         }
 
         private void CompareHolidays(GulliverLibrary.Deal deal)
         {
-            flcsFilterSearch objFilterSearch = new flcsFilterSearch(deal.durations.Split('#').ToList(), packageHandler.GetAllUKAirports().Select(a => a.airportCode.Trim()).ToList(), packageHandler.GetAllGermanAirports().Select(a => a.airportCode.Trim()).ToList(), packageHandler.GetAllUSAAirports().Select(a => a.airportCode.Trim()).ToList(), deal.departureAirports.Split('#').ToList(),  packageHandler.GetAllCanadianAirports().Select(a => a.airportCode.Trim()).ToList(), deal.startDate, deal.endDate);
-            objFilterSearch.ShowDialog();
-
-            if (objFilterSearch.returnToMainwindow)
+            using (flcsFilterSearch objFilterSearch = new flcsFilterSearch(deal.durations.Split('#').ToList(), packageHandler.GetAllUKAirports().Select(a => a.airportCode.Trim()).ToList(), packageHandler.GetAllGermanAirports().Select(a => a.airportCode.Trim()).ToList(), packageHandler.GetAllUSAAirports().Select(a => a.airportCode.Trim()).ToList(), deal.departureAirports.Split('#').ToList(), packageHandler.GetAllCanadianAirports().Select(a => a.airportCode.Trim()).ToList(), deal.startDate, deal.endDate))
             {
-               progressBar.Visible = false;
-               Application.DoEvents();
-               return;
+                objFilterSearch.ShowDialog();
+
+                if (objFilterSearch.returnToMainwindow)
+                {
+                    progressBar.Visible = false;
+                    Application.DoEvents();
+                    return;
+                }
+
+                FlightsHandler.SearchRequest searchRequest = new FlightsHandler.SearchRequest();
+                searchRequest.IncludeFAB = deal.isFAB;
+                searchRequest.IncludeFlightSheet = deal.isFlightSheet;
+                searchRequest.IncludeFABCache = deal.isFABCache;
+                searchRequest.ImportFlights = false;
+                searchRequest.IncludeOneWayMixMatch = deal.isFABMM;
+                searchRequest.IncludeAmadeus = deal.isAmadeus;
+                searchRequest.DepartureAirports = deal.departureAirports.Split('#').ToList();
+                searchRequest.Durations = deal.durations.Split('#').Select(i => Convert.ToInt32(i)).ToList();
+                searchRequest.ArrivalAirports = deal.arrivalAirports.ToUpper().Split('#').ToList<string>();
+                searchRequest.StartDate = deal.startDate.Date;
+                searchRequest.EndDate = deal.endDate.Date;
+                searchRequest.SelectedDurations = (objFilterSearch.selectedDurations != null) ? objFilterSearch.selectedDurations.Where(i => searchRequest.Durations.Contains(i)).ToList() : new List<int>();
+                searchRequest.DurationsNotInSelectedDurations = searchRequest.Durations.Where(i => !searchRequest.SelectedDurations.Contains(i)).ToList();
+                searchRequest.IncludeBaggages = (deal.baggageType.Trim() == "0") ? false : true;
+                searchRequest.BaggageType = deal.baggageType;
+                searchRequest.SelectedDepartures = (objFilterSearch.selectedDepartureAirports != null) ? objFilterSearch.selectedDepartureAirports : new List<string>();
+                searchRequest.DeparturesNotInSelectedDepartures = searchRequest.DepartureAirports.Where(d => !searchRequest.SelectedDepartures.Contains(d)).ToList();
+                searchRequest.SelectedStartDate = objFilterSearch.startDate;
+                searchRequest.SelectedEndDate = objFilterSearch.endDate;
+                searchRequest.getChepestFromEachSupplier = cbSelectCheapestFromEachSupplier.Checked;
+
+                packages = packageHandler.CompareHolidays(searchRequest, deal, false);
+                VisibleProgressBar(progressBarTP4, false);
             }
 
-            FlightsHandler.SearchRequest searchRequest = new FlightsHandler.SearchRequest();
-            searchRequest.IncludeFAB = deal.isFAB;
-            searchRequest.IncludeFlightSheet = deal.isFlightSheet;
-            searchRequest.ImportFlights = false;
-            searchRequest.IncludeOneWayMixMatch = deal.isFABMM;
-            searchRequest.IncludeAmadeus = deal.isAmadeus;
-            searchRequest.DepartureAirports = deal.departureAirports.Split('#').ToList();
-            searchRequest.Durations = deal.durations.Split('#').Select(i => Convert.ToInt32(i)).ToList();
-            searchRequest.ArrivalAirports = deal.arrivalAirports.ToUpper().Split('#').ToList<string>();
-            searchRequest.StartDate = deal.startDate.Date;
-            searchRequest.EndDate = deal.endDate.Date;
-            searchRequest.SelectedDurations = (objFilterSearch.selectedDurations != null) ? objFilterSearch.selectedDurations.Where(i => searchRequest.Durations.Contains(i)).ToList() : new List<int>();
-            searchRequest.DurationsNotInSelectedDurations = searchRequest.Durations.Where(i => !searchRequest.SelectedDurations.Contains(i)).ToList();
-            searchRequest.IncludeBaggages = (deal.baggageType.Trim() == "0") ? false : true;
-            searchRequest.BaggageType = deal.baggageType;
-            searchRequest.SelectedDepartures = (objFilterSearch.selectedDepartureAirports != null) ? objFilterSearch.selectedDepartureAirports : new List<string>();
-            searchRequest.DeparturesNotInSelectedDepartures = searchRequest.DepartureAirports.Where(d => !searchRequest.SelectedDepartures.Contains(d)).ToList();
-            searchRequest.SelectedStartDate = objFilterSearch.startDate;
-            searchRequest.SelectedEndDate = objFilterSearch.endDate;
-            searchRequest.getChepestFromEachSupplier = cbSelectCheapestFromEachSupplier.Checked;
-
-            packages = packageHandler.CompareHolidays(searchRequest, deal, false);
-            VisibleProgressBar(progressBarTP4, false);
-
-            flcsPackages packageForm = new flcsPackages(packageHandler, packages, dealId, true, new List<GulliverLibrary.Package>());
-            packageForm.ShowDialog();
-
-            if (packageForm.saved)
+            using (flcsPackages packageForm = new flcsPackages(packageHandler, packages, dealId, true, new List<GulliverLibrary.Package>()))
             {
-                GulliverLibrary.QueryHandler gulliverQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;");
-                List<GulliverLibrary.Package> packagesList = gulliverQueryHandler.GetPackagesByDeal(dealId);
-                deal = packageHandler.GetDealById(dealId);
-                packages = packagesList;
-                FillPackages(packages);
-                tabMain.SelectedTab = tabPage5;
+                packageForm.ShowDialog();
+
+                if (packageForm.saved)
+                {
+                    using (GulliverLibrary.QueryHandler objQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;"))
+                    {
+                        List<GulliverLibrary.Package> packagesList = objQueryHandler.GetPackagesByDeal(dealId);
+                        deal = packageHandler.GetDealById(dealId);
+                        packages = packagesList;
+                        FillPackages(packages);
+                    }
+                    tabMain.SelectedTab = tabPage5;
+                }
             }
         }
-        
-        #endregion                                              
 
-    
+        #endregion
 
-      
-       
+        public void Dispose()
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+        }
+
+        ~flcsMain()
+        {
+            Dispose();
+        }
+
+        private void btnRemoveOnlyStoppedSales_Click(object sender, EventArgs e)
+        {
+            packages = packageHandler.RemoveOnlyStoppedSales(deal);
+
+            using (flcsPackages packageForm = new flcsPackages(packageHandler, packages, dealId, false, new List<GulliverLibrary.Package>()))
+            {
+                packageForm.ShowDialog();
+
+                deal = packageHandler.GetDealById(dealId);
+                VisibleProgressBar(progressBarTP4, false);
+
+                if (packageForm.saved)
+                {
+                    using (GulliverLibrary.QueryHandler objQueryHandler = new GulliverLibrary.QueryHandler(@"Server=APP-1\SQLSERVER;Database=Gulliver;User ID=FleetwayServices;Password=flw388;"))
+                    {
+                        List<GulliverLibrary.Package> packagesList = objQueryHandler.GetPackagesByDeal(dealId);
+                        deal = packageHandler.GetDealById(dealId);
+                        packages = packagesList;
+                        FillPackages(packages);
+                        tabMain.SelectedTab = tabPage5;
+                    }
+                }
+            }
+        }
+
+        private void tabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

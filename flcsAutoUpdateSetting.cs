@@ -89,65 +89,79 @@ namespace GulliverII
 
                 if (cbMonday.CheckedItems != null && cbMonday.CheckedItems.Count > 0)
                 {
-                    GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting();
-                    autoUpdateSetting.weekday = "MONDAY";
-                    autoUpdateSetting.time = string.Join("#", cbMonday.CheckedItems.Cast<string>().ToArray());
-                    autoUpdateSetting.Deal = deal;
-                    gulliverUpdateSettings.Add(autoUpdateSetting);
+                    using (GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting())
+                    {
+                        autoUpdateSetting.weekday = "MONDAY";
+                        autoUpdateSetting.time = string.Join("#", cbMonday.CheckedItems.Cast<string>().ToArray());
+                        autoUpdateSetting.Deal = deal;
+                        gulliverUpdateSettings.Add(autoUpdateSetting);
+                    }
                 }
 
                 if (cbTuesday.CheckedItems != null && cbTuesday.CheckedItems.Count > 0)
                 {
-                    GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting();
-                    autoUpdateSetting.weekday = "TUESDAY";
-                    autoUpdateSetting.time = string.Join("#", cbTuesday.CheckedItems.Cast<string>().ToArray());
-                    autoUpdateSetting.Deal = deal;
-                    gulliverUpdateSettings.Add(autoUpdateSetting);
+                    using (GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting())
+                    {
+                        autoUpdateSetting.weekday = "TUESDAY";
+                        autoUpdateSetting.time = string.Join("#", cbTuesday.CheckedItems.Cast<string>().ToArray());
+                        autoUpdateSetting.Deal = deal;
+                        gulliverUpdateSettings.Add(autoUpdateSetting);
+                    }
                 }
 
                 if (cbWednesday.CheckedItems != null && cbWednesday.CheckedItems.Count > 0)
                 {
-                    GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting();
-                    autoUpdateSetting.weekday = "WEDNESDAY";
-                    autoUpdateSetting.time = string.Join("#", cbWednesday.CheckedItems.Cast<string>().ToArray());
-                    autoUpdateSetting.Deal = deal;
-                    gulliverUpdateSettings.Add(autoUpdateSetting);
+                    using (GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting())
+                    {
+                        autoUpdateSetting.weekday = "WEDNESDAY";
+                        autoUpdateSetting.time = string.Join("#", cbWednesday.CheckedItems.Cast<string>().ToArray());
+                        autoUpdateSetting.Deal = deal;
+                        gulliverUpdateSettings.Add(autoUpdateSetting);
+                    }
                 }
 
                 if (cbThursday.CheckedItems != null && cbThursday.CheckedItems.Count > 0)
                 {
-                    GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting();
-                    autoUpdateSetting.weekday = "THURSDAY";
-                    autoUpdateSetting.time = string.Join("#", cbThursday.CheckedItems.Cast<string>().ToArray());
-                    autoUpdateSetting.Deal = deal;
-                    gulliverUpdateSettings.Add(autoUpdateSetting);
+                    using (GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting())
+                    {
+                        autoUpdateSetting.weekday = "THURSDAY";
+                        autoUpdateSetting.time = string.Join("#", cbThursday.CheckedItems.Cast<string>().ToArray());
+                        autoUpdateSetting.Deal = deal;
+                        gulliverUpdateSettings.Add(autoUpdateSetting);
+                    }
                 }
 
                 if (cbFriday.CheckedItems != null && cbFriday.CheckedItems.Count > 0)
                 {
-                    GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting();
-                    autoUpdateSetting.weekday = "FRIDAY";
-                    autoUpdateSetting.time = string.Join("#", cbFriday.CheckedItems.Cast<string>().ToArray());
-                    autoUpdateSetting.Deal = deal;
-                    gulliverUpdateSettings.Add(autoUpdateSetting);
+                    using (GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting())
+                    {
+                        autoUpdateSetting.weekday = "FRIDAY";
+                        autoUpdateSetting.time = string.Join("#", cbFriday.CheckedItems.Cast<string>().ToArray());
+                        autoUpdateSetting.Deal = deal;
+                        gulliverUpdateSettings.Add(autoUpdateSetting);
+                    }
                 }
 
                 if (cbSaturday.CheckedItems != null && cbSaturday.CheckedItems.Count > 0)
                 {
-                    GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting();
-                    autoUpdateSetting.weekday = "SATURDAY";
-                    autoUpdateSetting.time = string.Join("#", cbSaturday.CheckedItems.Cast<string>().ToArray());
-                    autoUpdateSetting.Deal = deal;
-                    gulliverUpdateSettings.Add(autoUpdateSetting);
+                    using (GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting())
+                    {
+                        autoUpdateSetting.weekday = "SATURDAY";
+                        autoUpdateSetting.time = string.Join("#", cbSaturday.CheckedItems.Cast<string>().ToArray());
+                        autoUpdateSetting.Deal = deal;
+                        gulliverUpdateSettings.Add(autoUpdateSetting);
+                    }
                 }
 
                 if (cbSunday.CheckedItems != null && cbSunday.CheckedItems.Count > 0)
                 {
-                    GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting();
-                    autoUpdateSetting.weekday = "SUNDAY";
-                    autoUpdateSetting.time = string.Join("#", cbSunday.CheckedItems.Cast<string>().ToArray());
-                    autoUpdateSetting.Deal = deal;
-                    gulliverUpdateSettings.Add(autoUpdateSetting);
+                    using (GulliverLibrary.AutoUpdateSetting autoUpdateSetting = new GulliverLibrary.AutoUpdateSetting())
+                    {
+                        autoUpdateSetting.weekday = "SUNDAY";
+                        autoUpdateSetting.time = string.Join("#", cbSunday.CheckedItems.Cast<string>().ToArray());
+                        autoUpdateSetting.Deal = deal;
+                        gulliverUpdateSettings.Add(autoUpdateSetting);
+                    }
                 }
 
                 packageHandler.SaveAutoUpdateSettings(gulliverUpdateSettings, deal.id);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GulliverII
 {
-    public class ComboBoxItem
+    public class ComboBoxItem 
     {
         public string Text { get; set; }
         public object Value { get; set; }
@@ -14,5 +14,7 @@ namespace GulliverII
         {
             return Text;
         }
+
+       
     }
 }
