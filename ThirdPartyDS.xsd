@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ThirdPartyDS" targetNamespace="http://tempuri.org/ThirdPartyDS.xsd" xmlns:mstns="http://tempuri.org/ThirdPartyDS.xsd" xmlns="http://tempuri.org/ThirdPartyDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ThirdPartyDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ThirdPartyDS" msprop:Generator_UserDSName="ThirdPartyDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Hotels" msprop:Generator_TableClassName="HotelsDataTable" msprop:Generator_TableVarName="tableHotels" msprop:Generator_TablePropName="Hotels" msprop:Generator_RowDeletingName="HotelsRowDeleting" msprop:Generator_RowChangingName="HotelsRowChanging" msprop:Generator_RowEvHandlerName="HotelsRowChangeEventHandler" msprop:Generator_RowDeletedName="HotelsRowDeleted" msprop:Generator_UserTableName="Hotels" msprop:Generator_RowChangedName="HotelsRowChanged" msprop:Generator_RowEvArgName="HotelsRowChangeEvent" msprop:Generator_RowClassName="HotelsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hotelId" msprop:Generator_ColumnVarNameInTable="columnhotelId" msprop:Generator_ColumnPropNameInRow="hotelId" msprop:Generator_ColumnPropNameInTable="hotelIdColumn" msprop:Generator_UserColumnName="hotelId" type="xs:string" minOccurs="0" />
+              <xs:element name="source" msprop:Generator_ColumnVarNameInTable="columnsource" msprop:Generator_ColumnPropNameInRow="source" msprop:Generator_ColumnPropNameInTable="sourceColumn" msprop:Generator_UserColumnName="source" type="xs:string" minOccurs="0" />
+              <xs:element name="countryCode" msprop:Generator_ColumnVarNameInTable="columncountryCode" msprop:Generator_ColumnPropNameInRow="countryCode" msprop:Generator_ColumnPropNameInTable="countryCodeColumn" msprop:Generator_UserColumnName="countryCode" type="xs:string" minOccurs="0" />
+              <xs:element name="airportCode" msprop:Generator_ColumnVarNameInTable="columnairportCode" msprop:Generator_ColumnPropNameInRow="airportCode" msprop:Generator_ColumnPropNameInTable="airportCodeColumn" msprop:Generator_UserColumnName="airportCode" type="xs:string" minOccurs="0" />
+              <xs:element name="resort" msprop:Generator_ColumnVarNameInTable="columnresort" msprop:Generator_ColumnPropNameInRow="resort" msprop:Generator_ColumnPropNameInTable="resortColumn" msprop:Generator_UserColumnName="resort" type="xs:string" minOccurs="0" />
+              <xs:element name="hotelname" msprop:Generator_ColumnVarNameInTable="columnhotelname" msprop:Generator_ColumnPropNameInRow="hotelname" msprop:Generator_ColumnPropNameInTable="hotelnameColumn" msprop:Generator_UserColumnName="hotelname" type="xs:string" minOccurs="0" />
+              <xs:element name="supplier" msprop:Generator_ColumnVarNameInTable="columnsupplier" msprop:Generator_ColumnPropNameInRow="supplier" msprop:Generator_ColumnPropNameInTable="supplierColumn" msprop:Generator_UserColumnName="supplier" type="xs:string" minOccurs="0" />
+              <xs:element name="stars" msprop:Generator_ColumnVarNameInTable="columnstars" msprop:Generator_ColumnPropNameInRow="stars" msprop:Generator_ColumnPropNameInTable="starsColumn" msprop:Generator_UserColumnName="stars" type="xs:int" minOccurs="0" />
+              <xs:element name="enabled" msprop:Generator_ColumnVarNameInTable="columnenabled" msprop:Generator_ColumnPropNameInRow="enabled" msprop:Generator_ColumnPropNameInTable="enabledColumn" msprop:Generator_UserColumnName="enabled" type="xs:boolean" minOccurs="0" />
+              <xs:element name="markup" msprop:Generator_ColumnVarNameInTable="columnmarkup" msprop:Generator_ColumnPropNameInRow="markup" msprop:Generator_ColumnPropNameInTable="markupColumn" msprop:Generator_UserColumnName="markup" type="xs:string" minOccurs="0" />
+              <xs:element name="availablePrices" msprop:Generator_ColumnVarNameInTable="columnavailablePrices" msprop:Generator_ColumnPropNameInRow="availablePrices" msprop:Generator_ColumnPropNameInTable="availablePricesColumn" msprop:Generator_UserColumnName="availablePrices" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Requets" msprop:Generator_TableClassName="RequetsDataTable" msprop:Generator_TableVarName="tableRequets" msprop:Generator_TablePropName="Requets" msprop:Generator_RowDeletingName="RequetsRowDeleting" msprop:Generator_RowChangingName="RequetsRowChanging" msprop:Generator_RowEvHandlerName="RequetsRowChangeEventHandler" msprop:Generator_RowDeletedName="RequetsRowDeleted" msprop:Generator_UserTableName="Requets" msprop:Generator_RowChangedName="RequetsRowChanged" msprop:Generator_RowEvArgName="RequetsRowChangeEvent" msprop:Generator_RowClassName="RequetsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="View" msprop:Generator_ColumnVarNameInTable="columnView" msprop:Generator_ColumnPropNameInRow="View" msprop:Generator_ColumnPropNameInTable="ViewColumn" msprop:Generator_UserColumnName="View" type="xs:string" minOccurs="0" />
+              <xs:element name="destination" msprop:Generator_ColumnVarNameInTable="columndestination" msprop:Generator_ColumnPropNameInRow="destination" msprop:Generator_ColumnPropNameInTable="destinationColumn" msprop:Generator_UserColumnName="destination" type="xs:string" minOccurs="0" />
+              <xs:element name="duration" msprop:Generator_ColumnVarNameInTable="columnduration" msprop:Generator_ColumnPropNameInRow="duration" msprop:Generator_ColumnPropNameInTable="durationColumn" msprop:Generator_UserColumnName="duration" type="xs:string" minOccurs="0" />
+              <xs:element name="occupnacy" msprop:Generator_ColumnVarNameInTable="columnoccupnacy" msprop:Generator_ColumnPropNameInRow="occupnacy" msprop:Generator_ColumnPropNameInTable="occupnacyColumn" msprop:Generator_UserColumnName="occupnacy" type="xs:string" minOccurs="0" />
+              <xs:element name="stars" msprop:Generator_ColumnVarNameInTable="columnstars" msprop:Generator_ColumnPropNameInRow="stars" msprop:Generator_ColumnPropNameInTable="starsColumn" msprop:Generator_UserColumnName="stars" type="xs:string" minOccurs="0" />
+              <xs:element name="boardBasis" msprop:Generator_ColumnVarNameInTable="columnboardBasis" msprop:Generator_ColumnPropNameInRow="boardBasis" msprop:Generator_ColumnPropNameInTable="boardBasisColumn" msprop:Generator_UserColumnName="boardBasis" type="xs:string" minOccurs="0" />
+              <xs:element name="searchPeriod" msprop:Generator_ColumnVarNameInTable="columnsearchPeriod" msprop:Generator_ColumnPropNameInRow="searchPeriod" msprop:Generator_ColumnPropNameInTable="searchPeriodColumn" msprop:Generator_UserColumnName="searchPeriod" type="xs:int" minOccurs="0" />
+              <xs:element name="enabled" msprop:Generator_ColumnVarNameInTable="columnenabled" msprop:Generator_ColumnPropNameInRow="enabled" msprop:Generator_ColumnPropNameInTable="enabledColumn" msprop:Generator_UserColumnName="enabled" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

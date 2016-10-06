@@ -134,6 +134,15 @@ namespace GulliverII
         {
            this.libraryDS.Baggage.Rows.Add("Delete", string.Empty, 0);
            dataGridViewBaggages.Sort(dataGridViewBaggages.Columns[1], ListSortDirection.Ascending);
+        }
+
+        private void dataGridViewBaggages_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewBaggages.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                dataGridViewBaggages.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGridViewBaggages.Rows[e.RowIndex].Cells[2].Value = "0";
+            }
         }        
        
     }

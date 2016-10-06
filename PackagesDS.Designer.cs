@@ -402,6 +402,8 @@ namespace GulliverII {
             
             private global::System.Data.DataColumn columnhotelKey;
             
+            private global::System.Data.DataColumn columntsRoomKey;
+            
             private global::System.Data.DataColumn columndepartureAirport;
             
             private global::System.Data.DataColumn columndestinationAirport;
@@ -422,9 +424,15 @@ namespace GulliverII {
             
             private global::System.Data.DataColumn columnairline;
             
+            private global::System.Data.DataColumn columnobAirline;
+            
+            private global::System.Data.DataColumn columnibAirline;
+            
             private global::System.Data.DataColumn columnobFlightNo;
             
             private global::System.Data.DataColumn columnibFlightNo;
+            
+            private global::System.Data.DataColumn columnhotelname;
             
             private global::System.Data.DataColumn columnroomType;
             
@@ -473,6 +481,8 @@ namespace GulliverII {
             private global::System.Data.DataColumn columnchildSellat;
             
             private global::System.Data.DataColumn columnsearchType;
+            
+            private global::System.Data.DataColumn columnhotelSource;
             
             private global::System.Data.DataColumn columnstatus;
             
@@ -587,6 +597,14 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tsRoomKeyColumn {
+                get {
+                    return this.columntsRoomKey;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn departureAirportColumn {
                 get {
                     return this.columndepartureAirport;
@@ -667,6 +685,22 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn obAirlineColumn {
+                get {
+                    return this.columnobAirline;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ibAirlineColumn {
+                get {
+                    return this.columnibAirline;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn obFlightNoColumn {
                 get {
                     return this.columnobFlightNo;
@@ -678,6 +712,14 @@ namespace GulliverII {
             public global::System.Data.DataColumn ibFlightNoColumn {
                 get {
                     return this.columnibFlightNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn hotelnameColumn {
+                get {
+                    return this.columnhotelname;
                 }
             }
             
@@ -875,6 +917,14 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn hotelSourceColumn {
+                get {
+                    return this.columnhotelSource;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn statusColumn {
                 get {
                     return this.columnstatus;
@@ -944,6 +994,7 @@ namespace GulliverII {
                         System.DateTime date, 
                         string summary, 
                         string hotelKey, 
+                        string tsRoomKey, 
                         string departureAirport, 
                         string destinationAirport, 
                         int duration, 
@@ -954,8 +1005,11 @@ namespace GulliverII {
                         string board, 
                         decimal flightPrice, 
                         string airline, 
+                        string obAirline, 
+                        string ibAirline, 
                         string obFlightNo, 
                         string ibFlightNo, 
+                        string hotelname, 
                         string roomType, 
                         int occupancy, 
                         int adults, 
@@ -980,6 +1034,7 @@ namespace GulliverII {
                         decimal childNett, 
                         decimal childSellat, 
                         string searchType, 
+                        string hotelSource, 
                         string status, 
                         decimal oldSellAt, 
                         bool isStandardRoom) {
@@ -994,6 +1049,7 @@ namespace GulliverII {
                         date,
                         summary,
                         hotelKey,
+                        tsRoomKey,
                         departureAirport,
                         destinationAirport,
                         duration,
@@ -1004,8 +1060,11 @@ namespace GulliverII {
                         board,
                         flightPrice,
                         airline,
+                        obAirline,
+                        ibAirline,
                         obFlightNo,
                         ibFlightNo,
+                        hotelname,
                         roomType,
                         occupancy,
                         adults,
@@ -1030,6 +1089,7 @@ namespace GulliverII {
                         childNett,
                         childSellat,
                         searchType,
+                        hotelSource,
                         status,
                         oldSellAt,
                         isStandardRoom};
@@ -1064,6 +1124,7 @@ namespace GulliverII {
                 this.columndate = base.Columns["date"];
                 this.columnsummary = base.Columns["summary"];
                 this.columnhotelKey = base.Columns["hotelKey"];
+                this.columntsRoomKey = base.Columns["tsRoomKey"];
                 this.columndepartureAirport = base.Columns["departureAirport"];
                 this.columndestinationAirport = base.Columns["destinationAirport"];
                 this.columnduration = base.Columns["duration"];
@@ -1074,8 +1135,11 @@ namespace GulliverII {
                 this.columnboard = base.Columns["board"];
                 this.columnflightPrice = base.Columns["flightPrice"];
                 this.columnairline = base.Columns["airline"];
+                this.columnobAirline = base.Columns["obAirline"];
+                this.columnibAirline = base.Columns["ibAirline"];
                 this.columnobFlightNo = base.Columns["obFlightNo"];
                 this.columnibFlightNo = base.Columns["ibFlightNo"];
+                this.columnhotelname = base.Columns["hotelname"];
                 this.columnroomType = base.Columns["roomType"];
                 this.columnoccupancy = base.Columns["occupancy"];
                 this.columnadults = base.Columns["adults"];
@@ -1100,6 +1164,7 @@ namespace GulliverII {
                 this.columnchildNett = base.Columns["childNett"];
                 this.columnchildSellat = base.Columns["childSellat"];
                 this.columnsearchType = base.Columns["searchType"];
+                this.columnhotelSource = base.Columns["hotelSource"];
                 this.columnstatus = base.Columns["status"];
                 this.columnoldSellAt = base.Columns["oldSellAt"];
                 this.columnisStandardRoom = base.Columns["isStandardRoom"];
@@ -1126,6 +1191,8 @@ namespace GulliverII {
                 base.Columns.Add(this.columnsummary);
                 this.columnhotelKey = new global::System.Data.DataColumn("hotelKey", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhotelKey);
+                this.columntsRoomKey = new global::System.Data.DataColumn("tsRoomKey", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntsRoomKey);
                 this.columndepartureAirport = new global::System.Data.DataColumn("departureAirport", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndepartureAirport);
                 this.columndestinationAirport = new global::System.Data.DataColumn("destinationAirport", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1146,10 +1213,16 @@ namespace GulliverII {
                 base.Columns.Add(this.columnflightPrice);
                 this.columnairline = new global::System.Data.DataColumn("airline", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnairline);
+                this.columnobAirline = new global::System.Data.DataColumn("obAirline", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnobAirline);
+                this.columnibAirline = new global::System.Data.DataColumn("ibAirline", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnibAirline);
                 this.columnobFlightNo = new global::System.Data.DataColumn("obFlightNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnobFlightNo);
                 this.columnibFlightNo = new global::System.Data.DataColumn("ibFlightNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnibFlightNo);
+                this.columnhotelname = new global::System.Data.DataColumn("hotelname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhotelname);
                 this.columnroomType = new global::System.Data.DataColumn("roomType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnroomType);
                 this.columnoccupancy = new global::System.Data.DataColumn("occupancy", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1198,6 +1271,8 @@ namespace GulliverII {
                 base.Columns.Add(this.columnchildSellat);
                 this.columnsearchType = new global::System.Data.DataColumn("searchType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsearchType);
+                this.columnhotelSource = new global::System.Data.DataColumn("hotelSource", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhotelSource);
                 this.columnstatus = new global::System.Data.DataColumn("status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstatus);
                 this.columnoldSellAt = new global::System.Data.DataColumn("oldSellAt", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -1347,6 +1422,8 @@ namespace GulliverII {
             
             private global::System.Data.DataColumn columnhotelKey;
             
+            private global::System.Data.DataColumn columntsRoomKey;
+            
             private global::System.Data.DataColumn columndepartureAirport;
             
             private global::System.Data.DataColumn columndestinationAirport;
@@ -1366,6 +1443,10 @@ namespace GulliverII {
             private global::System.Data.DataColumn columnflightPrice;
             
             private global::System.Data.DataColumn columnairline;
+            
+            private global::System.Data.DataColumn columnobAirline;
+            
+            private global::System.Data.DataColumn columnibAirline;
             
             private global::System.Data.DataColumn columnobFlightNo;
             
@@ -1418,6 +1499,8 @@ namespace GulliverII {
             private global::System.Data.DataColumn columnchildSellat;
             
             private global::System.Data.DataColumn columnsearchType;
+            
+            private global::System.Data.DataColumn columnhotelSource;
             
             private global::System.Data.DataColumn columnstatus;
             
@@ -1498,6 +1581,14 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tsRoomKeyColumn {
+                get {
+                    return this.columntsRoomKey;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn departureAirportColumn {
                 get {
                     return this.columndepartureAirport;
@@ -1573,6 +1664,22 @@ namespace GulliverII {
             public global::System.Data.DataColumn airlineColumn {
                 get {
                     return this.columnairline;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn obAirlineColumn {
+                get {
+                    return this.columnobAirline;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ibAirlineColumn {
+                get {
+                    return this.columnibAirline;
                 }
             }
             
@@ -1786,6 +1893,14 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn hotelSourceColumn {
+                get {
+                    return this.columnhotelSource;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn statusColumn {
                 get {
                     return this.columnstatus;
@@ -1843,6 +1958,7 @@ namespace GulliverII {
                         int flightId, 
                         System.DateTime date, 
                         string hotelKey, 
+                        string tsRoomKey, 
                         string departureAirport, 
                         string destinationAirport, 
                         int duration, 
@@ -1853,6 +1969,8 @@ namespace GulliverII {
                         string board, 
                         decimal flightPrice, 
                         string airline, 
+                        string obAirline, 
+                        string ibAirline, 
                         string obFlightNo, 
                         string ibFlightNo, 
                         string roomType, 
@@ -1879,6 +1997,7 @@ namespace GulliverII {
                         decimal childNett, 
                         decimal childSellat, 
                         string searchType, 
+                        string hotelSource, 
                         string status, 
                         decimal oldSellAt) {
                 PackageBackupRow rowPackageBackupRow = ((PackageBackupRow)(this.NewRow()));
@@ -1888,6 +2007,7 @@ namespace GulliverII {
                         flightId,
                         date,
                         hotelKey,
+                        tsRoomKey,
                         departureAirport,
                         destinationAirport,
                         duration,
@@ -1898,6 +2018,8 @@ namespace GulliverII {
                         board,
                         flightPrice,
                         airline,
+                        obAirline,
+                        ibAirline,
                         obFlightNo,
                         ibFlightNo,
                         roomType,
@@ -1924,6 +2046,7 @@ namespace GulliverII {
                         childNett,
                         childSellat,
                         searchType,
+                        hotelSource,
                         status,
                         oldSellAt};
                 rowPackageBackupRow.ItemArray = columnValuesArray;
@@ -1953,6 +2076,7 @@ namespace GulliverII {
                 this.columnflightId = base.Columns["flightId"];
                 this.columndate = base.Columns["date"];
                 this.columnhotelKey = base.Columns["hotelKey"];
+                this.columntsRoomKey = base.Columns["tsRoomKey"];
                 this.columndepartureAirport = base.Columns["departureAirport"];
                 this.columndestinationAirport = base.Columns["destinationAirport"];
                 this.columnduration = base.Columns["duration"];
@@ -1963,6 +2087,8 @@ namespace GulliverII {
                 this.columnboard = base.Columns["board"];
                 this.columnflightPrice = base.Columns["flightPrice"];
                 this.columnairline = base.Columns["airline"];
+                this.columnobAirline = base.Columns["obAirline"];
+                this.columnibAirline = base.Columns["ibAirline"];
                 this.columnobFlightNo = base.Columns["obFlightNo"];
                 this.columnibFlightNo = base.Columns["ibFlightNo"];
                 this.columnroomType = base.Columns["roomType"];
@@ -1989,6 +2115,7 @@ namespace GulliverII {
                 this.columnchildNett = base.Columns["childNett"];
                 this.columnchildSellat = base.Columns["childSellat"];
                 this.columnsearchType = base.Columns["searchType"];
+                this.columnhotelSource = base.Columns["hotelSource"];
                 this.columnstatus = base.Columns["status"];
                 this.columnoldSellAt = base.Columns["oldSellAt"];
             }
@@ -2006,6 +2133,8 @@ namespace GulliverII {
                 base.Columns.Add(this.columndate);
                 this.columnhotelKey = new global::System.Data.DataColumn("hotelKey", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhotelKey);
+                this.columntsRoomKey = new global::System.Data.DataColumn("tsRoomKey", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntsRoomKey);
                 this.columndepartureAirport = new global::System.Data.DataColumn("departureAirport", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndepartureAirport);
                 this.columndestinationAirport = new global::System.Data.DataColumn("destinationAirport", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2026,6 +2155,10 @@ namespace GulliverII {
                 base.Columns.Add(this.columnflightPrice);
                 this.columnairline = new global::System.Data.DataColumn("airline", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnairline);
+                this.columnobAirline = new global::System.Data.DataColumn("obAirline", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnobAirline);
+                this.columnibAirline = new global::System.Data.DataColumn("ibAirline", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnibAirline);
                 this.columnobFlightNo = new global::System.Data.DataColumn("obFlightNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnobFlightNo);
                 this.columnibFlightNo = new global::System.Data.DataColumn("ibFlightNo", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2078,6 +2211,8 @@ namespace GulliverII {
                 base.Columns.Add(this.columnchildSellat);
                 this.columnsearchType = new global::System.Data.DataColumn("searchType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsearchType);
+                this.columnhotelSource = new global::System.Data.DataColumn("hotelSource", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhotelSource);
                 this.columnstatus = new global::System.Data.DataColumn("status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstatus);
                 this.columnoldSellAt = new global::System.Data.DataColumn("oldSellAt", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -2990,7 +3125,7 @@ namespace GulliverII {
             public string hotelKey {
                 get {
                     try {
-                        return ( (!this.IshotelKeyNull())?(string)(this[this.tablePackage.hotelKeyColumn]):string.Empty);
+                        return ((string)(this[this.tablePackage.hotelKeyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'hotelKey\' in table \'Package\' is DBNull.", e);
@@ -2998,6 +3133,22 @@ namespace GulliverII {
                 }
                 set {
                     this[this.tablePackage.hotelKeyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tsRoomKey {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackage.tsRoomKeyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tsRoomKey\' in table \'Package\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackage.tsRoomKeyColumn] = value;
                 }
             }
             
@@ -3163,6 +3314,38 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string obAirline {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackage.obAirlineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'obAirline\' in table \'Package\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackage.obAirlineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ibAirline {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackage.ibAirlineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ibAirline\' in table \'Package\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackage.ibAirlineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string obFlightNo {
                 get {
                     try {
@@ -3195,10 +3378,26 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string hotelname {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackage.hotelnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'hotelname\' in table \'Package\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackage.hotelnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string roomType {
                 get {
                     try {
-                        return ((!this.IsroomTypeNull())? (string)(this[this.tablePackage.roomTypeColumn]):string.Empty);
+                        return ((string)(this[this.tablePackage.roomTypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'roomType\' in table \'Package\' is DBNull.", e);
@@ -3579,6 +3778,22 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string hotelSource {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackage.hotelSourceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'hotelSource\' in table \'Package\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackage.hotelSourceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string status {
                 get {
                     try {
@@ -3735,6 +3950,18 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstsRoomKeyNull() {
+                return this.IsNull(this.tablePackage.tsRoomKeyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettsRoomKeyNull() {
+                this[this.tablePackage.tsRoomKeyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdepartureAirportNull() {
                 return this.IsNull(this.tablePackage.departureAirportColumn);
             }
@@ -3855,6 +4082,30 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsobAirlineNull() {
+                return this.IsNull(this.tablePackage.obAirlineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetobAirlineNull() {
+                this[this.tablePackage.obAirlineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsibAirlineNull() {
+                return this.IsNull(this.tablePackage.ibAirlineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetibAirlineNull() {
+                this[this.tablePackage.ibAirlineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsobFlightNoNull() {
                 return this.IsNull(this.tablePackage.obFlightNoColumn);
             }
@@ -3875,6 +4126,18 @@ namespace GulliverII {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetibFlightNoNull() {
                 this[this.tablePackage.ibFlightNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IshotelnameNull() {
+                return this.IsNull(this.tablePackage.hotelnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SethotelnameNull() {
+                this[this.tablePackage.hotelnameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4167,6 +4430,18 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IshotelSourceNull() {
+                return this.IsNull(this.tablePackage.hotelSourceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SethotelSourceNull() {
+                this[this.tablePackage.hotelSourceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsstatusNull() {
                 return this.IsNull(this.tablePackage.statusColumn);
             }
@@ -4293,6 +4568,22 @@ namespace GulliverII {
                 }
                 set {
                     this[this.tablePackageBackup.hotelKeyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tsRoomKey {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackageBackup.tsRoomKeyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tsRoomKey\' in table \'PackageBackup\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackageBackup.tsRoomKeyColumn] = value;
                 }
             }
             
@@ -4453,6 +4744,38 @@ namespace GulliverII {
                 }
                 set {
                     this[this.tablePackageBackup.airlineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string obAirline {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackageBackup.obAirlineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'obAirline\' in table \'PackageBackup\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackageBackup.obAirlineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ibAirline {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackageBackup.ibAirlineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ibAirline\' in table \'PackageBackup\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackageBackup.ibAirlineColumn] = value;
                 }
             }
             
@@ -4874,6 +5197,22 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string hotelSource {
+                get {
+                    try {
+                        return ((string)(this[this.tablePackageBackup.hotelSourceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'hotelSource\' in table \'PackageBackup\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePackageBackup.hotelSourceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string status {
                 get {
                     try {
@@ -4962,6 +5301,18 @@ namespace GulliverII {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SethotelKeyNull() {
                 this[this.tablePackageBackup.hotelKeyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstsRoomKeyNull() {
+                return this.IsNull(this.tablePackageBackup.tsRoomKeyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettsRoomKeyNull() {
+                this[this.tablePackageBackup.tsRoomKeyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5082,6 +5433,30 @@ namespace GulliverII {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetairlineNull() {
                 this[this.tablePackageBackup.airlineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsobAirlineNull() {
+                return this.IsNull(this.tablePackageBackup.obAirlineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetobAirlineNull() {
+                this[this.tablePackageBackup.obAirlineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsibAirlineNull() {
+                return this.IsNull(this.tablePackageBackup.ibAirlineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetibAirlineNull() {
+                this[this.tablePackageBackup.ibAirlineColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5394,6 +5769,18 @@ namespace GulliverII {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetsearchTypeNull() {
                 this[this.tablePackageBackup.searchTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IshotelSourceNull() {
+                return this.IsNull(this.tablePackageBackup.hotelSourceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SethotelSourceNull() {
+                this[this.tablePackageBackup.hotelSourceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

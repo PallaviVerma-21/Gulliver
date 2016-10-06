@@ -18,6 +18,7 @@ namespace GulliverII
         public DateTime endDate;
         public bool returnToMainwindow = false;
         public bool pressok = false;
+        public bool keepBagagePricesAsItis;
 
         public flcsFilterSearch(List<string> durations, List<string> depUKAirportsList, List<string> depGermanAirportsList, List<string> depUSAAirportsList, List<string> departureAirports, List<string> depCanadianAirportsList, DateTime startDate, DateTime endDate)
         {
@@ -108,7 +109,7 @@ namespace GulliverII
 
             startDate = dtpStartDate.Value;
             endDate = dtpEndDate.Value;
-
+            keepBagagePricesAsItis = cbKeepBaggagePrices.Checked;
             pressok = true;
         }
 

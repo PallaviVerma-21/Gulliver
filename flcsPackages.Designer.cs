@@ -64,8 +64,10 @@ namespace GulliverII
             this.dateOfWeek = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.date = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.duration = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.airline = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.obAirline = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.ibAirline = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.boardBasis = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.hotelname = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.roomType = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.occupancy = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.flightPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
@@ -88,7 +90,9 @@ namespace GulliverII
             this.totalChildMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.childSellat = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.SearchType = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.hotelSource = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinationAirport = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.airline = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.obDepartureTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.obArrivalTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.ibDepartureTime = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
@@ -99,6 +103,7 @@ namespace GulliverII
             this.children = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.infants = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.baseMarkup = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.tsRoomKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsHolidays = new System.Windows.Forms.BindingSource(this.components);
             this.packagesDS = new GulliverII.PackagesDS();
             this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
@@ -161,6 +166,9 @@ namespace GulliverII
             this.cmsMarkup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtMarkup = new System.Windows.Forms.ToolStripTextBox();
+            this.cmsBaggages = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtBaggagePrice = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -175,6 +183,7 @@ namespace GulliverII
             this.cms.SuspendLayout();
             this.cmsCommission.SuspendLayout();
             this.cmsMarkup.SuspendLayout();
+            this.cmsBaggages.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -439,11 +448,12 @@ namespace GulliverII
             "Date",
             "Duration",
             "Flight",
-            "Airline",
+            "Supplier",
             "Accom",
             "C. Accom",
             "Board",
             "CAA",
+            "Hotel",
             "Room",
             "Occupancy",
             "Transfers",
@@ -464,6 +474,8 @@ namespace GulliverII
             "Adults",
             "Children",
             "Infants",
+            "OB Airline",
+            "IB Airline",
             "OB Flightno",
             "IB FlightNo",
             "Baggage Price",
@@ -474,7 +486,7 @@ namespace GulliverII
             this.cbPackageColumns.Location = new System.Drawing.Point(0, 37);
             this.cbPackageColumns.MultiColumn = true;
             this.cbPackageColumns.Name = "cbPackageColumns";
-            this.cbPackageColumns.Size = new System.Drawing.Size(1436, 58);
+            this.cbPackageColumns.Size = new System.Drawing.Size(1436, 76);
             this.cbPackageColumns.TabIndex = 49;
             this.cbPackageColumns.Visible = false;
             this.cbPackageColumns.SelectedIndexChanged += new System.EventHandler(this.cbPackageColumns_SelectedIndexChanged);
@@ -510,8 +522,10 @@ namespace GulliverII
             this.dateOfWeek,
             this.date,
             this.duration,
-            this.airline,
+            this.obAirline,
+            this.ibAirline,
             this.boardBasis,
+            this.hotelname,
             this.roomType,
             this.occupancy,
             this.flightPrice,
@@ -534,7 +548,9 @@ namespace GulliverII
             this.totalChildMarkup,
             this.childSellat,
             this.SearchType,
+            this.hotelSource,
             this.destinationAirport,
+            this.airline,
             this.obDepartureTime,
             this.obArrivalTime,
             this.ibDepartureTime,
@@ -544,7 +560,8 @@ namespace GulliverII
             this.adults,
             this.children,
             this.infants,
-            this.baseMarkup});
+            this.baseMarkup,
+            this.tsRoomKey});
             this.dataGridViewHolidays.DataSource = this.bsHolidays;
             this.dataGridViewHolidays.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewHolidays.Location = new System.Drawing.Point(0, 0);
@@ -654,13 +671,19 @@ namespace GulliverII
             this.duration.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.duration.Width = 60;
             // 
-            // airline
+            // obAirline
             // 
-            this.airline.DataPropertyName = "airline";
-            this.airline.HeaderText = "Airline";
-            this.airline.Name = "airline";
-            this.airline.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.airline.Width = 110;
+            this.obAirline.DataPropertyName = "obAirline";
+            this.obAirline.HeaderText = "OB Airline";
+            this.obAirline.Name = "obAirline";
+            this.obAirline.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ibAirline
+            // 
+            this.ibAirline.DataPropertyName = "ibAirline";
+            this.ibAirline.HeaderText = "IB Airline";
+            this.ibAirline.Name = "ibAirline";
+            this.ibAirline.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // boardBasis
             // 
@@ -669,6 +692,13 @@ namespace GulliverII
             this.boardBasis.Name = "boardBasis";
             this.boardBasis.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.boardBasis.Width = 50;
+            // 
+            // hotelname
+            // 
+            this.hotelname.DataPropertyName = "hotelname";
+            this.hotelname.HeaderText = "Hotel";
+            this.hotelname.Name = "hotelname";
+            this.hotelname.Width = 150;
             // 
             // roomType
             // 
@@ -839,6 +869,13 @@ namespace GulliverII
             this.SearchType.Visible = false;
             this.SearchType.Width = 60;
             // 
+            // hotelSource
+            // 
+            this.hotelSource.DataPropertyName = "hotelSource";
+            this.hotelSource.HeaderText = "hotelSource";
+            this.hotelSource.Name = "hotelSource";
+            this.hotelSource.Visible = false;
+            // 
             // destinationAirport
             // 
             this.destinationAirport.DataPropertyName = "destinationAirport";
@@ -846,6 +883,15 @@ namespace GulliverII
             this.destinationAirport.Name = "destinationAirport";
             this.destinationAirport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.destinationAirport.Width = 60;
+            // 
+            // airline
+            // 
+            this.airline.DataPropertyName = "airline";
+            this.airline.HeaderText = "Supplier";
+            this.airline.Name = "airline";
+            this.airline.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.airline.Visible = false;
+            this.airline.Width = 110;
             // 
             // obDepartureTime
             // 
@@ -927,6 +973,13 @@ namespace GulliverII
             this.baseMarkup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.baseMarkup.Visible = false;
             this.baseMarkup.Width = 60;
+            // 
+            // tsRoomKey
+            // 
+            this.tsRoomKey.DataPropertyName = "tsRoomKey";
+            this.tsRoomKey.HeaderText = "tsRoomKey";
+            this.tsRoomKey.Name = "tsRoomKey";
+            this.tsRoomKey.Visible = false;
             // 
             // bsHolidays
             // 
@@ -1411,6 +1464,30 @@ namespace GulliverII
             this.txtMarkup.Size = new System.Drawing.Size(100, 23);
             this.txtMarkup.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMarkup_KeyPress);
             // 
+            // cmsBaggages
+            // 
+            this.cmsBaggages.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmsBaggages.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsBaggages.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.cmsBaggages.Name = "cms";
+            this.cmsBaggages.Size = new System.Drawing.Size(107, 26);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txtBaggagePrice});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(106, 22);
+            this.toolStripMenuItem2.Text = "&Price: ";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // txtBaggagePrice
+            // 
+            this.txtBaggagePrice.Name = "txtBaggagePrice";
+            this.txtBaggagePrice.Size = new System.Drawing.Size(100, 23);
+            this.txtBaggagePrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBaggagePrice_KeyPress);
+            // 
             // flcsPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1438,6 +1515,7 @@ namespace GulliverII
             this.cms.ResumeLayout(false);
             this.cmsCommission.ResumeLayout(false);
             this.cmsMarkup.ResumeLayout(false);
+            this.cmsBaggages.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1520,6 +1598,18 @@ namespace GulliverII
         private System.Windows.Forms.ContextMenuStrip cms;
         private System.Windows.Forms.ToolStripMenuItem valueToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox txtValue;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
+        private System.Windows.Forms.ContextMenuStrip cmsCommission;
+        private System.Windows.Forms.ToolStripMenuItem toolStripCommission;
+        private System.Windows.Forms.ToolStripTextBox txtCommission;
+        private System.Windows.Forms.ContextMenuStrip cmsMarkup;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripTextBox txtMarkup;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear10PercentCalculation;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbDisableProfitField;
+        private System.Windows.Forms.ContextMenuStrip cmsBaggages;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripTextBox txtBaggagePrice;
         private System.Windows.Forms.DataGridViewLinkColumn delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn hotelKey;
@@ -1532,8 +1622,10 @@ namespace GulliverII
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dateOfWeek;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn date;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn duration;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn airline;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn obAirline;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn ibAirline;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn boardBasis;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn hotelname;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn roomType;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn occupancy;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn flightPrice;
@@ -1556,7 +1648,9 @@ namespace GulliverII
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn totalChildMarkup;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn childSellat;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn SearchType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hotelSource;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn destinationAirport;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn airline;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn obDepartureTime;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn obArrivalTime;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn ibDepartureTime;
@@ -1567,15 +1661,7 @@ namespace GulliverII
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn children;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn infants;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn baseMarkup;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnDelete;
-        private System.Windows.Forms.ContextMenuStrip cmsCommission;
-        private System.Windows.Forms.ToolStripMenuItem toolStripCommission;
-        private System.Windows.Forms.ToolStripTextBox txtCommission;
-        private System.Windows.Forms.ContextMenuStrip cmsMarkup;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripTextBox txtMarkup;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear10PercentCalculation;
-        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbDisableProfitField;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tsRoomKey;
     }
 }
 

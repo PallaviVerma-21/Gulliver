@@ -103,6 +103,16 @@ namespace GulliverII.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bungalow_16 {
+            get {
+                object obj = ResourceManager.GetObject("bungalow-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap car {
             get {
                 object obj = ResourceManager.GetObject("car", resourceCulture);
@@ -193,6 +203,16 @@ namespace GulliverII.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fileview_text1 {
+            get {
+                object obj = ResourceManager.GetObject("fileview_text1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap germany {
             get {
                 object obj = ResourceManager.GetObject("germany", resourceCulture);
@@ -273,6 +293,16 @@ namespace GulliverII.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("search-icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
@@ -346,6 +376,26 @@ namespace GulliverII.Properties {
         internal static System.Drawing.Bitmap united_states_of_america {
             get {
                 object obj = ResourceManager.GetObject("united_states_of_america", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Very_Basic_Upload_icon {
+            get {
+                object obj = ResourceManager.GetObject("Very-Basic-Upload-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Very_Basic_Upload_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("Very-Basic-Upload-icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

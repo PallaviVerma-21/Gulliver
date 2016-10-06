@@ -33,15 +33,16 @@ namespace GulliverII
         {
             using (GulliverLibrary.MiscSetting miscSetting = gulliverQueryHandler.GetMiscSettingByName("fabServer"))
             {
-                miscSetting.value = (ddlFABServer.SelectedItem.ToString() == "Zara") ? "http://172.16.7.4/FindAndBook" : "http://172.16.7.14/FindAndBook";
-                gulliverQueryHandler.SaveMisSetting(miscSetting);
+              miscSetting.value = (ddlFABServer.SelectedItem.ToString() == "Zara") ? "http://172.16.7.4/FindAndBook" : "http://172.16.7.14/FindAndBook";
+              gulliverQueryHandler.SaveMisSetting(miscSetting);
             }
 
             using (GulliverLibrary.MiscSetting miscSettingII = gulliverQueryHandler.GetMiscSettingByName("maxDaysForRequest"))
             {
-                miscSettingII.value = ddlMaxDaysPerRequest.SelectedItem.ToString();
-                gulliverQueryHandler.SaveMisSetting(miscSettingII);
+              miscSettingII.value = ddlMaxDaysPerRequest.SelectedItem.ToString();
+              gulliverQueryHandler.SaveMisSetting(miscSettingII);
             }
+
             this.Close();
         }
     }

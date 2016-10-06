@@ -1,9 +1,93 @@
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\GulliverII.exe.config
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\GulliverII.exe.manifest
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\GulliverII.application
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\GulliverII.exe
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\GulliverII.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\DailyMailReportHandler.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\DataGridViewAutoFilter.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FlightsHandler.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\GulliverLibrary.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\LandingPageHandler.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\MySqlDataHandler.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\PackageGenerator.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\TripperLibrary.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Tamir.SharpSSH.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\NpgSQLHandler.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\DbLinq.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\DbLinq.MySql.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FABHandler.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FlightSheetLibrary.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\AmadeusLibrary.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FABCacheLibrary.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Npgsql.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.Office.Interop.Excel.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\AccommodationHandler.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\DiffieHellman.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Org.Mentalis.Security.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Mono.Security.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\office.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.Vbe.Interop.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\DailyMailReportHandler.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\DataGridViewAutoFilter.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\MySqlDataHandler.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\TripperLibrary.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FlightsHandler.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\GulliverLibrary.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\LandingPageHandler.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\PackageGenerator.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.xml
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.Shell.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\NpgSQLHandler.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FABHandler.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FlightSheetLibrary.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\AmadeusLibrary.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FABCacheLibrary.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\Microsoft.Office.Interop.Excel.xml
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\AccommodationHandler.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\office.xml
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.csprojResolveAssemblyReference.cache
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsCurrency.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsBaggages.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsAutoUpdateSetting.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsDealPage.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsFABSetting.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsFilterColumns.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsBackupPackage.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsFilterSearch.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsMain.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsMedias.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsOptionalExtra.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsPackages.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsRoomAvailability.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsSetLeading.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsZoomOut.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsLibrary.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.flcsRoomRequestSetting.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.Properties.Resources.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.Screen.resources
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.csproj.GenerateResource.Cache
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.exe.manifest
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.application
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.exe
+X:\Gulliver_ 2016_05_24\Gulliver\obj\Release\GulliverII.pdb
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FlashSalesLibrary.dll
+X:\Gulliver_ 2016_05_24\Gulliver\bin\Release\FlashSalesLibrary.pdb
 X:\Gulliver\Gulliver\bin\Release\GulliverII.exe.config
 X:\Gulliver\Gulliver\bin\Release\GulliverII.exe.manifest
 X:\Gulliver\Gulliver\bin\Release\GulliverII.application
 X:\Gulliver\Gulliver\bin\Release\GulliverII.exe
 X:\Gulliver\Gulliver\bin\Release\GulliverII.pdb
+X:\Gulliver\Gulliver\bin\Release\AccommodationHandler.dll
+X:\Gulliver\Gulliver\bin\Release\DailyMailReportHandler.dll
 X:\Gulliver\Gulliver\bin\Release\DataGridViewAutoFilter.dll
+X:\Gulliver\Gulliver\bin\Release\DocumentHandler.dll
 X:\Gulliver\Gulliver\bin\Release\FlightsHandler.dll
 X:\Gulliver\Gulliver\bin\Release\GulliverLibrary.dll
 X:\Gulliver\Gulliver\bin\Release\LandingPageHandler.dll
@@ -13,21 +97,31 @@ X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.dl
 X:\Gulliver\Gulliver\bin\Release\MySqlDataHandler.dll
 X:\Gulliver\Gulliver\bin\Release\PackageGenerator.dll
 X:\Gulliver\Gulliver\bin\Release\TripperLibrary.dll
+X:\Gulliver\Gulliver\bin\Release\FlashSalesLibrary.dll
+X:\Gulliver\Gulliver\bin\Release\Tamir.SharpSSH.dll
+X:\Gulliver\Gulliver\bin\Release\NpgSQLHandler.dll
 X:\Gulliver\Gulliver\bin\Release\DbLinq.dll
 X:\Gulliver\Gulliver\bin\Release\DbLinq.MySql.dll
+X:\Gulliver\Gulliver\bin\Release\ExpediaCacheLibrary.dll
+X:\Gulliver\Gulliver\bin\Release\MulticomCacheLibrary.dll
+X:\Gulliver\Gulliver\bin\Release\PdfSharp.dll
+X:\Gulliver\Gulliver\bin\Release\MigraDoc.DocumentObjectModel.dll
+X:\Gulliver\Gulliver\bin\Release\MigraDoc.Rendering.dll
 X:\Gulliver\Gulliver\bin\Release\FABHandler.dll
 X:\Gulliver\Gulliver\bin\Release\FlightSheetLibrary.dll
 X:\Gulliver\Gulliver\bin\Release\AmadeusLibrary.dll
+X:\Gulliver\Gulliver\bin\Release\FABCacheLibrary.dll
 X:\Gulliver\Gulliver\bin\Release\Npgsql.dll
-X:\Gulliver\Gulliver\bin\Release\AccommodationHandler.dll
-X:\Gulliver\Gulliver\bin\Release\Microsoft.Office.Interop.Excel.dll
-X:\Gulliver\Gulliver\bin\Release\NpgSQLHandler.dll
+X:\Gulliver\Gulliver\bin\Release\DiffieHellman.dll
+X:\Gulliver\Gulliver\bin\Release\Org.Mentalis.Security.dll
+X:\Gulliver\Gulliver\bin\Release\PdfSharp.Charting.dll
 X:\Gulliver\Gulliver\bin\Release\Mono.Security.dll
-X:\Gulliver\Gulliver\bin\Release\office.dll
-X:\Gulliver\Gulliver\bin\Release\Microsoft.Vbe.Interop.dll
+X:\Gulliver\Gulliver\bin\Release\DailyMailReportHandler.pdb
 X:\Gulliver\Gulliver\bin\Release\DataGridViewAutoFilter.pdb
 X:\Gulliver\Gulliver\bin\Release\MySqlDataHandler.pdb
 X:\Gulliver\Gulliver\bin\Release\TripperLibrary.pdb
+X:\Gulliver\Gulliver\bin\Release\AccommodationHandler.pdb
+X:\Gulliver\Gulliver\bin\Release\DocumentHandler.pdb
 X:\Gulliver\Gulliver\bin\Release\FlightsHandler.pdb
 X:\Gulliver\Gulliver\bin\Release\GulliverLibrary.pdb
 X:\Gulliver\Gulliver\bin\Release\LandingPageHandler.pdb
@@ -38,13 +132,14 @@ X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.Shell.pdb
 X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.Shell.xml
 X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
 X:\Gulliver\Gulliver\bin\Release\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+X:\Gulliver\Gulliver\bin\Release\FlashSalesLibrary.pdb
+X:\Gulliver\Gulliver\bin\Release\NpgSQLHandler.pdb
+X:\Gulliver\Gulliver\bin\Release\ExpediaCacheLibrary.pdb
+X:\Gulliver\Gulliver\bin\Release\MulticomCacheLibrary.pdb
 X:\Gulliver\Gulliver\bin\Release\FABHandler.pdb
 X:\Gulliver\Gulliver\bin\Release\FlightSheetLibrary.pdb
 X:\Gulliver\Gulliver\bin\Release\AmadeusLibrary.pdb
-X:\Gulliver\Gulliver\bin\Release\AccommodationHandler.pdb
-X:\Gulliver\Gulliver\bin\Release\Microsoft.Office.Interop.Excel.xml
-X:\Gulliver\Gulliver\bin\Release\NpgSQLHandler.pdb
-X:\Gulliver\Gulliver\bin\Release\office.xml
+X:\Gulliver\Gulliver\bin\Release\FABCacheLibrary.pdb
 X:\Gulliver\Gulliver\obj\Release\GulliverII.csprojResolveAssemblyReference.cache
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsCurrency.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsBaggages.resources
@@ -57,9 +152,14 @@ X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsFilterSearch.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsMain.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsMedias.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsOptionalExtra.resources
+X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsOtherChannels.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsPackages.resources
+X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsResortHandler.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsRoomAvailability.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsSetLeading.resources
+X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsThirdPartyHotelManager.resources
+X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsThirdpartyHotelRequests.resources
+X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsThirdPartyHotelSetting.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsZoomOut.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsLibrary.resources
 X:\Gulliver\Gulliver\obj\Release\GulliverII.flcsRoomRequestSetting.resources
@@ -70,5 +170,3 @@ X:\Gulliver\Gulliver\obj\Release\GulliverII.exe.manifest
 X:\Gulliver\Gulliver\obj\Release\GulliverII.application
 X:\Gulliver\Gulliver\obj\Release\GulliverII.exe
 X:\Gulliver\Gulliver\obj\Release\GulliverII.pdb
-X:\Gulliver\Gulliver\bin\Release\FABCacheLibrary.dll
-X:\Gulliver\Gulliver\bin\Release\FABCacheLibrary.pdb

@@ -29,30 +29,33 @@ namespace GulliverII
 
         private void DisplayAllPackageOffers(bool first)
         {
-           libraryProgressbar.PerformStep();
-           packageHandler = new PackageGenerator.PackageHandler(true);
-           List<GulliverLibrary.Deal> deals = packageHandler.GetFilteredPackageOffers(txtSearch.Text.Trim().ToUpper(), cbShowAll.Checked);
+            libraryProgressbar.PerformStep();
+            packageHandler = new PackageGenerator.PackageHandler(true);
+            List<GulliverLibrary.Deal> deals = packageHandler.GetFilteredPackageOffers(txtSearch.Text.Trim().ToUpper(), cbShowAll.Checked);
+
+            if (cbOnlyBestDeals.Checked)
+                deals = deals.Where(d => d.DealInformation != null && d.DealInformation.goLiveOnBestDealPage).ToList();
 
             if (first)
             {
-                List<GulliverLibrary.Media> medias = deals.Select(p => p.Media).Distinct().ToList();
-                FillSuppliers(medias);                             
+             List<GulliverLibrary.Media> medias = deals.Select(p => p.Media).Distinct().ToList();
+             FillSuppliers(medias);
             }
 
             if (cmbSuppliers.SelectedItem != null)
             {
-               int supplierId = Convert.ToInt32(((ComboBoxItem)cmbSuppliers.SelectedItem).Value);
-               
-               if (supplierId != 0)
+                int supplierId = Convert.ToInt32(((ComboBoxItem)cmbSuppliers.SelectedItem).Value);
+
+                if (supplierId != 0)
                     deals = deals.Where(p => p.Media.id == supplierId).ToList();
             }
 
             this.libraryDS.Library.Clear();
             libraryProgressbar.PerformStep();
-           
+
             foreach (GulliverLibrary.Deal deal in deals.OrderByDescending(p => p.dateOfPromotion))
-                this.libraryDS.Library.AddLibraryRow("Delete", "View", "Update", deal.id, deal.Media.supplier.Trim(), deal.name.Trim(), string.Empty , deal.dateOfPromotion.ToString("dd/MM/yyyy"), deal.endDateOfPromotion.ToString("dd/MM/yyyy"), "Copy");
-            
+                this.libraryDS.Library.AddLibraryRow("Delete", "View", "Update", deal.id, deal.Media.supplier.Trim(), deal.name.Trim(), string.Empty, deal.dateOfPromotion.ToString("dd/MM/yyyy"), deal.endDateOfPromotion.ToString("dd/MM/yyyy"), "Copy");
+
             libraryProgressbar.PerformStep();
             packageHandler.Dispose();
         }
@@ -107,6 +110,7 @@ namespace GulliverII
                         StartProgressBar(25);
                          if (packageHandler == null)
                             packageHandler = new PackageGenerator.PackageHandler(false);
+
                          packageHandler.DeleteDealById(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value), libraryProgressbar);
                          packageHandler.Dispose();
                          DisplayAllPackageOffers(false);
@@ -155,6 +159,7 @@ namespace GulliverII
                         return;
                 }
             }
+          
         }
 
         private void ProgressBar()
@@ -171,13 +176,12 @@ namespace GulliverII
                 }
                 prog.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.NoProgress);
             }
-            catch (Exception ex)
-            { }
+            catch (Exception ex){ }
         }
         
         private void cbShowAll_CheckedChanged(object sender, EventArgs e)
         {
-           DisplayAllPackageOffers(false);
+           DisplayAllPackageOffers(true);           
         }
 
         private void newOfferToolStripMenuItem_Click(object sender, EventArgs e)
@@ -274,7 +278,7 @@ namespace GulliverII
 
         private void cmbSuppliers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DisplayAllPackageOffers(false);
+          DisplayAllPackageOffers(false);
         }
 
         #endregion    
@@ -290,5 +294,85 @@ namespace GulliverII
         {
           Dispose();
         }
+
+        private void dailyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            libraryProgressbar.Visible = true;
+            Application.DoEvents();
+            libraryProgressbar.Maximum = 10;
+            libraryProgressbar.Value = 1;
+            libraryProgressbar.Step = 1;
+            libraryProgressbar.Value++;
+            Application.DoEvents();
+            int count = 0;
+           
+            while (count <= 3)
+            {
+               System.Threading.Thread.Sleep(500);
+               count++;
+               libraryProgressbar.Value++;
+            }
+
+            DailyMailReportHandler.Generator generator = new DailyMailReportHandler.Generator();
+            generator.ExportAllDailyMailDepartures();
+            libraryProgressbar.Value++;
+            libraryProgressbar.Value++;
+            Application.DoEvents();
+            libraryProgressbar.Value = libraryProgressbar.Maximum;
+            libraryProgressbar.Step = libraryProgressbar.Maximum;
+            System.Threading.Thread.Sleep(500);
+            libraryProgressbar.Visible = false;
+            Application.DoEvents();
+            KryptonMessageBox.Show("File is successfully uploaded to the server!", "Daily Mail Departures", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void cbOnlyBestDeals_CheckedChanged(object sender, EventArgs e)
+        {
+          DisplayAllPackageOffers(false);
+        }
+
+        private void thirdpartyHotelManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            flcsThirdpartyHotelRequests hotelRequestHandler = new flcsThirdpartyHotelRequests();
+            hotelRequestHandler.Show();
+        }
+
+        private void deleteDealToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switch (MessageBox.Show("This will delete selected offer - continue?", "Delete Offer", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                case System.Windows.Forms.DialogResult.Yes:
+
+                    StartProgressBar(25);
+                    if (packageHandler == null)
+                        packageHandler = new PackageGenerator.PackageHandler(false);
+
+                    packageHandler.DeleteDealById(Convert.ToInt32(dataGridViewLibrary.SelectedRows[0].Cells[2].Value), libraryProgressbar);
+                    packageHandler.Dispose();
+                    DisplayAllPackageOffers(false);
+                    StopProgressBar();
+                    break;
+
+                case System.Windows.Forms.DialogResult.No:
+                    return;
+            }
+        }
+
+        private void dataGridViewLibrary_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.StateChanged == DataGridViewElementStates.Selected)
+            {
+                if (dataGridViewLibrary.SelectedCells.Count > 0 && dataGridViewLibrary.SelectedRows.Count == 1)
+                {
+                    dataGridViewLibrary.ContextMenuStrip = cms;
+                }
+                else
+                    dataGridViewLibrary.ContextMenuStrip = null;
+            }
+            else
+                dataGridViewLibrary.ContextMenuStrip = null;
+        }     
+
+        
     }
 }

@@ -137,6 +137,15 @@ namespace GulliverII
                 case System.Windows.Forms.DialogResult.No:
                     return;
             }
+        }
+
+        private void dataGridViewMedias_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewMedias.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                dataGridViewMedias.Rows[e.RowIndex].Cells[0].Value = "Delete";
+                dataGridViewMedias.Rows[e.RowIndex].Cells[1].Value = "0";        
+            }
         }               
     }
 }

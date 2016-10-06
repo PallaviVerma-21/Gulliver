@@ -17,6 +17,7 @@ namespace GulliverII
         private PackageGenerator.PackageHandler dealPageHandler;
         private LandingPageHandler.DataProcessor dataProcessor;
         private List<GulliverLibrary.DealOptionalExtra> optionalCostings;
+        private MySqlDataHandler.QueryHandler queryHandler;
         private PackageGenerator.Email email;
         private bool save = false;
 
@@ -27,7 +28,7 @@ namespace GulliverII
             dealPageHandler = new PackageGenerator.PackageHandler(true);
             deal = dealPageHandler.GetDealById(id);
             dataProcessor = new LandingPageHandler.DataProcessor();
-                        
+            queryHandler = new MySqlDataHandler.QueryHandler();
             this.tabControl2.DrawMode = TabDrawMode.OwnerDrawFixed;
             this.tabControl2.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl2_DrawItem);
             ddlDurations.DataSource = deal.durations.Split('#').ToList();
@@ -90,6 +91,9 @@ namespace GulliverII
             gulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "bottom right image", string.Empty, string.Empty);
             gulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "body image", string.Empty, string.Empty);
             gulliverIIDS.Image.AddImageRow(0, "Delete", string.Empty, "slider image", string.Empty, string.Empty);
+
+            if(deal.HotelContracts == null || deal.HotelContracts.Count == 0)
+                tabControl2.TabPages.Remove(tabPage2);
         }
 
         private void FillDealInformation()
@@ -103,18 +107,22 @@ namespace GulliverII
             txtChildPrice.Text = (deal.DealInformation.childPrices != null) ? deal.DealInformation.childPrices : string.Empty;
             txtOptionalExtras.Text = (deal.DealInformation.optionalExtras != null) ? deal.DealInformation.optionalExtras : string.Empty;
             txtPleasenote.Text = (deal.DealInformation.pleaseNote != null) ? deal.DealInformation.pleaseNote : string.Empty;
-            deal.DealInformation.HotelInformation = dealPageHandler.GetHotelInformationByGeoCodes(deal.DealInformation.longitude.Trim(), deal.DealInformation.latitude.Trim());      
-            
+            txtOtherDetails.Text = (deal.DealInformation.otherDetails != null) ? deal.DealInformation.otherDetails : string.Empty;
+            txtOtherDetailsHeader.Text = (deal.DealInformation.otherDetailHeader != null) ? deal.DealInformation.otherDetailHeader : string.Empty;
+           
+            deal.DealInformation.HotelInformation = dealPageHandler.GetHotelInformationByGeoCodes(deal.DealInformation.longitude.Trim(), deal.DealInformation.latitude.Trim());
+            txtDealInformation.Text = (deal.DealInformation.information != null) ? deal.DealInformation.information.Trim() : string.Empty;
+
             if (deal.DealInformation.HotelInformation != null)
             {
-                txtHotelText.Text = (deal.DealInformation.HotelInformation.hotelBodyText != null) ? deal.DealInformation.HotelInformation.hotelBodyText : string.Empty;
-                txtDestinationText.Text = (deal.DealInformation.HotelInformation.destinationText != null) ? deal.DealInformation.HotelInformation.destinationText : string.Empty;
-                txtCountryText.Text = (deal.DealInformation.HotelInformation.countryText != null) ? deal.DealInformation.HotelInformation.countryText : string.Empty;
-                txtKeyInformationText.Text = (deal.DealInformation.HotelInformation.keyInformation != null) ? deal.DealInformation.HotelInformation.keyInformation.Trim() : string.Empty;
-                txtAccessibilityText.Text = (deal.DealInformation.HotelInformation.accessibility != null) ? deal.DealInformation.HotelInformation.accessibility.Trim() : string.Empty;
-                txtDestinationTitle.Text = (deal.DealInformation.HotelInformation.destinationHeader != null) ? deal.DealInformation.HotelInformation.destinationHeader.Trim() : string.Empty;
-                txtCountryTitle.Text = (deal.DealInformation.HotelInformation.countryHeader != null) ? deal.DealInformation.HotelInformation.countryHeader.Trim() : string.Empty;
-                txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
+               txtHotelText.Text = (deal.DealInformation.HotelInformation.hotelBodyText != null) ? deal.DealInformation.HotelInformation.hotelBodyText : string.Empty;
+               txtDestinationText.Text = (deal.DealInformation.HotelInformation.destinationText != null) ? deal.DealInformation.HotelInformation.destinationText : string.Empty;
+               txtCountryText.Text = (deal.DealInformation.HotelInformation.countryText != null) ? deal.DealInformation.HotelInformation.countryText : string.Empty;
+               txtKeyInformationText.Text = (deal.DealInformation.HotelInformation.keyInformation != null) ? deal.DealInformation.HotelInformation.keyInformation.Trim() : string.Empty;
+               txtAccessibilityText.Text = (deal.DealInformation.HotelInformation.accessibility != null) ? deal.DealInformation.HotelInformation.accessibility.Trim() : string.Empty;
+               txtDestinationTitle.Text = (deal.DealInformation.HotelInformation.destinationHeader != null) ? deal.DealInformation.HotelInformation.destinationHeader.Trim() : string.Empty;
+               txtCountryTitle.Text = (deal.DealInformation.HotelInformation.countryHeader != null) ? deal.DealInformation.HotelInformation.countryHeader.Trim() : string.Empty;
+               txtHotelTitle.Text = (deal.DealInformation.HotelInformation.hotelHeader != null) ? deal.DealInformation.HotelInformation.hotelHeader : string.Empty;
             }
 
             txtTripAdvisorLink.Text = dealPageHandler.GetLinkByName("Trip Advisor Link", deal.id);               
@@ -132,10 +140,18 @@ namespace GulliverII
             rbDays.Checked = (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Days") ? true : false;
             rbNights.Checked = (deal.DealInformation.diplayNightsOrDays == null || (deal.DealInformation.diplayNightsOrDays != null && deal.DealInformation.diplayNightsOrDays.Trim() == "Nights") || deal.DealInformation.diplayNightsOrDays == string.Empty) ? true : false;
             optionalCostings = (deal.DealInformation.optionalExtras != null) ? deal.DealExtras.ToList() : new List<GulliverLibrary.DealOptionalExtra>();
+            cbShow1NightLessOriginal.Checked = deal.DealInformation.show1nightlessthanoriginal;
             txtHotelLink.Text = dealPageHandler.GetLinkByName("Hotel Website Link", deal.id);
             txtChannelLink.Text = dealPageHandler.GetLinkByName("Channel Page Link", deal.id);   
             FillImages();
-            FillReviews();            
+            FillReviews();
+            FillMetaTag();
+
+            if(deal.HotelContracts != null && deal.HotelContracts.Count >0)
+            FillRooms();
+            else
+            tabControl2.TabPages.Remove(tabPage2);
+
             btnStopPage.Enabled = true;
             btnMakePageLive.Enabled = true;
             btnUpdateFleetwayPage.Enabled = true;
@@ -163,6 +179,16 @@ namespace GulliverII
             imageId.Visible = false;
         }
 
+        private void FillMetaTag()
+        {
+            if (deal.MetaTag != null)
+            {
+                txtMetaTitle.Text = (deal.MetaTag.title != null) ? deal.MetaTag.title.Trim() : deal.MetaTag.title;
+                txtMetaContent.Text = (deal.MetaTag.description != null) ? deal.MetaTag.description.Trim() : deal.MetaTag.description;
+                txtMetaImage.Text = (deal.MetaTag.image != null) ? deal.MetaTag.image : deal.MetaTag.image;
+            }
+        }
+
         private void FillReviews()
         {
             if (deal.DealReviews != null)
@@ -172,6 +198,32 @@ namespace GulliverII
             }
 
             reviewId.Visible = false;
+        }
+
+        private void FillRooms()
+        {
+            if (deal.HotelContracts != null && deal.HotelContracts.Count > 0)
+            {
+                FillRoomTypes();
+
+                foreach (GulliverLibrary.HotelContract hotelContract in deal.HotelContracts.Where(h => (h.description != null && h.description != string.Empty) || (h.facilities != null && h.facilities != string.Empty)))
+                {
+                    MySqlDataHandler.Expand expand = queryHandler.GetBuildingByCodes(hotelContract.accomcode.Trim());
+                    gulliverIIDS.Room.AddRoomRow("Delete", hotelContract.recno, (expand != null && expand.Building != null)?(expand.Building.Trim() +" - "+hotelContract.accomcode.Trim()) :hotelContract.accomcode.Trim(), (hotelContract.description != null) ? hotelContract.description.Trim() : string.Empty, ((hotelContract.facilities != null) ? hotelContract.facilities.Trim() : string.Empty));
+                }
+            }
+        }
+
+        private void FillRoomTypes()
+        {
+            foreach (GulliverLibrary.HotelContract hotelcontract in deal.HotelContracts)
+            {
+                ComboBoxItem comboBoxItem = new ComboBoxItem();
+                MySqlDataHandler.Expand expand = queryHandler.GetBuildingByCodes(hotelcontract.accomcode.Trim());
+                comboBoxItem.Text = (expand != null && expand.Building != null) ? expand.Building.Trim() : hotelcontract.codename.Trim();
+                comboBoxItem.Value = hotelcontract.recno;
+                cmbRoomtype.Items.Add(comboBoxItem);
+            }
         }
 
         private void SetStepProgressBar(ToolStripProgressBar progressBar)
@@ -236,6 +288,8 @@ namespace GulliverII
             deal.DealInformation.childPrices = txtChildPrice.Text.Trim();
             deal.DealInformation.optionalExtras = txtOptionalExtras.Text.Trim();
             deal.DealInformation.pleaseNote = txtPleasenote.Text.Trim();
+            deal.DealInformation.otherDetails = txtOtherDetails.Text.Trim();
+            deal.DealInformation.otherDetailHeader = txtOtherDetailsHeader.Text.Trim();
 
             using (GulliverLibrary.Link linkTA = new GulliverLibrary.Link())
             {
@@ -245,7 +299,6 @@ namespace GulliverII
                 if (linkTA.url.Trim() != string.Empty)
                     links.Add(linkTA);
             }
-
             
             deal.DealInformation.dealCurrency = (cmbCurrency.SelectedItem != null) ? cmbCurrency.SelectedItem.ToString() : "GBP";
             deal.DealInformation.language = (cmbLanuages.SelectedItem != null) ? cmbLanuages.SelectedItem.ToString() : "English";
@@ -259,6 +312,8 @@ namespace GulliverII
             deal.DealInformation.diplayNightsOrDays = (rbDays.Checked) ? "Days" : "Nights";
             deal.DealInformation.priority = Convert.ToInt32(ddlPriorities.SelectedItem);
             deal.DealInformation.goLiveOnBestDealPage = cbGoLiveOnBestDealPage.Checked;
+            deal.DealInformation.information = txtDealInformation.Text.Trim();
+            deal.DealInformation.show1nightlessthanoriginal = cbShow1NightLessOriginal.Checked;
 
             using (GulliverLibrary.Link linkHW = new GulliverLibrary.Link())
             {
@@ -333,6 +388,38 @@ namespace GulliverII
                 catch { }
             }
 
+            if (this.gulliverIIDS.Room != null && this.gulliverIIDS.Room.Count > 0)
+            {
+                foreach (GulliverIIDS.RoomRow roomRow in this.gulliverIIDS.Room)
+                {
+                    GulliverLibrary.HotelContract hotelContract = deal.HotelContracts.SingleOrDefault(h => h.recno == roomRow.recno);
+
+                    if (hotelContract != null)
+                    {
+                        hotelContract.description = roomRow.Description.Trim();
+                        hotelContract.facilities = roomRow.Facilities.Trim();
+                    }
+                }
+            }
+            else
+            {
+                foreach (GulliverLibrary.HotelContract contract in deal.HotelContracts)
+                {
+                    contract.description = string.Empty;
+                    contract.facilities = string.Empty;
+                }
+            }
+
+            if (deal.MetaTag == null)
+            {
+                deal.MetaTag = new GulliverLibrary.MetaTag();
+                deal.MetaTag.Deal = deal;
+            }
+
+            deal.MetaTag.title = txtMetaTitle.Text.Trim();
+            deal.MetaTag.description = txtMetaContent.Text.Trim();
+            deal.MetaTag.image = txtMetaImage.Text.Trim();
+
             deal.DealImages = dealImages;
             deal.DealReviews = dealReviews;
             deal.Links = links;
@@ -386,9 +473,7 @@ namespace GulliverII
                     e.Cancel = true;
                     return;
             }
-        }
-
-     
+        }            
 
         //reviews
         private void dGVReviews_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -464,7 +549,7 @@ namespace GulliverII
                 }
             }
             else
-                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
+                MessageBox.Show("Please save the offer before you generate any page for Fleetway website!");
         }
        
         private void btnSavePage_Click(object sender, EventArgs e)
@@ -618,20 +703,21 @@ namespace GulliverII
             {
                 deal = dealPageHandler.GetDealById(deal.id);
                 string message = dataProcessor.UpdateFleetwayPage(deal, cbAirportByAvailability.Checked, false);
+               
                 if (message != string.Empty)
                 {
-                    lblError.Visible = true;
-                    lblError.Text = message;
+                  lblError.Visible = true;
+                  lblError.Text = message;
                 }
                 else
                 {
-                    string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-                    System.Diagnostics.Process.Start(url);
-                    this.Focus();
+                  string url = ConfigurationManager.AppSettings["fleetwaydraftPageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                  System.Diagnostics.Process.Start(url);
+                  this.Focus();
                 }
             }
             else
-                MessageBox.Show("Please save the offer before you genarate any page for Fleetway website!");
+                MessageBox.Show("Please save the offer before you generate any page for Fleetway website!");
         }
 
         private void btnMakePageLive_Click(object sender, EventArgs e)
@@ -643,16 +729,68 @@ namespace GulliverII
                     MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
-                    string url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
-                    System.Diagnostics.Process.Start(url);
-                    this.Focus();
+                   string url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                   System.Diagnostics.Process.Start(url);
+                   this.Focus();
                 }
             }
             else
-                MessageBox.Show("Please save the offer before you genarte any page for Fleetway website!");
+              MessageBox.Show("Please save the offer before you generate any page for Fleetway website!");
         }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (flcsZoomOut zoomout = new flcsZoomOut(txtDealInformation.Text.Trim(), "Deal Information"))
+            {
+              zoomout.ShowDialog();
+              txtDealInformation.Text = zoomout.text.Trim();
+            }
+        }
 
-        
+        private void btnAddRecord_Click(object sender, EventArgs e)
+        {
+            if (cmbRoomtype.SelectedItem != null)
+            {
+                int recno = Convert.ToInt32(((ComboBoxItem)cmbRoomtype.SelectedItem).Value);
+                string roomType = ((ComboBoxItem)cmbRoomtype.SelectedItem).Text;
+
+                if (txtDescription.Text != string.Empty || txtFacilities.Text != string.Empty)
+                {
+                    GulliverIIDS.RoomRow roomRow = gulliverIIDS.Room.SingleOrDefault(r => r.recno == recno);
+
+                    if (roomRow == null)
+                        gulliverIIDS.Room.AddRoomRow("Delete", recno, roomType, txtDescription.Text.Trim(), txtFacilities.Text.Trim());
+                    else
+                    {
+                        roomRow.Description = txtDescription.Text.Trim();
+                        roomRow.Facilities = txtFacilities.Text.Trim();
+                    }
+                }
+            }
+        }
+
+        private void btnCancelRecord_Click(object sender, EventArgs e)
+        {
+            txtFacilities.Text = string.Empty;
+            txtDescription.Text = string.Empty;
+        }
+
+        private void dataGridViewRooms_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridViewRooms.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && dataGridViewRooms.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Delete")
+            {
+                dataGridviewImages.CurrentCell = (dataGridViewRooms.Rows.Count == 0) ? dataGridViewRooms.Rows[0].Cells[0] : null;
+
+                switch (MessageBox.Show("This will delete selected room - continue?", "Delete Room", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    case System.Windows.Forms.DialogResult.Yes:
+                        dataGridViewRooms.Rows.Remove((DataGridViewRow)dataGridViewRooms.Rows[e.RowIndex]);
+                        break;
+
+                    case System.Windows.Forms.DialogResult.No:
+                        return;
+                }
+            }
+        }        
     }
 }

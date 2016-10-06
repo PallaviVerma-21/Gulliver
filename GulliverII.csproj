@@ -29,7 +29,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Gulliver</ProductName>
     <PublisherName>divasana</PublisherName>
-    <ApplicationRevision>110</ApplicationRevision>
+    <ApplicationRevision>185</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -57,7 +57,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>12F8AF537A7F2B47A502268E85C2B71AC84C8E9C</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>D39D6C97C17EFB63EED52888CD3EC627EA19EA7F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
@@ -173,11 +173,23 @@
     <Compile Include="flcsOptionalExtra.Designer.cs">
       <DependentUpon>flcsOptionalExtra.cs</DependentUpon>
     </Compile>
+    <Compile Include="flcsOtherChannels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flcsOtherChannels.Designer.cs">
+      <DependentUpon>flcsOtherChannels.cs</DependentUpon>
+    </Compile>
     <Compile Include="flcsPackages.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="flcsPackages.Designer.cs">
       <DependentUpon>flcsPackages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="flcsResortHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flcsResortHandler.Designer.cs">
+      <DependentUpon>flcsResortHandler.cs</DependentUpon>
     </Compile>
     <Compile Include="flcsRoomAvailability.cs">
       <SubType>Form</SubType>
@@ -190,6 +202,24 @@
     </Compile>
     <Compile Include="flcsSetLeading.Designer.cs">
       <DependentUpon>flcsSetLeading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="flcsThirdPartyHotelManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flcsThirdPartyHotelManager.Designer.cs">
+      <DependentUpon>flcsThirdPartyHotelManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="flcsThirdpartyHotelRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flcsThirdpartyHotelRequests.Designer.cs">
+      <DependentUpon>flcsThirdpartyHotelRequests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="flcsThirdPartyHotelSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flcsThirdPartyHotelSetting.Designer.cs">
+      <DependentUpon>flcsThirdPartyHotelSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="flcsZoomOut.cs">
       <SubType>Form</SubType>
@@ -239,6 +269,11 @@
     </Compile>
     <Compile Include="Screen.Designer.cs">
       <DependentUpon>Screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdPartyDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThirdPartyDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Tripper.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -290,8 +325,16 @@
       <DependentUpon>flcsOptionalExtra.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="flcsOtherChannels.resx">
+      <DependentUpon>flcsOtherChannels.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="flcsPackages.resx">
       <DependentUpon>flcsPackages.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="flcsResortHandler.resx">
+      <DependentUpon>flcsResortHandler.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="flcsRoomAvailability.resx">
@@ -300,6 +343,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="flcsSetLeading.resx">
       <DependentUpon>flcsSetLeading.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="flcsThirdPartyHotelManager.resx">
+      <DependentUpon>flcsThirdPartyHotelManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="flcsThirdpartyHotelRequests.resx">
+      <DependentUpon>flcsThirdpartyHotelRequests.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="flcsThirdPartyHotelSetting.resx">
+      <DependentUpon>flcsThirdPartyHotelSetting.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="flcsZoomOut.resx">
@@ -385,6 +440,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ThirdPartyDS.xsc">
+      <DependentUpon>ThirdPartyDS.xsd</DependentUpon>
+    </None>
+    <None Include="ThirdPartyDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ThirdPartyDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ThirdPartyDS.xss">
+      <DependentUpon>ThirdPartyDS.xsd</DependentUpon>
+    </None>
     <None Include="Tripper.xsc">
       <DependentUpon>Tripper.xsd</DependentUpon>
     </None>
@@ -415,6 +481,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DailyMailReport\DailyMailReportHandler\DailyMailReportHandler.csproj">
+      <Project>{705450fd-2589-49bb-b590-623462b316d1}</Project>
+      <Name>DailyMailReportHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\DataGridViewAutoFilter\CS\DataGridViewAutoFilter\DataGridViewAutoFilter\DataGridViewAutoFilter.csproj">
       <Project>{5a4b4b14-d3b5-4d54-80ec-0877c1e6e73a}</Project>
       <Name>DataGridViewAutoFilter</Name>
@@ -426,6 +496,14 @@
     <ProjectReference Include="..\..\TripperLibrary\TripperLibrary\TripperLibrary.csproj">
       <Project>{644038C2-E199-4CF4-9BCD-017B820EA9B7}</Project>
       <Name>TripperLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AccommodationHandler\AccommodationHandler.csproj">
+      <Project>{42A228B4-6845-4CA8-9DD2-F0FEEA963C26}</Project>
+      <Name>AccommodationHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DocumentHandler\DocumentHandler.csproj">
+      <Project>{570fb54f-0fce-4278-a088-a27870d8ac73}</Project>
+      <Name>DocumentHandler</Name>
     </ProjectReference>
     <ProjectReference Include="..\FlightsHandler\FlightsHandler.csproj">
       <Project>{A30384E8-8441-477C-A4C5-70836781CEA0}</Project>
@@ -604,6 +682,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="big-G-for_icon.ico" />
+    <None Include="Resources\bungalow-16.png" />
+    <None Include="Resources\fileview_text1.png" />
+    <None Include="Resources\search-icon %281%29.png" />
+    <None Include="Resources\Very-Basic-Upload-icon1.png" />
+    <None Include="Resources\Very-Basic-Upload-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

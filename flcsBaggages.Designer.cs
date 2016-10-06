@@ -83,6 +83,9 @@ namespace GulliverII
             // 
             // hotelContractHeader
             // 
+            this.hotelContractHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.hotelContractHeader.GroupBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.PanelAlternate;
             this.hotelContractHeader.HeaderVisibleSecondary = false;
             this.hotelContractHeader.Location = new System.Drawing.Point(0, 0);
@@ -124,6 +127,9 @@ namespace GulliverII
             // 
             // dataGridViewBaggages
             // 
+            this.dataGridViewBaggages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewBaggages.AutoGenerateColumns = false;
             this.dataGridViewBaggages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBaggages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -144,6 +150,7 @@ namespace GulliverII
             this.dataGridViewBaggages.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewBaggages.TabIndex = 8;
             this.dataGridViewBaggages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPackageBackup_CellContentClick);
+            this.dataGridViewBaggages.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBaggages_RowEnter);
             // 
             // deleteDataGridViewTextBoxColumn
             // 
@@ -229,6 +236,7 @@ namespace GulliverII
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Location = new System.Drawing.Point(717, 597);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(106, 25);
@@ -258,6 +266,7 @@ namespace GulliverII
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Location = new System.Drawing.Point(596, 597);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(106, 25);

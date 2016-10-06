@@ -279,7 +279,7 @@ namespace GulliverII {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ContractsDataTable : global::System.Data.TypedTableBase<ContractsRow> {
             
-            private global::System.Data.DataColumn columnSelect;
+            private global::System.Data.DataColumn columnView;
             
             private global::System.Data.DataColumn columnRecno;
             
@@ -328,9 +328,9 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SelectColumn {
+            public global::System.Data.DataColumn ViewColumn {
                 get {
-                    return this.columnSelect;
+                    return this.columnView;
                 }
             }
             
@@ -419,10 +419,10 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContractsRow AddContractsRow(string Select, int Recno, string Name, string RoomType, string Board, System.DateTime Valid_From, System.DateTime Valid_To) {
+            public ContractsRow AddContractsRow(string View, int Recno, string Name, string RoomType, string Board, System.DateTime Valid_From, System.DateTime Valid_To) {
                 ContractsRow rowContractsRow = ((ContractsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Select,
+                        View,
                         Recno,
                         Name,
                         RoomType,
@@ -451,7 +451,7 @@ namespace GulliverII {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnSelect = base.Columns["Select"];
+                this.columnView = base.Columns["View"];
                 this.columnRecno = base.Columns["Recno"];
                 this.columnName = base.Columns["Name"];
                 this.columnRoomType = base.Columns["RoomType"];
@@ -463,8 +463,8 @@ namespace GulliverII {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnSelect = new global::System.Data.DataColumn("Select", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSelect);
+                this.columnView = new global::System.Data.DataColumn("View", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnView);
                 this.columnRecno = new global::System.Data.DataColumn("Recno", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRecno);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -619,17 +619,17 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Select {
+            public string View {
                 get {
                     try {
-                        return ((string)(this[this.tableContracts.SelectColumn]));
+                        return ((string)(this[this.tableContracts.ViewColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Select\' in table \'Contracts\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'View\' in table \'Contracts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableContracts.SelectColumn] = value;
+                    this[this.tableContracts.ViewColumn] = value;
                 }
             }
             
@@ -731,14 +731,14 @@ namespace GulliverII {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSelectNull() {
-                return this.IsNull(this.tableContracts.SelectColumn);
+            public bool IsViewNull() {
+                return this.IsNull(this.tableContracts.ViewColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSelectNull() {
-                this[this.tableContracts.SelectColumn] = global::System.Convert.DBNull;
+            public void SetViewNull() {
+                this[this.tableContracts.ViewColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

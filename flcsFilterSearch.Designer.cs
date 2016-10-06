@@ -44,6 +44,7 @@ namespace GulliverII
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.dtpStartDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.dtpEndDate = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
+            this.cbKeepBaggagePrices = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabUKAirports = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -98,8 +99,8 @@ namespace GulliverII
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.04064F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.95936F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.41219F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.58781F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel10, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 0);
@@ -123,7 +124,7 @@ namespace GulliverII
             this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 254);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(325, 101);
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(299, 101);
             this.flowLayoutPanel10.TabIndex = 47;
             // 
             // lblDuration
@@ -192,21 +193,22 @@ namespace GulliverII
             this.tableLayoutPanel7.AutoSize = true;
             this.tableLayoutPanel7.ColumnCount = 3;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.89773F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.10227F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.03183F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.03448F));
             this.tableLayoutPanel7.Controls.Add(this.lblStartDate, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.lblEndDate, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.btnSearch, 2, 2);
             this.tableLayoutPanel7.Controls.Add(this.dtpStartDate, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.dtpEndDate, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.cbKeepBaggagePrices, 0, 2);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(334, 254);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(308, 254);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(352, 101);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(378, 101);
             this.tableLayoutPanel7.TabIndex = 50;
             // 
             // lblStartDate
@@ -227,7 +229,7 @@ namespace GulliverII
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(242, 57);
+            this.btnSearch.Location = new System.Drawing.Point(263, 57);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(106, 25);
             this.btnSearch.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -240,19 +242,34 @@ namespace GulliverII
             // 
             // dtpStartDate
             // 
+            this.dtpStartDate.CalendarTodayDate = new System.DateTime(2016, 8, 25, 0, 0, 0, 0);
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStartDate.Location = new System.Drawing.Point(91, 3);
+            this.dtpStartDate.Location = new System.Drawing.Point(97, 3);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(125, 21);
             this.dtpStartDate.TabIndex = 15;
             // 
             // dtpEndDate
             // 
+            this.dtpEndDate.CalendarTodayDate = new System.DateTime(2016, 8, 25, 0, 0, 0, 0);
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEndDate.Location = new System.Drawing.Point(91, 30);
+            this.dtpEndDate.Location = new System.Drawing.Point(97, 30);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(125, 21);
             this.dtpEndDate.TabIndex = 16;
+            // 
+            // cbKeepBaggagePrices
+            // 
+            this.cbKeepBaggagePrices.Checked = true;
+            this.cbKeepBaggagePrices.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tableLayoutPanel7.SetColumnSpan(this.cbKeepBaggagePrices, 2);
+            this.cbKeepBaggagePrices.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
+            this.cbKeepBaggagePrices.Location = new System.Drawing.Point(3, 57);
+            this.cbKeepBaggagePrices.Name = "cbKeepBaggagePrices";
+            this.cbKeepBaggagePrices.Size = new System.Drawing.Size(249, 20);
+            this.cbKeepBaggagePrices.TabIndex = 17;
+            this.cbKeepBaggagePrices.Text = "Keep exsisting baggage prices for airlines";
+            this.cbKeepBaggagePrices.Values.Text = "Keep exsisting baggage prices for airlines";
             // 
             // tabControl1
             // 
@@ -592,6 +609,7 @@ namespace GulliverII
         private System.Windows.Forms.CheckedListBox cbCanadianAirports;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbAllCanadians;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbKeepBaggagePrices;
     }
 }
 

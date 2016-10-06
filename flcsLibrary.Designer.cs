@@ -35,8 +35,13 @@ namespace GulliverII
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.cbOnlyBestDeals = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.dataGridViewLibrary = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteDealToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bsLibrary = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryDS = new GulliverII.LibraryDS();
             this.statusstrip = new System.Windows.Forms.StatusStrip();
             this.fiterStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.showAllLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -62,23 +67,19 @@ namespace GulliverII
             this.baggagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.currencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fABSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewAutoFilterTextBoxColumn1 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dataGridViewAutoFilterTextBoxColumn2 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dataGridViewAutoFilterTextBoxColumn3 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dataGridViewAutoFilterTextBoxColumn4 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dataGridViewAutoFilterTextBoxColumn5 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.uploadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dailyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thirdpartyHotelManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dataGridViewLinkColumn2 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewAutoFilterTextBoxColumn6 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dataGridViewAutoFilterTextBoxColumn7 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dataGridViewAutoFilterTextBoxColumn8 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dataGridViewAutoFilterTextBoxColumn9 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.dataGridViewAutoFilterTextBoxColumn10 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewLinkColumn3 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.bsLibrary = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryDS = new GulliverII.LibraryDS();
+            this.dataGridViewLinkColumn4 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.viewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,16 +89,27 @@ namespace GulliverII
             this.expiredDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatePageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
             this.copyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.dataGridViewAutoFilterTextBoxColumn1 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn2 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn3 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn4 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn5 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn6 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn7 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn8 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn9 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dataGridViewAutoFilterTextBoxColumn10 = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLibrary)).BeginInit();
+            this.cms.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsLibrary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).BeginInit();
             this.statusstrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSuppliers)).BeginInit();
             this.menuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLibrary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -107,11 +119,12 @@ namespace GulliverII
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(1254, 710);
+            this.kryptonPanel.Size = new System.Drawing.Size(1254, 807);
             this.kryptonPanel.TabIndex = 0;
             // 
             // kryptonPanel1
             // 
+            this.kryptonPanel1.Controls.Add(this.cbOnlyBestDeals);
             this.kryptonPanel1.Controls.Add(this.kryptonHeader1);
             this.kryptonPanel1.Controls.Add(this.dataGridViewLibrary);
             this.kryptonPanel1.Controls.Add(this.statusstrip);
@@ -123,9 +136,20 @@ namespace GulliverII
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 24);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridDataCellList;
-            this.kryptonPanel1.Size = new System.Drawing.Size(1254, 686);
+            this.kryptonPanel1.Size = new System.Drawing.Size(1254, 783);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel1.TabIndex = 22;
+            // 
+            // cbOnlyBestDeals
+            // 
+            this.cbOnlyBestDeals.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
+            this.cbOnlyBestDeals.Location = new System.Drawing.Point(1095, 45);
+            this.cbOnlyBestDeals.Name = "cbOnlyBestDeals";
+            this.cbOnlyBestDeals.Size = new System.Drawing.Size(141, 20);
+            this.cbOnlyBestDeals.TabIndex = 27;
+            this.cbOnlyBestDeals.Text = "Show Only Best Deals";
+            this.cbOnlyBestDeals.Values.Text = "Show Only Best Deals";
+            this.cbOnlyBestDeals.CheckedChanged += new System.EventHandler(this.cbOnlyBestDeals_CheckedChanged);
             // 
             // kryptonHeader1
             // 
@@ -171,6 +195,7 @@ namespace GulliverII
             this.dataGridViewLibrary.DataSource = this.bsLibrary;
             this.dataGridViewLibrary.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.dataGridViewLibrary.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlAlternate;
+            this.dataGridViewLibrary.ImeMode = System.Windows.Forms.ImeMode.On;
             this.dataGridViewLibrary.Location = new System.Drawing.Point(3, 89);
             this.dataGridViewLibrary.Name = "dataGridViewLibrary";
             this.dataGridViewLibrary.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
@@ -182,7 +207,7 @@ namespace GulliverII
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.dataGridViewLibrary.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewLibrary.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.dataGridViewLibrary.Size = new System.Drawing.Size(1248, 572);
+            this.dataGridViewLibrary.Size = new System.Drawing.Size(1248, 669);
             this.dataGridViewLibrary.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridViewLibrary.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.dataGridViewLibrary.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ControlAlternate;
@@ -199,6 +224,33 @@ namespace GulliverII
             this.dataGridViewLibrary.TabIndex = 25;
             this.dataGridViewLibrary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLibrary_CellContentClick);
             this.dataGridViewLibrary.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewLibrary_DataBindingComplete);
+            this.dataGridViewLibrary.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridViewLibrary_RowStateChanged);
+            // 
+            // cms
+            // 
+            this.cms.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteDealToolStripMenuItem});
+            this.cms.Name = "cms";
+            this.cms.Size = new System.Drawing.Size(134, 26);
+            // 
+            // deleteDealToolStripMenuItem
+            // 
+            this.deleteDealToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.deleteDealToolStripMenuItem.Name = "deleteDealToolStripMenuItem";
+            this.deleteDealToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.deleteDealToolStripMenuItem.Text = "Delete Deal";
+            this.deleteDealToolStripMenuItem.Click += new System.EventHandler(this.deleteDealToolStripMenuItem_Click);
+            // 
+            // bsLibrary
+            // 
+            this.bsLibrary.DataMember = "Library";
+            this.bsLibrary.DataSource = this.libraryDS;
+            // 
+            // libraryDS
+            // 
+            this.libraryDS.DataSetName = "LibraryDS";
+            this.libraryDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // statusstrip
             // 
@@ -208,7 +260,7 @@ namespace GulliverII
             this.fiterStatusLabel,
             this.showAllLabel,
             this.libraryProgressbar});
-            this.statusstrip.Location = new System.Drawing.Point(0, 664);
+            this.statusstrip.Location = new System.Drawing.Point(0, 761);
             this.statusstrip.Name = "statusstrip";
             this.statusstrip.Size = new System.Drawing.Size(1254, 22);
             this.statusstrip.TabIndex = 23;
@@ -260,7 +312,7 @@ namespace GulliverII
             // cbShowAll
             // 
             this.cbShowAll.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.NormalControl;
-            this.cbShowAll.Location = new System.Drawing.Point(980, 46);
+            this.cbShowAll.Location = new System.Drawing.Point(865, 45);
             this.cbShowAll.Name = "cbShowAll";
             this.cbShowAll.Size = new System.Drawing.Size(199, 20);
             this.cbShowAll.TabIndex = 2;
@@ -270,7 +322,7 @@ namespace GulliverII
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(550, 46);
+            this.txtSearch.Location = new System.Drawing.Point(475, 45);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(340, 20);
             this.txtSearch.TabIndex = 1;
@@ -285,7 +337,9 @@ namespace GulliverII
             this.optionsToolStripMenuItem,
             this.fleetwayWebUpdatesToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.settingToolStripMenuItem});
+            this.settingToolStripMenuItem,
+            this.uploadsToolStripMenuItem,
+            this.thirdpartyHotelManagerToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -428,62 +482,52 @@ namespace GulliverII
             this.fABSettingToolStripMenuItem.Text = "&FAB Setting";
             this.fABSettingToolStripMenuItem.Click += new System.EventHandler(this.fABSettingToolStripMenuItem_Click);
             // 
-            // dataGridViewAutoFilterTextBoxColumn1
+            // uploadsToolStripMenuItem
             // 
-            this.dataGridViewAutoFilterTextBoxColumn1.DataPropertyName = "Supplier";
-            this.dataGridViewAutoFilterTextBoxColumn1.HeaderText = "Supplier";
-            this.dataGridViewAutoFilterTextBoxColumn1.Name = "dataGridViewAutoFilterTextBoxColumn1";
-            this.dataGridViewAutoFilterTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAutoFilterTextBoxColumn1.Width = 200;
+            this.uploadsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dailyToolStripMenuItem});
+            this.uploadsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.uploadsToolStripMenuItem.Image = global::GulliverII.Properties.Resources.Very_Basic_Upload_icon1;
+            this.uploadsToolStripMenuItem.Name = "uploadsToolStripMenuItem";
+            this.uploadsToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.uploadsToolStripMenuItem.Text = "&Uploads";
             // 
-            // dataGridViewAutoFilterTextBoxColumn2
+            // dailyToolStripMenuItem
             // 
-            this.dataGridViewAutoFilterTextBoxColumn2.DataPropertyName = "Offer Name";
-            this.dataGridViewAutoFilterTextBoxColumn2.HeaderText = "Offer Name";
-            this.dataGridViewAutoFilterTextBoxColumn2.Name = "dataGridViewAutoFilterTextBoxColumn2";
-            this.dataGridViewAutoFilterTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAutoFilterTextBoxColumn2.Width = 250;
+            this.dailyToolStripMenuItem.Name = "dailyToolStripMenuItem";
+            this.dailyToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.dailyToolStripMenuItem.Text = "Daily Mail Departures";
+            this.dailyToolStripMenuItem.Click += new System.EventHandler(this.dailyToolStripMenuItem_Click);
             // 
-            // dataGridViewAutoFilterTextBoxColumn3
+            // thirdpartyHotelManagerToolStripMenuItem
             // 
-            this.dataGridViewAutoFilterTextBoxColumn3.DataPropertyName = "Deal Directory Name";
-            this.dataGridViewAutoFilterTextBoxColumn3.HeaderText = "Deal Directory Name";
-            this.dataGridViewAutoFilterTextBoxColumn3.Name = "dataGridViewAutoFilterTextBoxColumn3";
-            this.dataGridViewAutoFilterTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAutoFilterTextBoxColumn3.Width = 250;
-            // 
-            // dataGridViewAutoFilterTextBoxColumn4
-            // 
-            this.dataGridViewAutoFilterTextBoxColumn4.DataPropertyName = "On Sales";
-            this.dataGridViewAutoFilterTextBoxColumn4.HeaderText = "On Sales";
-            this.dataGridViewAutoFilterTextBoxColumn4.Name = "dataGridViewAutoFilterTextBoxColumn4";
-            this.dataGridViewAutoFilterTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAutoFilterTextBoxColumn4.Width = 150;
-            // 
-            // dataGridViewAutoFilterTextBoxColumn5
-            // 
-            this.dataGridViewAutoFilterTextBoxColumn5.DataPropertyName = "Expired Date";
-            this.dataGridViewAutoFilterTextBoxColumn5.HeaderText = "Expired Date";
-            this.dataGridViewAutoFilterTextBoxColumn5.Name = "dataGridViewAutoFilterTextBoxColumn5";
-            this.dataGridViewAutoFilterTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.thirdpartyHotelManagerToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.thirdpartyHotelManagerToolStripMenuItem.Image = global::GulliverII.Properties.Resources.bungalow_16;
+            this.thirdpartyHotelManagerToolStripMenuItem.Name = "thirdpartyHotelManagerToolStripMenuItem";
+            this.thirdpartyHotelManagerToolStripMenuItem.Size = new System.Drawing.Size(172, 20);
+            this.thirdpartyHotelManagerToolStripMenuItem.Text = "Thirdparty Hotel Manager";
+            this.thirdpartyHotelManagerToolStripMenuItem.Click += new System.EventHandler(this.thirdpartyHotelManagerToolStripMenuItem_Click);
             // 
             // dataGridViewLinkColumn1
             // 
+            this.dataGridViewLinkColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewLinkColumn1.DataPropertyName = "Delete";
+            this.dataGridViewLinkColumn1.FillWeight = 50F;
             this.dataGridViewLinkColumn1.HeaderText = "Delete";
             this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
             this.dataGridViewLinkColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewLinkColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewLinkColumn1.Width = 80;
+            this.dataGridViewLinkColumn1.Visible = false;
             // 
             // dataGridViewLinkColumn2
             // 
+            this.dataGridViewLinkColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewLinkColumn2.DataPropertyName = "View";
+            this.dataGridViewLinkColumn2.FillWeight = 50F;
             this.dataGridViewLinkColumn2.HeaderText = "View";
             this.dataGridViewLinkColumn2.Name = "dataGridViewLinkColumn2";
             this.dataGridViewLinkColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewLinkColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewLinkColumn2.Width = 80;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -492,63 +536,54 @@ namespace GulliverII
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.Visible = false;
             // 
-            // dataGridViewAutoFilterTextBoxColumn6
+            // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewAutoFilterTextBoxColumn6.DataPropertyName = "Supplier";
-            this.dataGridViewAutoFilterTextBoxColumn6.HeaderText = "Supplier";
-            this.dataGridViewAutoFilterTextBoxColumn6.Name = "dataGridViewAutoFilterTextBoxColumn6";
-            this.dataGridViewAutoFilterTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAutoFilterTextBoxColumn6.Width = 200;
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Supplier";
+            this.dataGridViewTextBoxColumn2.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Supplier";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewAutoFilterTextBoxColumn7
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewAutoFilterTextBoxColumn7.DataPropertyName = "Offer Name";
-            this.dataGridViewAutoFilterTextBoxColumn7.HeaderText = "Offer Name";
-            this.dataGridViewAutoFilterTextBoxColumn7.Name = "dataGridViewAutoFilterTextBoxColumn7";
-            this.dataGridViewAutoFilterTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAutoFilterTextBoxColumn7.Width = 250;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Offer Name";
+            this.dataGridViewTextBoxColumn3.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Deal Name";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // dataGridViewAutoFilterTextBoxColumn8
+            // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewAutoFilterTextBoxColumn8.DataPropertyName = "Deal Directory Name";
-            this.dataGridViewAutoFilterTextBoxColumn8.HeaderText = "Deal Directory Name";
-            this.dataGridViewAutoFilterTextBoxColumn8.Name = "dataGridViewAutoFilterTextBoxColumn8";
-            this.dataGridViewAutoFilterTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAutoFilterTextBoxColumn8.Width = 250;
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "On Sales";
+            this.dataGridViewTextBoxColumn4.HeaderText = "On Sales";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // dataGridViewAutoFilterTextBoxColumn9
+            // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewAutoFilterTextBoxColumn9.DataPropertyName = "On Sales";
-            this.dataGridViewAutoFilterTextBoxColumn9.HeaderText = "On Sales";
-            this.dataGridViewAutoFilterTextBoxColumn9.Name = "dataGridViewAutoFilterTextBoxColumn9";
-            this.dataGridViewAutoFilterTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAutoFilterTextBoxColumn9.Width = 150;
-            // 
-            // dataGridViewAutoFilterTextBoxColumn10
-            // 
-            this.dataGridViewAutoFilterTextBoxColumn10.DataPropertyName = "Expired Date";
-            this.dataGridViewAutoFilterTextBoxColumn10.HeaderText = "Expired Date";
-            this.dataGridViewAutoFilterTextBoxColumn10.Name = "dataGridViewAutoFilterTextBoxColumn10";
-            this.dataGridViewAutoFilterTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Expired Date";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Expired Date";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewLinkColumn3
             // 
+            this.dataGridViewLinkColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewLinkColumn3.DataPropertyName = "Copy";
+            this.dataGridViewLinkColumn3.FillWeight = 80F;
             this.dataGridViewLinkColumn3.HeaderText = "Copy";
             this.dataGridViewLinkColumn3.Name = "dataGridViewLinkColumn3";
             this.dataGridViewLinkColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewLinkColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewLinkColumn3.Width = 80;
             // 
-            // bsLibrary
+            // dataGridViewLinkColumn4
             // 
-            this.bsLibrary.DataMember = "Library";
-            this.bsLibrary.DataSource = this.libraryDS;
-            // 
-            // libraryDS
-            // 
-            this.libraryDS.DataSetName = "LibraryDS";
-            this.libraryDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataGridViewLinkColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewLinkColumn4.DataPropertyName = "Copy";
+            this.dataGridViewLinkColumn4.HeaderText = "Copy";
+            this.dataGridViewLinkColumn4.Name = "dataGridViewLinkColumn4";
+            this.dataGridViewLinkColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLinkColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // deleteDataGridViewTextBoxColumn
             // 
@@ -559,6 +594,7 @@ namespace GulliverII
             this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
             this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.deleteDataGridViewTextBoxColumn.Visible = false;
             // 
             // viewDataGridViewTextBoxColumn
             // 
@@ -626,11 +662,89 @@ namespace GulliverII
             this.copyDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.copyDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // dataGridViewAutoFilterTextBoxColumn1
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn1.DataPropertyName = "Supplier";
+            this.dataGridViewAutoFilterTextBoxColumn1.HeaderText = "Supplier";
+            this.dataGridViewAutoFilterTextBoxColumn1.Name = "dataGridViewAutoFilterTextBoxColumn1";
+            this.dataGridViewAutoFilterTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn1.Width = 200;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn2
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn2.DataPropertyName = "Offer Name";
+            this.dataGridViewAutoFilterTextBoxColumn2.HeaderText = "Offer Name";
+            this.dataGridViewAutoFilterTextBoxColumn2.Name = "dataGridViewAutoFilterTextBoxColumn2";
+            this.dataGridViewAutoFilterTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn2.Width = 250;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn3
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn3.DataPropertyName = "Deal Directory Name";
+            this.dataGridViewAutoFilterTextBoxColumn3.HeaderText = "Deal Directory Name";
+            this.dataGridViewAutoFilterTextBoxColumn3.Name = "dataGridViewAutoFilterTextBoxColumn3";
+            this.dataGridViewAutoFilterTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn3.Width = 250;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn4
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn4.DataPropertyName = "On Sales";
+            this.dataGridViewAutoFilterTextBoxColumn4.HeaderText = "On Sales";
+            this.dataGridViewAutoFilterTextBoxColumn4.Name = "dataGridViewAutoFilterTextBoxColumn4";
+            this.dataGridViewAutoFilterTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn5
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn5.DataPropertyName = "Expired Date";
+            this.dataGridViewAutoFilterTextBoxColumn5.HeaderText = "Expired Date";
+            this.dataGridViewAutoFilterTextBoxColumn5.Name = "dataGridViewAutoFilterTextBoxColumn5";
+            this.dataGridViewAutoFilterTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn6
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn6.DataPropertyName = "Supplier";
+            this.dataGridViewAutoFilterTextBoxColumn6.HeaderText = "Supplier";
+            this.dataGridViewAutoFilterTextBoxColumn6.Name = "dataGridViewAutoFilterTextBoxColumn6";
+            this.dataGridViewAutoFilterTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn6.Width = 200;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn7
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn7.DataPropertyName = "Offer Name";
+            this.dataGridViewAutoFilterTextBoxColumn7.HeaderText = "Offer Name";
+            this.dataGridViewAutoFilterTextBoxColumn7.Name = "dataGridViewAutoFilterTextBoxColumn7";
+            this.dataGridViewAutoFilterTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn7.Width = 250;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn8
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn8.DataPropertyName = "Deal Directory Name";
+            this.dataGridViewAutoFilterTextBoxColumn8.HeaderText = "Deal Directory Name";
+            this.dataGridViewAutoFilterTextBoxColumn8.Name = "dataGridViewAutoFilterTextBoxColumn8";
+            this.dataGridViewAutoFilterTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn8.Width = 250;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn9
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn9.DataPropertyName = "On Sales";
+            this.dataGridViewAutoFilterTextBoxColumn9.HeaderText = "On Sales";
+            this.dataGridViewAutoFilterTextBoxColumn9.Name = "dataGridViewAutoFilterTextBoxColumn9";
+            this.dataGridViewAutoFilterTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAutoFilterTextBoxColumn9.Width = 150;
+            // 
+            // dataGridViewAutoFilterTextBoxColumn10
+            // 
+            this.dataGridViewAutoFilterTextBoxColumn10.DataPropertyName = "Expired Date";
+            this.dataGridViewAutoFilterTextBoxColumn10.HeaderText = "Expired Date";
+            this.dataGridViewAutoFilterTextBoxColumn10.Name = "dataGridViewAutoFilterTextBoxColumn10";
+            this.dataGridViewAutoFilterTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // flcsLibrary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1254, 710);
+            this.ClientSize = new System.Drawing.Size(1254, 807);
             this.Controls.Add(this.kryptonPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "flcsLibrary";
@@ -643,13 +757,14 @@ namespace GulliverII
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLibrary)).EndInit();
+            this.cms.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsLibrary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).EndInit();
             this.statusstrip.ResumeLayout(false);
             this.statusstrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSuppliers)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsLibrary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -703,6 +818,15 @@ namespace GulliverII
         private System.Windows.Forms.ToolStripMenuItem updateSAGABestDealPageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem currencyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fABSettingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uploadsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dailyToolStripMenuItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbOnlyBestDeals;
+        private System.Windows.Forms.ToolStripMenuItem thirdpartyHotelManagerToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn4;
         private System.Windows.Forms.DataGridViewLinkColumn deleteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn viewDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -712,6 +836,8 @@ namespace GulliverII
         private System.Windows.Forms.DataGridViewTextBoxColumn expiredDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn updatePageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewLinkColumn copyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ContextMenuStrip cms;
+        private System.Windows.Forms.ToolStripMenuItem deleteDealToolStripMenuItem;
     }
 }
 

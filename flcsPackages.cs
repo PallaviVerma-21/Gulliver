@@ -23,6 +23,7 @@ namespace GulliverII
         List<int> travelZooSuppliers;
         List<int> timesSuppliers;
         List<int> seSupplier;
+        List<int> icelollysuppliers;
         private bool isDataGridViewFormatted = false;
         private List<GulliverLibrary.Package> packagesToBackUp;
         GulliverLibrary.Deal deal;
@@ -36,6 +37,7 @@ namespace GulliverII
           travelZooSuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("traveltypesuppliers");
           timesSuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("timestypesuppliers");
           seSupplier = PackageGenerator.Tool.GetSuppliersBySuppliertype("setypesuppliers");
+          icelollysuppliers = PackageGenerator.Tool.GetSuppliersBySuppliertype("icelollysuppliers");
           this.packageHandler = packageHandler;
           deal = packageHandler.GetDealById(dealId);
           icosting = PackageGenerator.FactoryCosting.GetCostingOBj(deal.Media.id, deal.id);
@@ -270,11 +272,13 @@ namespace GulliverII
             saved = true;
             Application.DoEvents();            
             this.Close();
+
+
         }
 
         private void dataGridViewHolidays_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 27)
+            if (e.ColumnIndex == 29)
             {
                 int selectedCellCount = dataGridViewHolidays.GetCellCount(DataGridViewElementStates.Selected);
                 if (selectedCellCount > 0)
@@ -289,7 +293,7 @@ namespace GulliverII
                     cms.Visible = false;
                 }
             }
-            else if (e.ColumnIndex == 24)
+            else if (e.ColumnIndex == 26 && !travelZooSuppliers.Contains(deal.Media.id))
             {
                 int selectedCellCount = dataGridViewHolidays.GetCellCount(DataGridViewElementStates.Selected);
                 if (selectedCellCount > 0)
@@ -304,7 +308,7 @@ namespace GulliverII
                     cmsCommission.Visible = false;
                 }
             }
-            else if (e.ColumnIndex == 26)
+            else if (e.ColumnIndex == 28)
             {
                 int selectedCellCount = dataGridViewHolidays.GetCellCount(DataGridViewElementStates.Selected);
                 if (selectedCellCount > 0)
@@ -317,6 +321,21 @@ namespace GulliverII
                     dataGridViewHolidays.ContextMenuStrip = null;
                     txtMarkup.Text = string.Empty;
                     cmsMarkup.Visible = false;
+                }
+            }
+            else if (e.ColumnIndex == 22)
+            {
+                int selectedCellCount = dataGridViewHolidays.GetCellCount(DataGridViewElementStates.Selected);
+                if (selectedCellCount > 0)
+                {
+                    dataGridViewHolidays.ContextMenuStrip = cmsBaggages;
+                    cmsBaggages.Visible = true;
+                }
+                else
+                {
+                    dataGridViewHolidays.ContextMenuStrip = null;
+                    txtBaggagePrice.Text = string.Empty;
+                    cmsBaggages.Visible = false;
                 }
             }
             else
@@ -342,7 +361,7 @@ namespace GulliverII
                 {
                     for (int i = 0; i < dataGridViewHolidays.Rows.Count; i++)
                     {
-                        if (dataGridViewHolidays.Rows[i].Cells[27].Selected && found)
+                        if (dataGridViewHolidays.Rows[i].Cells[29].Selected && found)
                             ids.Add(Convert.ToInt32(dataGridViewHolidays.Rows[i].Cells[3].Value));
                     }
                 }
@@ -399,7 +418,7 @@ namespace GulliverII
                 {
                     for (int i = 0; i < dataGridViewHolidays.Rows.Count; i++)
                     {
-                        if (dataGridViewHolidays.Rows[i].Cells[24].Selected && found)
+                        if (dataGridViewHolidays.Rows[i].Cells[26].Selected && found)
                             ids.Add(Convert.ToInt32(dataGridViewHolidays.Rows[i].Cells[3].Value));
                     }
                 }
@@ -450,7 +469,7 @@ namespace GulliverII
                 {
                     for (int i = 0; i < dataGridViewHolidays.Rows.Count; i++)
                     {
-                        if (dataGridViewHolidays.Rows[i].Cells[26].Selected && found)
+                        if (dataGridViewHolidays.Rows[i].Cells[28].Selected && found)
                             ids.Add(Convert.ToInt32(dataGridViewHolidays.Rows[i].Cells[3].Value));
                     }
                 }
@@ -508,6 +527,56 @@ namespace GulliverII
             btnClear10PercentCalculation.Visible = false;
         }
 
+        private void txtBaggagePrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            bool found = true;
+
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                List<int> ids = new List<int>();
+
+                try
+                {
+                    for (int i = 0; i < dataGridViewHolidays.Rows.Count; i++)
+                    {
+                        if (dataGridViewHolidays.Rows[i].Cells[22].Selected && found)
+                            ids.Add(Convert.ToInt32(dataGridViewHolidays.Rows[i].Cells[3].Value));
+                    }
+                }
+                catch { }
+
+                if (ids.Count > 0)
+                {
+                    foreach (PackagesDS.PackageRow h in this.packagesDS.Package.Where(h => ids.Any(i => i == h.hiddenNumber)).ToList())
+                    {
+                       // h.baggagePrice = Convert.ToDecimal(txtBaggagePrice.Text);
+
+                        GulliverLibrary.Package package = new GulliverLibrary.Package();
+                        package.commission = h.commission;
+                        package.nett = h.nett;
+                        package.totalMarkup = h.totalMarkup;
+                        package.sellAt = h.sellAt;
+                        package.profit = h.profit;
+                        package.baggagePrice = h.baggagePrice;
+                        package.extras = h.extras;
+
+                        GulliverLibrary.Package packageI = icosting.CalculateFinalCostings(package, deal.commission, "baggagePrice", Convert.ToDecimal(txtBaggagePrice.Text.Trim()));
+                        h.sellAt = packageI.sellAt;
+                        h.nett = packageI.nett;
+                        h.totalMarkup = packageI.totalMarkup;
+                        h.commission = packageI.commission;
+                        h.profit = packageI.profit;
+                        h.baggagePrice = packageI.baggagePrice;
+                        h.extras = packageI.extras;
+                    }
+                }
+
+                dataGridViewHolidays.ContextMenuStrip = null;
+                txtBaggagePrice.Text = string.Empty;
+                cmsBaggages.Visible = false;
+            }
+        }
+   
         #endregion
 
         #region methods
@@ -562,8 +631,11 @@ namespace GulliverII
                             board = h.board,
                             flightPrice = h.flightPrice,
                             airline = h.airline,
+                            obAirline = h.obAirline,
+                            ibAirline = h.ibAirline,
                             obFlightNo = h.obFlightNo,
                             ibFlightNo = h.ibFlightNo,
+                            hotelName = h.hotelname,
                             roomType = h.roomType,
                             occupancy = h.occupancy,
                             adults = h.adults,
@@ -579,7 +651,8 @@ namespace GulliverII
                             commission = h.commission,
                             nett = h.nett,
                             sellAt = h.sellAt,
-                            searchType = (h.searchType == "FAB") ? 1 : 0,
+                            flightSource = h.searchType,
+                            hotelSource = h.hotelSource,
                             Deal = deal,
                             status = h.status,
                             carhireCosting = h.carhireCosting,
@@ -611,6 +684,7 @@ namespace GulliverII
                                                                      id = count++,
                                                                      date = h.date,
                                                                      hotelKey = h.hotelKey,
+                                                                     tsRoomKey = (h.tsRoomKey != null) ? h.tsRoomKey : string.Empty,
                                                                      departureAirport = h.departureAirport,
                                                                      destinationAirport = h.destinationAirport,
                                                                      duration = h.duration,
@@ -622,6 +696,8 @@ namespace GulliverII
                                                                      flightPrice = h.flightPrice,
                                                                      childFlightPrice = h.childFlightPrice,
                                                                      airline = h.airline,
+                                                                     obAirline = h.obAirline,
+                                                                     ibAirline = h.ibAirline,
                                                                      obFlightNo = h.obFlightNo,
                                                                      ibFlightNo = h.ibFlightNo,
                                                                      hotelName = h.hotelName,
@@ -648,7 +724,8 @@ namespace GulliverII
                                                                      childSellat = h.childSellat,
                                                                      isStandardRoom = h.isStandardRoom,
                                                                      oldSellAt = h.oldSellAt,
-                                                                     searchType = h.searchType,
+                                                                     flightSource = h.flightSource,
+                                                                     hotelSource = h.hotelSource,
                                                                      Deal = deal,
                                                                      status = h.status,
                                                                      carhireCosting = h.carhireCosting,                                                                      
@@ -682,6 +759,8 @@ namespace GulliverII
                                          flightPrice = h.flightPrice,
                                          childFlightPrice = h.childFlightPrice,
                                          airline = h.airline,
+                                         obAirline = h.obAirline,
+                                         ibAirline = h.ibAirline,
                                          obFlightNo = h.obFlightNo,
                                          ibFlightNo = h.ibFlightNo,
                                          hotelName = h.hotelName,
@@ -708,7 +787,7 @@ namespace GulliverII
                                          childSellat = h.childSellat,
                                          isStandardRoom = h.isStandardRoom,
                                          oldSellAt = h.oldSellAt,
-                                         searchType = h.searchType,
+                                         flightSource = h.flightSource,
                                          Deal = deal,
                                          status = h.status,
                                          carhireCosting = h.carhireCosting,
@@ -730,7 +809,7 @@ namespace GulliverII
                 btnClear10PercentCalculation.Visible = false;
                 cbDisableProfitField.Visible  = false;
             }
-            else if (travelZooSuppliers.Contains(supplierId))
+            else if (travelZooSuppliers.Contains(supplierId) || icelollysuppliers.Contains(supplierId))
             {
                 btnCalculateTenPercentLeading.Visible = false;
                 btnClear10PercentCalculation.Visible = false;
@@ -799,8 +878,8 @@ namespace GulliverII
             int count = 0;
 
             foreach (GulliverLibrary.Package p in packages)
-            {               
-                this.packagesDS.Package.AddPackageRow("Delete", p.id, count, (p.leading) ? 1 : 0, p.date.ToString("MMMM"), p.date.DayOfWeek.ToString(), p.date, (p.status.Contains("New") ? "NEW" : (p.status.Contains("Not available") ? "STOPPED" : p.status.Contains("increased") ? "UP" : p.status.Contains("decreased") ? "DOWN" : string.Empty)), p.hotelKey, p.departureAirport, p.destinationAirport, p.duration, p.obDepartureTime.Trim(), p.obArrivalTime.Trim(), p.ibDepartureTime.Trim(), p.ibArrivalTime.Trim(), p.board.Trim(), Math.Round(p.flightPrice, 2), p.airline, p.obFlightNo, p.ibFlightNo, p.roomType, p.occupancy, p.adults, p.children, p.infants, Math.Round(p.hotelPrice, 2), Math.Round(p.childHotelPrice, 2), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting, p.carParkingCosting, Math.Round(p.commission, 2), Math.Round(p.profit, 2), Math.Round(p.nett, 2), Convert.ToInt32(p.sellAt), p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), (p.status != null ? p.status : string.Empty), ((p.oldSellAt != null) ? Convert.ToInt32(p.oldSellAt) : 0), p.isStandardRoom);
+            {
+                this.packagesDS.Package.AddPackageRow("Delete", p.id, count, (p.leading) ? 1 : 0, p.date.ToString("MMMM"), p.date.DayOfWeek.ToString(), p.date, (p.status.Contains("New") ? "NEW" : (p.status.Contains("Not available") ? "STOPPED" : p.status.Contains("increased") ? "UP" : p.status.Contains("decreased") ? "DOWN" : string.Empty)), p.hotelKey, ((p.tsRoomKey != null) ? p.tsRoomKey : string.Empty), p.departureAirport, p.destinationAirport, p.duration, p.obDepartureTime.Trim(), p.obArrivalTime.Trim(), p.ibDepartureTime.Trim(), p.ibArrivalTime.Trim(), ((p.board != null) ? p.board.Trim() : string.Empty), Math.Round(p.flightPrice, 2), p.airline, ((p.obAirline == null || p.obAirline == string.Empty) ? p.airline.Split('/').First().Trim() : p.obAirline.Trim()), ((p.ibAirline == null || p.ibAirline == string.Empty) ? p.airline.Split('/').Last().Trim() : p.ibAirline.Trim()), p.obFlightNo, p.ibFlightNo, ((p.hotelName != null) ? p.hotelName : string.Empty), p.roomType, p.occupancy, p.adults, p.children, p.infants, Math.Round(p.hotelPrice, 2), Math.Round(p.childHotelPrice, 2), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting, p.carParkingCosting, Math.Round(p.commission, 2), Math.Round(p.profit, 2), Math.Round(p.nett, 2), Convert.ToInt32(p.sellAt), p.childNett, p.childSellat, p.flightSource, p.hotelSource, (p.status != null ? p.status : string.Empty), ((p.oldSellAt != null) ? Convert.ToInt32(p.oldSellAt) : 0), p.isStandardRoom);
                 count++;
             }
 
@@ -829,7 +908,7 @@ namespace GulliverII
 
             foreach (GulliverLibrary.Package p in packages)
             {
-                this.packagesDS.Package.AddPackageRow("Delete", p.id, count, (p.leading) ? 1 : 0, p.date.ToString("MMMM"), p.date.DayOfWeek.ToString(), p.date, string.Empty, p.hotelKey, p.departureAirport, p.destinationAirport, p.duration, p.obDepartureTime.Trim(), p.obArrivalTime.Trim(), p.ibDepartureTime.Trim(), p.ibArrivalTime.Trim(), p.board.Trim(), Math.Round(p.flightPrice, 2), p.airline, p.obFlightNo, p.ibFlightNo, p.roomType, p.occupancy, p.adults, p.children, p.infants, Math.Round(p.hotelPrice, 2), Math.Round(p.childHotelPrice, 2), p.caa, p.baggagePrice, p.transfers, p.extras, p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting,p.carParkingCosting, Math.Round(p.commission, 2), Math.Round(p.profit, 2), Math.Round(p.nett, 2), Convert.ToInt32(p.sellAt), p.childNett, p.childSellat, ((p.searchType == 1) ? "FAB" : "Flightsheet"), (p.status != null ? p.status : string.Empty), ((p.oldSellAt != null) ? Convert.ToInt32(p.oldSellAt) : 0), p.isStandardRoom);
+                this.packagesDS.Package.AddPackageRow("Delete", p.id, count, (p.leading) ? 1 : 0, p.date.ToString("MMMM"), p.date.DayOfWeek.ToString(), p.date, string.Empty, p.hotelKey,((p.tsRoomKey != null)?p.tsRoomKey: string.Empty), p.departureAirport, p.destinationAirport, p.duration, p.obDepartureTime.Trim(), p.obArrivalTime.Trim(), p.ibDepartureTime.Trim(), p.ibArrivalTime.Trim(), p.board.Trim(), Math.Round(p.flightPrice, 2), p.airline, ((p.obAirline == null || p.obAirline == string.Empty) ? p.airline.Split('/').First().Trim() : p.obAirline.Trim()), ((p.ibAirline == null || p.ibAirline == string.Empty) ? p.airline.Split('/').Last().Trim() : p.ibAirline.Trim()), p.obFlightNo, p.ibFlightNo, ((p.hotelName != null) ? p.hotelName : string.Empty), p.roomType, p.occupancy, p.adults, p.children, p.infants, Math.Round(p.hotelPrice, 2), Math.Round(p.childHotelPrice, 2), p.caa, p.baggagePrice, p.transfers, Math.Round(p.extras, 2), p.childExtras, p.baseMarkup, p.totalMarkup, p.totalChildMarkup, p.carhireCosting, p.carParkingCosting, Math.Round(p.commission, 2), Math.Round(p.profit, 2), Math.Round(p.nett, 2), Convert.ToInt32(p.sellAt), p.childNett, p.childSellat, p.flightSource, p.hotelSource, (p.status != null ? p.status : string.Empty), ((p.oldSellAt != null) ? Convert.ToInt32(p.oldSellAt) : 0), p.isStandardRoom);
                 count++;
             }
 
@@ -837,12 +916,11 @@ namespace GulliverII
                 isDataGridViewFormatted = false;           
 
             lblTotal.Text = (packages.Count > 0) ? "Total: " + packages.Count + " holidays" : "Total: " + packages.Count + " holiday";
-
         }
 
         #endregion           
 
-          public void Dispose()
+        public void Dispose()
         {
            GC.Collect();
            GC.WaitForPendingFinalizers();
@@ -853,5 +931,13 @@ namespace GulliverII
         {
           Dispose();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+       
     }
 }

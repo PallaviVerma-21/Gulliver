@@ -123,6 +123,16 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Baggages" msprop:Generator_TableClassName="BaggagesDataTable" msprop:Generator_TableVarName="tableBaggages" msprop:Generator_RowChangedName="BaggagesRowChanged" msprop:Generator_TablePropName="Baggages" msprop:Generator_RowDeletingName="BaggagesRowDeleting" msprop:Generator_RowChangingName="BaggagesRowChanging" msprop:Generator_RowEvHandlerName="BaggagesRowChangeEventHandler" msprop:Generator_RowDeletedName="BaggagesRowDeleted" msprop:Generator_RowClassName="BaggagesRow" msprop:Generator_UserTableName="Baggages" msprop:Generator_RowEvArgName="BaggagesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="Duration" msprop:Generator_ColumnVarNameInTable="columnDuration" msprop:Generator_ColumnPropNameInRow="Duration" msprop:Generator_ColumnPropNameInTable="DurationColumn" msprop:Generator_UserColumnName="Duration" type="xs:string" minOccurs="0" />
+              <xs:element name="Included" msprop:Generator_ColumnVarNameInTable="columnIncluded" msprop:Generator_ColumnPropNameInRow="Included" msprop:Generator_ColumnPropNameInTable="IncludedColumn" msprop:Generator_UserColumnName="Included" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
