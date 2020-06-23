@@ -61,10 +61,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>29052D82B22CDB9033EF5397C4E31773D458AA5F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B02AAF4DA1700EB95162A2C69AA4C7490D507565</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>GulliverII_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>GulliverII_3_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -433,6 +433,7 @@
     </None>
     <None Include="GulliverII_1_TemporaryKey.pfx" />
     <None Include="GulliverII_2_TemporaryKey.pfx" />
+    <None Include="GulliverII_3_TemporaryKey.pfx" />
     <None Include="Gulliver_TemporaryKey.pfx" />
     <None Include="LibraryDS.xsc">
       <DependentUpon>LibraryDS.xsd</DependentUpon>
