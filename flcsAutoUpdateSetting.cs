@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Linq;
+using System.Configuration;
 
 namespace GulliverII
 {
@@ -17,7 +18,7 @@ namespace GulliverII
 
         public flcsAutoUpdateSetting(int dealId)
         {
-           packageHandler = new PackageGenerator.PackageHandler(false);
+            packageHandler = new PackageGenerator.PackageHandler(false, ConfigurationManager.AppSettings["enviroment"].ToString());
            deal = packageHandler.GetDealById(dealId);
            InitializeComponent();
            FillAutoUpdateSettings(dealId);

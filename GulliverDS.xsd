@@ -45,7 +45,7 @@
         <xs:element name="TripperExtra" msprop:Generator_TableClassName="TripperExtraDataTable" msprop:Generator_TableVarName="tableTripperExtra" msprop:Generator_RowChangedName="TripperExtraRowChanged" msprop:Generator_TablePropName="TripperExtra" msprop:Generator_RowDeletingName="TripperExtraRowDeleting" msprop:Generator_RowChangingName="TripperExtraRowChanging" msprop:Generator_RowEvHandlerName="TripperExtraRowChangeEventHandler" msprop:Generator_RowDeletedName="TripperExtraRowDeleted" msprop:Generator_RowClassName="TripperExtraRow" msprop:Generator_UserTableName="TripperExtra" msprop:Generator_RowEvArgName="TripperExtraRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
+              <xs:element name="View" msprop:Generator_ColumnVarNameInTable="columnView" msprop:Generator_ColumnPropNameInRow="View" msprop:Generator_ColumnPropNameInTable="ViewColumn" msprop:Generator_UserColumnName="View" type="xs:string" minOccurs="0" />
               <xs:element name="recno" msprop:Generator_ColumnVarNameInTable="columnrecno" msprop:Generator_ColumnPropNameInRow="recno" msprop:Generator_ColumnPropNameInTable="recnoColumn" msprop:Generator_UserColumnName="recno" type="xs:int" minOccurs="0" />
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
               <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
@@ -54,6 +54,7 @@
               <xs:element name="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnPropNameInTable="CostColumn" msprop:Generator_UserColumnName="Cost" type="xs:decimal" minOccurs="0" />
               <xs:element name="Included" msprop:Generator_ColumnVarNameInTable="columnIncluded" msprop:Generator_ColumnPropNameInRow="Included" msprop:Generator_ColumnPropNameInTable="IncludedColumn" msprop:Generator_UserColumnName="Included" type="xs:boolean" minOccurs="0" />
               <xs:element name="Optional" msprop:Generator_ColumnVarNameInTable="columnOptional" msprop:Generator_ColumnPropNameInRow="Optional" msprop:Generator_ColumnPropNameInTable="OptionalColumn" msprop:Generator_UserColumnName="Optional" type="xs:boolean" minOccurs="0" />
+              <xs:element name="markup" msprop:Generator_ColumnVarNameInTable="columnmarkup" msprop:Generator_ColumnPropNameInRow="markup" msprop:Generator_ColumnPropNameInTable="markupColumn" msprop:Generator_UserColumnName="markup" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.Threading;
 using DataGridViewAutoFilter;
+using System.Configuration;
 
 namespace GulliverII
 {
@@ -21,7 +22,9 @@ namespace GulliverII
         public flcsLibrary()
         {
           InitializeComponent();
-          packageHandler = new PackageGenerator.PackageHandler(false);
+          Connection.ConnectionString.MySQLConnectionString = ConfigurationManager.AppSettings["mySQLConnectionString"].ToString();
+          Connection.ConnectionString.GulliverConnectionString = ConfigurationManager.AppSettings["gulliverConnectionString"].ToString();
+          packageHandler = new PackageGenerator.PackageHandler(false, ConfigurationManager.AppSettings["enviroment"].ToString());
           DisplayAllPackageOffers(true);                   
         }
 
@@ -30,7 +33,7 @@ namespace GulliverII
         private void DisplayAllPackageOffers(bool first)
         {
             libraryProgressbar.PerformStep();
-            packageHandler = new PackageGenerator.PackageHandler(true);
+            packageHandler = new PackageGenerator.PackageHandler(true, ConfigurationManager.AppSettings["enviroment"].ToString());
             List<GulliverLibrary.Deal> deals = packageHandler.GetFilteredPackageOffers(txtSearch.Text.Trim().ToUpper(), cbShowAll.Checked);
 
             if (cbOnlyBestDeals.Checked)
@@ -38,8 +41,8 @@ namespace GulliverII
 
             if (first)
             {
-             List<GulliverLibrary.Media> medias = deals.Select(p => p.Media).Distinct().ToList();
-             FillSuppliers(medias);
+              List<GulliverLibrary.Media> medias = deals.Select(p => p.Media).Distinct().ToList();
+              FillSuppliers(medias);
             }
 
             if (cmbSuppliers.SelectedItem != null)
@@ -54,8 +57,13 @@ namespace GulliverII
             libraryProgressbar.PerformStep();
 
             foreach (GulliverLibrary.Deal deal in deals.OrderByDescending(p => p.dateOfPromotion))
-                this.libraryDS.Library.AddLibraryRow("Delete", "View", "Update", deal.id, deal.Media.supplier.Trim(), deal.name.Trim(), string.Empty, deal.dateOfPromotion.ToString("dd/MM/yyyy"), deal.endDateOfPromotion.ToString("dd/MM/yyyy"), "Copy");
-
+            {
+                try
+                {
+                    this.libraryDS.Library.AddLibraryRow("Delete", "View", "Update", deal.id, ((deal.Media != null) ? deal.Media.supplier.Trim() : string.Empty), (deal.name != null ? deal.name.Trim():string.Empty), string.Empty, deal.dateOfPromotion.ToString("dd/MM/yyyy"), deal.endDateOfPromotion.ToString("dd/MM/yyyy"), "Copy");
+                }
+                catch { }
+            }
             libraryProgressbar.PerformStep();
             packageHandler.Dispose();
         }
@@ -67,17 +75,15 @@ namespace GulliverII
             
                 itemI.Text = "ALL";
                 itemI.Value = "0";
-                cmbSuppliers.Items.Add(itemI);
-            
+                cmbSuppliers.Items.Add(itemI);            
 
-            foreach (GulliverLibrary.Media media in medias.OrderBy(s => s.supplier))
+            foreach (GulliverLibrary.Media media in medias.Where(m => m != null && m.supplier !=  null).OrderBy(s => s.supplier))
             {
                 ComboBoxItem item = new ComboBoxItem();
                 
                     item.Text = media.supplier.Trim();
                     item.Value = media.id;
-                    cmbSuppliers.Items.Add(item);
-                
+                    cmbSuppliers.Items.Add(item);                
             }
         }
 
@@ -109,7 +115,7 @@ namespace GulliverII
 
                         StartProgressBar(25);
                          if (packageHandler == null)
-                            packageHandler = new PackageGenerator.PackageHandler(false);
+                             packageHandler = new PackageGenerator.PackageHandler(false, ConfigurationManager.AppSettings["enviroment"].ToString());
 
                          packageHandler.DeleteDealById(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value), libraryProgressbar);
                          packageHandler.Dispose();
@@ -147,7 +153,7 @@ namespace GulliverII
 
                         StartProgressBar(25);
                         if (packageHandler == null)
-                            packageHandler = new PackageGenerator.PackageHandler(false);
+                            packageHandler = new PackageGenerator.PackageHandler(false, ConfigurationManager.AppSettings["enviroment"].ToString());
                         packageHandler.CopyDeal(Convert.ToInt32(dataGridViewLibrary.Rows[e.RowIndex].Cells[2].Value), libraryProgressbar);
                         packageHandler.Dispose();
                         cbShowAll.Checked = true;
@@ -169,11 +175,13 @@ namespace GulliverII
                 int max = 100;
                 var prog = Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.Instance;
                 prog.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.Normal);
+               
                 for (int i = 0; i < max; i++)
                 {
                     prog.SetProgressValue(i, max);
                     Thread.Sleep(100);
                 }
+
                 prog.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.NoProgress);
             }
             catch (Exception ex){ }
@@ -273,7 +281,7 @@ namespace GulliverII
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-          DisplayAllPackageOffers(false);
+          //DisplayAllPackageOffers(false);
         }
 
         private void cmbSuppliers_SelectedIndexChanged(object sender, EventArgs e)
@@ -313,7 +321,7 @@ namespace GulliverII
                libraryProgressbar.Value++;
             }
 
-            DailyMailReportHandler.Generator generator = new DailyMailReportHandler.Generator();
+            DailyMailReportHandler.Generator generator = new DailyMailReportHandler.Generator(ConfigurationManager.AppSettings["gulliverConnectionString"].ToString(), ConfigurationManager.AppSettings["mySQLConnectionString"].ToString());
             generator.ExportAllDailyMailDepartures();
             libraryProgressbar.Value++;
             libraryProgressbar.Value++;
@@ -333,8 +341,8 @@ namespace GulliverII
 
         private void thirdpartyHotelManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flcsThirdpartyHotelRequests hotelRequestHandler = new flcsThirdpartyHotelRequests();
-            hotelRequestHandler.Show();
+            //flcsThirdpartyHotelRequests hotelRequestHandler = new flcsThirdpartyHotelRequests();
+            //hotelRequestHandler.Show();
         }
 
         private void deleteDealToolStripMenuItem_Click(object sender, EventArgs e)
@@ -345,7 +353,7 @@ namespace GulliverII
 
                     StartProgressBar(25);
                     if (packageHandler == null)
-                        packageHandler = new PackageGenerator.PackageHandler(false);
+                        packageHandler = new PackageGenerator.PackageHandler(false, ConfigurationManager.AppSettings["enviroment"].ToString());
 
                     packageHandler.DeleteDealById(Convert.ToInt32(dataGridViewLibrary.SelectedRows[0].Cells[2].Value), libraryProgressbar);
                     packageHandler.Dispose();
@@ -371,6 +379,18 @@ namespace GulliverII
             }
             else
                 dataGridViewLibrary.ContextMenuStrip = null;
+        }
+
+        private void updateUSABestDealPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PackageGenerator.Tool.RunBestDealUSAPage();
+            MessageBox.Show("Started running the script and it'll take few minutes to update fleetway usa home page!", "USA Best Deal Holidays", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+                DisplayAllPackageOffers(false);      
         }     
 
         

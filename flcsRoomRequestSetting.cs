@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using System.Configuration;
 
 namespace GulliverII
 {
@@ -21,7 +22,7 @@ namespace GulliverII
         {
            this.id = id;
            this.dealId = dealId;
-           packageHandler = new PackageGenerator.PackageHandler(false);
+           packageHandler = new PackageGenerator.PackageHandler(false, ConfigurationManager.AppSettings["enviroment"].ToString());
            hotelContract = packageHandler.GetHotelContractByRecno(Convert.ToInt32(id), dealId);
             if(hotelContract != null)
            roomRequestSetting = packageHandler.GetRoomRequestSettingByContractIdAndDeal(hotelContract.id, hotelContract.Deal.id);
@@ -88,6 +89,7 @@ namespace GulliverII
         #endregion
 
         #region events
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveRoomRequestSettings();

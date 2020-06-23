@@ -42,7 +42,7 @@ namespace GulliverII
             this.kryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel.Name = "kryptonPanel";
-            this.kryptonPanel.Size = new System.Drawing.Size(913, 495);
+            this.kryptonPanel.Size = new System.Drawing.Size(917, 500);
             this.kryptonPanel.TabIndex = 0;
             // 
             // kryptonMonthCalendar1
@@ -57,7 +57,7 @@ namespace GulliverII
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 495);
+            this.ClientSize = new System.Drawing.Size(917, 500);
             this.Controls.Add(this.kryptonPanel);
             this.Name = "flcsRoomAvailability";
             this.Text = "Rooms Calendar";

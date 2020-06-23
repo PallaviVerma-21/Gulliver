@@ -57,19 +57,15 @@ namespace GulliverII
                 foreBrush.Dispose();
             }
         }
-
-    
+            
         private void btnCheckTravelSmart_Click(object sender, EventArgs e)
         {
 
         }
-
-
+        
         private void btnAddTravelSmart_Click(object sender, EventArgs e)
         {
 
-        }
-
-       
+        }       
     }
 }

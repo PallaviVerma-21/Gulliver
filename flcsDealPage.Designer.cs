@@ -17,6 +17,7 @@ namespace GulliverII
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -198,7 +199,6 @@ namespace GulliverII
             this.txtMetaImage = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txtMetaTitle = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.bsOptionalExtras = new System.Windows.Forms.BindingSource(this.components);
-            this.costingsDS = new GulliverII.CostingsDS();
             this.miniToolStrip = new System.Windows.Forms.StatusStrip();
             this.cmsOptionalExtras = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolOptionalExtras = new System.Windows.Forms.ToolStripMenuItem();
@@ -219,6 +219,7 @@ namespace GulliverII
             this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.includesZoomout = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonTextBox2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.costingsDS = new GulliverII.CostingsDS();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.kryptonDataGridViewDateTimePickerColumn1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn();
@@ -313,7 +314,6 @@ namespace GulliverII
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsOptionalExtras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.costingsDS)).BeginInit();
             this.cmsOptionalExtras.SuspendLayout();
             this.cmsPleaseNote.SuspendLayout();
             this.cmsHotelText.SuspendLayout();
@@ -323,6 +323,7 @@ namespace GulliverII
             this.cmsAccessibilityText.SuspendLayout();
             this.cmsChildPrices.SuspendLayout();
             this.cmsMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.costingsDS)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPanel
@@ -2297,7 +2298,7 @@ namespace GulliverII
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10662F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.89338F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
             this.tableLayoutPanel1.Controls.Add(this.kryptonLabel4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtMetaContent, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.kryptonLabel6, 0, 0);
@@ -2334,17 +2335,17 @@ namespace GulliverII
             this.txtMetaContent.AlwaysActive = false;
             this.txtMetaContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMetaContent.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-            this.txtMetaContent.Location = new System.Drawing.Point(187, 30);
+            this.txtMetaContent.Location = new System.Drawing.Point(167, 30);
             this.txtMetaContent.Multiline = true;
             this.txtMetaContent.Name = "txtMetaContent";
-            this.txtMetaContent.Size = new System.Drawing.Size(827, 81);
+            this.txtMetaContent.Size = new System.Drawing.Size(739, 81);
             this.txtMetaContent.TabIndex = 1;
             // 
             // kryptonLabel6
             // 
             this.kryptonLabel6.Location = new System.Drawing.Point(3, 3);
             this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(178, 20);
+            this.kryptonLabel6.Size = new System.Drawing.Size(158, 20);
             this.kryptonLabel6.TabIndex = 19;
             this.kryptonLabel6.Values.Text = "Title: (Including price/ hashtags)";
             // 
@@ -2362,9 +2363,9 @@ namespace GulliverII
             this.txtMetaImage.AlwaysActive = false;
             this.txtMetaImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMetaImage.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-            this.txtMetaImage.Location = new System.Drawing.Point(187, 117);
+            this.txtMetaImage.Location = new System.Drawing.Point(167, 117);
             this.txtMetaImage.Name = "txtMetaImage";
-            this.txtMetaImage.Size = new System.Drawing.Size(827, 20);
+            this.txtMetaImage.Size = new System.Drawing.Size(739, 20);
             this.txtMetaImage.TabIndex = 2;
             // 
             // txtMetaTitle
@@ -2372,20 +2373,15 @@ namespace GulliverII
             this.txtMetaTitle.AlwaysActive = false;
             this.txtMetaTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMetaTitle.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Ribbon;
-            this.txtMetaTitle.Location = new System.Drawing.Point(187, 3);
+            this.txtMetaTitle.Location = new System.Drawing.Point(167, 3);
             this.txtMetaTitle.MaxLength = 160;
             this.txtMetaTitle.Name = "txtMetaTitle";
-            this.txtMetaTitle.Size = new System.Drawing.Size(827, 20);
+            this.txtMetaTitle.Size = new System.Drawing.Size(739, 20);
             this.txtMetaTitle.TabIndex = 0;
             // 
             // bsOptionalExtras
             // 
             this.bsOptionalExtras.DataMember = "OptionalExtra";
-            // 
-            // costingsDS
-            // 
-            this.costingsDS.DataSetName = "CostingsDS";
-            this.costingsDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // miniToolStrip
             // 
@@ -2542,6 +2538,11 @@ namespace GulliverII
             this.kryptonTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.kryptonTextBox2.Size = new System.Drawing.Size(532, 278);
             this.kryptonTextBox2.TabIndex = 0;
+            // 
+            // costingsDS
+            // 
+            this.costingsDS.DataSetName = "CostingsDS";
+            this.costingsDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -2833,7 +2834,6 @@ namespace GulliverII
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsOptionalExtras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.costingsDS)).EndInit();
             this.cmsOptionalExtras.ResumeLayout(false);
             this.cmsPleaseNote.ResumeLayout(false);
             this.cmsHotelText.ResumeLayout(false);
@@ -2843,6 +2843,7 @@ namespace GulliverII
             this.cmsAccessibilityText.ResumeLayout(false);
             this.cmsChildPrices.ResumeLayout(false);
             this.cmsMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.costingsDS)).EndInit();
             this.ResumeLayout(false);
 
         }

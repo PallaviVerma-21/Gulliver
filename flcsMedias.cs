@@ -26,13 +26,16 @@ namespace GulliverII
         private void FillMedias(string searchText)
         {
            packagesDS.Media.Rows.Clear();
+           partnerCB.DataSource = GulliverIIQueryHandler.GetPartners();
+           countryCB.DataSource = GulliverIIQueryHandler.GetCountries();
+           
            medias = GulliverIIQueryHandler.GetAllMedias();
 
            if (searchText.Trim() != string.Empty && searchText != "Search media name here ...")
             medias = medias.Where(m => m.supplier.Trim().ToUpper().Contains(searchText.ToUpper().Trim())).ToList();
 
            foreach (GulliverLibrary.Media media in medias.OrderBy(m => m.supplier.Trim()))
-             packagesDS.Media.AddMediaRow("Delete", media.id, media.supplier.Trim(), media.channelCode.Trim(), media.commission, ((media.pleaseNote != null)? media.pleaseNote.Trim(): string.Empty));            
+             packagesDS.Media.AddMediaRow("Delete", media.id, media.supplier.Trim(), media.channelCode.Trim(), media.commission, ((media.pleaseNote != null)? media.pleaseNote.Trim(): string.Empty),media.Partner.name.Trim(), media.Country.country.Trim());            
         }
 
         private void SetText(TextBox txtSearchbox, string text)
@@ -103,27 +106,36 @@ namespace GulliverII
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-           List<GulliverLibrary.Media> medias = GetMedias();
-           GulliverIIQueryHandler.SaveMedia(medias);
-           this.Close();
+            SaveMedias();
         }
 
-        private List<GulliverLibrary.Media> GetMedias()
+        private void SaveMedias()
         {
             List<GulliverLibrary.Media> medias = new List<GulliverLibrary.Media>();
 
             foreach (PackagesDS.MediaRow row in this.packagesDS.Media.Where(m => !m.IsChannel_CodesNull() && !m.IsNameNull()))
             {
-                GulliverLibrary.Media media = new GulliverLibrary.Media();
-                media.id = row.id;
-                media.supplier = row.Name.Trim();
-                media.channelCode = row.Channel_Codes.Trim();
-                media.commission = row.Commission;
-                media.pleaseNote = row.Please_Note;
-                medias.Add(media);
+                if (row.Partner != string.Empty && row.Country != string.Empty)
+                {
+                    GulliverLibrary.Media media = new GulliverLibrary.Media();
+                    media.id = row.id;
+                    media.supplier = row.Name.Trim();
+                    media.channelCode = row.Channel_Codes.Trim();
+                    media.commission = row.Commission;
+                    media.Partner = GulliverIIQueryHandler.GetPartnerByName(row.Partner);
+                    media.Country = GulliverIIQueryHandler.GetCountryByName(row.Country);
+                    media.pleaseNote = row.Please_Note;
+                    medias.Add(media);
+                }
+                else
+                {
+                    MessageBox.Show("Please select Partner/ Country before save details!", "Save Media", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
-            return medias;
+            GulliverIIQueryHandler.SaveMedia(medias);
+            this.Close();           
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

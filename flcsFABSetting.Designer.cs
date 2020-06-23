@@ -97,7 +97,7 @@ namespace GulliverII
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.76596F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.23404F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel1.Controls.Add(this.btnSave, 2, 6);
             this.tableLayoutPanel1.Controls.Add(this.kryptonLabel2, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.kryptonLabel3, 0, 5);
@@ -119,7 +119,7 @@ namespace GulliverII
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(378, 67);
+            this.btnSave.Location = new System.Drawing.Point(375, 67);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 25);
             this.btnSave.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
@@ -154,9 +154,8 @@ namespace GulliverII
             this.tableLayoutPanel1.SetColumnSpan(this.ddlFABServer, 2);
             this.ddlFABServer.DropDownWidth = 121;
             this.ddlFABServer.Items.AddRange(new object[] {
-            "Zara",
-            "Pixie"});
-            this.ddlFABServer.Location = new System.Drawing.Point(145, 3);
+            "MultiCom"});
+            this.ddlFABServer.Location = new System.Drawing.Point(143, 3);
             this.ddlFABServer.Name = "ddlFABServer";
             this.ddlFABServer.Size = new System.Drawing.Size(354, 21);
             this.ddlFABServer.TabIndex = 25;
@@ -180,7 +179,7 @@ namespace GulliverII
             "330",
             "360",
             ""});
-            this.ddlMaxDaysPerRequest.Location = new System.Drawing.Point(145, 36);
+            this.ddlMaxDaysPerRequest.Location = new System.Drawing.Point(143, 36);
             this.ddlMaxDaysPerRequest.Name = "ddlMaxDaysPerRequest";
             this.ddlMaxDaysPerRequest.Size = new System.Drawing.Size(354, 21);
             this.ddlMaxDaysPerRequest.TabIndex = 26;

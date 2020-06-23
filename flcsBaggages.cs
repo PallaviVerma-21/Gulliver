@@ -32,7 +32,7 @@ namespace GulliverII
                 baggages = baggages.Where(m => m.airline.Trim().ToUpper().Contains(searchText.ToUpper().Trim())).ToList();
 
             foreach (GulliverLibrary.BaggagePrice baggage in baggages.OrderBy(m => m.airline.Trim()))
-                libraryDS.Baggage.AddBaggageRow("Delete", baggage.airline.Trim(), baggage.price);            
+                libraryDS.Baggage.AddBaggageRow("Delete", baggage.airline.Trim(), (baggage.iataCode != null)? baggage.iataCode:string.Empty, baggage.price,baggage.weight,baggage.dimension,baggage.onewayPrice);            
         }
 
         private void SetText(TextBox txtSearchbox, string text)
@@ -110,6 +110,10 @@ namespace GulliverII
                 {
                     baggage.airline = row.airline.Trim();
                     baggage.price = row.price;
+                    baggage.iataCode = row.iataCode;
+                    baggage.weight = row.weight;
+                    baggage.dimension = row.dimension;
+                    baggage.onewayPrice = row.onewayPrice;
                     baggages.Add(baggage);
                 }
             }

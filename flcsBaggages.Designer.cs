@@ -32,16 +32,11 @@ namespace GulliverII
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flcsBaggages));
             this.kryptonManager = new ComponentFactory.Krypton.Toolkit.KryptonManager(this.components);
-            this.bsBaggages = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryDS = new GulliverII.LibraryDS();
             this.packagesDS = new GulliverII.PackagesDS();
             this.hotelContractHeader = new ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup();
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtSearchbox = new System.Windows.Forms.TextBox();
             this.dataGridViewBaggages = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.airlineDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             this.cmsBaggage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolAddBaggage = new System.Windows.Forms.ToolStripMenuItem();
             this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
@@ -52,8 +47,15 @@ namespace GulliverII
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            ((System.ComponentModel.ISupportInitialize)(this.bsBaggages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).BeginInit();
+            this.bsBaggages = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryDS = new GulliverII.LibraryDS();
+            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.airlineDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.iataCode = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.onewayPrice = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.weight = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.dimension = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelContractHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelContractHeader.Panel)).BeginInit();
@@ -64,17 +66,9 @@ namespace GulliverII
             this.statusstripHolidays.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).BeginInit();
             this.kryptonPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsBaggages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bsBaggages
-            // 
-            this.bsBaggages.DataMember = "Baggage";
-            this.bsBaggages.DataSource = this.libraryDS;
-            // 
-            // libraryDS
-            // 
-            this.libraryDS.DataSetName = "LibraryDS";
-            this.libraryDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // packagesDS
             // 
@@ -135,7 +129,11 @@ namespace GulliverII
             this.dataGridViewBaggages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.deleteDataGridViewTextBoxColumn,
             this.airlineDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn});
+            this.iataCode,
+            this.priceDataGridViewTextBoxColumn,
+            this.onewayPrice,
+            this.weight,
+            this.dimension});
             this.dataGridViewBaggages.ContextMenuStrip = this.cmsBaggage;
             this.dataGridViewBaggages.DataSource = this.bsBaggages;
             this.dataGridViewBaggages.Location = new System.Drawing.Point(-1, 34);
@@ -151,29 +149,6 @@ namespace GulliverII
             this.dataGridViewBaggages.TabIndex = 8;
             this.dataGridViewBaggages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPackageBackup_CellContentClick);
             this.dataGridViewBaggages.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBaggages_RowEnter);
-            // 
-            // deleteDataGridViewTextBoxColumn
-            // 
-            this.deleteDataGridViewTextBoxColumn.DataPropertyName = "Delete";
-            this.deleteDataGridViewTextBoxColumn.HeaderText = "Delete";
-            this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
-            this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // airlineDataGridViewTextBoxColumn
-            // 
-            this.airlineDataGridViewTextBoxColumn.DataPropertyName = "airline";
-            this.airlineDataGridViewTextBoxColumn.HeaderText = "Airline";
-            this.airlineDataGridViewTextBoxColumn.Name = "airlineDataGridViewTextBoxColumn";
-            this.airlineDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.airlineDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // cmsBaggage
             // 
@@ -281,6 +256,69 @@ namespace GulliverII
             this.btnCancel.Values.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // bsBaggages
+            // 
+            this.bsBaggages.DataMember = "Baggage";
+            this.bsBaggages.DataSource = this.libraryDS;
+            // 
+            // libraryDS
+            // 
+            this.libraryDS.DataSetName = "LibraryDS";
+            this.libraryDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // deleteDataGridViewTextBoxColumn
+            // 
+            this.deleteDataGridViewTextBoxColumn.DataPropertyName = "Delete";
+            this.deleteDataGridViewTextBoxColumn.HeaderText = "Delete";
+            this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
+            this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.deleteDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // airlineDataGridViewTextBoxColumn
+            // 
+            this.airlineDataGridViewTextBoxColumn.DataPropertyName = "airline";
+            this.airlineDataGridViewTextBoxColumn.HeaderText = "Airline";
+            this.airlineDataGridViewTextBoxColumn.Name = "airlineDataGridViewTextBoxColumn";
+            this.airlineDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.airlineDataGridViewTextBoxColumn.Width = 280;
+            // 
+            // iataCode
+            // 
+            this.iataCode.DataPropertyName = "iataCode";
+            this.iataCode.HeaderText = "IATA";
+            this.iataCode.Name = "iataCode";
+            this.iataCode.Width = 80;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.priceDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // onewayPrice
+            // 
+            this.onewayPrice.DataPropertyName = "onewayPrice";
+            this.onewayPrice.HeaderText = "Oneway Price";
+            this.onewayPrice.Name = "onewayPrice";
+            // 
+            // weight
+            // 
+            this.weight.DataPropertyName = "weight";
+            this.weight.HeaderText = "Weight";
+            this.weight.Name = "weight";
+            this.weight.Width = 80;
+            // 
+            // dimension
+            // 
+            this.dimension.DataPropertyName = "dimension";
+            this.dimension.HeaderText = "Dimension";
+            this.dimension.Name = "dimension";
+            this.dimension.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dimension.Width = 80;
+            // 
             // flcsBaggages
             // 
             this.AllowStatusStripMerge = false;
@@ -292,8 +330,6 @@ namespace GulliverII
             this.Name = "flcsBaggages";
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.bsBaggages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelContractHeader.Panel)).EndInit();
             this.hotelContractHeader.Panel.ResumeLayout(false);
@@ -306,6 +342,8 @@ namespace GulliverII
             this.statusstripHolidays.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsBaggages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,7 +370,11 @@ namespace GulliverII
         private LibraryDS libraryDS;
         private System.Windows.Forms.DataGridViewLinkColumn deleteDataGridViewTextBoxColumn;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn airlineDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn iataCode;
         private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn priceDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn onewayPrice;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn weight;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn dimension;
     }
 }
 

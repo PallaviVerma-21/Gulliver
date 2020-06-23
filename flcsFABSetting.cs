@@ -25,7 +25,8 @@ namespace GulliverII
             string fabServer = gulliverQueryHandler.GetMiscSettingByName("fabServer").value.Trim();
             string maxRequestPerTime = gulliverQueryHandler.GetMiscSettingByName("maxDaysForRequest").value.Trim();
 
-            ddlFABServer.SelectedItem = (fabServer.Trim() == "http://172.16.7.4/FindAndBook") ? "Zara" : "Pixie";
+           //ddlFABServer.SelectedItem = (fabServer.Trim() == "http://pixie.xmltravel.eu/FindAndBook") ? "Pixie" : "Zara";
+            ddlFABServer.SelectedItem = (fabServer.Trim() == "https://ca.xmltravel.com/FindAndBook") ? "MultiCom" : "MultiCom";
             ddlMaxDaysPerRequest.SelectedItem = maxRequestPerTime.Trim();
         }
 
@@ -33,7 +34,8 @@ namespace GulliverII
         {
             using (GulliverLibrary.MiscSetting miscSetting = gulliverQueryHandler.GetMiscSettingByName("fabServer"))
             {
-              miscSetting.value = (ddlFABServer.SelectedItem.ToString() == "Zara") ? "http://172.16.7.4/FindAndBook" : "http://172.16.7.14/FindAndBook";
+                miscSetting.value = (ddlFABServer.SelectedItem.ToString() == "MultiCom") ? "https://ca.xmltravel.com/FindAndBook" : "http://172.16.7.14/FindAndBook";
+                //miscSetting.value = (ddlFABServer.SelectedItem.ToString() == "MultiCommLive") ? "https://ca.xmltravel.com/FindAndBook" : "https://ca.xmltravel.com/FindAndBook";
               gulliverQueryHandler.SaveMisSetting(miscSetting);
             }
 

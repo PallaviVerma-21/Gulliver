@@ -25,7 +25,7 @@ namespace GulliverII
         {
             
             InitializeComponent();
-            dealPageHandler = new PackageGenerator.PackageHandler(true);
+            dealPageHandler = new PackageGenerator.PackageHandler(true, ConfigurationManager.AppSettings["enviroment"].ToString());
             deal = dealPageHandler.GetDealById(id);
             dataProcessor = new LandingPageHandler.DataProcessor();
             queryHandler = new MySqlDataHandler.QueryHandler();
@@ -328,7 +328,7 @@ namespace GulliverII
             {
                 pageLink.name = "Landing Page Link";
                 pageLink.Deal = deal;
-                pageLink.url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + deal.DealInformation.pageName.Trim() + ".php";
+                pageLink.url = ConfigurationManager.AppSettings["fleetwayLivePageURL"].ToString() + ((deal.DealInformation != null) ? deal.DealInformation.pageName : string.Empty )+ ".php";
                 if (pageLink.url.Trim() != string.Empty)
                     links.Add(pageLink);
             }
@@ -341,7 +341,7 @@ namespace GulliverII
                 channelLink.url = txtChannelLink.Text.Trim();
                 if (channelLink.url.Trim() != string.Empty)
                     links.Add(channelLink);
-            }
+            }          
 
             List<GulliverLibrary.Image> dealImages = new List<GulliverLibrary.Image>();
             foreach (GulliverIIDS.ImageRow imageRow in this.gulliverIIDS.Image)

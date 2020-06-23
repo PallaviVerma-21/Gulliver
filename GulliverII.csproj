@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,14 +10,16 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GulliverII</RootNamespace>
     <AssemblyName>GulliverII</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation />
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>M:\Apps\Gulliver II\</PublishUrl>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PublishUrl>A:\UserApps\Gulliver\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -29,7 +31,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Gulliver</ProductName>
     <PublisherName>divasana</PublisherName>
-    <ApplicationRevision>185</ApplicationRevision>
+    <ApplicationRevision>227</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -45,6 +47,7 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -55,13 +58,13 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>D39D6C97C17EFB63EED52888CD3EC627EA19EA7F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>29052D82B22CDB9033EF5397C4E31773D458AA5F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>GulliverII_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -79,6 +82,10 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.4.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack">
       <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
     </Reference>
@@ -88,7 +95,31 @@
     <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions">
       <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.5.0\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.5.0\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.5.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Legacy, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mongocsharpdriver.2.5.0\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -96,6 +127,11 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -197,29 +233,23 @@
     <Compile Include="flcsRoomAvailability.Designer.cs">
       <DependentUpon>flcsRoomAvailability.cs</DependentUpon>
     </Compile>
+    <Compile Include="flcsRoomConvention.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flcsRoomConvention.Designer.cs">
+      <DependentUpon>flcsRoomConvention.cs</DependentUpon>
+    </Compile>
     <Compile Include="flcsSetLeading.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="flcsSetLeading.Designer.cs">
       <DependentUpon>flcsSetLeading.cs</DependentUpon>
     </Compile>
-    <Compile Include="flcsThirdPartyHotelManager.cs">
+    <Compile Include="flcsTransferExcursionInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="flcsThirdPartyHotelManager.Designer.cs">
-      <DependentUpon>flcsThirdPartyHotelManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="flcsThirdpartyHotelRequests.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="flcsThirdpartyHotelRequests.Designer.cs">
-      <DependentUpon>flcsThirdpartyHotelRequests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="flcsThirdPartyHotelSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="flcsThirdPartyHotelSetting.Designer.cs">
-      <DependentUpon>flcsThirdPartyHotelSetting.cs</DependentUpon>
+    <Compile Include="flcsTransferExcursionInfo.Designer.cs">
+      <DependentUpon>flcsTransferExcursionInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="flcsZoomOut.cs">
       <SubType>Form</SubType>
@@ -235,7 +265,6 @@
     </Compile>
     <Compile Include="GulliverDS.cs">
       <DependentUpon>GulliverDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="flcsLibrary.cs">
       <SubType>Form</SubType>
@@ -255,7 +284,6 @@
     </Compile>
     <Compile Include="PackagesDS.cs">
       <DependentUpon>PackagesDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="PackagesDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -280,6 +308,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Tripper.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TSResponse.cs" />
     <Compile Include="Validator.cs" />
     <EmbeddedResource Include="flcsCurrency.resx">
       <DependentUpon>flcsCurrency.cs</DependentUpon>
@@ -341,21 +370,16 @@
       <DependentUpon>flcsRoomAvailability.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="flcsRoomConvention.resx">
+      <DependentUpon>flcsRoomConvention.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="flcsSetLeading.resx">
       <DependentUpon>flcsSetLeading.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="flcsThirdPartyHotelManager.resx">
-      <DependentUpon>flcsThirdPartyHotelManager.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="flcsThirdpartyHotelRequests.resx">
-      <DependentUpon>flcsThirdpartyHotelRequests.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="flcsThirdPartyHotelSetting.resx">
-      <DependentUpon>flcsThirdPartyHotelSetting.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="flcsTransferExcursionInfo.resx">
+      <DependentUpon>flcsTransferExcursionInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="flcsZoomOut.resx">
       <DependentUpon>flcsZoomOut.cs</DependentUpon>
@@ -407,6 +431,8 @@
     <None Include="GulliverDS.xss">
       <DependentUpon>GulliverDS.xsd</DependentUpon>
     </None>
+    <None Include="GulliverII_1_TemporaryKey.pfx" />
+    <None Include="GulliverII_2_TemporaryKey.pfx" />
     <None Include="Gulliver_TemporaryKey.pfx" />
     <None Include="LibraryDS.xsc">
       <DependentUpon>LibraryDS.xsd</DependentUpon>
@@ -481,6 +507,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Connection\Connection.csproj">
+      <Project>{45BB6936-BFCC-49C7-953F-1C23245A4C6D}</Project>
+      <Name>Connection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\DailyMailReport\DailyMailReportHandler\DailyMailReportHandler.csproj">
       <Project>{705450fd-2589-49bb-b590-623462b316d1}</Project>
       <Name>DailyMailReportHandler</Name>
@@ -494,12 +524,8 @@
       <Name>MySqlDataHandler</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TripperLibrary\TripperLibrary\TripperLibrary.csproj">
-      <Project>{644038C2-E199-4CF4-9BCD-017B820EA9B7}</Project>
+      <Project>{644038c2-e199-4cf4-9bcd-017b820ea9b7}</Project>
       <Name>TripperLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AccommodationHandler\AccommodationHandler.csproj">
-      <Project>{42A228B4-6845-4CA8-9DD2-F0FEEA963C26}</Project>
-      <Name>AccommodationHandler</Name>
     </ProjectReference>
     <ProjectReference Include="..\DocumentHandler\DocumentHandler.csproj">
       <Project>{570fb54f-0fce-4278-a088-a27870d8ac73}</Project>
@@ -613,6 +639,16 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+    <PublishFile Include="System.Net.Http.Formatting">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\settings.png" />
@@ -689,6 +725,7 @@
     <None Include="Resources\Very-Basic-Upload-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

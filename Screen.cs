@@ -18,16 +18,16 @@ namespace GulliverII
         {
             InitializeComponent();
             notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
-            notifyIcon.Text = "Gulliver 2 - " + Application.ProductVersion + "V";
-            notifyIcon.BalloonTipText = "Gulliver 2 - " + Application.ProductVersion + "V";
+            notifyIcon.Text = Application.ProductName+ " - " + Application.ProductVersion + "V";
+            notifyIcon.BalloonTipText = Application.ProductName +" - " + Application.ProductVersion + "V";
 
-            PackageGenerator.Tool.gulliverDefaultpath = ConfigurationManager.AppSettings["GulliverDefaultPath"].ToString().Replace("%LOCALAPPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            PackageGenerator.Tool.gulliverBucket = ConfigurationManager.AppSettings["GulliverBucket"].ToString().Replace("%APPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-            PackageGenerator.Tool.gulliverNewBucket = ConfigurationManager.AppSettings["GulliverNewBucket"].ToString().Replace("%LOCALAPPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            PackageGenerator.Tool.userSettingFilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\PDF Writer\\Gulliver";
-            CreatePDFFolderStructure();
-            bgWorker.WorkerSupportsCancellation = true;
-            bgWorker.DoWork += new DoWorkEventHandler(bgWorker_DoWork);
+            //PackageGenerator.Tool.gulliverDefaultpath = ConfigurationManager.AppSettings["GulliverDefaultPath"].ToString().Replace("%LOCALAPPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            //PackageGenerator.Tool.gulliverBucket = ConfigurationManager.AppSettings["GulliverBucket"].ToString().Replace("%APPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+            //PackageGenerator.Tool.gulliverNewBucket = ConfigurationManager.AppSettings["GulliverNewBucket"].ToString().Replace("%LOCALAPPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            //PackageGenerator.Tool.userSettingFilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\PDF Writer\\Gulliver";
+            //CreatePDFFolderStructure();
+            //bgWorker.WorkerSupportsCancellation = true;
+            //bgWorker.DoWork += new DoWorkEventHandler(bgWorker_DoWork);
             lblVersion.Text = Application.ProductVersion + "V";
         }
         
@@ -55,49 +55,49 @@ namespace GulliverII
                 System.IO.Directory.CreateDirectory(PackageGenerator.Tool.userSettingFilePath);
 
 
-            System.IO.File.Copy(ConfigurationManager.AppSettings["GulliverSettingFlies"].ToString() + "\\settings.ini", PackageGenerator.Tool.userSettingFilePath + "\\settings.ini", true);
-            using (System.IO.StreamReader reader = new StreamReader(PackageGenerator.Tool.userSettingFilePath + "\\settings.ini"))
-            {
-                string s = reader.ReadToEnd().Replace("%APPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-                reader.Close();
+            //System.IO.File.Copy(ConfigurationManager.AppSettings["GulliverSettingFlies"].ToString() + "\\settings.ini", PackageGenerator.Tool.userSettingFilePath + "\\settings.ini", true);
+            //using (System.IO.StreamReader reader = new StreamReader(PackageGenerator.Tool.userSettingFilePath + "\\settings.ini"))
+            //{
+            //    string s = reader.ReadToEnd().Replace("%APPDATA%", Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            //    reader.Close();
 
-                using (System.IO.StreamWriter writer = new StreamWriter(PackageGenerator.Tool.userSettingFilePath + "\\settings.ini", false))
-                {
-                    writer.WriteLine(s);
-                    writer.Close();
-                }
-            }
+            //    using (System.IO.StreamWriter writer = new StreamWriter(PackageGenerator.Tool.userSettingFilePath + "\\settings.ini", false))
+            //    {
+            //        writer.WriteLine(s);
+            //        writer.Close();
+            //    }
+            //}
 
-            if (!Directory.Exists("C:\\TEMP"))
-                Directory.CreateDirectory("C:\\TEMP");
+            //if (!Directory.Exists("C:\\TEMP"))
+            //    Directory.CreateDirectory("C:\\TEMP");
         }
 
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            while (!bgWorker.CancellationPending)
-            {
-                System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo(PackageGenerator.Tool.gulliverDefaultpath);
-                System.IO.FileInfo[] files = directory.GetFiles("*.pdf", System.IO.SearchOption.TopDirectoryOnly);
+            //while (!bgWorker.CancellationPending)
+            //{
+            //    System.IO.DirectoryInfo directory = new System.IO.DirectoryInfo(PackageGenerator.Tool.gulliverDefaultpath);
+            //    System.IO.FileInfo[] files = directory.GetFiles("*.pdf", System.IO.SearchOption.TopDirectoryOnly);
 
-                if (files.Count() > 0)
-                {
-                    foreach (System.IO.FileInfo fi in files)
-                    {
-                        try //need to try because it could still be being written
-                        {
-                            fi.MoveTo(PackageGenerator.Tool.gulliverNewBucket + DateTime.Now.Month.ToString().PadLeft(2, '0') +
-                            DateTime.Now.Day.ToString().PadLeft(0, '2') + " " + DateTime.Now.Hour.ToString().PadLeft(2, '0') +
-                            DateTime.Now.Minute.ToString().PadLeft(2, '0') + DateTime.Now.Second.ToString().PadLeft(2, '0') +
-                            DateTime.Now.Millisecond.ToString().PadLeft(3, '0') + ".pdf");
-                        }
-                        catch (Exception ex) { }
-                    }
+            //    if (files.Count() > 0)
+            //    {
+            //        foreach (System.IO.FileInfo fi in files)
+            //        {
+            //            try //need to try because it could still be being written
+            //            {
+            //                fi.MoveTo(PackageGenerator.Tool.gulliverNewBucket + DateTime.Now.Month.ToString().PadLeft(2, '0') +
+            //                DateTime.Now.Day.ToString().PadLeft(0, '2') + " " + DateTime.Now.Hour.ToString().PadLeft(2, '0') +
+            //                DateTime.Now.Minute.ToString().PadLeft(2, '0') + DateTime.Now.Second.ToString().PadLeft(2, '0') +
+            //                DateTime.Now.Millisecond.ToString().PadLeft(3, '0') + ".pdf");
+            //            }
+            //            catch (Exception ex) { }
+            //        }
 
-                    PackageGenerator.Tool.newFile = true;
-                }
+            //        PackageGenerator.Tool.newFile = true;
+            //    }
 
-                System.Threading.Thread.Sleep(1000);
-            }
+            //    System.Threading.Thread.Sleep(1000);
+            //}
         }
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)

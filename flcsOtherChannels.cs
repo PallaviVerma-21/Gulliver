@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Linq;
+using System.Configuration;
 
 namespace GulliverII
 {
@@ -20,7 +21,7 @@ namespace GulliverII
         {
             InitializeComponent();
             this.gulliverQueryHandler = gulliverQueryHandler;
-            packageHandler = new PackageGenerator.PackageHandler(false);
+            packageHandler = new PackageGenerator.PackageHandler(false, ConfigurationManager.AppSettings["enviroment"].ToString());
             this.deal = deal;
             FillMedia();
         }

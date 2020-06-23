@@ -37,12 +37,6 @@ namespace GulliverII
             this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtSearchbox = new System.Windows.Forms.TextBox();
             this.dataGridViewMedias = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.channelCodesDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.commissionDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
-            this.pleaseNoteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsMedia = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolAddMedia = new System.Windows.Forms.ToolStripMenuItem();
             this.statusstripHolidays = new System.Windows.Forms.StatusStrip();
@@ -53,6 +47,14 @@ namespace GulliverII
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPanel = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.deleteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.channelCodesDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.commissionDataGridViewTextBoxColumn = new DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn();
+            this.partnerCB = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.countryCB = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pleaseNoteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsMedias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelContractHeader)).BeginInit();
@@ -133,6 +135,8 @@ namespace GulliverII
             this.nameDataGridViewTextBoxColumn,
             this.channelCodesDataGridViewTextBoxColumn,
             this.commissionDataGridViewTextBoxColumn,
+            this.partnerCB,
+            this.countryCB,
             this.pleaseNoteDataGridViewTextBoxColumn});
             this.dataGridViewMedias.ContextMenuStrip = this.cmsMedia;
             this.dataGridViewMedias.DataSource = this.bsMedias;
@@ -149,52 +153,6 @@ namespace GulliverII
             this.dataGridViewMedias.TabIndex = 8;
             this.dataGridViewMedias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPackageBackup_CellContentClick);
             this.dataGridViewMedias.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMedias_RowEnter);
-            // 
-            // deleteDataGridViewTextBoxColumn
-            // 
-            this.deleteDataGridViewTextBoxColumn.DataPropertyName = "Delete";
-            this.deleteDataGridViewTextBoxColumn.HeaderText = "Delete";
-            this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
-            this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.deleteDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.nameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // channelCodesDataGridViewTextBoxColumn
-            // 
-            this.channelCodesDataGridViewTextBoxColumn.DataPropertyName = "Channel Codes";
-            this.channelCodesDataGridViewTextBoxColumn.HeaderText = "Channel Codes";
-            this.channelCodesDataGridViewTextBoxColumn.Name = "channelCodesDataGridViewTextBoxColumn";
-            this.channelCodesDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.channelCodesDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // commissionDataGridViewTextBoxColumn
-            // 
-            this.commissionDataGridViewTextBoxColumn.DataPropertyName = "Commission";
-            this.commissionDataGridViewTextBoxColumn.HeaderText = "Commission";
-            this.commissionDataGridViewTextBoxColumn.Name = "commissionDataGridViewTextBoxColumn";
-            this.commissionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // pleaseNoteDataGridViewTextBoxColumn
-            // 
-            this.pleaseNoteDataGridViewTextBoxColumn.DataPropertyName = "Please Note";
-            this.pleaseNoteDataGridViewTextBoxColumn.HeaderText = "Please Note";
-            this.pleaseNoteDataGridViewTextBoxColumn.Name = "pleaseNoteDataGridViewTextBoxColumn";
-            this.pleaseNoteDataGridViewTextBoxColumn.Width = 450;
             // 
             // cmsMedia
             // 
@@ -302,6 +260,69 @@ namespace GulliverII
             this.btnCancel.Values.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // deleteDataGridViewTextBoxColumn
+            // 
+            this.deleteDataGridViewTextBoxColumn.DataPropertyName = "Delete";
+            this.deleteDataGridViewTextBoxColumn.HeaderText = "Delete";
+            this.deleteDataGridViewTextBoxColumn.Name = "deleteDataGridViewTextBoxColumn";
+            this.deleteDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.deleteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.deleteDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.nameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // channelCodesDataGridViewTextBoxColumn
+            // 
+            this.channelCodesDataGridViewTextBoxColumn.DataPropertyName = "Channel Codes";
+            this.channelCodesDataGridViewTextBoxColumn.HeaderText = "Channel Codes";
+            this.channelCodesDataGridViewTextBoxColumn.Name = "channelCodesDataGridViewTextBoxColumn";
+            this.channelCodesDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.channelCodesDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // commissionDataGridViewTextBoxColumn
+            // 
+            this.commissionDataGridViewTextBoxColumn.DataPropertyName = "Commission";
+            this.commissionDataGridViewTextBoxColumn.HeaderText = "Commission";
+            this.commissionDataGridViewTextBoxColumn.Name = "commissionDataGridViewTextBoxColumn";
+            this.commissionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // partnerCB
+            // 
+            this.partnerCB.DataPropertyName = "Partner";
+            this.partnerCB.HeaderText = "Partner";
+            this.partnerCB.Name = "partnerCB";
+            this.partnerCB.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.partnerCB.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.partnerCB.Width = 150;
+            // 
+            // countryCB
+            // 
+            this.countryCB.DataPropertyName = "Country";
+            this.countryCB.HeaderText = "Country";
+            this.countryCB.Name = "countryCB";
+            this.countryCB.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.countryCB.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // pleaseNoteDataGridViewTextBoxColumn
+            // 
+            this.pleaseNoteDataGridViewTextBoxColumn.DataPropertyName = "Please Note";
+            this.pleaseNoteDataGridViewTextBoxColumn.HeaderText = "Please Note";
+            this.pleaseNoteDataGridViewTextBoxColumn.Name = "pleaseNoteDataGridViewTextBoxColumn";
+            this.pleaseNoteDataGridViewTextBoxColumn.Width = 300;
+            // 
             // flcsMedias
             // 
             this.AllowStatusStripMerge = false;
@@ -337,12 +358,6 @@ namespace GulliverII
         private PackagesDS packagesDS;
         private ComponentFactory.Krypton.Toolkit.KryptonHeaderGroup hotelContractHeader;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dataGridViewMedias;
-        private System.Windows.Forms.DataGridViewLinkColumn deleteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn channelCodesDataGridViewTextBoxColumn;
-        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn commissionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pleaseNoteDataGridViewTextBoxColumn;
         private System.Windows.Forms.StatusStrip statusstripHolidays;
         private System.Windows.Forms.ToolStripStatusLabel fiterStatusLabelH;
         private System.Windows.Forms.ToolStripStatusLabel showAllLabelH;
@@ -355,6 +370,14 @@ namespace GulliverII
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private System.Windows.Forms.ContextMenuStrip cmsMedia;
         private System.Windows.Forms.ToolStripMenuItem toolAddMedia;
+        private System.Windows.Forms.DataGridViewLinkColumn deleteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn channelCodesDataGridViewTextBoxColumn;
+        private DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn commissionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn partnerCB;
+        private System.Windows.Forms.DataGridViewComboBoxColumn countryCB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pleaseNoteDataGridViewTextBoxColumn;
     }
 }
 

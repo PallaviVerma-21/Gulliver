@@ -33,7 +33,11 @@
             <xs:sequence>
               <xs:element name="Delete" msprop:Generator_ColumnVarNameInTable="columnDelete" msprop:Generator_ColumnPropNameInRow="Delete" msprop:Generator_ColumnPropNameInTable="DeleteColumn" msprop:Generator_UserColumnName="Delete" type="xs:string" minOccurs="0" />
               <xs:element name="airline" msprop:Generator_ColumnVarNameInTable="columnairline" msprop:Generator_ColumnPropNameInRow="airline" msprop:Generator_ColumnPropNameInTable="airlineColumn" msprop:Generator_UserColumnName="airline" type="xs:string" minOccurs="0" />
+              <xs:element name="iataCode" msprop:Generator_ColumnVarNameInTable="columniataCode" msprop:Generator_ColumnPropNameInRow="iataCode" msprop:Generator_ColumnPropNameInTable="iataCodeColumn" msprop:Generator_UserColumnName="iataCode" type="xs:string" minOccurs="0" />
               <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="weight" msprop:Generator_ColumnVarNameInTable="columnweight" msprop:Generator_ColumnPropNameInRow="weight" msprop:Generator_ColumnPropNameInTable="weightColumn" msprop:Generator_UserColumnName="weight" type="xs:int" minOccurs="0" />
+              <xs:element name="dimension" msprop:Generator_ColumnVarNameInTable="columndimension" msprop:Generator_ColumnPropNameInRow="dimension" msprop:Generator_ColumnPropNameInTable="dimensionColumn" msprop:Generator_UserColumnName="dimension" type="xs:string" minOccurs="0" />
+              <xs:element name="onewayPrice" msprop:Generator_ColumnVarNameInTable="columnonewayPrice" msprop:Generator_ColumnPropNameInRow="onewayPrice" msprop:Generator_ColumnPropNameInTable="onewayPriceColumn" msprop:Generator_UserColumnName="onewayPrice" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
